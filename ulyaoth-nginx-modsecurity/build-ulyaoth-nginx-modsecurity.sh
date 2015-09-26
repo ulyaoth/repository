@@ -44,19 +44,19 @@ tar cvf modsecurity.tar.gz modsecurity
 mv modsecurity.tar.gz /root/rpmbuild/SOURCES/
 cd /root/rpmbuild/SOURCES
 wget http://nginx.org/download/nginx-1.8.0.tar.gz
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/logrotate
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/modsecurity.conf
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.conf
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.init
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.service
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.suse.init
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.suse.logrotate
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.sysconf
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.upgrade.sh
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.vh.default-modsecurity.conf
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.vh.example_ssl.conf
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/logrotate
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/modsecurity.conf
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.conf
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.init
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.service
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.suse.init
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.suse.logrotate
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.sysconf
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.upgrade.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.vh.default-modsecurity.conf
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.vh.example_ssl.conf
 cd /root/rpmbuild/SPECS
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SPECS/ulyaoth-nginx-modsecurity.spec
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SPECS/ulyaoth-nginx-modsecurity.spec
 cd /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /etc/nginx/
 mv /root/rpmbuild /home/ulyaoth/
