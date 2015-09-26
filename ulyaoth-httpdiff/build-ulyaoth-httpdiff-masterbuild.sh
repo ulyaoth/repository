@@ -31,7 +31,7 @@ su ulyaoth -c "cd /home/ulyaoth/httpdiff/ && go build"
 su ulyaoth -c "mv /home/ulyaoth/httpdiff/httpdiff /home/ulyaoth/rpmbuild/SOURCES/"
 su ulyaoth -c "rm -rf /home/ulyaoth/httpdiff/"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-httpdiff/SPECS/ulyaoth-httpdiff-masterbuild.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httpdiff/SPECS/ulyaoth-httpdiff-masterbuild.spec"
 
 if [ "$arch" != "x86_64" ]
 then

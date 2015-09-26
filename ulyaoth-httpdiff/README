@@ -1,4 +1,4 @@
 You can build the rpms by running the build script:
 
 ulyaoth-httpdiff-masterbuild:
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-httpdiff/build-ulyaoth-httpdiff-masterbuild.sh ; chmod +x build-ulyaoth-httpdiff-masterbuild.sh ; ./build-ulyaoth-httpdiff-masterbuild.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httpdiff/build-ulyaoth-httpdiff-masterbuild.sh ; chmod +x build-ulyaoth-httpdiff-masterbuild.sh ; ./build-ulyaoth-httpdiff-masterbuild.sh
