@@ -5,7 +5,7 @@ usermod -Gulyaoth ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hiawatha/SPECS/ulyaoth-hiawatha.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SPECS/ulyaoth-hiawatha.spec"
 
 if grep -q -i "release 19" /etc/fedora-release
 then
