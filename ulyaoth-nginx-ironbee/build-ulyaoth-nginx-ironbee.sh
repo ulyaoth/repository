@@ -30,7 +30,7 @@ cd /etc/nginx/modules/
 su ulyaoth -c "tar cvzf ironbee.tar.gz ironbee"
 su ulyaoth -c "mv ironbee.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SPECS/ulyaoth-nginx-ironbee.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SPECS/ulyaoth-nginx-ironbee.spec"
 
 if [ "$arch" != "x86_64" ]
 then

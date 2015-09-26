@@ -47,15 +47,15 @@ URL: https://www.ironbee.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
-Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/logrotate
-Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/nginx.init
-Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/nginx.sysconf
-Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/nginx.conf
-Source5: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/nginx.vh.default.conf
-Source6: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/nginx.vh.example_ssl.conf
-Source7: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/nginx.suse.init
-Source8: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/nginx.service
-Source9: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/nginx.upgrade.sh
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SOURCES/logrotate
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SOURCES/nginx.init
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SOURCES/nginx.sysconf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SOURCES/nginx.conf
+Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SOURCES/nginx.vh.default.conf
+Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SOURCES/nginx.vh.example_ssl.conf
+Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SOURCES/nginx.suse.init
+Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SOURCES/nginx.service
+Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-ironbee/SOURCES/nginx.upgrade.sh
 Source10: ironbee.tar.gz
 
 License: 2-clause BSD-like license
