@@ -16,11 +16,11 @@ fi
 useradd ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/SELinux/ulyaoth-nginx-mainline-pagespeed.txt"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SELinux/ulyaoth-nginx-mainline-pagespeed.txt"
 su ulyaoth -c "audit2allow -M ulyaoth-nginx-mainline-pagespeed < ulyaoth-nginx-mainline-pagespeed.txt"
 su ulyaoth -c "mv ulyaoth-nginx-mainline-pagespeed.pp /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/SPECS/ulyaoth-nginx-mainline-pagespeed-selinux.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SPECS/ulyaoth-nginx-mainline-pagespeed-selinux.spec"
 if [ "$arch" != "x86_64" ]
 then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-mainline-pagespeed-selinux.spec

@@ -3,13 +3,13 @@ Please be aware this spec file is based on the original spec file that nginx pro
 You can build the rpms by running the build script:
 
 ulyaoth-nginx-pagespeed:
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-pagespeed.sh ; chmod +x build-ulyaoth-nginx-pagespeed.sh ; ./build-ulyaoth-nginx-pagespeed.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-pagespeed.sh ; chmod +x build-ulyaoth-nginx-pagespeed.sh ; ./build-ulyaoth-nginx-pagespeed.sh
 
 ulyaoth-nginx-pagespeed-selinux:
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-pagespeed-selinux.sh ; chmod +x build-ulyaoth-nginx-pagespeed-selinux.sh ; ./build-ulyaoth-nginx-pagespeed-selinux.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-pagespeed-selinux.sh ; chmod +x build-ulyaoth-nginx-pagespeed-selinux.sh ; ./build-ulyaoth-nginx-pagespeed-selinux.sh
 
 ulyaoth-nginx-mainline-pagespeed:
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-mainline-pagespeed.sh ; chmod +x build-ulyaoth-nginx-mainline-pagespeed.sh ; ./build-ulyaoth-nginx-mainline-pagespeed.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-mainline-pagespeed.sh ; chmod +x build-ulyaoth-nginx-mainline-pagespeed.sh ; ./build-ulyaoth-nginx-mainline-pagespeed.sh
 
 ulyaoth-nginx-mainline-pagespeed-selinux:
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-mainline-pagespeed-selinux.sh ; chmod +x build-ulyaoth-nginx-mainline-pagespeed-selinux.sh ; ./build-ulyaoth-nginx-mainline-pagespeed-selinux.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-mainline-pagespeed-selinux.sh ; chmod +x build-ulyaoth-nginx-mainline-pagespeed-selinux.sh ; ./build-ulyaoth-nginx-mainline-pagespeed-selinux.sh

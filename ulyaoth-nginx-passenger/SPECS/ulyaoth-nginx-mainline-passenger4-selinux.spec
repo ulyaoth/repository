@@ -11,7 +11,7 @@ Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Ulyaoth
 URL: https://www.ulyaoth.net
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 License: GNU General Public License (GPL)
 
 Source0: ulyaoth-nginx-mainline-passenger4.pp

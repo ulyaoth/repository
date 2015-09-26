@@ -44,7 +44,7 @@ Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc & Trustwave Holdings, Inc.
 URL: https://www.modsecurity.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: logrotate
@@ -316,7 +316,7 @@ Please find the official MoDSecurity documentation here:
 * https://www.modsecurity.org
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
