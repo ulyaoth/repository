@@ -1,5 +1,5 @@
 ### Ulyaoth Repository
-# url: https://www.ulyaoth.net/resources/categories/repository.1/
+https://www.ulyaoth.net/resources/categories/repository.1/
 
 ### Available packages:
 * ulyaoth
