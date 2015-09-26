@@ -1,0 +1,97 @@
+#!/bin/sh
+# Description: Starts and stops the Hiawatha service
+#              used to provide reverse proxy status.
+# chkconfig: - 80 30
+
+prefix=/usr
+exec_prefix=${prefix}
+HIAWATHA=${exec_prefix}/sbin/hiawatha
+PIDFILE=/var/run/hiawatha.pid
+
+status_hiawatha () {
+	if ps -p $hiawathaPID > /dev/null 2>&1; then
+		return 0
+	fi
+
+	return 1
+}
+
+printstatus_hiawatha() {
+	if status_hiawatha $1 $2; then
+		echo "hiawatha (pid $hiawathaPID) is running..."
+	else
+		echo "hiawatha is not running"
+	fi
+}
+
+killproc_hiawatha () {
+	kill $2 $hiawathaPID
+}
+
+pid_hiawatha () {
+	if test ! -f ${PIDFILE}; then
+	echo "No lock file found in ${PIDFILE}"
+	exit 1
+	fi
+	hiawathaPID=`head -n 1 ${PIDFILE}`
+}
+
+# Check that hiawatha exists.
+if [ ! -f ${HIAWATHA} ]; then
+	echo "Executable file ${HIAWATHA} not found.  Exiting."
+	exit 1
+fi
+
+# See how we were called.
+case "$1" in
+	start)
+		echo -n "Starting hiawatha: "
+		echo
+		if [ -f ${PIDFILE} ]; then
+			pid_hiawatha
+			printstatus_hiawatha hiawatha
+		else
+			/usr/sbin/hiawatha
+		fi
+		;;
+
+	stop)
+		echo -n "Stopping hiawatha: "
+		echo
+		pid_hiawatha
+		killproc_hiawatha hiawatha
+
+		for i in 1 2 3 4 5 6 7 8 9 10 ; do
+		if status_hiawatha > /dev/null; then
+			echo -n '.'
+			sleep 1
+		else
+			break
+		fi
+		done
+		if status_hiawatha > /dev/null; then
+			echo ''
+			echo 'Warning - hiawatha did not exit in a timely manner'
+		else
+			rm -f ${PIDFILE}
+			echo 'done.'
+		fi
+		;;
+
+	status)
+		pid_hiawatha
+		printstatus_hiawatha hiawatha
+		;;
+
+	restart)
+		printf "Restarting hiawatha..."
+		$0 stop
+		$0 start
+		;;
+
+	*)
+		echo "Usage: hiawatha {start|stop|restart|status}"
+		exit 1
+		;;
+
+esac

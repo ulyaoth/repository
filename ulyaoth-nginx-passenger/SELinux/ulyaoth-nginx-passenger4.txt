@@ -1,0 +1,8 @@
+type=AVC msg=audit(1428072056.072:860): avc:  denied  { search } for  pid=16759 comm="PassengerAgent" name="nginx" dev="dm-0" ino=202060594 scontext=system_u:system_r:passenger_t:s0 tcontext=system_u:object_r:httpd_config_t:s0 tclass=dir permissive=0
+type=AVC msg=audit(1428072365.613:875): avc:  denied  { search } for  pid=16948 comm="PassengerAgent" name="passenger" dev="dm-0" ino=135783802 scontext=system_u:system_r:passenger_t:s0 tcontext=system_u:object_r:passenger_exec_t:s0 tclass=dir permissive=0
+
+type=AVC msg=audit(1428072209.953:868): avc:  denied  { getattr } for  pid=16828 comm="PassengerAgent" path="/etc/nginx/modules/passenger" dev="dm-0" ino=135783802 scontext=system_u:system_r:passenger_t:s0 tcontext=system_u:object_r:passenger_exec_t:s0 tclass=dir permissive=0
+type=AVC msg=audit(1428072365.616:876): avc:  denied  { getattr } for  pid=16953 comm="rm" name="/" dev="dm-0" ino=128 scontext=system_u:system_r:passenger_t:s0 tcontext=system_u:object_r:fs_t:s0 tclass=filesystem permissive=0G
+type=AVC msg=audit(1428077873.159:604): avc:  denied  { getattr } for  pid=32195 comm="ruby-mri" path="/etc/nginx" dev="dm-0" ino=202060594 scontext=system_u:system_r:passenger_t:s0 tcontext=system_u:object_r:httpd_config_t:s0 tclass=dir permissive=0
+
+type=AVC msg=audit(1428080339.332:800): avc:  denied  { accept } for  pid=4049 comm="utils.rb:108" laddr=127.0.0.1 lport=58006 scontext=system_u:system_r:passenger_t:s0 tcontext=system_u:system_r:passenger_t:s0 tclass=tcp_socket permissive=0

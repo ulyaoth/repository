@@ -1,0 +1,4 @@
+You can build the rpm by running the build script:
+
+ulyaoth-monkey:
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/build-ulyaoth-monkey.sh ; chmod +x build-ulyaoth-monkey.sh ; ./build-ulyaoth-monkey.sh

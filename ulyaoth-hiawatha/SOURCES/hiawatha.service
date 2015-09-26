@@ -1,0 +1,15 @@
+[Unit]
+Description=Hiawatha is an open source webserver with a focus on security.
+Documentation=https://www.hiawatha-webserver.org
+After=network.target remote-fs.target nss-lookup.target
+ 
+[Service]
+Type=forking
+PIDFile=/var/run/hiawatha.pid
+ExecStart=/usr/sbin/hiawatha
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+ 
+[Install]
+WantedBy=multi-user.target

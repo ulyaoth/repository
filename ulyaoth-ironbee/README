@@ -1,0 +1,4 @@
+You can build the rpms by running the build script:
+
+ulyaoth-ironbee:
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-ironbee/build-ulyaoth-ironbee.sh ; chmod +x build-ulyaoth-ironbee.sh ; ./build-ulyaoth-ironbee.sh

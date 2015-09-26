@@ -1,0 +1,13 @@
+[Unit]
+Description=Kibana explore and visualize your data
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/kibana/bin/kibana
+ExecStop=/opt/kibana/bin/kibana
+User=kibana
+Group=kibana
+
+[Install]
+WantedBy=multi-user.target

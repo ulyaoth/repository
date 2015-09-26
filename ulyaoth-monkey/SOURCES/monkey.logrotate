@@ -1,0 +1,13 @@
+/var/log/monkey/*.log {
+        daily
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        create 640 monkey adm
+        sharedscripts
+        postrotate
+                [ -f /run/nginx.pid ] && kill -USR1 `cat /run/nginx.pid`
+        endscript
+}

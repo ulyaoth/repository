@@ -1,0 +1,13 @@
+[ulyaoth]
+name=Ulyaoth Repository
+baseurl=https://repos.ulyaoth.net/scientific/$releasever/$basearch/os/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
+
+[ulyaoth-debug]
+name=Ulyaoth Repository (Debug)
+baseurl=https://repos.ulyaoth.net/scientific/$releasever/$basearch/debug/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth

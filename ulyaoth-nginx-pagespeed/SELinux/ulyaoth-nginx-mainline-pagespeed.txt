@@ -1,0 +1,1 @@
+type=AVC msg=audit(1428051444.093:882): avc:  denied  { execmem } for  pid=1084 comm="nginx" scontext=system_u:system_r:httpd_t:s0 tcontext=system_u:system_r:httpd_t:s0 tclass=process

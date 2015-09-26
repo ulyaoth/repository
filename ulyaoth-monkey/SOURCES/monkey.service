@@ -1,0 +1,15 @@
+[Unit]
+Description=Monkey is a lightweight and powerful web server and development stack for GNU/Linux.
+Documentation=http://monkey-project.com/
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=daemon
+PIDFile=/var/run/monkey.pid
+ExecStart=/usr/sbin/monkey
+LimitNOFILE=2000000
+PrivateTmp=true
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

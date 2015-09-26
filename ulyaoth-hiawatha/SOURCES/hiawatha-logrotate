@@ -1,0 +1,13 @@
+/var/log/hiawatha/*.log {
+        daily
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        create 640 hiawatha adm
+        sharedscripts
+        postrotate
+                [ -f /var/run/hiawatha.pid ] && kill -USR1 `cat /var/run/hiawatha.pid`
+        endscript
+}

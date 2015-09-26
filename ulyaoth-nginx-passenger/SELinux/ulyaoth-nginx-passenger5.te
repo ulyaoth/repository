@@ -1,0 +1,19 @@
+module ulyaoth-nginx-passenger5 1.0;
+
+require {
+        type passenger_t;
+        type fs_t;
+        type httpd_config_t;
+        type passenger_exec_t;
+        class tcp_socket accept;
+        class dir { search getattr };
+        class filesystem getattr;
+}
+
+#============= passenger_t ==============
+allow passenger_t fs_t:filesystem getattr;
+allow passenger_t httpd_config_t:dir { search getattr };
+allow passenger_t passenger_exec_t:dir { search getattr };
+
+#!!!! This avc can be allowed using the boolean 'nis_enabled'
+allow passenger_t self:tcp_socket accept;

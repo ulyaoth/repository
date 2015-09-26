@@ -1,0 +1,12 @@
+
+module ulyaoth-nginx-pagespeed 1.0;
+
+require {
+	type httpd_t;
+	class process execmem;
+}
+
+#============= httpd_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t self:process execmem;

@@ -1,0 +1,16 @@
+[Unit]
+Description=Apache Solr
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/var/solr/solr-8983.pid
+ExecStart=/opt/solr/bin/solr start
+ExecStop=/opt/solr/bin/solr stop
+User=solr
+Group=solr
+
+
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+Please be aware this spec file is based on the original spec file that nginx provides in their source rpm packages.
+
+You can build the rpms by running the build script:
+
+ulyaoth-nginx:
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx.sh ; chmod +x build-ulyaoth-nginx.sh ; ./build-ulyaoth-nginx.sh
+
+ulyaoth-nginx-mainline:
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-mainline.sh ; chmod +x build-ulyaoth-nginx-mainline.sh ; ./build-ulyaoth-nginx-mainline.sh

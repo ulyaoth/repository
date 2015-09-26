@@ -1,0 +1,3 @@
+/etc/nginx/modules/passenger(/.*)?   --      gen_context(system_u:object_r:passenger_exec_t,s0)
+/var/cache/nginx/passenger_temp      --      gen_context(system_u:object_r:passenger_tmp_t,s0)
+/var/log/passenger                   --      gen_context(system_u:object_r:passenger_log_t,s0)

@@ -1,0 +1,1 @@
+type=AVC msg=audit(1428238257.134:724): avc:  denied  { execute } for  pid=28293 comm="nginx" path="/etc/nginx/modules/ngx_http_fastcgi_module.so" dev="dm-0" ino=202053010 scontext=system_u:system_r:httpd_t:s0 tcontext=system_u:object_r:httpd_config_t:s0 tclass=file permissive=0

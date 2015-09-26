@@ -1,0 +1,15 @@
+[Unit]
+Description=Logstash Forwarder is a tool to collect logs locally in preparation for processing elsewhere!
+Documentation=https://github.com/elasticsearch/logstash-forwarder
+After=network.target remote-fs.target nss-lookup.target
+ 
+[Service]
+User=logstash-forwarder
+Group=logstash-forwarder
+Type=simple
+PIDFile=/var/run/logstash-forwarder.pid
+ExecStart=/opt/logstash-forwarder/bin/logstash-forwarder -config /opt/logstash-forwarder/conf/logstash-forwarder.conf
+PrivateTmp=true
+ 
+[Install]
+WantedBy=multi-user.target
