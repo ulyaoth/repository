@@ -47,16 +47,16 @@ URL: http://tengine.taobao.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://tengine.taobao.org/download/tengine-%{version}.tar.gz
-Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/logrotate
-Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/tengine.init
-Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.sysconf
-Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.conf
-Source5: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.vh.default.conf
-Source6: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.vh.example_ssl.conf
-Source7: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.suse.init
-Source8: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/tengine.service
-Source9: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.upgrade.sh
-Source10: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.suse.logrotate
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/logrotate
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.init
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.sysconf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.conf
+Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.vh.default.conf
+Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.vh.example_ssl.conf
+Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.suse.init
+Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.service
+Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.upgrade.sh
+Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.suse.logrotate
 
 License: 2-clause BSD-like license
 
