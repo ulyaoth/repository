@@ -8,7 +8,7 @@ Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: https://repos.ulyaoth.net/RPM-GPG-KEY-ulyaoth
 Source1: ulyaoth.repo
-Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/COPYING
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/COPYING
 BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
 
 License: GPLv3

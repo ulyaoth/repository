@@ -14,9 +14,9 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/LucidWorks/banana/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    banana.war
-Source1:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-banana/SOURCES/banana-context.xml
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-banana/SOURCES/banana-context.xml
 BuildRoot:  %{_tmppath}/banana-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: ant

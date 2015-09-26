@@ -4,8 +4,8 @@ useradd ulyaoth
 
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spotify/SOURCES/spotify.init"
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spotify/SOURCES/spotify.service"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.init"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.service"
 
 cd /home/ulyaoth
 if grep -q -i "Fedora release 21" /etc/redhat-release
@@ -61,7 +61,7 @@ su ulyaoth -c "rm -rf opt/ usr/ spotify.desktop"
 su ulyaoth -c "mv ulyaoth-spotify.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spotify/SPECS/ulyaoth-spotify.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SPECS/ulyaoth-spotify.spec"
 
 if [ "$arch" != "x86_64" ]
 then
