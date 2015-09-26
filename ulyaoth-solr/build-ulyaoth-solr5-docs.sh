@@ -14,7 +14,7 @@ su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
 su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-solr/SPECS/ulyaoth-solr5-docs.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr5-docs.spec"
 
 if [ "$arch" != "x86_64" ]
 then

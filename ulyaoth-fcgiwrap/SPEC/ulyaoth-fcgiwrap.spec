@@ -10,7 +10,7 @@ Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Grzegorz Nosek <root@localdomain.pl>
 URL: http://nginx.localdomain.pl/wiki/FcgiWrap
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 License: MIT
 Group: System Environment/Daemons
 
@@ -76,7 +76,7 @@ Please find the official documentation for fcgiwrap here:
 * https://nginx.localdomain.pl/wiki/FcgiWrap
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER

@@ -45,16 +45,16 @@ cd /home/ulyaoth/rpmbuild/SPECS/
 
 if [ "$hhvmbranchversion" == "3.3" ]
 then
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.3.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.3.spec"
 elif [ "$hhvmbranchversion" == "3.6" ]
 then
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec"
 elif [ "$hhvmbranchversion" == "3.9" ]
 then
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.9.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.9.spec"
 elif [ "$hhvmbranchversion" == "3.8" ]
 then
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
 fi
 
 installrequirements &

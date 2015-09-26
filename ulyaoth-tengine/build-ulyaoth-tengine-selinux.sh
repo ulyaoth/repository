@@ -16,11 +16,11 @@ fi
 useradd ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SELinux/ulyaoth-tengine.txt"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SELinux/ulyaoth-tengine.txt"
 su ulyaoth -c "audit2allow -M ulyaoth-tengine < ulyaoth-tengine.txt"
 su ulyaoth -c "mv ulyaoth-tengine.pp /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SPECS/ulyaoth-tengine-selinux.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SPECS/ulyaoth-tengine-selinux.spec"
 if [ "$arch" != "x86_64" ]
 then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-tengine-selinux.spec

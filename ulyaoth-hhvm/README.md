@@ -5,7 +5,7 @@
 ```
 ##### ulyaoth-hhvm:
 ```bash
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.8 -v 3.8.1
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.8 -v 3.8.1
 ```
 
 ### Options Available:

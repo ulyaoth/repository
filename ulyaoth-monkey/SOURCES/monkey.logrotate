@@ -8,6 +8,6 @@
         create 640 monkey adm
         sharedscripts
         postrotate
-                [ -f /run/nginx.pid ] && kill -USR1 `cat /run/nginx.pid`
+                [ -f /run/monkey.pid ] && kill -USR1 `cat /run/monkey.pid`
         endscript
 }

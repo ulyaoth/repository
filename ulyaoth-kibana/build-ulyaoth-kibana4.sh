@@ -18,10 +18,10 @@ else
 su ulyaoth -c "wget https://download.elasticsearch.org/kibana/kibana/kibana-4.1.2-linux-x64.tar.gz"
 fi
 
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-kibana/SOURCES/kibana.init"
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-kibana/SOURCES/kibana.service"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/SOURCES/kibana.init"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/SOURCES/kibana.service"
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-kibana/SPECS/ulyaoth-kibana4.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/SPECS/ulyaoth-kibana4.spec"
 
 if [ "$arch" != "x86_64" ]
 then

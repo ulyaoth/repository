@@ -6,7 +6,7 @@ su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SOURCES/
 su ulyaoth -c "wget http://apache.mirrors.spacedump.net/tomcat/tomcat-connectors/native/1.1.33/source/tomcat-native-1.1.33-src.tar.gz"
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-native/SPECS/ulyaoth-tomcat-native.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-native/SPECS/ulyaoth-tomcat-native.spec"
 
 if [ "$arch" != "x86_64" ]
 then

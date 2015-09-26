@@ -18,9 +18,9 @@ URL: http://monkey-project.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://monkey-project.com/releases/1.6/monkey-%{version}.tar.gz
-Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.service
-Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.init
-Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.logrotate
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-monkey/SOURCES/monkey.service
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-monkey/SOURCES/monkey.init
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-monkey/SOURCES/monkey.logrotate
 
 
 License: GPLv2+

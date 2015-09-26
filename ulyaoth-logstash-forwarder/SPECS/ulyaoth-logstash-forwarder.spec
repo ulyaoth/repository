@@ -35,11 +35,11 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/elasticsearch/logstash-forwarder
 Vendor:     Elasticsearch BV
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    logstash-forwarder
-Source1:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.service
-Source2:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.init
-Source3:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.conf
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.service
+Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.init
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.conf
 BuildRoot:  %{_tmppath}/logstash-forwarder-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: logstash-forwarder
@@ -124,7 +124,7 @@ Please find the official documentation for logstash-forwarder here:
 * https://github.com/elasticsearch/logstash-forwarder
 
 For any additional help please visit my forum at:
-* https://community.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER

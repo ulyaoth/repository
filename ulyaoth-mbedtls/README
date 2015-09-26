@@ -1,7 +1,7 @@
 You can build the rpm by running the build script:
 
 ulyaoth-mbedtls:
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-mbedtls/build-ulyaoth-mbedtls.sh ; chmod +x build-ulyaoth-mbedtls.sh ; ./build-ulyaoth-mbedtls.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls.sh ; chmod +x build-ulyaoth-mbedtls.sh ; ./build-ulyaoth-mbedtls.sh
 
 ulyaoth-mbedtls2:
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.sh ; chmod +x build-ulyaoth-mbedtls2.sh ; ./build-ulyaoth-mbedtls2.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.sh ; chmod +x build-ulyaoth-mbedtls2.sh ; ./build-ulyaoth-mbedtls2.sh

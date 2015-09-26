@@ -33,7 +33,7 @@ su ulyaoth -c "cd /home/ulyaoth/logstash-forwarder-'"$logstashforwarderversion"'
 su ulyaoth -c "mv /home/ulyaoth/logstash-forwarder-'"$logstashforwarderversion"'/logstash-forwarder-'"$logstashforwarderversion"' /home/ulyaoth/rpmbuild/SOURCES/logstash-forwarder"
 su ulyaoth -c "rm -rf /home/ulyaoth/logstash-forwarder-'"$logstashforwarderversion"'/"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SPECS/ulyaoth-logstash-forwarder.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SPECS/ulyaoth-logstash-forwarder.spec"
 
 if [ "$arch" != "x86_64" ]
 then

@@ -15,10 +15,10 @@ Vendor: Facebook.
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: hhvm-%{version}.tar.gz
-Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/php.ini
-Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.service
-Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/static.mime-types.hdf
-Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.conf
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SOURCES/php.ini
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SOURCES/hhvm.service
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SOURCES/static.mime-types.hdf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SOURCES/hhvm.conf
 
 License: GPL
 
