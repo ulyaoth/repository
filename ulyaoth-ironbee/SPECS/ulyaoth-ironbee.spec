@@ -15,7 +15,7 @@ URL: https://www.ironbee.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: https://github.com/ironbee/ironbee/archive/v%{version}.tar.gz
-Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-ironbee/SOURCES/ironbee.conf
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ironbee/SOURCES/ironbee.conf
 
 License: 2-clause BSD-like license
 
