@@ -21,14 +21,14 @@ cd /root
 rpmdev-setuptree
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
-wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.18.tar.gz
-tar xvf passenger-5.0.18.tar.gz
-mv passenger-5.0.18 passenger
+wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.20.tar.gz
+tar xvf passenger-5.0.20.tar.gz
+mv passenger-5.0.20 passenger
 rm -rf /etc/nginx/modules/passenger/packaging
 tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /root/rpmbuild/SOURCES/
 cd /root/rpmbuild/SOURCES
-wget http://nginx.org/download/nginx-1.9.4.tar.gz
+wget http://nginx.org/download/nginx-1.9.5.tar.gz
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/logrotate
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.conf
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.init
