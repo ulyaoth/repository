@@ -28,7 +28,7 @@ rm -rf /etc/nginx/modules/passenger/packaging
 tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /root/rpmbuild/SOURCES/
 cd /root/rpmbuild/SOURCES
-wget http://nginx.org/download/nginx-1.9.4.tar.gz
+wget http://nginx.org/download/nginx-1.9.5.tar.gz
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/logrotate
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.conf
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.init

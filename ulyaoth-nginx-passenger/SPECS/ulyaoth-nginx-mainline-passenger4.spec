@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.9.4
+%define nginx_version 1.9.5
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
@@ -41,7 +41,7 @@ BuildRequires: systemd
 Summary: High performance web server / Phusion Passenger web & app
 Name: ulyaoth-nginx-mainline-passenger4
 Version: 4.0.59
-Release: 7%{?dist}
+Release: 8%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc. / Phusion
 URL: https://www.phusionpassenger.com/
@@ -145,7 +145,7 @@ Not stripped version of nginx and passenger built with the debugging log support
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -186,7 +186,7 @@ make %{?_smp_mflags}
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -387,6 +387,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Oct 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.0.59-8
+- Update to Nginx Mainline 1.9.5.
+- Changed spdy to http_v2_module.
+
 * Fri Aug 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.0.59-7
 - Update to Nginx Mainline 1.9.4.
 

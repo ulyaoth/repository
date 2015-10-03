@@ -145,7 +145,7 @@ Not stripped version of nginx and passenger built with the debugging log support
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -186,7 +186,7 @@ make %{?_smp_mflags}
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -387,9 +387,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Fri Oct 2 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.20-1
+* Sat Oct 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.20-1
 - Updated to Passenger 5.0.20.
 - Update to Nginx Mainline 1.9.5.
+- Changed spdy to http_v2_module.
 
 * Sat Sep 12 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.18-1
 - Updated to Passenger 5.0.18.
