@@ -38,72 +38,59 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary: High performance web server / Phusion Passenger web & app
-Name: ulyaoth-nginx-mainline-passenger5
-Version: 5.0.20
+Summary: Nginx Anti Xss & Sql Injection.
+Name: ulyaoth-nginx-mainline-naxsi-masterbuild
+Version: 0.54
 Release: 1%{?dist}
 BuildArch: x86_64
-Vendor: nginx inc. / Phusion
-URL: https://www.phusionpassenger.com/
+Vendor: nginx inc.
+URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
-Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/logrotate
-Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.init
-Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.sysconf
-Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.conf
-Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.vh.default.conf
-Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.vh.example_ssl.conf
-Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.suse.init
-Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.service
-Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.upgrade.sh
-Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/nginx.vh.passenger5.conf
-Source11: passenger.tar.gz
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/logrotate
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.init
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.sysconf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx-naxsi.conf
+Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.default-naxsi.conf
+Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.example_ssl.conf
+Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.suse.init
+Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.service
+Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.upgrade.sh
+Source10: naxsi.tar.gz
+Source11: naxsi_core.rules
+Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nbs.rules
 
 License: 2-clause BSD-like license
 
 BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: openssl
-BuildRequires: openssl-devel
-BuildRequires: ruby
-BuildRequires: ruby-devel
-BuildRequires: curl-devel
-BuildRequires: rubygem-rake
-BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
+BuildRequires: openssl-devel
+BuildRequires: curl-devel
 
 Requires: openssl
-Requires: ruby
 Requires: GeoIP
 
 Provides: webserver
 Provides: nginx
 Provides: nginx-mainline
-Provides: nginx-passenger
-Provides: nginx-passenger5
-Provides: nginx-mainline-passenger
-Provides: nginx-mainline-passenger5
-Provides: passenger
-Provides: passenger5
+Provides: nginx-mainline-naxsi-masterbuild
 Provides: ulyaoth-nginx
-Provides: ulyaoth-nginx-passenger
-Provides: ulyaoth-nginx-passenger5
+Provides: ulyaoth-nginx-naxsi-masterbuild
 Provides: ulyaoth-nginx-mainline
-Provides: ulyaoth-nginx-mainline-passenger
-Provides: ulyaoth-nginx-mainline-passenger5
+Provides: ulyaoth-nginx-mainline-naxsi-masterbuild
 
 %description
-nginx [engine x] is an HTTP and reverse proxy server, as well asa mail proxy server.
-Phusion Passenger is a multi-language (Ruby, Python, Node) web & app server which can integrate into Apache and Nginx
+Naxsi behaves like a DROP-by-default firewall, the only job needed is to add required ACCEPT rules for the target website to work properly.
 
 %package debug
-Summary: debug version of nginx with passenger
+Summary: debug version of nginx
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-mainline-passenger5
+Requires: ulyaoth-nginx-mainline-naxsi-masterbuild
 %description debug
-Not stripped version of nginx and passenger built with the debugging log support.
+Not stripped version of nginx built with the debugging log support and compiled with Naxsi.
 
 %prep
 %setup -q -n nginx-%{nginx_version}
@@ -141,7 +128,7 @@ Not stripped version of nginx and passenger built with the debugging log support
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
-		--add-module=/etc/nginx/modules/passenger/src/nginx_module \
+		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -185,7 +172,7 @@ make %{?_smp_mflags}
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
-		--add-module=/etc/nginx/modules/passenger/src/nginx_module \
+		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -206,22 +193,22 @@ make %{?_smp_mflags}
 %{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/nginx/fastcgi.conf
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/nginx
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/passenger
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx/passenger_temp
-
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
+
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
+%{__install} -m 644 -p %{SOURCE11} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/naxsi_core.rules   
+%{__install} -m 644 -p %{SOURCE12} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nbs.rules 
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%{__install} -m 644 -p %{SOURCE10} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/passenger.conf
-   
+
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
@@ -229,9 +216,9 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
 
-# Install Passenger
+# Install Naxsi
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
-tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
+tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -282,9 +269,10 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_sysconfdir}/nginx/modules/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
+%config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
+%config(noreplace) %{_sysconfdir}/nginx/nbs.rules
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/passenger.conf
 %config(noreplace) %{_sysconfdir}/nginx/mime.types
 %config(noreplace) %{_sysconfdir}/nginx/fastcgi_params
 %config(noreplace) %{_sysconfdir}/nginx/scgi_params
@@ -308,9 +296,7 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_datadir}/nginx/html/*
 
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
-%attr(0755,root,root) %dir %{_localstatedir}/cache/nginx/passenger_temp
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
-%attr(0755,root,root) %dir %{_localstatedir}/log/passenger
 
 %files debug
 %attr(0755,root,root) %{_sbindir}/nginx.debug
@@ -335,7 +321,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-mainline-passenger5!
+Thanks for using ulyaoth-nginx-mainline-naxsi-masterbuild!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -343,8 +329,8 @@ Please find the official documentation for nginx here:
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
-Please find the official documentation or the enterprise version for passenger here:
-* https://www.phusionpassenger.com/ 
+Please find the official Naxsi documentation here:
+* https://github.com/nbs-system/naxsi
 
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
@@ -391,56 +377,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Oct 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.20-1
-- Updated to Passenger 5.0.20.
-- Update to Nginx Mainline 1.9.5.
-- Changed spdy to http_v2_module.
-
-* Sat Sep 12 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.18-1
-- Updated to Passenger 5.0.18.
-
-* Mon Aug 24 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.16-1
-- Updated to Passenger 5.0.16.
-
-* Fri Aug 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.15-2
-- Update to Nginx Mainline 1.9.4.
-
-* Thu Jul 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.15-1
-- Updated to Passenger 5.0.15.
-
-* Thu Jul 16 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.14-1
-- Updated to Passenger 5.0.14.
-- Updated to Nginx Mainline 1.9.3.
-
-* Sun Jul 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.13-1
-- Updated to Passenger 5.0.13.
-
-* Fri Jun 26 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.11-1
-- Updated to Passenger 5.0.11.
-
-* Thu Jun 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.10-2
-- Updated to Nginx 1.9.2.
-
-* Sun Jun 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.10-1
-- Updated to Passenger 5.0.10.
-
-* Sun Jun 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.9-1
-- Updated to Passenger 5.0.9.
-
-* Wed Jun 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.8-2
-- Update to Nginx Mainline 1.9.1.
-
-* Wed May 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.8-1
-- Updated to Passenger 5.0.8.
-
-* Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.7-1
-- Updated to Nginx 1.9.0.
-- Updated to Passenger 5.0.7.
-
-* Wed Apr 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.6-2
-- Updated to Nginx 1.7.12.
-
-* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.6-1
-- Initial Release.
-- Spec file taken from nginx.com
-- Compiled with Mainline Nginx version 1.7.11
+* Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-1
+- Initial Release with Naxsi 0.54 and Nginx Mainline 1.9.5.

@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-naxsi
-Version: 0.53.2
+Version: 0.54
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -47,18 +47,18 @@ URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
-Source1: logrotate
-Source2: nginx.init
-Source3: nginx.sysconf
-Source4: nginx-naxsi.conf
-Source5: nginx.vh.default-naxsi.conf
-Source6: nginx.vh.example_ssl.conf
-Source7: nginx.suse.init
-Source8: nginx.service
-Source9: nginx.upgrade.sh
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/logrotate
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.init
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.sysconf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx-naxsi.conf
+Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.default-naxsi.conf
+Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.example_ssl.conf
+Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.suse.init
+Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.service
+Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.upgrade.sh
 Source10: naxsi.tar.gz
 Source11: naxsi_core.rules
-Source12: nbs.rules
+Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nbs.rules
 
 License: 2-clause BSD-like license
 
@@ -363,5 +363,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-1
+- Build with Stable Naxsi version 0.54.
+
 * Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.53.2-1
 - Build with Stable Naxsi version 0.53-2.

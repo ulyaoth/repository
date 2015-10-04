@@ -32,19 +32,6 @@ su ulyaoth -c "cp /etc/nginx/modules/naxsi/naxsi_config/naxsi_core.rules /home/u
 cd /etc/nginx/modules/
 su ulyaoth -c "tar cvf naxsi.tar.gz naxsi"
 su ulyaoth -c "mv naxsi.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
-cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget http://nginx.org/download/nginx-1.9.4.tar.gz"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/logrotate"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx-naxsi.conf"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.init"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.service"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.suse.init"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.suse.logrotate"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.sysconf"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.upgrade.sh"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.default-naxsi.conf"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.example_ssl.conf"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nbs.rules"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec"
 
@@ -60,6 +47,7 @@ else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec
 fi
 
+su ulyaoth -c "spectool ulyaoth-nginx-mainline-naxsi-masterbuild.spec -g -R"
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-mainline-naxsi-masterbuild.spec"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILD/*"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*"
