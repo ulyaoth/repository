@@ -47,16 +47,16 @@ URL: https://www.modsecurity.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
-Source1: logrotate
-Source2: nginx.init
-Source3: nginx.sysconf
-Source4: nginx.conf
-Source5: nginx.vh.default-modsecurity.conf
-Source6: nginx.vh.example_ssl.conf
-Source7: nginx.suse.init
-Source8: nginx.service
-Source9: nginx.upgrade.sh
-Source10: modsecurity.conf
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/logrotate
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.init
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.sysconf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.conf
+Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.vh.default-modsecurity.conf
+Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.vh.example_ssl.conf
+Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.suse.init
+Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.service
+Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.upgrade.sh
+Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/modsecurity.conf
 Source11: modsecurity.tar.gz
 
 License: 2-clause BSD-like license
@@ -72,6 +72,13 @@ BuildRequires: GeoIP-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
+BuildRequires: libxml2-devel
+BuildRequires: httpd-devel
+BuildRequires: yajl-devel
+BuildRequires: lua-devel
+BuildRequires: lua-static
+BuildRequires: ssdeep-devel
+
 
 Provides: webserver
 Provides: nginx
