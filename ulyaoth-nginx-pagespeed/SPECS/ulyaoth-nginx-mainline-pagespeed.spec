@@ -123,14 +123,16 @@ Not stripped version of nginx built with the debugging log support and compiled 
         --with-http_stub_status_module \
         --with-http_auth_request_module \
         --with-http_geoip_module \
-		--with-stream \
+        --with-threads \
+        --with-stream \
+        --with-stream_ssl_module \
 		--add-module=/etc/nginx/modules/pagespeed \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -165,13 +167,15 @@ make %{?_smp_mflags}
         --with-http_stub_status_module \
         --with-http_auth_request_module \
 		--with-http_geoip_module \
-		--with-stream \
+        --with-threads \
+        --with-stream \
+        --with-stream_ssl_module \
 		--add-module=/etc/nginx/modules/pagespeed \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
