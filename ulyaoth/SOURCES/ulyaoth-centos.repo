@@ -11,3 +11,10 @@ baseurl=https://repos.ulyaoth.net/CentOS/$releasever/$basearch/debug/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
+
+[ulyaoth-source]
+name=Ulyaoth Repository (Source)
+baseurl=https://repos.ulyaoth.net/CentOS/$releasever/$basearch/source/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
