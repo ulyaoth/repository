@@ -38,26 +38,28 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary: High performance web server compiled with pagespeed.
-Name: ulyaoth-nginx-mainline-pagespeed
-Version: 1.9.32.6
-Release: 3%{?dist}
+Summary: Nginx Anti Xss & Sql Injection.
+Name: ulyaoth-nginx-mainline-naxsi-masterbuild
+Version: 0.54
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
-Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/logrotate
-Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.init
-Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.sysconf
-Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx-pagespeed.conf
-Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.vh.default.conf
-Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.vh.example_ssl.conf
-Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.suse.init
-Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.service
-Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.upgrade.sh
-Source10: pagespeed.tar.gz
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/logrotate
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.init
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.sysconf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx-naxsi.conf
+Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.default-naxsi.conf
+Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.example_ssl.conf
+Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.suse.init
+Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.service
+Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nginx.upgrade.sh
+Source10: naxsi.tar.gz
+Source11: naxsi_core.rules
+Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/nbs.rules
 
 License: 2-clause BSD-like license
 
@@ -74,21 +76,21 @@ Requires: GeoIP
 Provides: webserver
 Provides: nginx
 Provides: nginx-mainline
-Provides: nginx-mainline-pagespeed
+Provides: nginx-mainline-naxsi-masterbuild
 Provides: ulyaoth-nginx
+Provides: ulyaoth-nginx-naxsi-masterbuild
 Provides: ulyaoth-nginx-mainline
-Provides: ulyaoth-nginx-mainline-pagespeed
+Provides: ulyaoth-nginx-mainline-naxsi-masterbuild
 
 %description
-nginx compile with pagespeed [engine x] is an HTTP and reverse proxy server, as well as
-a mail proxy server.
+Naxsi behaves like a DROP-by-default firewall, the only job needed is to add required ACCEPT rules for the target website to work properly.
 
 %package debug
 Summary: debug version of nginx
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-mainline-pagespeed
+Requires: ulyaoth-nginx-mainline-naxsi-masterbuild
 %description debug
-Not stripped version of nginx built with the debugging log support and compiled with pagespeed.
+Not stripped version of nginx built with the debugging log support and compiled with Naxsi.
 
 %prep
 %setup -q -n nginx-%{nginx_version}
@@ -126,7 +128,7 @@ Not stripped version of nginx built with the debugging log support and compiled 
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
-		--add-module=/etc/nginx/modules/pagespeed \
+		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -170,7 +172,7 @@ make %{?_smp_mflags}
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
-		--add-module=/etc/nginx/modules/pagespeed \
+		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -193,17 +195,20 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx/pagespeed_cache
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
 
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
+%{__install} -m 644 -p %{SOURCE11} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/naxsi_core.rules   
+%{__install} -m 644 -p %{SOURCE12} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nbs.rules 
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
-   
+
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
@@ -211,7 +216,7 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
 
-# Install Pagespeed
+# Install Naxsi
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
 tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 
@@ -264,6 +269,8 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_sysconfdir}/nginx/modules/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
+%config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
+%config(noreplace) %{_sysconfdir}/nginx/nbs.rules
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
 %config(noreplace) %{_sysconfdir}/nginx/mime.types
@@ -289,7 +296,6 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_datadir}/nginx/html/*
 
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
-%attr(0755,nginx,root) %dir %{_localstatedir}/cache/nginx/pagespeed_cache
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
 
 %files debug
@@ -315,7 +321,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-mainline-pagespeed!
+Thanks for using ulyaoth-nginx-mainline-naxsi-masterbuild!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -323,9 +329,8 @@ Please find the official documentation for nginx here:
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
-Please find the official documentation for pagespeed here:
-* https://developers.google.com/speed/pagespeed/
-* https://github.com/pagespeed/ngx_pagespeed
+Please find the official Naxsi documentation here:
+* https://github.com/nbs-system/naxsi
 
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
@@ -372,35 +377,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.32.6-3
-- Update to Nginx Mainline 1.9.5.
-- Changed spdy to http/2.
-
-* Fri Aug 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.32.6-2
-- Update to Nginx Mainline 1.9.4.
-
-* Tue Aug 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.6-1
-- Updating to Pagespeed v1.9.32.6-beta.
-
-* Thu Jul 16 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.4-2
-- Update to Nginx Mainline 1.9.3.
-
-* Fri Jul 10 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.4-1
-- Updating to version Pagespeed v1.9.32.4-beta.
-
-* Thu Jun 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.3-5
-- Update to Nginx Mainline 1.9.2.
-
-* Wed Jun 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.3-4
-- Update to Nginx Mainline 1.9.1.
-
-* Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.3-3
-- Updated to Nginx 1.9.0.
-
-* Wed Apr 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.3-2
-- Updated to Nginx 1.7.12.
-
-* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.3-1
-- Initial Release.
-- Spec file taken from nginx.com
-- Compiled with Mainline Nginx version 1.7.11
+* Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-1
+- Initial Release with Naxsi 0.54 and Nginx Mainline 1.9.5.

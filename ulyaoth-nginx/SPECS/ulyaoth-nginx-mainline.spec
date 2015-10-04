@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-nginx-mainline
-Version: 1.9.4
+Version: 1.9.5
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -47,16 +47,16 @@ URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
-Source1: logrotate
-Source2: nginx.init
-Source3: nginx.sysconf
-Source4: nginx.conf
-Source5: nginx.vh.default.conf
-Source6: nginx.vh.example_ssl.conf
-Source7: nginx.suse.init
-Source8: nginx.service
-Source9: nginx.upgrade.sh
-Source10: nginx.suse.logrotate
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.init
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.sysconf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.conf
+Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.vh.default.conf
+Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.vh.example_ssl.conf
+Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.init
+Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.service
+Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.upgrade.sh
+Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.logrotate
 
 License: 2-clause BSD-like license
 
@@ -120,14 +120,16 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_stub_status_module \
         --with-http_auth_request_module \
         --with-http_geoip_module \
-	--add-module=/etc/nginx/modules/headersmore \
+	    --add-module=/etc/nginx/modules/headersmore \
+        --with-threads \
         --with-stream \
+        --with-stream_ssl_module \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -161,14 +163,16 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-	--with-http_geoip_module \
-	--add-module=/etc/nginx/modules/headersmore \
+	    --with-http_geoip_module \
+	    --add-module=/etc/nginx/modules/headersmore \
+        --with-threads \
         --with-stream \
+        --with-stream_ssl_module \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        --with-http_spdy_module \
+        --with-http_v2_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -353,6 +357,11 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.5-1
+- Updated to Nginx Mainline 1.9.5.
+- Changed spdy to http/2.
+- Updated headers more to 0.261.
+
 * Fri Aug 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.4-1
 - Updated to Nginx Mainline 1.9.4.
 
