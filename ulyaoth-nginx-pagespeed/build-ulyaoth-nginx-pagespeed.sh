@@ -47,18 +47,6 @@ su ulyaoth -c "rm -rf 1.9.32.6.tar.gz ngx_pagespeed-1.9.32.6-beta v1.9.32.6-beta
 cd /etc/nginx/modules/pagespeed/
 su ulyaoth -c "tar cvf pagespeed.tar.gz scripts/ test/"
 su ulyaoth -c "mv pagespeed.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
-cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget http://nginx.org/download/nginx-1.8.0.tar.gz"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/logrotate"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx-pagespeed.conf"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.init"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.service"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.suse.init"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.suse.logrotate"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.sysconf"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.upgrade.sh"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.vh.default.conf"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SOURCES/nginx.vh.example_ssl.conf"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-pagespeed/SPECS/ulyaoth-nginx-pagespeed.spec"
 
@@ -74,6 +62,7 @@ else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-pagespeed.spec
 fi
 
+su ulyaoth -c "spectool ulyaoth-nginx-pagespeed.spec -g -R"
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-pagespeed.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
