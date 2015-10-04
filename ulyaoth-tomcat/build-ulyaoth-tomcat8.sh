@@ -31,6 +31,7 @@ su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat8-admin.spec"
 su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat8-docs.spec"
 su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat8-examples.spec"
 
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/

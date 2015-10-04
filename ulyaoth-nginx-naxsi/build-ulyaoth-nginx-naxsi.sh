@@ -58,7 +58,8 @@ cd /etc/nginx/modules/
 su ulyaoth -c "tar cvf naxsi.tar.gz naxsi"
 su ulyaoth -c "mv naxsi.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-naxsi.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-naxsi.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/

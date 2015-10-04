@@ -31,6 +31,7 @@ su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat7-admin.spec"
 su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat7-docs.spec"
 su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat7-examples.spec"
 
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
