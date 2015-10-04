@@ -26,10 +26,10 @@ fi
 
 su ulyaoth -c "spectool ulyaoth-tomcat8.spec -g -R"
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat8.spec"
-su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat8-admin.spec"
-su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat8-docs.spec"
-su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat8-examples.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat8.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat8-admin.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat8-docs.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat8-examples.spec"
 
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/

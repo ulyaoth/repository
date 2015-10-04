@@ -47,7 +47,7 @@ yum-builddep -y ulyaoth-nginx.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-nginx.spec -g -R"
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-nginx.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
