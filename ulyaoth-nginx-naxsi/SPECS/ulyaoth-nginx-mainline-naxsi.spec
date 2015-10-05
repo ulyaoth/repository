@@ -377,5 +377,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-1
+* Mon Oct 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-1
 - Initial Release with Naxsi 0.54 and Nginx Mainline 1.9.5.
