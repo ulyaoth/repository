@@ -40,7 +40,7 @@ BuildRequires: systemd
 
 Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-mainline-naxsi-masterbuild
-Version: 20151004
+Version: 20151005
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -377,7 +377,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20151004-1
+* Mon Oct 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20151005-1
 - Update to Nginx Mainline 1.9.5.
 
 * Fri Aug 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20150821-1
