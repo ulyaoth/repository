@@ -38,7 +38,7 @@ Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-8/v%{version}/bin/apache-tomcat-%{version}.tar.gz
+Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-8/v%{version}/bin/apache-tomcat-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.logrotate
@@ -167,7 +167,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.27-1
+* Mon Oct 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.27-1
 - Updated to Tomcat 8.0.27.
 
 * Sun Aug 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.26-1
