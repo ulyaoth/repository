@@ -20,7 +20,7 @@ yum-builddep -y ulyaoth-mbedtls2.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-mbedtls2.spec -g -R"
-su ulyaoth -c "rpmbuild -bb ulyaoth-mbedtls2.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-mbedtls2.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
