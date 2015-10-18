@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8-admin
-Version:    8.0.27
+Version:    8.0.28
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -78,6 +78,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sun Oct 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.28-1
+- Updated to Tomcat 8.0.28.
+
 * Mon Oct 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.27-1
 - Updated to Tomcat 8.0.27.
 
