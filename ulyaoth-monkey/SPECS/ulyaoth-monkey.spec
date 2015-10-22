@@ -25,10 +25,10 @@ Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mon
 
 License: GPLv2+
 
-Requires: ulyaoth-mbedtls2
+Requires: ulyaoth-mbedtls2 >= 2.1.2
 
 BuildRoot: %{_tmppath}/monkey-%{version}-%{release}-root
-BuildRequires: ulyaoth-mbedtls2
+BuildRequires: ulyaoth-mbedtls2 >= 2.1.2
 BuildRequires: cmake
 
 Provides: webserver
