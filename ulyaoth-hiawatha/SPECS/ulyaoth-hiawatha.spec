@@ -45,7 +45,7 @@ Vendor: Hiawatha.
 URL: https://www.hiawatha-webserver.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: https://downloads.ulyaoth.net/hiawatha-%{version}.tar.gz
+Source0: https://www.hiawatha-webserver.org/files/hiawatha-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SOURCES/hiawatha.service
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SOURCES/hiawatha.init
 Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SOURCES/hiawatha-logrotate
@@ -246,7 +246,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Oct 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.15-3
+* Thu Oct 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.15-1
 - Updated to mbed TLS 2.1.2.
 - Updated to Hiawatha 9.15.
 
