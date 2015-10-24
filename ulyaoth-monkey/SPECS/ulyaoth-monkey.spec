@@ -89,7 +89,7 @@ make %{?_smp_mflags}
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/log/monkey
+%{__mkdir} -p $RPM_BUILD_ROOT/var/log/monkey
 
 %if %{use_systemd}
 # install systemd-specific files
