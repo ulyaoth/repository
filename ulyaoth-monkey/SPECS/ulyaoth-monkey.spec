@@ -137,7 +137,7 @@ make %{?_smp_mflags}
 %config(noreplace) /etc/monkey/plugins/mandril/mandril.conf
 %config(noreplace) /etc/logrotate.d/monkey
 
-%attr(755, monkey, monkey) /var/log/monkey
+%attr(755, monkey, adm) /var/log/monkey
 
 %if %{use_systemd}
 %{_unitdir}/monkey.service
