@@ -24,11 +24,11 @@ cd /home/ulyaoth/
 mkdir -p /etc/nginx/modules/pagespeed
 chown -R ulyaoth:ulyaoth /etc/nginx
 su ulyaoth -c "rpmdev-setuptree"
-su ulyaoth -c "wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.6-beta.zip"
-su ulyaoth -c "wget https://dl.google.com/dl/page-speed/psol/1.9.32.6.tar.gz"
-su ulyaoth -c "unzip v1.9.32.6-beta.zip"
-su ulyaoth -c "tar xvf 1.9.32.6.tar.gz"
-su ulyaoth -c "cp -rf ngx_pagespeed-1.9.32.6-beta/* /etc/nginx/modules/pagespeed/"
+su ulyaoth -c "wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.zip"
+su ulyaoth -c "wget https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz"
+su ulyaoth -c "unzip v1.9.32.10-beta.zip"
+su ulyaoth -c "tar xvf 1.9.32.10.tar.gz"
+su ulyaoth -c "cp -rf ngx_pagespeed-1.9.32.10-beta/* /etc/nginx/modules/pagespeed/"
 su ulyaoth -c "mv psol/ /etc/nginx/modules/pagespeed/"
 
 if [ "$arch" == "x86_64" ]
@@ -43,7 +43,7 @@ su ulyaoth -c "rm -rf /etc/nginx/modules/pagespeed/psol/lib/Debug/linux/x64"
 su ulyaoth -c "rm -rf /etc/nginx/modules/pagespeed/psol/lib/Release/linux/x64"
 fi
 
-su ulyaoth -c "rm -rf 1.9.32.6.tar.gz ngx_pagespeed-1.9.32.6-beta v1.9.32.6-beta.zip"
+su ulyaoth -c "rm -rf 1.9.32.10.tar.gz ngx_pagespeed-1.9.32.10-beta v1.9.32.10-beta.zip"
 cd /etc/nginx/modules/pagespeed/
 su ulyaoth -c "tar cvf pagespeed.tar.gz scripts/ test/"
 su ulyaoth -c "mv pagespeed.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
@@ -63,7 +63,8 @@ yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-pagespeed.sp
 fi
 
 su ulyaoth -c "spectool ulyaoth-nginx-mainline-pagespeed.spec -g -R"
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-mainline-pagespeed.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-pagespeed.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
