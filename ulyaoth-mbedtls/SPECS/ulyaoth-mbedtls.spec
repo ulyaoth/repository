@@ -85,7 +85,7 @@ BANNER
 %postun
 
 %changelog
-* Sun Oct 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.14-1
+* Sat Oct 24 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.14-1
 - Updated to version 1.3.14.
 
 * Sun Sep 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.13-1
