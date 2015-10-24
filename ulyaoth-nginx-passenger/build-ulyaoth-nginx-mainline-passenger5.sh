@@ -21,9 +21,9 @@ cd /root
 rpmdev-setuptree
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
-wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.20.tar.gz
-tar xvf passenger-5.0.20.tar.gz
-mv passenger-5.0.20 passenger
+wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.21.tar.gz
+tar xvf passenger-5.0.21.tar.gz
+mv passenger-5.0.21 passenger
 rm -rf /etc/nginx/modules/passenger/packaging
 tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /root/rpmbuild/SOURCES/
@@ -58,7 +58,8 @@ tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-mainline-passenger5.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-passenger5.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
