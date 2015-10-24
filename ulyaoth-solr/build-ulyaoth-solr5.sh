@@ -1,11 +1,11 @@
 buildarch="$(uname -m)"
-version=5.3.0
+version=5.3.1
 
 useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 
-su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.3.0/solr-5.3.0.tgz"
+su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.3.1/solr-5.3.1.tgz"
 su ulyaoth -c "tar xvf solr-$version.tgz"
 rm -rf /home/ulyaoth/solr-$version/example
 rm -rf /home/ulyaoth/solr-$version/docs
@@ -31,7 +31,8 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr5.spec
 fi
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-solr5.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-solr5.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
