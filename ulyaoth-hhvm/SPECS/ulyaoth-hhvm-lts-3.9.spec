@@ -202,7 +202,7 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
-* Sun Aug 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.1-1
+* Sun Oct 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.1-1
 - Updating to HHVM LTS 3.9.1.
 - Changed to use only php.ini now.
 

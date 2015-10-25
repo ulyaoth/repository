@@ -202,7 +202,7 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
-* Sun Sept 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.6.6-1
+* Sun Oct 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.6.6-1
 - Updating to HHVM 3.6.6.
 
 * Wed Jul 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.6.5-1

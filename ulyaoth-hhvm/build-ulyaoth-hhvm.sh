@@ -1,10 +1,10 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
 # Argument = -l (lists all supported versions)
-# Argument = -b (branch .i.e 3.8)
-# Argument = -v (version .i.e 3.8.1)
+# Argument = -b (branch .i.e 3.10)
+# Argument = -v (version .i.e 3.10.1)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2015/08/30
+# Last Edit By: Sjir Bagmeijer - 2015/10/25
 # https://www.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
@@ -52,7 +52,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/
 elif [ "$hhvmbranchversion" == "3.9" ]
 then
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.9.spec"
-elif [ "$hhvmbranchversion" == "3.8" ]
+elif [ "$hhvmbranchversion" == "3.10" ]
 then
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
 fi
@@ -99,7 +99,7 @@ su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.6.spec -g -R"
 elif [ "$hhvmbranchversion" == "3.9" ]
 then
 su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.9.spec -g -R"
-elif [ "$hhvmbranchversion" == "3.8" ]
+elif [ "$hhvmbranchversion" == "3.10" ]
 then
 su ulyaoth -c "spectool ulyaoth-hhvm.spec -g -R"
 fi
@@ -118,9 +118,9 @@ su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.6.spec"
 elif [ "$hhvmbranchversion" == "3.9" ]
 then
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.9.spec"
-elif [ "$hhvmbranchversion" == "3.8" ]
+elif [ "$hhvmbranchversion" == "3.10" ]
 then
-su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm.spec"
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -ba ulyaoth-hhvm.spec"
 fi
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
@@ -138,9 +138,9 @@ cd /root
 availablehhvmversions()
 {
 cat <<EOF
-Branch 3.8 versions supported:
-* 3.8.1
-* 3.8.0
+Branch 3.10 versions supported:
+* 3.10.1
+* 3.10.0
 
 Branch 3.9 versions supported: (LTS build)
 * 3.9.1
@@ -186,8 +186,8 @@ arraychecker() {
 hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
-supportedbranches=('3.3' '3.6' '3.9' '3.8')
-supportedversions=('3.8.1' '3.8.0' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+supportedbranches=('3.3' '3.6' '3.9' '3.10')
+supportedversions=('3.10.1' '3.10.0' '3.8.1' '3.8.0' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
