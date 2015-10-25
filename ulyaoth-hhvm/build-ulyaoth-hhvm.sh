@@ -127,7 +127,10 @@ fi
 # Cleaning build directory and script.
 clean()
 {
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 rm -rf /home/ulyaoth/hhvm-$hhvmversion
 rm -rf /home/ulyaoth/rpmbuild
 rm -rf /root/build-ulyaoth-hhvm*
