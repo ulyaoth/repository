@@ -76,8 +76,8 @@ else
 yum-builddep -y ulyaoth-hhvm*.spec
 fi
 
-# HHVM 3.8 Requires ocaml 4.01 or higher.
-if [ "$hhvmbranchversion" == "3.8" ]
+# HHVM 3.10 Requires ocaml 4.01 or higher.
+if [ "$hhvmbranchversion" == "3.10" ]
 then
   if grep -q -i "release 19" /etc/fedora-release
   then
