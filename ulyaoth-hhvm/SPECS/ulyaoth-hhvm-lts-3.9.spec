@@ -19,6 +19,7 @@ Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhv
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SOURCES/hhvm.service
 Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SOURCES/static.mime-types.hdf
 Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SOURCES/hhvm.conf
+Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SOURCES/hhvm-proxygen.service
 
 License: GPL
 
@@ -122,12 +123,13 @@ make
    $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT/etc/tmpfiles.d/hhvm.conf
+%{__install} -m 644 -p %{SOURCE5} \
+   $RPM_BUILD_ROOT%{_unitdir}/hhvm-proxygen.service
 
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
 %{__rm} -rf $RPM_BUILD_ROOT/usr/include
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib64
-%{__rm} -rf $RPM_BUILD_ROOT/usr/man/
 %{__rm} -rf $RPM_BUILD_ROOT/usr/share/doc/
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libpcre.a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libpcreposix.a
@@ -137,24 +139,30 @@ make
 %{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcrecpp_unittest
 %{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcre_scanner_unittest
 %{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcre_stringpiece_unittest
-%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/hphpize
-%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/hhvm-gdb
-
-
-
 
 %files
 %defattr(-,root,root,-)
 /usr/bin/hhvm
 /usr/bin/hh_server
 /usr/bin/hh_client
+/usr/bin/h2tp
+/usr/bin/hh_format
+/usr/bin/hphpize
+/usr/bin/hhvm-repo-mode
+/usr/bin/hhvm-gdb
 %dir /etc/hhvm
 %dir /etc/tmpfiles.d
 %config(noreplace) /etc/hhvm/php.ini
 %config(noreplace) /etc/tmpfiles.d/hhvm.conf
 %{_unitdir}/hhvm.service
+%{_unitdir}/hhvm-proxygen.service
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
+%dir /usr/share/hhvm/hack
+%dir /usr/share/hhvm/hack/hacklib
+/usr/share/hhvm/hack/hacklib/*
+%dir /usr/share/hhvm/hack/hacklib/containers
+/usr/share/hhvm/hack/hacklib/containers/*
 %config /usr/share/hhvm/hdf/static.mime-types.hdf
 %dir /var/log/hhvm
 %dir /var/run/hhvm
@@ -182,12 +190,13 @@ exit 0
 %post
 # Register the HHVM service
 /usr/bin/systemctl preset hhvm.service >/dev/null 2>&1 ||:
+/usr/bin/systemctl preset hhvm-proxygen.service >/dev/null 2>&1 ||:
 
 # print site info
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-hhvm!
+Thanks for using ulyaoth-hhvm-lts-3.9!
 
 Please find the official documentation for HHVM here:
 * http://www.hhvm.com/
@@ -203,8 +212,5 @@ BANNER
 
 %changelog
 * Sun Oct 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.1-1
-- Updating to HHVM LTS 3.9.1.
-- Changed to use only php.ini now.
-
-* Mon Aug 24 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.0-1
-- Creating RPM for HHVM LTS 3.9.
+- Release HHVM 3.9.1
+- Initial Spec file release
