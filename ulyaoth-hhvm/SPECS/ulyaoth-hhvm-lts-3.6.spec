@@ -187,7 +187,7 @@ exit 0
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-hhvm!
+Thanks for using ulyaoth-hhvm-lts-3.6!
 
 Please find the official documentation for HHVM here:
 * http://www.hhvm.com/
