@@ -20,6 +20,9 @@ then
 elif grep -q -i "scientific" /etc/ulyaoth
 then
   su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-scientific.repo -O ulyaoth.repo"
+elif grep -q -i "amazon" /etc/ulyaoth
+then
+  su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-amazon.repo -O ulyaoth.repo"
 else
   echo "A unsupported OS was detected!"
 fi
