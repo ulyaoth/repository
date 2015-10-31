@@ -20,7 +20,8 @@ else
 yum-builddep -y ulyaoth-tomcat-native.spec
 fi
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat-native.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat-native.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
