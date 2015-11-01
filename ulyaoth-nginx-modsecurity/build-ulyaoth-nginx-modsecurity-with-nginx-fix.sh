@@ -31,7 +31,7 @@ useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ironbee/SPECS/ulyaoth-ironbee.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SPECS/ulyaoth-nginx-modsecurity.spec"
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
 git clone -b nginx_refactoring https://github.com/SpiderLabs/ModSecurity.git modsecurity
