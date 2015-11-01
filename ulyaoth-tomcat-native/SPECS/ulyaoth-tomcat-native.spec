@@ -44,7 +44,7 @@ f=CHANGELOG.txt ; iconv -f iso-8859-1 -t utf-8 $f > $f.utf8 ; mv $f.utf8 $f
 
 
 %build
-cd jni/native
+cd native
 %configure \
     --with-apr=%{_bindir}/apr-1-config \
 	--with-ssl=yes \
@@ -55,7 +55,7 @@ make %{?_smp_mflags}
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
-make -C jni/native install DESTDIR=$RPM_BUILD_ROOT
+make -C native install DESTDIR=$RPM_BUILD_ROOT
 %{__rm} -f $RPM_BUILD_ROOT/usr/lib64/libtcnative*.*a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib64/pkgconfig
 %{__rm} -f $RPM_BUILD_ROOT/usr/lib/libtcnative*.*a
