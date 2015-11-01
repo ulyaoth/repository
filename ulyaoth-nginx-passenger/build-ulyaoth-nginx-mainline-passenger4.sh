@@ -17,8 +17,10 @@ echo yeah Fedora!
 fi
 
 useradd ulyaoth
-cd /root
-rpmdev-setuptree
+cd /home/ulyaoth/
+su ulyaoth -c "rpmdev-setuptree"
+cd /home/ulyaoth/rpmbuild/SPECS
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SPECS/ulyaoth-nginx-mainline-passenger4.spec"
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
 wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-4.0.59.tar.gz
@@ -26,14 +28,9 @@ tar xvf passenger-4.0.59.tar.gz
 mv passenger-4.0.59 passenger
 rm -rf /etc/nginx/modules/passenger/packaging
 tar cvf passenger.tar.gz passenger
-mv passenger.tar.gz /root/rpmbuild/SOURCES/
-cd /root/rpmbuild/SPECS
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SPECS/ulyaoth-nginx-mainline-passenger4.spec
-cd /home/ulyaoth/
+mv passenger.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 chown -R ulyaoth:ulyaoth /etc/nginx/
-mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
-cd /home/ulyaoth/rpmbuild/SPECS
 
 if [ "$arch" != "x86_64" ]
 then

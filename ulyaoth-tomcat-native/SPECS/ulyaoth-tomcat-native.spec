@@ -6,15 +6,15 @@
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native
-Version:    1.1.33
+Version:    1.2.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
-Source0:    tomcat-native-%{version}-src.tar.gz
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-connectors/native/%{version}/source/tomcat-native-%{version}-src.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  java-devel
@@ -90,12 +90,15 @@ Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
 
 %changelog
+* Sun Nov 1 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.0-1
+- Updated to Tomcat Native 1.2.0.
+
 * Tue Mar 31 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.1.33-1
 - Updated to Tomcat Native 1.1.33.
 

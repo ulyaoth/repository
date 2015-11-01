@@ -20,8 +20,10 @@ echo yeah Fedora!
 fi
 
 useradd ulyaoth
-cd /root
-rpmdev-setuptree
+cd /home/ulyaoth/
+su ulyaoth -c "rpmdev-setuptree"
+cd /home/ulyaoth/rpmbuild/SPECS
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SPECS/ulyaoth-nginx-modsecurity.spec"
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
 wget https://www.modsecurity.org/tarball/2.9.0/modsecurity-2.9.0.tar.gz
@@ -34,12 +36,8 @@ cd modsecurity
 make
 cd /etc/nginx/modules
 tar cvf modsecurity.tar.gz modsecurity
-mv modsecurity.tar.gz /root/rpmbuild/SOURCES/
-cd /root/rpmbuild/SPECS
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SPECS/ulyaoth-nginx-modsecurity.spec
-cd /home/ulyaoth/
+mv modsecurity.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 chown -R ulyaoth:ulyaoth /etc/nginx/
-mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
 
