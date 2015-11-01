@@ -45,7 +45,7 @@ else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-passenger4.spec
 fi
 
-su ulyaoth -c "spectool ulyaoth-nginx-mainline-passenger4 -g -R"
+su ulyaoth -c "spectool ulyaoth-nginx-mainline-passenger4.spec -g -R"
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-mainline-passenger4.spec"
 rm -rf /home/ulyaoth/rpmbuild/BUILD/*
 rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*
