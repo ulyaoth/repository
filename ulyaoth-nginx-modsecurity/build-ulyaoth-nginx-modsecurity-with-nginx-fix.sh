@@ -26,9 +26,12 @@ else
 yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static ssdeep-devel systemd-devel
 fi
 
+
 useradd ulyaoth
-cd /root
-rpmdev-setuptree
+cd /home/ulyaoth/
+su ulyaoth -c "rpmdev-setuptree"
+cd /home/ulyaoth/rpmbuild/SPECS
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ironbee/SPECS/ulyaoth-ironbee.spec"
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
 git clone -b nginx_refactoring https://github.com/SpiderLabs/ModSecurity.git modsecurity
@@ -38,8 +41,8 @@ cd modsecurity
 make
 cd /etc/nginx/modules
 tar cvf modsecurity.tar.gz modsecurity
-mv modsecurity.tar.gz /root/rpmbuild/SOURCES/
-cd /root/rpmbuild/SOURCES
+mv modsecurity.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
+cd /home/ulyaoth/rpmbuild/SOURCES
 wget http://nginx.org/download/nginx-1.8.0.tar.gz
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/logrotate
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/modsecurity.conf
@@ -52,11 +55,7 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-m
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.upgrade.sh
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.vh.default-modsecurity.conf
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SOURCES/nginx.vh.example_ssl.conf
-cd /root/rpmbuild/SPECS
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SPECS/ulyaoth-nginx-modsecurity.spec
-cd /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /etc/nginx/
-mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
 
