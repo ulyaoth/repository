@@ -10,7 +10,7 @@ Version:    3.0.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    three clause BSD license
-Group:      Applications/Internet
+Group:      Applications/Databases
 URL:        http://redis.io/
 Vendor:     Salvatore Sanfilippo
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
