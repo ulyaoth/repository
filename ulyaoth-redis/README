@@ -1,0 +1,4 @@
+How to create a package:
+
+ulyaoth-redis3:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/build-ulyaoth-redis3.sh ; chmod +x build-ulyaoth-redis3.sh ; ./build-ulyaoth-redis3.sh
