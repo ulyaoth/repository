@@ -64,7 +64,7 @@ make %{?_smp_mflags}
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install PREFIX=$RPM_BUILD_ROOT
 
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/licenses/redis
 %{__mkdir} -p $RPM_BUILD_ROOT/var/log/redis
@@ -79,7 +79,8 @@ make %{?_smp_mflags}
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT/usr/share/licenses/redis/COPYING
 
-mv $RPM_BUILD_ROOT/usr/local/bin/* $RPM_BUILD_ROOT/usr/bin/
+mv $RPM_BUILD_ROOT/bin/* $RPM_BUILD_ROOT/usr/bin/
+%{__rm} -rf $RPM_BUILD_ROOT/bin
 
 %if %{use_systemd}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
@@ -96,17 +97,25 @@ mv $RPM_BUILD_ROOT/usr/local/bin/* $RPM_BUILD_ROOT/usr/bin/
 
 %files
 %defattr(-,root,root,-)
-/usr/local/bin/redis-benchmark
-/usr/local/bin/redis-check-aof
-/usr/local/bin/redis-check-dump
-/usr/local/bin/redis-cli
-/usr/local/bin/redis-sentinel
-/usr/local/bin/redis-server
+/usr/bin/redis-benchmark
+/usr/bin/redis-check-aof
+/usr/bin/redis-check-dump
+/usr/bin/redis-cli
+/usr/bin/redis-sentinel
+/usr/bin/redis-server
+%dir /usr/share/licenses/redis
+/usr/share/licenses/redis/COPYING
 
 %attr(0755,redis,redis) %config(noreplace) %{_sysconfdir}/redis/redis.conf
 %attr(0755,redis,redis) %config(noreplace) %{_sysconfdir}/redis/sentinel.conf
 %attr(0755,redis,redis) %dir %{_localstatedir}/lib/redis
 %attr(0755,redis,redis) %dir %{_sysconfdir}/redis
+
+%if %{use_systemd}
+%{_unitdir}/redis.service
+%else
+%{_initrddir}/redis
+%endif
 
 %pre
 # Add the "redis" user
