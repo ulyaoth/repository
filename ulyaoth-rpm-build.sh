@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-redis3()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/build-ulyaoth-redis3.sh ; chmod +x build-ulyaoth-redis3.sh ; ./build-ulyaoth-redis3.sh
+}
+
 ulyaoth-ironbee()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ironbee/build-ulyaoth-ironbee.sh ; chmod +x build-ulyaoth-ironbee.sh ; ./build-ulyaoth-ironbee.sh

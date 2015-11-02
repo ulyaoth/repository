@@ -109,6 +109,7 @@ mv $RPM_BUILD_ROOT/bin/* $RPM_BUILD_ROOT/usr/bin/
 %attr(0755,redis,redis) %config(noreplace) %{_sysconfdir}/redis/redis.conf
 %attr(0755,redis,redis) %config(noreplace) %{_sysconfdir}/redis/sentinel.conf
 %attr(0755,redis,redis) %dir %{_localstatedir}/lib/redis
+%attr(0755,redis,adm) %dir %{_localstatedir}/log/redis
 %attr(0755,redis,redis) %dir %{_sysconfdir}/redis
 
 %if %{use_systemd}
@@ -126,6 +127,14 @@ getent passwd %{redis_user} >/dev/null || \
 exit 0
 
 %post
+# Register the redis service
+if [ $1 -eq 1 ]; then
+%if %{use_systemd}
+    /usr/bin/systemctl preset redis.service >/dev/null 2>&1 ||:
+%else
+    /sbin/chkconfig --add redis
+%endif
+    # print site info
 cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -139,6 +148,16 @@ For any additional help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
+
+    # Touch and set permissions on default log files on installation
+
+    if [ -d %{_localstatedir}/log/redis ]; then
+        if [ ! -e %{_localstatedir}/log/redis/redis.log ]; then
+            %{__chmod} 644 %{_localstatedir}/log/redis/redis.log
+            %{__chown} redis:%{redis_loggroup} %{_localstatedir}/log/redis/redis.log
+        fi
+    fi
+fi
 
 %preun
 if [ $1 -eq 0 ]; then
