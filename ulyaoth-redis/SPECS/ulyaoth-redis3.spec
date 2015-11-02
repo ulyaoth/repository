@@ -87,6 +87,7 @@ mv $RPM_BUILD_ROOT/bin/* $RPM_BUILD_ROOT/usr/bin/
 %{__install} -m644 %SOURCE3 \
         $RPM_BUILD_ROOT%{_unitdir}/redis.service
 %else
+sed -i '/#daemonize yes/c\daemonize yes' $RPM_BUILD_ROOT%{_sysconfdir}/redis/redis.conf
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
 %{__install} -m755 %{SOURCE4} \
    $RPM_BUILD_ROOT%{_initrddir}/redis
