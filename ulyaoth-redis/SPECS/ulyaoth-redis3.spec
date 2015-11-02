@@ -28,7 +28,7 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary:    Tomcat native library
-Name:       ulyaoth-redis
+Name:       ulyaoth-redis3
 Version:    3.0.5
 Release:    1%{?dist}
 BuildArch: x86_64
