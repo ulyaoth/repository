@@ -153,6 +153,7 @@ BANNER
 
     if [ -d %{_localstatedir}/log/redis ]; then
         if [ ! -e %{_localstatedir}/log/redis/redis.log ]; then
+		    touch %{_localstatedir}/log/redis/redis.log
             %{__chmod} 644 %{_localstatedir}/log/redis/redis.log
             %{__chown} redis:%{redis_loggroup} %{_localstatedir}/log/redis/redis.log
         fi
