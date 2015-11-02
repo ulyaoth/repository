@@ -1,0 +1,13 @@
+[Unit]
+Description=Redis Server
+After=network.target
+
+[Service]
+Type=daemon
+ExecStart=/usr/bin/redis-server /etc/redis.conf
+ExecStop=/bin/kill -15 $MAINPID
+PIDFile=/var/run/redis.pid
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
