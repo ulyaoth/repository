@@ -1,6 +1,6 @@
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.0.9
+Version: 1.0.10
 Release: 1%{?dist}
 BuildArch: x86_64
 URL: https://www.ulyaoth.net/
@@ -56,6 +56,9 @@ For any additional information or help please visit my forum at:
 BANNER
 
 %changelog
+* Tue Nov 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.10-1
+- Added Fedora 23 Support.
+
 * Sat Oct 31 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.9-1
 - Added Amazon Linux Support.
 
