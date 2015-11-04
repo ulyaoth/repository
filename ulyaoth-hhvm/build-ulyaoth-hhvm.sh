@@ -72,6 +72,9 @@ fi
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y ulyaoth-hhvm*.spec
+elif grep -q -i "release 23" /etc/fedora-release
+then
+dnf builddep -y ulyaoth-hhvm*.spec
 else
 yum-builddep -y ulyaoth-hhvm*.spec
 fi

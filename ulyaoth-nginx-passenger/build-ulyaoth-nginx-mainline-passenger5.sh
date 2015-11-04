@@ -41,6 +41,9 @@ fi
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-passenger5.spec
+elif grep -q -i "release 23" /etc/fedora-release
+then
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-passenger5.spec
 else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-passenger5.spec
 fi

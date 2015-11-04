@@ -11,78 +11,86 @@ if grep -q -i "release 19" /etc/fedora-release
 then
   if [ "$buildarch" != "x86_64" ]
   then
-    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/i686/ulyaoth-1.0.8-1.fc19.i686.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/i686/ulyaoth-1.0.10-1.fc19.i686.rpm
   else
-    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.8-1.fc19.x86_64.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.10-1.fc19.x86_64.rpm
   fi
 elif grep -q -i "release 20" /etc/fedora-release
 then
   if [ "$buildarch" != "x86_64" ]
   then
-    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/i686/ulyaoth-1.0.8-1.fc20.i686.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/i686/ulyaoth-1.0.10-1.fc20.i686.rpm
   else
-    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.8-1.fc20.x86_64.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.10-1.fc20.x86_64.rpm
   fi
 elif grep -q -i "release 21" /etc/fedora-release
 then
   if [ "$buildarch" != "x86_64" ]
   then
-    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/i686/ulyaoth-1.0.8-1.fc21.i686.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/i686/ulyaoth-1.0.10-1.fc21.i686.rpm
   else
-    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.8-1.fc21.x86_64.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.10-1.fc21.x86_64.rpm
   fi
 elif grep -q -i "release 22" /etc/fedora-release
 then
   if [ "$buildarch" != "x86_64" ]
   then
-    dnf install -y https://downloads.ulyaoth.net/rpm/Fedora/i686/ulyaoth-1.0.8-1.fc22.i686.rpm
+    dnf install -y https://downloads.ulyaoth.net/rpm/Fedora/i686/ulyaoth-1.0.10-1.fc22.i686.rpm
   else
-    dnf install -y https://downloads.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.8-1.fc22.x86_64.rpm
+    dnf install -y https://downloads.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.10-1.fc22.x86_64.rpm
+  fi
+elif grep -q -i "release 23" /etc/fedora-release
+then
+  if [ "$buildarch" != "x86_64" ]
+  then
+    dnf install -y https://downloads.ulyaoth.net/rpm/Fedora/i686/ulyaoth-1.0.10-1.fc23.i686.rpm
+  else
+    dnf install -y https://downloads.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.10-1.fc23.x86_64.rpm
   fi
 elif grep -q -i "rhel" /etc/ulyaoth && grep -q -i "release 6" /etc/redhat-release
 then
   if [ "$buildarch" != "x86_64" ]
   then
-    yum install -y https://downloads.ulyaoth.net/rpm/rhel/i686/ulyaoth-1.0.8-1.el6.i686.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/rhel/i686/ulyaoth-1.0.10-1.el6.i686.rpm
   else
-    yum install -y https://downloads.ulyaoth.net/rpm/rhel/x86_64/ulyaoth-1.0.8-1.el6.x86_64.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/rhel/x86_64/ulyaoth-1.0.10-1.el6.x86_64.rpm
   fi  
 elif grep -q -i "rhel" /etc/ulyaoth && grep -q -i "release 7" /etc/redhat-release
 then
-  yum install -y https://downloads.ulyaoth.net/rpm/rhel/x86_64/ulyaoth-1.0.8-1.el7.x86_64.rpm
+  yum install -y https://downloads.ulyaoth.net/rpm/rhel/x86_64/ulyaoth-1.0.10-1.el7.x86_64.rpm
 elif grep -q -i "CentOS" /etc/ulyaoth && grep -q -i "release 6" /etc/centos-release
 then
   if [ "$buildarch" != "x86_64" ]
   then
-    yum install -y https://downloads.ulyaoth.net/rpm/CentOS/i686/ulyaoth-1.0.8-1.el6.i686.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/CentOS/i686/ulyaoth-1.0.10-1.el6.i686.rpm
   else
-    yum install -y https://downloads.ulyaoth.net/rpm/CentOS/x86_64/ulyaoth-1.0.8-1.el6.x86_64.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/CentOS/x86_64/ulyaoth-1.0.10-1.el6.x86_64.rpm
   fi
 elif grep -q -i "CentOS" /etc/ulyaoth && grep -q -i "release 7" /etc/redhat-release
 then
-  yum install -y https://downloads.ulyaoth.net/rpm/CentOS/x86_64/ulyaoth-1.0.8-1.el7.centos.x86_64.rpm
+  yum install -y https://downloads.ulyaoth.net/rpm/CentOS/x86_64/ulyaoth-1.0.10-1.el7.centos.x86_64.rpm
 elif grep -q -i "OracleLinux" /etc/ulyaoth && grep -q -i "release 6" /etc/oracle-release
 then
   if [ "$buildarch" != "x86_64" ]
   then
-    yum install -y https://downloads.ulyaoth.net/rpm/OracleLinux/i686/ulyaoth-1.0.8-1.el6.i686.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/OracleLinux/i686/ulyaoth-1.0.10-1.el6.i686.rpm
   else
-    yum install -y https://downloads.ulyaoth.net/rpm/OracleLinux/x86_64/ulyaoth-1.0.8-1.el6.x86_64.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/OracleLinux/x86_64/ulyaoth-1.0.10-1.el6.x86_64.rpm
   fi
 elif grep -q -i "OracleLinux" /etc/ulyaoth && grep -q -i "release 7" /etc/oracle-release
 then
-  yum install -y https://downloads.ulyaoth.net/rpm/OracleLinux/x86_64/ulyaoth-1.0.8-1.el7.x86_64.rpm
+  yum install -y https://downloads.ulyaoth.net/rpm/OracleLinux/x86_64/ulyaoth-1.0.10-1.el7.x86_64.rpm
 elif grep -q -i "scientific" /etc/ulyaoth && grep -q -i "release 6" /etc/redhat-release
 then
   if [ "$buildarch" != "x86_64" ]
   then
-    yum install -y https://downloads.ulyaoth.net/rpm/scientific/i686/ulyaoth-1.0.8-1.el6.i686.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/scientific/i686/ulyaoth-1.0.10-1.el6.i686.rpm
   else
-    yum install -y https://downloads.ulyaoth.net/rpm/scientific/x86_64/ulyaoth-1.0.8-1.el6.x86_64.rpm
+    yum install -y https://downloads.ulyaoth.net/rpm/scientific/x86_64/ulyaoth-1.0.10-1.el6.x86_64.rpm
   fi
 elif grep -q -i "scientific" /etc/ulyaoth && grep -q -i "release 7" /etc/redhat-release
 then
-  yum install -y https://downloads.ulyaoth.net/rpm/scientific/x86_64/ulyaoth-1.0.8-1.el7.x86_64.rpm
+  yum install -y https://downloads.ulyaoth.net/rpm/scientific/x86_64/ulyaoth-1.0.10-1.el7.x86_64.rpm
 fi
 
 if [ "$buildarch" != "x86_64" ]
@@ -91,6 +99,9 @@ sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-hiawatha.spec
 fi
 
 if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y ulyaoth-hiawatha.spec
+elif grep -q -i "release 23" /etc/fedora-release
 then
 dnf builddep -y ulyaoth-hiawatha.spec
 else

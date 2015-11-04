@@ -20,6 +20,9 @@ fi
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf install -y go golang
+elif grep -q -i "release 23" /etc/fedora-release
+then
+dnf install -y go golang
 else
 yum install -y go golang
 fi
