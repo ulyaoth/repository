@@ -10,20 +10,20 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/
 cd /home/ulyaoth
 if grep -q -i "Fedora release 21" /etc/redhat-release
 then
-su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libgcrypt.so.11.8.2"
+su ulyaoth -c "wget https://downloads.ulyaoth.net/spotify/lib64/libgcrypt.so.11.8.2"
 fi
 if grep -q -i "Fedora release 22" /etc/redhat-release
 then
-su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libgcrypt.so.11.8.2"
+su ulyaoth -c "wget https://downloads.ulyaoth.net/spotify/lib64/libgcrypt.so.11.8.2"
 fi
 if grep -q -i "Fedora release 23" /etc/redhat-release
 then
-su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libgcrypt.so.11.8.2"
+su ulyaoth -c "wget https://downloads.ulyaoth.net/spotify/lib64/libgcrypt.so.11.8.2"
 fi
-su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libcrypto.so.1.0.0"
-su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libssl.so.1.0.0"
-su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libudev.so.0.13.1"
-su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/spotify.desktop"
+su ulyaoth -c "wget https://downloads.ulyaoth.net/spotify/lib64/libcrypto.so.1.0.0"
+su ulyaoth -c "wget https://downloads.ulyaoth.net/spotify/lib64/libssl.so.1.0.0"
+su ulyaoth -c "wget https://downloads.ulyaoth.net/spotify/lib64/libudev.so.0.13.1"
+su ulyaoth -c "wget https://downloads.ulyaoth.net/spotify/spotify.desktop"
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-gnome-support_0.9.17.1.g9b85d43.7-1_all.deb"
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-qt_0.9.17.1.g9b85d43.7-1_all.deb"
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-0.9.17_0.9.17.8.gd06432d.31-1_amd64.deb"
@@ -80,6 +80,7 @@ yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-spotify.spec
 fi
 
 su ulyaoth -c "rpmbuild -ba ulyaoth-spotify.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
