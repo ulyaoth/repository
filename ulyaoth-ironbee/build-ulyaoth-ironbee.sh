@@ -31,6 +31,9 @@ fi
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-ironbee.spec
+elif grep -q -i "release 23" /etc/fedora-release
+then
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-ironbee.spec
 else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-ironbee.spec
 fi

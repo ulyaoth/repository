@@ -36,6 +36,9 @@ fi
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y ulyaoth-monkey.spec
+elif grep -q -i "release 23" /etc/fedora-release
+then
+dnf builddep -y ulyaoth-monkey.spec
 else
 yum-builddep -y ulyaoth-monkey.spec
 fi
