@@ -132,12 +132,12 @@ getent passwd %{spotify_user} >/dev/null || /usr/sbin/useradd --comment "Spotify
 %defattr(-,root,root)
 %dir %{_defaultdocdir}/spotify-client-gnome-support
 %dir %{_defaultdocdir}/spotify-client-qt
-%dir %{_defaultdocdir}/spotify-client
+%dir %{_defaultdocdir}/spotify-client-0.9.17
 %dir %{_datadir}/spotify
 /usr/lib64/*
 %{_defaultdocdir}/spotify-client-gnome-support/*
 %{_defaultdocdir}/spotify-client-qt/*
-%{_defaultdocdir}/spotify-client/*
+%{_defaultdocdir}/spotify-client-0.9.17/*
 %{_bindir}/*
 %{_datadir}/applications/*
 /usr/share/applications/spotify.desktop
