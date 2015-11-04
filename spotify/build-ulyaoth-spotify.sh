@@ -16,13 +16,17 @@ if grep -q -i "Fedora release 22" /etc/redhat-release
 then
 su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libgcrypt.so.11.8.2"
 fi
+if grep -q -i "Fedora release 23" /etc/redhat-release
+then
+su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libgcrypt.so.11.8.2"
+fi
 su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libcrypto.so.1.0.0"
 su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libssl.so.1.0.0"
 su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/lib64/libudev.so.0.13.1"
 su ulyaoth -c "wget https://trash.ulyaoth.net/spotify/spotify.desktop"
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-gnome-support_0.9.17.1.g9b85d43.7-1_all.deb"
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-qt_0.9.17.1.g9b85d43.7-1_all.deb"
-su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client_0.9.17.1.g9b85d43.7-1_amd64.deb"
+su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-0.9.17_0.9.17.8.gd06432d.31-1_amd64.deb"
 
 su ulyaoth -c "ar x spotify-client-gnome-support_0.9.17.1.g9b85d43.7-1_all.deb"
 su ulyaoth -c "tar xvf data.tar.xz"
@@ -30,9 +34,9 @@ su ulyaoth -c "rm -rf control.tar.gz data.tar.xz debian-binary spotify-client-gn
 su ulyaoth -c "ar x spotify-client-qt_0.9.17.1.g9b85d43.7-1_all.deb"
 su ulyaoth -c "tar xvf data.tar.xz"
 su ulyaoth -c "rm -rf control.tar.gz data.tar.xz debian-binary spotify-client-qt_0.9.17.1.g9b85d43.7-1_all.deb"
-su ulyaoth -c "ar x spotify-client_0.9.17.1.g9b85d43.7-1_amd64.deb"
+su ulyaoth -c "ar x spotify-client-0.9.17_0.9.17.8.gd06432d.31-1_amd64.deb"
 su ulyaoth -c "tar xvf data.tar.xz"
-su ulyaoth -c "rm -rf control.tar.gz data.tar.xz debian-binary spotify-client_0.9.17.1.g9b85d43.7-1_amd64.deb"
+su ulyaoth -c "rm -rf control.tar.gz data.tar.xz debian-binary spotify-client-0.9.17_0.9.17.8.gd06432d.31-1_amd64.deb"
 
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/lib64/"
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/applications/"
@@ -75,7 +79,7 @@ else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-spotify.spec
 fi
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-spotify.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-spotify.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/

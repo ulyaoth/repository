@@ -29,7 +29,7 @@ BuildRequires: systemd
 
 Summary: Spotify music player.
 Name: spotify-client
-Version: 0.9.17.1
+Version: 0.9.17.8
 Release: 1%{?dist}
 URL: https://www.spotify.com
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -207,6 +207,9 @@ Please find the official documentation for Spotify here:
 BANNER
 
 %changelog
+* Wed Nov 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.17.8-1
+- Update Spotify to version 0.9.17.8.
+
 * Mon Apr 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.17.1-1
 - Update Spotify version.
 
