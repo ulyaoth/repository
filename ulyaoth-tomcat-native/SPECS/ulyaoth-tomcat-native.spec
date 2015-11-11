@@ -6,7 +6,7 @@
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native
-Version:    1.2.0
+Version:    1.2.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -19,7 +19,7 @@ BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  java-devel
 BuildRequires:  jpackage-utils
-BuildRequires:  apr-devel >= 1.2.1
+BuildRequires:  apr-devel >= 1.4.3
 BuildRequires:  openssl-devel
 
 Provides:  tcnative = %{version}-%{release}
@@ -96,8 +96,8 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
-* Sun Nov 1 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.0-1
-- Updated to Tomcat Native 1.2.0.
+* Wed Nov 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.2-1
+- Updated to Tomcat Native 1.2.2.
 
 * Tue Mar 31 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.1.33-1
 - Updated to Tomcat Native 1.1.33.
