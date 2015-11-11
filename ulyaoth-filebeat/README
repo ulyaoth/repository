@@ -1,0 +1,4 @@
+You can build the rpms by running the build script:
+
+ulyaoth-filebeat:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/build-ulyaoth-filebeat.sh ; chmod +x build-ulyaoth-filebeat.sh ; ./build-ulyaoth-filebeat.sh
