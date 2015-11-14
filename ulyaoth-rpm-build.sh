@@ -54,9 +54,14 @@ ulyaoth-mbedtls()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls.sh ; chmod +x build-ulyaoth-mbedtls.sh ; ./build-ulyaoth-mbedtls.sh
 }
 
-ulyaoth-mbedtls2()
+ulyaoth-mbedtls2.1()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.sh ; chmod +x build-ulyaoth-mbedtls2.sh ; ./build-ulyaoth-mbedtls2.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.1.sh ; chmod +x build-ulyaoth-mbedtls2.1.sh ; ./build-ulyaoth-mbedtls2.1.sh
+}
+
+ulyaoth-mbedtls2.2()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.2.sh ; chmod +x build-ulyaoth-mbedtls2.2.sh ; ./build-ulyaoth-mbedtls2.2.sh
 }
 
 ulyaoth-kibana4()
