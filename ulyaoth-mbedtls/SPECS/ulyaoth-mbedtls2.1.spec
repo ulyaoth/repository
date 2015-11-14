@@ -9,8 +9,8 @@ BuildRequires: pkcs11-helper-devel
 # end of distribution specific definitions
 
 Summary: mbed TLS is an open source and commercial SSL library licensed by ARM Limited.. mbed TLS used to be called PolarSSL,
-Name: ulyaoth-mbedtls
-Version: 1.3.15
+Name: ulyaoth-mbedtls2.1
+Version: 2.1.3
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: ARM Limited.
@@ -27,12 +27,13 @@ BuildRequires: zlib-devel
 BuildRequires: openssl-devel
 
 Provides: mbedtls
-Provides: ulyaoth-mbedtls
+Provides: mbedtls2.1
+Provides: ulyaoth-mbedtls2.1
 
+Obsoletes: ulyaoth-mbedtls
+Conflicts: ulyaoth-mbedtls
 Obsoletes: ulyaoth-mbedtls2
 Conflicts: ulyaoth-mbedtls2
-Obsoletes: ulyaoth-mbedtls2.1
-Conflicts: ulyaoth-mbedtls2.1
 Obsoletes: ulyaoth-mbedtls2.2
 Conflicts: ulyaoth-mbedtls2.2
 
@@ -41,8 +42,8 @@ mbed TLS (formerly known as PolarSSL) makes it trivially easy for developers to 
 
 %prep
 %setup -q -n mbedtls-mbedtls-%{version}
-sed -i 's|//\(#define POLARSSL_THREADING_C\)|\1|' include/polarssl/config.h
-sed -i 's|//\(#define POLARSSL_THREADING_PTHREAD\)|\1|' include/polarssl/config.h
+sed -i 's|//\(#define MBEDTLS_THREADING_C\)|\1|' include/mbedtls/config.h
+sed -i 's|//\(#define MBEDTLS_THREADING_PTHREAD\)|\1|' include/mbedtls/config.h
 
 %build
 %if 0%{?fedora} >= 18
@@ -65,9 +66,9 @@ mv $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libexecdir}/mbedtls
 %defattr(-,root,root)
 
 %{_libexecdir}/mbedtls/*
-%{_includedir}/polarssl/*
+%{_includedir}/mbedtls/*
 %{_libdir}/*
-%dir %{_includedir}/polarssl
+%dir %{_includedir}/mbedtls
 
 %pre
 
@@ -76,7 +77,7 @@ mv $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libexecdir}/mbedtls
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-mbedtls!
+Thanks for using ulyaoth-mbedtls2.1!
 
 Please find the official documentation for mbedtls here:
 * https://tls.mbed.org
@@ -92,24 +93,23 @@ BANNER
 %postun
 
 %changelog
-* Sat Nov 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.15-1
-- Updated to version 1.3.15.
+* Sat Nov 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.3-1
+- Updated to version 2.1.3.
 
-* Sat Oct 24 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.14-1
-- Updated to version 1.3.14.
+* Sun Oct 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.2-1
+- Initial release for version 2.1.2.
 
-* Sun Sep 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.13-1
-- Updated to version 1.3.13.
+* Sun Sep 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.1-1
+- Initial release for version 2.1.1.
 
-* Thu Aug 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.12-1
-- Updated to version 1.3.12.
+* Sat Sep 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.0-1
+- Initial release for version 2.1.0.
 
-* Tue Jun 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.11-2
-- Added "POLARSSL_THREADING_PTHREAD" and "POLARSSL_THREADING_C" to compile options.
-- Support for Hiawatha web server.
+* Thu Aug 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.0.0-3
+- Added obsoletes and conflicts package ulyaoth-mbedtls.
 
-* Sat Jun 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.11-1
-- Updated to version 1.3.11.
+* Fri Aug 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.0.0-2
+- Recompiled with the github fixes for libmbedcrypto.a and libmbedx509.a.
 
-* Sun May 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.10-1
-- Initial release.
+* Tue Jul 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 2.0.0-1
+- Initial release for version 2.0.0.
