@@ -9,15 +9,15 @@ BuildRequires: pkcs11-helper-devel
 # end of distribution specific definitions
 
 Summary: mbed TLS is an open source and commercial SSL library licensed by ARM Limited.. mbed TLS used to be called PolarSSL,
-Name: ulyaoth-mbedtls2
-Version: 2.1.2
+Name: ulyaoth-mbedtls2.2
+Version: 2.2.0
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: ARM Limited.
 URL: https://tls.mbed.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: https://github.com/ARMmbed/mbedtls/archive/mbedtls-2.1.2.tar.gz
+Source0: https://github.com/ARMmbed/mbedtls/archive/mbedtls-%{version}.tar.gz
 
 License: GPLv2 or proprietary
 
@@ -27,11 +27,16 @@ BuildRequires: zlib-devel
 BuildRequires: openssl-devel
 
 Provides: mbedtls
-Provides: mbedtls2
-Provides: ulyaoth-mbedtls2
+Provides: mbedtls2.2
+Provides: ulyaoth-mbedtls2.2
 
 Obsoletes: ulyaoth-mbedtls
 Conflicts: ulyaoth-mbedtls
+Obsoletes: ulyaoth-mbedtls2
+Conflicts: ulyaoth-mbedtls2
+Obsoletes: ulyaoth-mbedtls2.1
+Conflicts: ulyaoth-mbedtls2.1
+
 
 %description
 mbed TLS (formerly known as PolarSSL) makes it trivially easy for developers to include cryptographic and SSL/TLS capabilities in their (embedded) products, facilitating this functionality with a minimal coding footprint.
@@ -73,7 +78,7 @@ mv $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libexecdir}/mbedtls
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-mbedtls2!
+Thanks for using ulyaoth-mbedtls2.2!
 
 Please find the official documentation for mbedtls here:
 * https://tls.mbed.org
@@ -89,20 +94,5 @@ BANNER
 %postun
 
 %changelog
-* Sun Oct 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.2-1
-- Initial release for version 2.1.2.
-
-* Sun Sep 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.1-1
-- Initial release for version 2.1.1.
-
-* Sat Sep 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.0-1
-- Initial release for version 2.1.0.
-
-* Thu Aug 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.0.0-3
-- Added obsoletes and conflicts package ulyaoth-mbedtls.
-
-* Fri Aug 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.0.0-2
-- Recompiled with the github fixes for libmbedcrypto.a and libmbedx509.a.
-
-* Tue Jul 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 2.0.0-1
-- Initial release for version 2.0.0.
+* Sat Nov 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.0-1
+- Initial release for version 2.2.0.
