@@ -16,7 +16,7 @@ URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M1/bin/apache-tomcat-%{version}.M1.tar.gz
-BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRoot:  %{_tmppath}/tomcat-%{version}.M1-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat9
 
@@ -29,7 +29,7 @@ Provides: ulyaoth-tomcat9-admin
 The package contains the official Apache Tomcat "webapps/manager" and "webapps/host-manager" directories.
 
 %prep
-%setup -q -n apache-tomcat-%{version}
+%setup -q -n apache-tomcat-%{version}.M1
 
 %build
 
