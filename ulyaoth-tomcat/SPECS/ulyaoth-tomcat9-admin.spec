@@ -6,8 +6,8 @@
 %define tomcat_user tomcat
 
 Summary:    Apache Servlet/JSP Engine
-Name:       ulyaoth-tomcat8-admin
-Version:    8.0.29
+Name:       ulyaoth-tomcat9-admin
+Version:    9.0.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -15,15 +15,15 @@ Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-8/v%{version}/bin/apache-tomcat-%{version}.tar.gz
+Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M1/bin/apache-tomcat-%{version}.M1.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires: ulyaoth-tomcat8
+Requires: ulyaoth-tomcat9
 
 Provides: tomcat-admin
 Provides: apache-tomcat-admin
 Provides: ulyaoth-tomcat-admin
-Provides: ulyaoth-tomcat8-admin
+Provides: ulyaoth-tomcat9-admin
 
 %description
 The package contains the official Apache Tomcat "webapps/manager" and "webapps/host-manager" directories.
@@ -66,7 +66,7 @@ cp -R * %{buildroot}/%{tomcat_home}/
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-tomcat8-admin!
+Thanks for using ulyaoth-tomcat9-admin!
 
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
@@ -78,43 +78,5 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
-* Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.29-1
-- Updated to Tomcat 8.0.29.
-
-* Sat Oct 24 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.28-1
-- Updated to Tomcat 8.0.28.
-
-* Mon Oct 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.27-1
-- Updated to Tomcat 8.0.27.
-
-* Sun Aug 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.26-1
-- Updated to Tomcat 8.0.26.
-
-* Thu Jul 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.24-1
-- Updated to Tomcat 8.0.24.
-
-* Wed Jun 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.23-1
-- Update to Tomcat 8.0.23.
-
-* Thu May 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.22-1
-- Update to Tomcat 8.0.22.
-
-* Tue Mar 31 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.21-1
-- Update to Tomcat 8.0.21.
-
-* Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-3
-- Support for Oracle Linux 6 & 7.
-
-* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-2
-- Removal of some things from spec file.
-- Support for Fedora 22 and CentOS 6 & 7.
-- i386 Support.
-
-* Wed Feb 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-1
-- Update to tomcat 8.0.20.
-
-* Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.18-1
-- Update to tomcat 8.0.18.
-
-* Mon Nov 17 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.15-1
-- Creating separate package for the admin interface.
+* Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-1
+- Initial release for Tomcat 9.0.0.M1.

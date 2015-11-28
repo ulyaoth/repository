@@ -38,8 +38,8 @@ BuildRequires: systemd-devel
 
 Summary: Hiawatha is an open source webserver with a focus on security.
 Name: ulyaoth-hiawatha
-Version: 9.15
-Release: 3%{?dist}
+Version: 10.0
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Hiawatha.
 URL: https://www.hiawatha-webserver.org/
@@ -246,6 +246,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.0-1
+- Updated to Hiawatha 10.0.
+
 * Sun Nov 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.15-3
 - Fix for dependency error.
 
