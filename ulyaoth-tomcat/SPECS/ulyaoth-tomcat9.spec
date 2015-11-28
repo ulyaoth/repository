@@ -29,8 +29,8 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary:    Apache Servlet/JSP Engine
-Name:       ulyaoth-tomcat8
-Version:    8.0.29
+Name:       ulyaoth-tomcat9
+Version:    9.0.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -38,7 +38,7 @@ Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-8/v%{version}/bin/apache-tomcat-%{version}.tar.gz
+Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M1/bin/apache-tomcat-%{version}.M1.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.logrotate
@@ -47,7 +47,7 @@ BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 Provides: tomcat
 Provides: apache-tomcat
 Provides: ulyaoth-tomcat
-Provides: ulyaoth-tomcat8
+Provides: ulyaoth-tomcat9
 
 %description
 Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. The Java Servlet and JavaServer Pages specifications are developed under the Java Community Process.
@@ -135,7 +135,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-tomcat8!
+Thanks for using ulyaoth-tomcat9!
 
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
@@ -167,56 +167,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.29-1
-- Updated to Tomcat 8.0.29.
-
-* Sat Oct 24 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.28-1
-- Updated to Tomcat 8.0.28.
-
-* Mon Oct 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.27-1
-- Updated to Tomcat 8.0.27.
-
-* Sun Aug 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.26-1
-- Updated to Tomcat 8.0.26.
-
-* Thu Jul 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.24-1
-- Updated to Tomcat 8.0.24.
-
-* Wed Jun 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.23-1
-- Update to Tomcat 8.0.23.
-
-* Thu May 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.22-1
-- Update to Tomcat 8.0.22.
-
-* Tue Mar 31 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.21-1
-- Update to Tomcat 8.0.21.
-
-* Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-3
-- Support for Oracle Linux 6 & 7.
-
-* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-2
-- Removal of some things from spec file.
-- Support for Fedora 22 and CentOS 6 & 7.
-- i386 Support.
-
-* Wed Feb 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-1
-- Update to Tomcat 8.0.20.
-
-* Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.18-1
-- Update to Tomcat 8.0.18.
-
-* Tue Nov 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.15-2
-- New rpms contain from now on a empty webapps dir, see new packages for admin interface.
-
-* Thu Nov 13 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.15-1
-- Update to Tomcat 8.0.15.
-
-* Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.14-1
-- Support for Fedora 21.
-- Update to Tomcat 8.0.14.
-
-* Tue Sep 16 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.12-1
-- Creating spec for Tomcat 8.0.12.
-- Used nginx spec file as basis.
-- Original spec taken from: https://github.com/nmilford/rpm-tomcat7/blob/master/tomcat7.spec
-- Changing structure slightly
+* Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-1
+- Initial release for Tomcat 9.0.0.M1.
