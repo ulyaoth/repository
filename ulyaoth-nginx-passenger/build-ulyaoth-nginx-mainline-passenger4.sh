@@ -59,7 +59,7 @@ tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-mainline-passenger4.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-passenger4.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
