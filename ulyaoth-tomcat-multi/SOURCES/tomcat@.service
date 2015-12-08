@@ -1,0 +1,24 @@
+# Systemd unit file for tomcat instances.
+#
+# To create clones of this service:
+# 0. run the "tomcat-multi" command
+# Example: tomcat-multi -v 8 -o enable -n ulyaoth
+# This would create a instance for tomcat version 8 named ulyaoth.
+# You can then start it with "systemctl start tomcat@ulyaoth.service."
+
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=syslog.target network.target
+
+[Service]
+Type=simple
+Environment="NAME=%I"
+EnvironmentFile=-/etc/sysconfig/tomcat@%I
+ExecStart=/usr/libexec/tomcat/server start
+ExecStop=/usr/libexec/tomcat/server stop
+SuccessExitStatus=143
+User=tomcat
+Group=tomcat
+
+[Install]
+WantedBy=multi-user.target
