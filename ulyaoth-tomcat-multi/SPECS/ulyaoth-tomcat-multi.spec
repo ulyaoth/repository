@@ -12,7 +12,10 @@ Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    
+Source0:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/functions
+Source1:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/preamble
+Source2:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/server
+Source3:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/tomcat%40.service
 BuildRoot:  %{_tmppath}/tomcat-multi-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-jsvc
