@@ -9,10 +9,13 @@ Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
-URL:        http://tomcat.apache.org/
-Vendor:     Apache Software Foundation
+URL:        https://www.ulyaoth.net
+Vendor:     Ulyaoth
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    
+Source0:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/functions
+Source1:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/preamble
+Source2:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/server
+Source3:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/tomcat%40.service
 BuildRoot:  %{_tmppath}/tomcat-multi-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-jsvc
@@ -29,19 +32,35 @@ This rpm is based on the scripts that Fedora 23 provides for their tomcat but ch
 %build
 
 %install
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/libexec/tomcat
 
+%{__install} -m 644 -p %{SOURCE0} \
+   $RPM_BUILD_ROOT/usr/libexec/tomcat/functions
+%{__install} -m 755 -p %{SOURCE1} \
+   $RPM_BUILD_ROOT/usr/libexec/tomcat/preamble
+%{__install} -m 755 -p %{SOURCE2} \
+   $RPM_BUILD_ROOT/usr/libexec/tomcat/server
 
+%if %{use_systemd}
+# install systemd-specific files
+%{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
+%{__install} -m644 %SOURCE3 \
+        $RPM_BUILD_ROOT%{_unitdir}/tomcat@.service
+%endif
+   
+ 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc CHANGELOG.txt LICENSE NOTICE TODO.txt
-%ifarch x86_64
-/usr/lib64/libtcnative*.so*
-%endif
-/usr/lib/libtcnative*.so*
+/usr/libexec/tomcat/functions
+/usr/libexec/tomcat/preamble
+/usr/libexec/tomcat/server
 
+%if %{use_systemd}
+%{_unitdir}/tomcat.service
+%endif
 
 %post
 cat <<BANNER
