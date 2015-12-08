@@ -1,0 +1,5 @@
+How to create a package:
+
+ulyaoth-tomcat-multi:
+
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/build-ulyaoth-tomcat-multi.sh ; chmod +x build-ulyaoth-tomcat-multi.sh ; ./build-ulyaoth-tomcat-multi.sh
