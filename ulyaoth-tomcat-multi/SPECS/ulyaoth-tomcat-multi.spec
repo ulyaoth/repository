@@ -42,7 +42,9 @@ Source3:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tom
 Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/tomcat-multi
 BuildRoot:  %{_tmppath}/tomcat-multi-%{version}-%{release}-root-%(%{__id_u} -n)
 
+%if %{use_systemd}
 Requires: ulyaoth-jsvc
+%endif
 
 Provides: ulyaoth-tomcat-multi
 Provides: tomcat-multi
@@ -86,7 +88,7 @@ This rpm is based on the scripts that Fedora 23 provides for their tomcat but ch
 /usr/bin/tomcat-multi
 
 %if %{use_systemd}
-%{_unitdir}/tomcat.service
+%{_unitdir}/tomcat@.service
 /usr/libexec/tomcat/functions
 /usr/libexec/tomcat/preamble
 /usr/libexec/tomcat/server
