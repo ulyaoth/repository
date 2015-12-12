@@ -57,6 +57,7 @@ This rpm is based on the scripts that Fedora 23 provides for their tomcat but ch
 
 %install
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/libexec/tomcat
+%{__mkdir} -p $RPM_BUILD_ROOT/var/lib/tomcat
 
 %{__install} -m 644 -p %{SOURCE0} \
    $RPM_BUILD_ROOT/usr/libexec/tomcat/functions
@@ -81,6 +82,7 @@ This rpm is based on the scripts that Fedora 23 provides for their tomcat but ch
 /usr/libexec/tomcat/functions
 /usr/libexec/tomcat/preamble
 /usr/libexec/tomcat/server
+%dir /var/lib/tomcat
 
 %if %{use_systemd}
 %{_unitdir}/tomcat.service
