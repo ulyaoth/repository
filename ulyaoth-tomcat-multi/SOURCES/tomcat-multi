@@ -1,7 +1,8 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
 # Argument = -o (option .i.e create, remove)
-# Argument = -n (name of new tomcat instance .i.e ulyaoth)
+# Argument = -n (name of the new tomcat instance .i.e ulyaoth)
+# Argument = -u (optional: user that will run tomcat .i.e ulyaoth, default is tomcat)
 
 usage()
 {
@@ -11,7 +12,8 @@ usage: $0 options
 OPTIONS:
    -h  Shows this help information
    -o  Option (.i.e create, remove)
-   -n  name ofa new tomcat instance (.i.e ulyaoth)
+   -n  name of the new tomcat instance (.i.e ulyaoth)
+   -u  optional: user that will run tomcat (.i.e ulyaoth) (default is tomcat)
 EOF
 }
 
@@ -25,7 +27,7 @@ export TOMCAT_CFG_LOADED=1
 export CATALINA_HOME="/opt/tomcat"
 export CATALINA_BASE="/var/lib/tomcats/${name}"
 export CATALINA_TMPDIR="/var/lib/tomcats/${name}/temp"
-export TOMCAT_USER="tomcat"
+export TOMCAT_USER="${user}"
 export CATALINA_PID="/var/lib/tomcats/${name}/pid/tomcat.pid"
 EOF
 
@@ -160,16 +162,19 @@ sed -i s/ULYAOTH/${name}/g /etc/init.d/tomcat-${name} &>/dev/null
 chmod +x /etc/init.d/tomcat-${name}
 chkconfig tomcat-${name} on
 else
-systemctl enable tomcat@${name}.service
-
 cat >/etc/sysconfig/tomcat@${name} <<EOF
 TOMCAT_CFG_LOADED=1
 CATALINA_HOME="/opt/tomcat"
 CATALINA_BASE="/var/lib/tomcats/${name}"
 CATALINA_TMPDIR="/var/lib/tomcats/${name}/temp"
-TOMCAT_USER="tomcat"
+TOMCAT_USER="${user}"
 CATALINA_PID="/var/lib/tomcats/${name}/pid/tomcat.pid"
 EOF
+
+systemctl enable tomcat@${name}.service &>/dev/null
+
+sed -i s/User=tomcat/User=${user}/g /etc/systemd/system/multi-user.target.wants/tomcat@${name}.service &>/dev/null
+systemctl daemon-reload
 fi
 
 mkdir -p /var/log/tomcat/${name}
@@ -180,8 +185,8 @@ mkdir -p /var/lib/tomcats/${name}/webapps
 mkdir -p /var/lib/tomcats/${name}/pid
 ln -s /var/log/tomcat/${name} /var/lib/tomcats/${name}/logs
 cp -rf /opt/tomcat/conf /var/lib/tomcats/${name}/
-chown -R tomcat:tomcat /var/log/tomcat/${name}
-chown -R tomcat:tomcat /var/lib/tomcats/${name}
+chown -R ${user}:${user} /var/log/tomcat/${name}
+chown -R ${user}:${user} /var/lib/tomcats/${name}
 
 }
 
@@ -190,13 +195,16 @@ remove()
 {
 if grep -q -i "release 6" /etc/redhat-release
 then
-chkconfig tomcat-${name} off
-rm -rf /etc/init.d/tomcat-${name}
+/etc/init.d/tomcat-${name} stop &>/dev/null
+chkconfig tomcat-${name} off &>/dev/null
+rm -rf /etc/init.d/tomcat-${name} &>/dev/null
 else
-systemctl disable tomcat@${name}.service
+systemctl stop tomcat@${name}.service &>/dev/null
+systemctl disable tomcat@${name}.service &>/dev/null
 fi
 
 rm -rf /var/lib/tomcats/${name}
+rm -rf /var/log/tomcat/${name}
 rm -rf /etc/sysconfig/tomcat@${name}
 
 }
@@ -204,8 +212,9 @@ rm -rf /etc/sysconfig/tomcat@${name}
 
 
 name=
+user=tomcat
 
-while getopts h:o:n: opt; do
+while getopts h:o:n:u: opt; do
 case $opt in
 h)
   usage
@@ -216,7 +225,25 @@ o)
 n)
   name=$OPTARG
 ;;
+u)
+  user=$OPTARG
+;;
 esac
 done
 
 $option
+
+if [ "$option" == "create" ]
+then
+  create
+echo "Your tomcat instance has been successfully created."
+exit 1
+elif [ "$option" == "remove" ]
+then
+remove
+  echo "Your tomcat instance has been successfully removed."
+exit 1
+else
+  usage
+exit 1
+fi
