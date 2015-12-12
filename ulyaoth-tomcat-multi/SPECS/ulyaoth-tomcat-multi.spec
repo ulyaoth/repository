@@ -113,5 +113,5 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
-* Tue Dec 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.0-1
+* Sun Dec 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.0-1
 - Initial release.
