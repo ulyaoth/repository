@@ -2,6 +2,29 @@
 %define tomcat_group tomcat
 %define tomcat_user tomcat
 
+# distribution specific definitions
+%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
+
+%if 0%{?rhel}  == 6
+Requires(pre): shadow-utils
+Requires: initscripts >= 8.36
+Requires(post): chkconfig
+%endif
+
+%if 0%{?rhel}  == 7
+Requires(pre): shadow-utils
+Requires: systemd
+BuildRequires: systemd
+%endif
+
+%if 0%{?fedora} >= 18
+Requires(pre): shadow-utils
+Requires: systemd
+BuildRequires: systemd
+%endif
+
+# end of distribution specific definitions
+
 Summary:    Tomcat multiple instances
 Name:       ulyaoth-tomcat-multi
 Version:    1.0.0
@@ -20,7 +43,8 @@ BuildRoot:  %{_tmppath}/tomcat-multi-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-jsvc
 
-Provides:  ulyaoth-tomcat-multi
+Provides: ulyaoth-tomcat-multi
+Provides: tomcat-multi
 
 %description
 This module adds all the scripts to a server so you can use a ulyaoth tomcat installation with multiple instances.
@@ -33,6 +57,7 @@ This rpm is based on the scripts that Fedora 23 provides for their tomcat but ch
 
 %install
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/libexec/tomcat
+%{__mkdir} -p $RPM_BUILD_ROOT/var/lib/tomcat
 
 %{__install} -m 644 -p %{SOURCE0} \
    $RPM_BUILD_ROOT/usr/libexec/tomcat/functions
@@ -57,6 +82,7 @@ This rpm is based on the scripts that Fedora 23 provides for their tomcat but ch
 /usr/libexec/tomcat/functions
 /usr/libexec/tomcat/preamble
 /usr/libexec/tomcat/server
+%dir /var/lib/tomcat
 
 %if %{use_systemd}
 %{_unitdir}/tomcat.service
