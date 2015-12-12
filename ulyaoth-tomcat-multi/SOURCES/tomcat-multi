@@ -20,6 +20,15 @@ create()
 {
 if grep -q -i "release 6" /etc/redhat-release
 then
+cat >/etc/sysconfig/tomcat@${name} <<EOF
+export TOMCAT_CFG_LOADED=1
+export CATALINA_HOME="/opt/tomcat"
+export CATALINA_BASE="/var/lib/tomcats/${name}"
+export CATALINA_TMPDIR="/var/lib/tomcats/${name}/temp"
+export TOMCAT_USER="tomcat"
+export CATALINA_PID="/var/lib/tomcats/${name}/pid/tomcat.pid"
+EOF
+
 cat <<'EOF' >> /etc/init.d/tomcat-${name}
 #!/bin/bash
 #
@@ -28,17 +37,15 @@ cat <<'EOF' >> /etc/init.d/tomcat-${name}
 # chkconfig: - 80 20
 #
 ### BEGIN INIT INFO
-# Provides: tomcat-${name}
+# Provides: tomcat-ULYAOTH
 # Required-Start: $network $syslog
 # Required-Stop: $network $syslog
 # Default-Start:
 # Default-Stop:
-# Short-Description: start and stop tomcat-${name}
+# Short-Description: start and stop tomcat-ULYAOTH
 ### END INIT INFO
 
-export CATALINA_HOME=/opt/tomcat  
-export CATALINA_BASE=/var/lib/tomcat/${name}
-export TOMCAT_USER=tomcat
+source /etc/sysconfig/tomcat@ULYAOTH
  
 #TOMCAT_USAGE is the message if this script is called without any options
 TOMCAT_USAGE="Usage: $0 {\e[00;32mstart\e[00m|\e[00;31mstop\e[00m|\e[00;31mkill\e[00m|\e[00;32mstatus\e[00m|\e[00;31mrestart\e[00m}"
@@ -149,6 +156,7 @@ esac
 exit 0
 EOF
 
+sed -i s/ULYAOTH/${name}/g /etc/init.d/tomcat-${name} &>/dev/null
 chmod +x /etc/init.d/tomcat-${name}
 chkconfig tomcat-${name} on
 else
