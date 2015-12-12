@@ -39,6 +39,7 @@ Source0:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-
 Source1:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/preamble
 Source2:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/server
 Source3:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/tomcat%40.service
+Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/tomcat-multi
 BuildRoot:  %{_tmppath}/tomcat-multi-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-jsvc
@@ -57,35 +58,38 @@ This rpm is based on the scripts that Fedora 23 provides for their tomcat but ch
 
 %install
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/libexec/tomcat
-%{__mkdir} -p $RPM_BUILD_ROOT/var/lib/tomcatS
+%{__mkdir} -p $RPM_BUILD_ROOT/var/lib/tomcats
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/bin
 
+%if %{use_systemd}
+# install systemd-specific files
+%{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m 644 -p %{SOURCE0} \
    $RPM_BUILD_ROOT/usr/libexec/tomcat/functions
 %{__install} -m 755 -p %{SOURCE1} \
    $RPM_BUILD_ROOT/usr/libexec/tomcat/preamble
 %{__install} -m 755 -p %{SOURCE2} \
    $RPM_BUILD_ROOT/usr/libexec/tomcat/server
-
-%if %{use_systemd}
-# install systemd-specific files
-%{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m644 %SOURCE3 \
         $RPM_BUILD_ROOT%{_unitdir}/tomcat@.service
 %endif
-   
+
+ %{__install} -m755 %SOURCE4 \
+        $RPM_BUILD_ROOT/usr/bin/tomcat-multi 
  
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-/usr/libexec/tomcat/functions
-/usr/libexec/tomcat/preamble
-/usr/libexec/tomcat/server
 %dir /var/lib/tomcats
+/usr/bin/tomcat-multi
 
 %if %{use_systemd}
 %{_unitdir}/tomcat.service
+/usr/libexec/tomcat/functions
+/usr/libexec/tomcat/preamble
+/usr/libexec/tomcat/server
 %endif
 
 %post
