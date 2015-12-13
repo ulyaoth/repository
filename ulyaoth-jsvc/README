@@ -1,0 +1,2 @@
+ulyaoth-jsvc:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-jsvc/build-ulyaoth-jsvc.sh ; chmod +x build-ulyaoth-jsvc.sh ; ./build-ulyaoth-jsvc.sh
