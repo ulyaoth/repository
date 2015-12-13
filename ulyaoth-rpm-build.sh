@@ -264,6 +264,11 @@ ulyaoth-tengine-development-selinux()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-ulyaoth-tengine-development-selinux.sh ; chmod +x build-ulyaoth-tengine-development-selinux.sh ; ./build-ulyaoth-tengine-development-selinux.sh
 }
 
+ulyaoth-jsvc()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-jsvc/SPEC/ulyaoth-jsvc.spec ; chmod +x build-ulyaoth-jsvc.sh ; ./build-ulyaoth-jsvc.sh
+}
+
 # Move package to repository server
 scppackage()
 {
