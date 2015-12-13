@@ -69,6 +69,11 @@ ulyaoth-kibana4()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/build-ulyaoth-kibana4.sh ; chmod +x build-ulyaoth-kibana4.sh ; ./build-ulyaoth-kibana4.sh
 }
 
+ulyaoth-tomcat-multi()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/build-ulyaoth-tomcat-multi.sh ; chmod +x build-ulyaoth-tomcat-multi.sh ; ./build-ulyaoth-tomcat-multi.sh
+}
+
 ulyaoth-tomcat-native()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-native/build-ulyaoth-tomcat-native.sh ; chmod +x build-ulyaoth-tomcat-native.sh ; ./build-ulyaoth-tomcat-native.sh

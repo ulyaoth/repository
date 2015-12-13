@@ -20,7 +20,7 @@ EOF
 #Create the instance
 create()
 {
-if grep -q -i "release 6" /etc/redhat-release
+if grep -q -i "release 6" /etc/redhat-release &>/dev/null || grep -q -i "Amazon" /etc/system-release &>/dev/null
 then
 cat >/etc/sysconfig/tomcat@${name} <<EOF
 export TOMCAT_CFG_LOADED=1
@@ -193,7 +193,7 @@ chown -R ${user}:${user} /var/lib/tomcats/${name}
 #Remove the instance
 remove()
 {
-if grep -q -i "release 6" /etc/redhat-release
+if grep -q -i "release 6" /etc/redhat-release &>/dev/null || grep -q -i "Amazon" /etc/system-release &>/dev/null
 then
 /etc/init.d/tomcat-${name} stop &>/dev/null
 chkconfig tomcat-${name} off &>/dev/null
