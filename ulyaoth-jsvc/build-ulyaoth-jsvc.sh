@@ -5,7 +5,7 @@ useradd ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-jsvc/SPECS/ulyaoth-jsvc.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-jsvc/SPEC/ulyaoth-jsvc.spec"
 
 if [ "$arch" != "x86_64" ]
 then
