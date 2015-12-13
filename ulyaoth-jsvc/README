@@ -1,4 +1,4 @@
 How to create a package:
 
 ulyaoth-jsvc:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-jsvc/SPEC/ulyaoth-jsvc.spec ; chmod +x build-ulyaoth-jsvc.sh ; ./build-ulyaoth-jsvc.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-jsvc/build-ulyaoth-jsvc.sh ; chmod +x build-ulyaoth-jsvc.sh ; ./build-ulyaoth-jsvc.sh
