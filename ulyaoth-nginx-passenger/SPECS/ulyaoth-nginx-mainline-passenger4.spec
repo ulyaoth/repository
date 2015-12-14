@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.9.7
+%define nginx_version 1.9.9
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
@@ -41,7 +41,7 @@ BuildRequires: systemd
 Summary: High performance web server / Phusion Passenger web & app
 Name: ulyaoth-nginx-mainline-passenger4
 Version: 4.0.59
-Release: 10%{?dist}
+Release: 11%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc. / Phusion
 URL: https://www.phusionpassenger.com/
@@ -391,6 +391,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Dec 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.0.59-11
+- Update to Nginx Mainline 1.9.9.
+
 * Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.0.59-10
 - Update to Nginx Mainline 1.9.7.
 
