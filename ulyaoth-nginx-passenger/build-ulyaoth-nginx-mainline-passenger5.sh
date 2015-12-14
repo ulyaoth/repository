@@ -23,9 +23,9 @@ cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SPECS/ulyaoth-nginx-mainline-passenger5.spec"
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
-wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.21.tar.gz
-tar xvf passenger-5.0.21.tar.gz
-mv passenger-5.0.21 passenger
+wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.22.tar.gz
+tar xvf passenger-5.0.22.tar.gz
+mv passenger-5.0.22 passenger
 rm -rf /etc/nginx/modules/passenger/packaging
 tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
