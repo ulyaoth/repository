@@ -1,10 +1,10 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
 # Argument = -l (lists all supported versions)
-# Argument = -b (branch .i.e 3.10)
-# Argument = -v (version .i.e 3.10.1)
+# Argument = -b (branch .i.e 3.11)
+# Argument = -v (version .i.e 3.11.0)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2015/10/25
+# Last Edit By: Sjir Bagmeijer - 2015/12/15
 # https://www.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
@@ -202,7 +202,7 @@ arraychecker() {
 hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
-supportedbranches=('3.3' '3.6' '3.9' '3.10')
+supportedbranches=('3.3' '3.6' '3.9' '3.11')
 supportedversions=('3.11.0' '3.8.1' '3.8.0' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
