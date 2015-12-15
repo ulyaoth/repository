@@ -52,7 +52,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/
 elif [ "$hhvmbranchversion" == "3.9" ]
 then
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.9.spec"
-elif [ "$hhvmbranchversion" == "3.10" ]
+elif [ "$hhvmbranchversion" == "3.11" ]
 then
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
 fi
@@ -80,7 +80,7 @@ yum-builddep -y ulyaoth-hhvm*.spec
 fi
 
 # HHVM 3.10 Requires ocaml 4.01 or higher.
-if [ "$hhvmbranchversion" == "3.10" ]
+if [ "$hhvmbranchversion" == "3.11" ]
 then
   if grep -q -i "release 19" /etc/fedora-release
   then
@@ -113,7 +113,7 @@ su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.6.spec -g -R"
 elif [ "$hhvmbranchversion" == "3.9" ]
 then
 su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.9.spec -g -R"
-elif [ "$hhvmbranchversion" == "3.10" ]
+elif [ "$hhvmbranchversion" == "3.11" ]
 then
 su ulyaoth -c "spectool ulyaoth-hhvm.spec -g -R"
 fi
@@ -132,9 +132,9 @@ su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.6.spec"
 elif [ "$hhvmbranchversion" == "3.9" ]
 then
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.9.spec"
-elif [ "$hhvmbranchversion" == "3.10" ]
+elif [ "$hhvmbranchversion" == "3.11" ]
 then
-su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -ba ulyaoth-hhvm.spec"
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm.spec"
 fi
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
@@ -155,9 +155,8 @@ cd /root
 availablehhvmversions()
 {
 cat <<EOF
-Branch 3.10 versions supported:
-* 3.10.1
-* 3.10.0
+Branch 3.11 versions supported:
+* 3.11.0
 
 Branch 3.9 versions supported: (LTS build)
 * 3.9.1
@@ -204,7 +203,7 @@ hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
 supportedbranches=('3.3' '3.6' '3.9' '3.10')
-supportedversions=('3.10.1' '3.10.0' '3.8.1' '3.8.0' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+supportedversions=('3.11.0' '3.8.1' '3.8.0' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
