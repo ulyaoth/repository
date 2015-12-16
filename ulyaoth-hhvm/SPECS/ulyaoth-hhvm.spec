@@ -86,6 +86,7 @@ BuildRequires: fribidi-devel
 BuildRequires: gmp-devel
 BuildRequires: fastlz-devel
 BuildRequires: gperf
+BuildRequires: libatomic
 
 Provides: hhvm
 Provides: ulyaoth-hhvm
