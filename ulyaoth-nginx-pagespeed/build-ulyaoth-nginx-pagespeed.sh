@@ -10,7 +10,6 @@ if grep -q -i "release 6" /etc/redhat-release
 then
 wget -O /etc/yum.repos.d/slc6-devtoolset.repo http://linuxsoft.cern.ch/cern/devtoolset/slc6-devtoolset.repo
 yum install devtoolset-2 -y --nogpg
-yum install devtoolset-2-gcc devtoolset-2-gcc-c++ -y --nogpg
 fi
 
 if grep -q -i "release 6" /etc/redhat-release
