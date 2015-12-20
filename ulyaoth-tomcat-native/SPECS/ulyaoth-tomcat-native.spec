@@ -1,4 +1,3 @@
-
 %define debug_package %{nil}
 %define tomcat_home /opt/tomcat
 %define tomcat_group tomcat
@@ -6,7 +5,7 @@
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native
-Version:    1.2.2
+Version:    1.1.34
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -14,12 +13,12 @@ Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-connectors/native/%{version}/source/tomcat-native-%{version}-src.tar.gz
+Source0:    tomcat-native-%{version}-src.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  java-devel
 BuildRequires:  jpackage-utils
-BuildRequires:  apr-devel >= 1.4.3
+BuildRequires:  apr-devel >= 1.2.1
 BuildRequires:  openssl-devel
 
 Provides:  tcnative = %{version}-%{release}
@@ -44,7 +43,7 @@ f=CHANGELOG.txt ; iconv -f iso-8859-1 -t utf-8 $f > $f.utf8 ; mv $f.utf8 $f
 
 
 %build
-cd native
+cd jni/native
 %configure \
     --with-apr=%{_bindir}/apr-1-config \
 	--with-ssl=yes \
@@ -55,7 +54,7 @@ make %{?_smp_mflags}
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
-make -C native install DESTDIR=$RPM_BUILD_ROOT
+make -C jni/native install DESTDIR=$RPM_BUILD_ROOT
 %{__rm} -f $RPM_BUILD_ROOT/usr/lib64/libtcnative*.*a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib64/pkgconfig
 %{__rm} -f $RPM_BUILD_ROOT/usr/lib/libtcnative*.*a
@@ -87,7 +86,7 @@ cat <<BANNER
 Thanks for using ulyaoth-tomcat-native!
 
 Please find the official documentation for tomcat here:
-* http://tomcat.apache.org/
+* http://tomcat.apache.org/download-native.cgi
 
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
@@ -96,8 +95,8 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
-* Wed Nov 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.2-1
-- Updated to Tomcat Native 1.2.2.
+* Sun Dec 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.34-1
+- Updated to Tomcat Native 1.1.34.
 
 * Tue Mar 31 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.1.33-1
 - Updated to Tomcat Native 1.1.33.
