@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: High performance web server compiled with pagespeed.
 Name: ulyaoth-nginx-pagespeed
-Version: 1.10.33.0
+Version: 1.10.33.2
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -127,6 +127,7 @@ Not stripped version of nginx built with the debugging log support and compiled 
         --with-http_auth_request_module \
 	    --with-http_geoip_module \
 		--add-module=/etc/nginx/modules/pagespeed \
+		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -168,6 +169,7 @@ make %{?_smp_mflags}
         --with-http_auth_request_module \
 	    --with-http_geoip_module \
 		--add-module=/etc/nginx/modules/pagespeed \
+		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -363,8 +365,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Dec 17 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.33.0-1
-- Updating to Pagespeed v1.10.33.0-beta.
+* Sun Dec 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.33.2-1
+- Updating to Pagespeed v1.10.33.2-beta.
 
 * Sun Oct 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.32.10-1
 - Updating to Pagespeed v1.9.32.10-beta.
