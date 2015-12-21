@@ -3,6 +3,9 @@ You can build the RPMs by running the build script:
 ulyaoth-nginx-naxsi:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-naxsi.sh ; chmod +x build-ulyaoth-nginx-naxsi.sh ; ./build-ulyaoth-nginx-naxsi.sh
 
+ulyaoth-nginx-mainline-naxsi:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-mainline-naxsi.sh ; chmod +x build-ulyaoth-nginx-mainline-naxsi.sh ; ./build-ulyaoth-nginx-mainline-naxsi.sh
+
 ulyaoth-nginx-naxsi-masterbuild:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-naxsi-masterbuild.sh ; chmod +x build-ulyaoth-nginx-naxsi-masterbuild.sh ; ./build-ulyaoth-nginx-naxsi-masterbuild.sh
 
