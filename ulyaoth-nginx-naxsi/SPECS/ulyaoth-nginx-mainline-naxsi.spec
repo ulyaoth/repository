@@ -39,7 +39,7 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary: Nginx Anti Xss & Sql Injection.
-Name: ulyaoth-nginx-mainline-naxsi-masterbuild
+Name: ulyaoth-nginx-mainline-naxsi
 Version: 0.54
 Release: 1%{?dist}
 BuildArch: x86_64
@@ -76,11 +76,11 @@ Requires: GeoIP
 Provides: webserver
 Provides: nginx
 Provides: nginx-mainline
-Provides: nginx-mainline-naxsi-masterbuild
+Provides: nginx-mainline-naxsi
 Provides: ulyaoth-nginx
-Provides: ulyaoth-nginx-naxsi-masterbuild
+Provides: ulyaoth-nginx-naxsi
 Provides: ulyaoth-nginx-mainline
-Provides: ulyaoth-nginx-mainline-naxsi-masterbuild
+Provides: ulyaoth-nginx-mainline-naxsi
 
 %description
 Naxsi behaves like a DROP-by-default firewall, the only job needed is to add required ACCEPT rules for the target website to work properly.
@@ -88,7 +88,7 @@ Naxsi behaves like a DROP-by-default firewall, the only job needed is to add req
 %package debug
 Summary: debug version of nginx
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-mainline-naxsi-masterbuild
+Requires: ulyaoth-nginx-mainline-naxsi
 %description debug
 Not stripped version of nginx built with the debugging log support and compiled with Naxsi.
 
@@ -326,7 +326,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-mainline-naxsi-masterbuild!
+Thanks for using ulyaoth-nginx-mainline-naxsi!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
