@@ -181,9 +181,6 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%/opt/naxsi
 cp -rf /etc/nginx/modules/naxsi/nxapi/* $RPM_BUILD_ROOT%/opt/naxsi/
 
-%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/nginx
-%{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/html $RPM_BUILD_ROOT%{_datadir}/nginx/
-
 %{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/nginx/*.default
 %{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/nginx/fastcgi.conf
 
@@ -242,11 +239,16 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{__install} -m644 %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
+%{__mkdir} -p $RPM_BUILD_ROOT/opt/
+cd %{buildroot}/opt/
+ln -s /etc/nginx/modules/naxsi/nxapi naxsi
+   
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
+/opt/naxsi
 
 %{_sbindir}/nginx
 
