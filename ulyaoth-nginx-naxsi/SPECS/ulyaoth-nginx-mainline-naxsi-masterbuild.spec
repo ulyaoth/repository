@@ -186,9 +186,6 @@ make %{?_smp_mflags}
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-%{__mkdir} -p $RPM_BUILD_ROOT%/opt/naxsi
-cp -rf /etc/nginx/modules/naxsi/nxapi/* $RPM_BUILD_ROOT%/opt/naxsi/
-
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/nginx
 %{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/html $RPM_BUILD_ROOT%{_datadir}/nginx/
 
@@ -256,11 +253,16 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{__install} -m644 %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
+%{__mkdir} -p $RPM_BUILD_ROOT/opt/
+cd %{buildroot}/opt/
+ln -s /etc/nginx/modules/naxsi/nxapi naxsi
+   
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
+/opt/naxsi
 
 %{_sbindir}/nginx
 
@@ -270,8 +272,6 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %dir %{_sysconfdir}/nginx/sites-enabled
 %dir %{_sysconfdir}/nginx/modules
 %{_sysconfdir}/nginx/modules/*
-%dir /opt/naxsi
-/opt/naxsi/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
