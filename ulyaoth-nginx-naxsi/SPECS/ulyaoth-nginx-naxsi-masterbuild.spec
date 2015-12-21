@@ -178,8 +178,8 @@ make %{?_smp_mflags}
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-%{__mkdir} -p $RPM_BUILD_ROOT%/opt/naxsi
-cp -rf /etc/nginx/modules/naxsi/nxapi/* $RPM_BUILD_ROOT%/opt/naxsi/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/nginx
+%{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/html $RPM_BUILD_ROOT%{_datadir}/nginx/
 
 %{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/nginx/*.default
 %{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/nginx/fastcgi.conf
@@ -258,8 +258,6 @@ ln -s /etc/nginx/modules/naxsi/nxapi naxsi
 %dir %{_sysconfdir}/nginx/sites-enabled
 %dir %{_sysconfdir}/nginx/modules
 %{_sysconfdir}/nginx/modules/*
-%dir /opt/naxsi
-/opt/naxsi/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
