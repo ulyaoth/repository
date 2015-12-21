@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.9.5
+%define nginx_version 1.9.9
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
@@ -41,7 +41,7 @@ BuildRequires: systemd
 Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-mainline-naxsi-masterbuild
 Version: 0.54
-Release: 2%{?dist}
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -186,6 +186,9 @@ make %{?_smp_mflags}
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
+%{__mkdir} -p $RPM_BUILD_ROOT%/opt/naxsi
+cp -rf /etc/nginx/modules/naxsi/nxapi/* $RPM_BUILD_ROOT%/opt/naxsi/
+
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/nginx
 %{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/html $RPM_BUILD_ROOT%{_datadir}/nginx/
 
@@ -267,6 +270,8 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %dir %{_sysconfdir}/nginx/sites-enabled
 %dir %{_sysconfdir}/nginx/modules
 %{_sysconfdir}/nginx/modules/*
+%dir /opt/naxsi
+/opt/naxsi/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
@@ -377,8 +382,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-2
-- Update to Nginx Mainline 1.9.7.
-
 * Mon Oct 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-1
-- Initial Release with Naxsi 0.54 and Nginx Mainline 1.9.5.
+- Initial Release with Naxsi 0.54 and Nginx Mainline 1.9.9.

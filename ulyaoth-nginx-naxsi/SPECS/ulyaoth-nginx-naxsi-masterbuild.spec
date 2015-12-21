@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-naxsi-masterbuild
-Version: 20151005
+Version: 20151221
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -178,6 +178,9 @@ make %{?_smp_mflags}
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
+%{__mkdir} -p $RPM_BUILD_ROOT%/opt/naxsi
+cp -rf /etc/nginx/modules/naxsi/nxapi/* $RPM_BUILD_ROOT%/opt/naxsi/
+
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/nginx
 %{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/html $RPM_BUILD_ROOT%{_datadir}/nginx/
 
@@ -253,6 +256,8 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %dir %{_sysconfdir}/nginx/sites-enabled
 %dir %{_sysconfdir}/nginx/modules
 %{_sysconfdir}/nginx/modules/*
+%dir /opt/naxsi
+/opt/naxsi/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
@@ -363,6 +368,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Dec 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20151221-1
+- Update to latest master branch.
+- Added nxapi to /opt/naxsi.
+
 * Mon Oct 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20151005-1
 - Update to latest master branch.
 

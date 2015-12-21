@@ -40,7 +40,7 @@ BuildRequires: systemd
 Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-naxsi
 Version: 0.54
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -178,6 +178,9 @@ make %{?_smp_mflags}
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
+%{__mkdir} -p $RPM_BUILD_ROOT%/opt/naxsi
+cp -rf /etc/nginx/modules/naxsi/nxapi/* $RPM_BUILD_ROOT%/opt/naxsi/
+
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/nginx
 %{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/html $RPM_BUILD_ROOT%{_datadir}/nginx/
 
@@ -252,7 +255,8 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %dir %{_sysconfdir}/nginx/sites-available
 %dir %{_sysconfdir}/nginx/sites-enabled
 %dir %{_sysconfdir}/nginx/modules
-%{_sysconfdir}/nginx/modules/*
+%dir /opt/naxsi
+/opt/naxsi/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
@@ -363,6 +367,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Dec 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-2
+- Added nxapi to /opt/naxsi.
+
 * Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-1
 - Build with Stable Naxsi version 0.54.
 
