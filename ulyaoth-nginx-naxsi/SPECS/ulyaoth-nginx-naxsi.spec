@@ -257,6 +257,7 @@ ln -s /etc/nginx/modules/naxsi/nxapi naxsi
 %dir %{_sysconfdir}/nginx/sites-available
 %dir %{_sysconfdir}/nginx/sites-enabled
 %dir %{_sysconfdir}/nginx/modules
+%{_sysconfdir}/nginx/modules/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
