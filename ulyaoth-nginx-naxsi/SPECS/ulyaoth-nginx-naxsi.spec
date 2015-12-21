@@ -369,7 +369,7 @@ fi
 
 %changelog
 * Mon Dec 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-2
-- Added nxapi to /opt/naxsi.
+- Added the following symlink: /opt/naxsi -> /etc/nginx/modules/naxsi/nxapi.
 
 * Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-1
 - Build with Stable Naxsi version 0.54.

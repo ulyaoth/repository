@@ -370,7 +370,7 @@ fi
 %changelog
 * Mon Dec 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20151221-1
 - Update to latest master branch.
-- Added nxapi to /opt/naxsi.
+- Added nxapi to - Added the following symlink: /opt/naxsi -> /etc/nginx/modules/naxsi/nxapi.
 
 * Mon Oct 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20151005-1
 - Update to latest master branch.
