@@ -49,14 +49,11 @@ BuildRoot:  %{_tmppath}/zookeeper-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: doxygen
 BuildRequires: perl
-BuildRequires: dot
 BuildRequires: cppunit-devel
 BuildRequires: gcc
-BuildRequires: gcc-++
+BuildRequires: gcc-c++
 BuildRequires: gawk
 BuildRequires: make
-BuildRequires: autoconfig
-
 
 Provides: zookeeper
 Provides: zookeeper3.4
