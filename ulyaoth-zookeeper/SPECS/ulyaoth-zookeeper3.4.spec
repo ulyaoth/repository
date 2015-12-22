@@ -1,4 +1,3 @@
-
 %define __jar_repack %{nil}
 %define debug_package %{nil}
 %define zookeeper_home /opt/zookeeper
@@ -39,9 +38,12 @@ URL:        https://zookeeper.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    http://apache.mirrors.spacedump.net/zookeeper/zookeeper-%{version}/zookeeper-%{version}.tar.gz
-Source1:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.service
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.init
-Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.logrotate
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/log4j.properties
+Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zoo.cfg
+Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper-env.sh
+Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/myid
 BuildRoot:  %{_tmppath}/zookeeper-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: zookeeper
@@ -56,12 +58,39 @@ ZooKeeper is a centralized service for maintaining configuration information, na
 %setup -q -n zookeeper-%{version}
 
 %build
+cd %_builddir/zookeeper-%{version}/src/c
+%configure
+make %{?_smp_mflags}
 
 %install
-install -d -m 755 %{buildroot}/%{zookeeper_home}/
-cp -R * %{buildroot}/%{zookeeper_home}/
+cd %_builddir/zookeeper-%{version}/src/c
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install -d -m 755 %{buildroot}/var/log/zookeeper/
+%{__rm} -rf $RPM_BUILD_ROOT/usr/lib64/*.la
+%{__rm} -rf $RPM_BUILD_ROOT/usr/lib64/*.a
+
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/bin
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/zookeeper
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/doc/zookeeper
+%{__mkdir} -p $RPM_BUILD_ROOT/var/log/zookeeper
+%{__mkdir} -p $RPM_BUILD_ROOT/var/lib/zookeeper
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/libexec
+%{__mkdir} -p $RPM_BUILD_ROOT/etc/zookeeper
+
+cp -rf %_builddir/zookeeper-%{version}/bin/*.sh $RPM_BUILD_ROOT/usr/bin/
+mv $RPM_BUILD_ROOT/usr/bin/zkEnv.sh $RPM_BUILD_ROOT/usr/libexec/zkEnv.sh
+cp -rf %_builddir/zookeeper-%{version}/docs/*  $RPM_BUILD_ROOT/usr/share/doc/zookeeper/
+cp -rf %_builddir/zookeeper-%{version}/zookeeper-%{version}.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
+cp -rf %_builddir/zookeeper-%{version}/lib/*.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
+
+%{__install} -m644 %SOURCE3 \
+        $RPM_BUILD_ROOT%/etc/zookeeper/log4j.properties
+%{__install} -m644 %SOURCE4 \
+        $RPM_BUILD_ROOT%/etc/zookeeper/zoo.cfg
+%{__install} -m644 %SOURCE5 \
+        $RPM_BUILD_ROOT%/etc/zookeeper/zookeeper-env.sh
+%{__install} -m644 %SOURCE6 \
+        $RPM_BUILD_ROOT%/var/lib/zookeeper/myid
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -152,5 +181,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Tue Dec 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.4.7-1
+* Tue Dec 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.4.7-1
 - Initial rpm release.
