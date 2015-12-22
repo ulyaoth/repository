@@ -2,8 +2,8 @@
 %define __jar_repack %{nil}
 %define debug_package %{nil}
 %define zookeeper_home /var/lib/zookeeper
-%define zookeeper_group zookeeper
-%define zookeeper_user hadoop
+%define zookeeper_group hadoop
+%define zookeeper_user zookeeper
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
