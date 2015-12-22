@@ -1,6 +1,7 @@
+
 %define __jar_repack %{nil}
 %define debug_package %{nil}
-%define zookeeper_home /opt/zookeeper
+%define zookeeper_home /var/lib/zookeeper
 %define zookeeper_group zookeeper
 %define zookeeper_user hadoop
 
@@ -46,6 +47,17 @@ Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-
 Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/myid
 BuildRoot:  %{_tmppath}/zookeeper-%{version}-%{release}-root-%(%{__id_u} -n)
 
+BuildRequires: doxygen
+BuildRequires: perl
+BuildRequires: dot
+BuildRequires: cppunit-devel
+BuildRequires: gcc
+BuildRequires: gcc-++
+BuildRequires: gawk
+BuildRequires: make
+BuildRequires: autoconfig
+
+
 Provides: zookeeper
 Provides: zookeeper3.4
 Provides: apache-zookeeper
@@ -84,13 +96,16 @@ cp -rf %_builddir/zookeeper-%{version}/zookeeper-%{version}.jar $RPM_BUILD_ROOT/
 cp -rf %_builddir/zookeeper-%{version}/lib/*.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
 
 %{__install} -m644 %SOURCE3 \
-        $RPM_BUILD_ROOT%/etc/zookeeper/log4j.properties
+        $RPM_BUILD_ROOT/etc/zookeeper/log4j.properties
 %{__install} -m644 %SOURCE4 \
-        $RPM_BUILD_ROOT%/etc/zookeeper/zoo.cfg
+        $RPM_BUILD_ROOT/etc/zookeeper/zoo.cfg
 %{__install} -m644 %SOURCE5 \
-        $RPM_BUILD_ROOT%/etc/zookeeper/zookeeper-env.sh
+        $RPM_BUILD_ROOT/etc/zookeeper/zookeeper-env.sh
 %{__install} -m644 %SOURCE6 \
-        $RPM_BUILD_ROOT%/var/lib/zookeeper/myid
+        $RPM_BUILD_ROOT/var/lib/zookeeper/myid
+
+sed -i 's#$ZOOBINDIR/../etc/zookeeper#/etc/zookeeper#g' $RPM_BUILD_ROOT/usr/libexec/zkEnv.sh
+sed -i 's#$ZOOBINDIR/zkEnv.sh#/usr/libexec/zkEnv.sh#g' $RPM_BUILD_ROOT/usr/bin/zkServer.sh
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -104,11 +119,6 @@ cp -rf %_builddir/zookeeper-%{version}/lib/*.jar $RPM_BUILD_ROOT/usr/share/zooke
    $RPM_BUILD_ROOT%{_initrddir}/zookeeper
 %endif
 
-# install log rotation stuff
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
-%{__install} -m 644 -p %{SOURCE3} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/zookeeper
-
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
@@ -118,19 +128,36 @@ getent passwd %{zookeeper_user} >/dev/null || /usr/sbin/useradd --comment "Zooke
 
 %files
 %defattr(-,%{zookeeper_user},%{zookeeper_group})
-%{zookeeper_home}/*
 %dir %{zookeeper_home}
 %dir %{_localstatedir}/log/zookeeper
-%config(noreplace) %{zookeeper_home}/conf/web.xml
-%config(noreplace) %{zookeeper_home}/conf/tomcat-users.xml
-%config(noreplace) %{zookeeper_home}/conf/server.xml
-%config(noreplace) %{zookeeper_home}/conf/logging.properties
-%config(noreplace) %{zookeeper_home}/conf/context.xml
-%config(noreplace) %{zookeeper_home}/conf/catalina.properties
-%config(noreplace) %{zookeeper_home}/conf/catalina.policy
+%dir /etc/zookeeper
+%dir %{_localstatedir}/lib/zookeeper
+%dir /usr/share/zookeeper
+%config(noreplace) /etc/zookeeper/zoo.cfg
+%config(noreplace) /etc/zookeeper/log4j.properties
+%config(noreplace) /etc/zookeeper/zookeeper-env.sh
+%config(noreplace) %{_localstatedir}/lib/zookeeper/myid
+/usr/share/zookeeper/*.jar
 
 %defattr(-,root,root)
-%config(noreplace) %{_sysconfdir}/logrotate.d/zookeeper
+%dir /usr/share/doc/zookeeper/
+/usr/share/doc/zookeeper/*
+%dir /usr/include/zookeeper/
+/usr/include/zookeeper/*
+/usr/libexec/zkEnv.sh
+%{_bindir}/cli_mt
+%{_bindir}/cli_st
+%{_bindir}/load_gen
+%{_bindir}/zkCleanup.sh
+%{_bindir}/zkCli.sh
+%{_bindir}/zkServer.sh
+%{_libdir}/libzookeeper_mt.so
+%{_libdir}/libzookeeper_mt.so.2
+%{_libdir}/libzookeeper_mt.so.2.0.0
+%{_libdir}/libzookeeper_st.so
+%{_libdir}/libzookeeper_st.so.2
+%{_libdir}/libzookeeper_st.so.2.0.0
+
 %if %{use_systemd}
 %{_unitdir}/zookeeper.service
 %else
@@ -152,7 +179,7 @@ cat <<BANNER
 Thanks for using ulyaoth-zookeeper3.4!
 
 Please find the official documentation for zookeeper here:
-* http://tomcat.apache.org/
+* https://zookeeper.apache.org/
 
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
