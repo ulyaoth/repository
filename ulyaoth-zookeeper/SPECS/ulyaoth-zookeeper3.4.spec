@@ -49,7 +49,6 @@ BuildRoot:  %{_tmppath}/zookeeper-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: doxygen
 BuildRequires: perl
-BuildRequires: cppunit-devel
 BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires: gawk
