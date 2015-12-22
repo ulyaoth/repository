@@ -74,8 +74,8 @@ make %{?_smp_mflags}
 cd %_builddir/zookeeper-%{version}/src/c
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} -rf $RPM_BUILD_ROOT/usr/lib64/*.la
-%{__rm} -rf $RPM_BUILD_ROOT/usr/lib64/*.a
+%{__rm} -rf $RPM_BUILD_ROOT%{_libdir}/*.la
+%{__rm} -rf $RPM_BUILD_ROOT%{_libdir}/*.a
 
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/bin
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/zookeeper
