@@ -38,7 +38,7 @@ Group:      Applications/Internet
 URL:        https://zookeeper.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/zookeeper/zookeeper-%{version}/zookeeper-%{version}.tar.gz
+Source0:    http://apache.mirrors.spacedump.net/zookeeper/zookeeper-%{version}-alpha/zookeeper-%{version}-alpha.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/log4j.properties
@@ -63,15 +63,15 @@ Provides: ulyaoth-zookeeper3.5
 ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. All of these kinds of services are used in some form or another by distributed applications. Each time they are implemented there is a lot of work that goes into fixing the bugs and race conditions that are inevitable. Because of the difficulty of implementing these kinds of services, applications initially usually skimp on them ,which make them brittle in the presence of change and difficult to manage. Even when done correctly, different implementations of these services lead to management complexity when the applications are deployed.
 
 %prep
-%setup -q -n zookeeper-%{version}
+%setup -q -n zookeeper-%{version}-alpha
 
 %build
-cd %_builddir/zookeeper-%{version}/src/c
+cd %_builddir/zookeeper-%{version}-alpha/src/c
 %configure
 make %{?_smp_mflags}
 
 %install
-cd %_builddir/zookeeper-%{version}/src/c
+cd %_builddir/zookeeper-%{version}-alpha/src/c
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} -rf $RPM_BUILD_ROOT%{_libdir}/*.la
@@ -85,11 +85,11 @@ cd %_builddir/zookeeper-%{version}/src/c
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/libexec
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/zookeeper
 
-cp -rf %_builddir/zookeeper-%{version}/bin/*.sh $RPM_BUILD_ROOT/usr/bin/
+cp -rf %_builddir/zookeeper-%{version}-alpha/bin/*.sh $RPM_BUILD_ROOT/usr/bin/
 mv $RPM_BUILD_ROOT/usr/bin/zkEnv.sh $RPM_BUILD_ROOT/usr/libexec/zkEnv.sh
-cp -rf %_builddir/zookeeper-%{version}/docs/*  $RPM_BUILD_ROOT/usr/share/doc/zookeeper/
-cp -rf %_builddir/zookeeper-%{version}/zookeeper-%{version}.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
-cp -rf %_builddir/zookeeper-%{version}/lib/*.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
+cp -rf %_builddir/zookeeper-%{version}-alpha/docs/*  $RPM_BUILD_ROOT/usr/share/doc/zookeeper/
+cp -rf %_builddir/zookeeper-%{version}-alpha/zookeeper-%{version}.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
+cp -rf %_builddir/zookeeper-%{version}-alpha/lib/*.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
 
 %{__install} -m644 %SOURCE3 \
         $RPM_BUILD_ROOT/etc/zookeeper/log4j.properties
