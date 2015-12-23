@@ -88,7 +88,7 @@ cd %_builddir/zookeeper-%{version}-alpha/src/c
 cp -rf %_builddir/zookeeper-%{version}-alpha/bin/*.sh $RPM_BUILD_ROOT/usr/bin/
 mv $RPM_BUILD_ROOT/usr/bin/zkEnv.sh $RPM_BUILD_ROOT/usr/libexec/zkEnv.sh
 cp -rf %_builddir/zookeeper-%{version}-alpha/docs/*  $RPM_BUILD_ROOT/usr/share/doc/zookeeper/
-cp -rf %_builddir/zookeeper-%{version}-alpha/zookeeper-%{version}.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
+cp -rf %_builddir/zookeeper-%{version}-alpha/zookeeper-%{version}-alpha.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
 cp -rf %_builddir/zookeeper-%{version}-alpha/lib/*.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
 
 %{__install} -m644 %SOURCE3 \
