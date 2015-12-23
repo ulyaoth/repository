@@ -1,17 +1,5 @@
 buildarch="$(uname -m)"
 
-if type dnf 2>/dev/null
-then
-  tool=dnf
-elif type yum 2>/dev/null
-then
-  tool=yum
-
-else
-  echo "Neither yum nor dnf found. Aborting build!"
-  exit 1
-fi
-
 useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
