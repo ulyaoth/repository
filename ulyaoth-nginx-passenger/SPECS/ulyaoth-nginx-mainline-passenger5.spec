@@ -40,7 +40,7 @@ BuildRequires: systemd
 
 Summary: High performance web server / Phusion Passenger web & app
 Name: ulyaoth-nginx-mainline-passenger5
-Version: 5.0.22
+Version: 5.0.23
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc. / Phusion
@@ -391,6 +391,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Dec 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.23-1
+- Updated to Passenger 5.0.23.
+
 * Mon Dec 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.22-1
 - Update to Nginx Mainline 1.9.9.
 
