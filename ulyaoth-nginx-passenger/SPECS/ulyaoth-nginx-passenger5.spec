@@ -376,6 +376,7 @@ fi
 %changelog
 * Fri Dec 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.23-1
 - Updated to Passenger 5.0.23.
+- Added headersmore 0.28.
 
 * Mon Dec 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.22-1
 - Updated to Passenger 5.0.22.
