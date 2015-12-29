@@ -1,11 +1,11 @@
 buildarch="$(uname -m)"
-version=5.3.1
+version=5.4.0
 
 useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 
-su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.3.1/solr-5.3.1.tgz"
+su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.4.0/solr-5.4.0.tgz"
 su ulyaoth -c "tar xvf solr-$version.tgz"
 rm -rf /home/ulyaoth/solr-$version/example
 rm -rf /home/ulyaoth/solr-$version/docs
