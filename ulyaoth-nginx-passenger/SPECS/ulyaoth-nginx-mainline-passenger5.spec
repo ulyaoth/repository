@@ -142,6 +142,7 @@ Not stripped version of nginx and passenger built with the debugging log support
         --with-stream \
         --with-stream_ssl_module \
 		--add-module=/etc/nginx/modules/passenger/src/nginx_module \
+		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -186,6 +187,7 @@ make %{?_smp_mflags}
         --with-stream \
         --with-stream_ssl_module \
 		--add-module=/etc/nginx/modules/passenger/src/nginx_module \
+		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -393,6 +395,7 @@ fi
 %changelog
 * Fri Dec 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.23-1
 - Updated to Passenger 5.0.23.
+- Added headersmore 0.28.
 
 * Mon Dec 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.22-1
 - Update to Nginx Mainline 1.9.9.

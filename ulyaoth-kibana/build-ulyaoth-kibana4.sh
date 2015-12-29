@@ -9,17 +9,6 @@ fi
 useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
-cd /home/ulyaoth/rpmbuild/SOURCES/
-
-if [ "$arch" != "x86_64" ]
-then
-su ulyaoth -c "wget https://download.elasticsearch.org/kibana/kibana/kibana-4.3.0-linux-x86.tar.gz"
-else
-su ulyaoth -c "wget https://download.elasticsearch.org/kibana/kibana/kibana-4.3.0-linux-x64.tar.gz"
-fi
-
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/SOURCES/kibana.init"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/SOURCES/kibana.service"
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/SPECS/ulyaoth-kibana4.spec"
 
@@ -28,17 +17,17 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-kibana4.spec
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-kibana4.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf builddep -y ulyaoth-kibana4.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-kibana4.spec
-else
-yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-kibana4.spec
+  yum-builddep -y ulyaoth-kibana4.spec
 fi
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-kibana4.spec"
+su ulyaoth -c "spectool ulyaoth-kibana4.spec -g -R"
+su ulyaoth -c "rpmbuild -ba ulyaoth-kibana4.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
