@@ -42,19 +42,19 @@ Vendor:     Elasticsearch BV
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 %ifarch x86_64
-Source0:    kibana-%{version}-linux-x64.tar.gz
+Source0:    https://download.elastic.co/kibana/kibana/kibana-%{version}-linux-x64.tar.gz
 %endif
 
 %ifarch i386
-Source0:    kibana-%{version}-linux-x86.tar.gz
+Source0:    https://download.elastic.co/kibana/kibana/kibana-%{version}-linux-x86.tar.gz
 %endif
 
 %ifarch i686
-Source0:    kibana-%{version}-linux-x86.tar.gz
+Source0:    https://download.elastic.co/kibana/kibana/kibana-%{version}-linux-x86.tar.gz
 %endif
 
-Source1:    kibana.service
-Source2:    kibana.init
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/SOURCES/kibana.service
+Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/SOURCES/kibana.init
 BuildRoot:  %{_tmppath}/kibana-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: kibana
