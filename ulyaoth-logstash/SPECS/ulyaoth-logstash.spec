@@ -33,7 +33,7 @@ Version:    2.1.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    ASL 2.0
-Group:      Applications/Databases
+Group:      System Environment/Daemons
 URL:        https://www.elastic.co/products/logstash
 Vendor:     Elasticsearch
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
@@ -84,7 +84,8 @@ cp -R * %{buildroot}/opt/logstash/
 
 %files
 %defattr(-,root,root,-)
-
+%dir /opt/logstash
+/opt/logstash/*
 
 %attr(0755,logstash,logstash) %config(noreplace) %{_sysconfdir}/logstash/logstash.conf
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/sysconfig/logstash
