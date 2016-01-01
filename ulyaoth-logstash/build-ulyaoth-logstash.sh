@@ -3,10 +3,10 @@ version=2.1.1
 
 if type dnf 2>/dev/null
 then
-  dnf install java-1.8.0-openjdk-devel rubygem-rake-compiler
+  dnf install java-1.8.0-openjdk-devel rubygem-rake-compiler -y
 elif type yum 2>/dev/null
 then
-  yum install java-1.8.0-openjdk-devel rubygem-rake-compiler
+  yum install java-1.8.0-openjdk-devel rubygem-rake-compiler -y
 fi
 
 useradd ulyaoth
