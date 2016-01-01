@@ -18,6 +18,8 @@ su ulyaoth -c "wget https://github.com/elastic/logstash/archive/v$version.tar.gz
 su ulyaoth -c "tar xvzf v$version.tar.gz"
 su ulyaoth -c "cd logstash-$version && rake artifact:tar"
 su ulyaoth -c "cp /home/ulyaoth/logstash-$version/build/logstash-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
+rm -rf /home/ulyaoth/logstash-$version
+rm -rf /home/ulyaoth/v$version.tar.gz
 
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash/SPECS/ulyaoth-logstash.spec"
@@ -41,6 +43,5 @@ cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /home/ulyaoth/logstash-$version v$version.tar.gz
 rm -rf /home/ulyaoth/rpmbuild
 rm -rf /root/build-ulyaoth-logstash.sh

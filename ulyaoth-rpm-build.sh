@@ -114,6 +114,11 @@ ulyaoth-logstash-forwarder()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/build-ulyaoth-logstash-forwarder.sh ; chmod +x build-ulyaoth-logstash-forwarder.sh ; ./build-ulyaoth-logstash-forwarder.sh
 }
 
+ulyaoth-logstash()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash/build-ulyaoth-logstash.sh ; chmod +x build-ulyaoth-logstash.sh ; ./build-ulyaoth-logstash.sh
+}
+
 spotify()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/build-ulyaoth-spotify.sh ; chmod +x build-ulyaoth-spotify.sh ; ./build-ulyaoth-spotify.sh
