@@ -33,7 +33,7 @@ Version:    2.1.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    ASL 2.0
-Group:      Applications/Databases
+Group:      System Environment/Daemons
 URL:        https://www.elastic.co/products/logstash
 Vendor:     Elasticsearch
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
@@ -72,11 +72,11 @@ cp -R * %{buildroot}/opt/logstash/
 %if %{use_systemd}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m644 %SOURCE3 \
-        $RPM_BUILD_ROOT%{_unitdir}/redis.service
+        $RPM_BUILD_ROOT%{_unitdir}/logstash.service
 %else
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
 %{__install} -m755 %{SOURCE4} \
-   $RPM_BUILD_ROOT%{_initrddir}/redis
+   $RPM_BUILD_ROOT%{_initrddir}/logstash
 %endif
 
 %clean
@@ -84,7 +84,8 @@ cp -R * %{buildroot}/opt/logstash/
 
 %files
 %defattr(-,root,root,-)
-
+%dir /opt/logstash
+/opt/logstash/*
 
 %attr(0755,logstash,logstash) %config(noreplace) %{_sysconfdir}/logstash/logstash.conf
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/sysconfig/logstash

@@ -36,7 +36,7 @@ then
 fi
 
 su ulyaoth -c "spectool ulyaoth-logstash.spec -g -R"
-su ulyaoth -c "rpmbuild -ba ulyaoth-logstash.spec"
+su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-logstash.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
