@@ -41,7 +41,7 @@ LS_CONF_DIR=/etc/logstash
 LS_OPEN_FILES=16384
 LS_NICE=19
 LS_OPTS=""
-LS_PIDFILE=/var/run/$NAME/$NAME.pid
+LS_PIDFILE=/var/run/$NAME.pid
 
 # End of variables that can be overwritten in $DEFAULT
 
@@ -105,12 +105,12 @@ case "$1" in
   start)
     echo -n "Starting $DESC: "
     do_start
-    touch /var/run/logstash/$NAME
+    touch /var/run/$NAME
     ;;
   stop)
     echo -n "Stopping $DESC: "
     do_stop
-    rm /var/run/logstash/$NAME
+    rm /var/run/$NAME
     ;;
   restart|reload)
     echo -n "Restarting $DESC: "
