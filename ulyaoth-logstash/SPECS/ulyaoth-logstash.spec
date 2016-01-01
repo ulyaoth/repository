@@ -1,4 +1,5 @@
 
+%define __jar_repack %{nil}
 %define debug_package %{nil}
 %define logstash_home /var/lib/logstash
 %define logstash_group logstash
