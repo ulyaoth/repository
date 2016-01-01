@@ -72,11 +72,11 @@ cp -R * %{buildroot}/opt/logstash/
 %if %{use_systemd}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m644 %SOURCE3 \
-        $RPM_BUILD_ROOT%{_unitdir}/redis.service
+        $RPM_BUILD_ROOT%{_unitdir}/logstash.service
 %else
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
 %{__install} -m755 %{SOURCE4} \
-   $RPM_BUILD_ROOT%{_initrddir}/redis
+   $RPM_BUILD_ROOT%{_initrddir}/logstash
 %endif
 
 %clean
