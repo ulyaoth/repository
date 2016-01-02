@@ -37,7 +37,7 @@ su ulyaoth -c "wget https://github.com/elastic/beats/archive/v'"$filebeatversion
 su ulyaoth -c "tar xvzf v'"$filebeatversion"'.tar.gz"
 su ulyaoth -c "mkdir -p /home/ulyaoth/src/github.com/elastic"
 su ulyaoth -c "mv beats-'"$filebeatversion"' /home/ulyaoth/src/github.com/elastic/beats"
-su ulyaoth -c "cd /home/ulyaoth/src/github.com/elastic/beats/filebeat/ && gmake"
+su - ulyaoth -c "cd /home/ulyaoth/src/github.com/elastic/beats/filebeat/ && gmake"
 su ulyaoth -c "mv /home/ulyaoth/src/github.com/elastic/beats/filebeat/filebeat /home/ulyaoth/rpmbuild/SOURCES/"
 su ulyaoth -c "rm -rf src v'"$filebeatversion"'.tar.gz"
 
