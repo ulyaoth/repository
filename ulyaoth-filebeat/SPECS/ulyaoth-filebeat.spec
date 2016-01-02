@@ -33,7 +33,7 @@ Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
-URL:        https://github.com/elasticsearch/logstash-forwarder
+URL:        https://www.elastic.co/products/beats/filebeat
 Vendor:     Elasticsearch
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    filebeat
