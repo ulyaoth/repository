@@ -26,9 +26,9 @@ cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "wget https://github.com/elastic/beats/archive/v'"$filebeatversion"'.tar.gz"
 su ulyaoth -c "tar xvzf v'"$filebeatversion"'.tar.gz"
-su ulyaoth -c "mkdir -p src/github.com/elastic"
-su - ulyaoth -c "mv beats-'"$filebeatversion"' src/github.com/elastic/beats"
-su - ulyaoth -c "export GOPATH=$HOME && cd /home/ulyaoth/src/github.com/elastic/beats/filebeat/ && gmake"
+su ulyaoth -c "mkdir -p /home/ulyaoth/src/github.com/elastic"
+su ulyaoth -c "mv beats-'"$filebeatversion"' /home/ulyaoth/src/github.com/elastic/beats"
+su ulyaoth -c "export GOPATH=/home/ulyaoth && cd /home/ulyaoth/src/github.com/elastic/beats/filebeat/ && gmake"
 su ulyaoth -c "mv /home/ulyaoth/src/github.com/elastic/beats/filebeat/filebeat /home/ulyaoth/rpmbuild/SOURCES/"
 su ulyaoth -c "rm -rf src v'"$filebeatversion"'.tar.gz"
 cd /home/ulyaoth/rpmbuild/SPECS
