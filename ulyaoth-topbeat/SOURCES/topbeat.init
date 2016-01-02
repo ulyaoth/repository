@@ -1,0 +1,67 @@
+#!/bin/sh
+#
+# topbeat        Startup script for topbeat
+#
+# chkconfig: - 85 15
+# processname: topbeat
+# config: /etc/topbeat/topbeat.yml
+# pidfile: /var/run/topbeat.pid
+# description: Looking for a better way to understand how your server resources are used? The best place to start is your infrastructure metrics. Topbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
+#
+### BEGIN INIT INFO
+# Provides: topbeat
+# Required-Start: $local_fs $remote_fs $network
+# Required-Stop: $local_fs $remote_fs $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop topbeat
+### END INIT INFO
+
+NAME=topbeat
+TOPBEAT_USER=topbeat
+TOPBEAT_HOME="/usr"
+TOPBEAT_CONFIG="/etc/topbeat/topbeat.yml"
+
+topbeat_pid() {
+    echo `ps aux | grep topbeat | grep -v grep | awk '{ print $2 }'`
+}
+
+start() {
+  # Start topbeat
+  echo "Starting Topbeat"
+  /bin/su - -c "cd $TOPBEAT_HOME/bin && $TOPBEAT_HOME/bin/topbeat -c $TOPBEAT_CONFIG > /dev/null 2>&1 &" $TOPBEAT_USER
+  return 0
+}
+
+stop() {
+  pid=$(topbeat_pid)
+  echo "Shutting down Topbeat"
+  kill -9 $pid
+  return 0
+}
+
+case $1 in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    status)
+       pid=$(topbeat_pid)
+        if [ -n "$pid" ]
+        then
+           echo "Topbeat is running with pid: $pid"
+        else
+           echo "Topbeat is not running"
+        fi
+        ;;
+    *)
+        echo $"Usage: $NAME {start|stop|restart|status}"
+esac
+
+exit 0
