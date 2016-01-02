@@ -1,0 +1,4 @@
+You can build the rpms by running the build script:
+
+ulyaoth-packetbeat:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-packetbeat/build-ulyaoth-packetbeat.sh ; chmod +x build-ulyaoth-packetbeat.sh ; ./build-ulyaoth-packetbeat.sh

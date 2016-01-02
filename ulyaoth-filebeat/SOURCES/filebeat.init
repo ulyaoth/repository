@@ -6,7 +6,7 @@
 # processname: filebeat
 # config: /etc/filebeat/filebeat.yml
 # pidfile: /var/run/filebeat.pid
-# description: kibana explore and visualize your data
+# description: Filebeat is the next-generation Logstash Forwarder designed to quickly and reliably ship log file data to Logstash or Elasticsearch while only consuming a fraction of the resources.
 #
 ### BEGIN INIT INFO
 # Provides: filebeat
