@@ -122,7 +122,7 @@ cat <<BANNER
 
 Thanks for using ulyaoth-filebeat!
 
-Please find the official documentation for logstash-forwarder here:
+Please find the official documentation for filebeat here:
 * https://www.elastic.co/guide/en/beats/filebeat/current/index.html
 
 For any additional help please visit my forum at:
