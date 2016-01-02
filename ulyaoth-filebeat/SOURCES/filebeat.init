@@ -1,109 +1,67 @@
-#!/bin/bash
+#!/bin/sh
 #
-# filebeat          filebeat shipper
+# filebeat        Startup script for filebeat
 #
-# chkconfig: 2345 98 02
+# chkconfig: - 85 15
+# processname: filebeat
+# config: /etc/filebeat/filebeat.yml
+# pidfile: /var/run/filebeat.pid
+# description: kibana explore and visualize your data
 #
-
 ### BEGIN INIT INFO
-# Provides:          filebeat
-# Required-Start:    $local_fs $network $syslog
-# Required-Stop:     $local_fs $network $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Sends log files to Logstash or directly to Elasticsearch.
-# Description:       filebeat is a shipper part of the Elastic Beats 
-#					 family. Please see: https://www.elastic.co/products/beats
+# Provides: filebeat
+# Required-Start: $local_fs $remote_fs $network
+# Required-Stop: $local_fs $remote_fs $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop filebeat
 ### END INIT INFO
 
+NAME=filebeat
+FILEBEAT_USER=filebeat
+FILEBEAT_HOME="/usr"
+FILEBEAT_CONFIG="/etc/filebeat/filebeat.yml"
 
-
-PATH=/usr/bin:/sbin:/bin:/usr/sbin
-export PATH
-
-[ -f /etc/sysconfig/filebeat ] && . /etc/sysconfig/filebeat
-pidfile=${PIDFILE-/var/run/filebeat.pid}
-agent=${PB_AGENT-/usr/bin/filebeat}
-args="-c /etc/filebeat/filebeat.yml"
-test_args="-e -configtest"
-wrapper="filebeat-god"
-wrapperopts="-r / -n -p $pidfile"
-RETVAL=0
-
-# Source function library.
-. /etc/rc.d/init.d/functions
-
-# Determine if we can use the -p option to daemon, killproc, and status.
-# RHEL < 5 can't.
-if status | grep -q -- '-p' 2>/dev/null; then
-    daemonopts="--pidfile $pidfile"
-    pidopts="-p $pidfile"
-fi
-
-test() {
-	$agent $args $test_args
+filebeat_pid() {
+    echo `ps aux | grep filebeat | grep -v grep | awk '{ print $2 }'`
 }
 
 start() {
-    echo -n $"Starting filebeat: "
-	test
-	if [ $? -ne 0 ]; then
-		echo
-		exit 1
-	fi
-    daemon $daemonopts $wrapper $wrapperopts -- $agent $args
-    RETVAL=$?
-    echo
-    return $RETVAL
+  # Start filebeat
+  echo "Starting Filebeat"
+  /bin/su - -c "cd $FILEBEAT_HOME/bin && $FILEBEAT_HOME/bin/filebeat -c $FILEBEAT_CONFIG > /dev/null 2>&1 &" $FILEBEAT_USER
+  return 0
 }
 
 stop() {
-    echo -n $"Stopping filebeat: "
-    killproc $pidopts $wrapper
-    RETVAL=$?
-    echo
-    [ $RETVAL = 0 ] && rm -f ${pidfile}
+  pid=$(filebeat_pid)
+  echo "Shutting down Filebeat"
+  kill -9 $pid
+  return 0
 }
 
-restart() {
-	test
-	if [ $? -ne 0 ]; then
-		return 1
-	fi
-    stop
-    start
-}
-
-rh_status() {
-    status $pidopts $wrapper
-    RETVAL=$?
-    return $RETVAL
-}
-
-rh_status_q() {
-    rh_status >/dev/null 2>&1
-}
-
-case "$1" in
+case $1 in
     start)
         start
-    ;;
+        ;;
     stop)
         stop
-    ;;
+        ;;
     restart)
-        restart
-    ;;
-    condrestart|try-restart)
-        rh_status_q || exit 0
-        restart
-    ;;
+        stop
+        start
+        ;;
     status)
-        rh_status
-    ;;
+       pid=$(filebeat_pid)
+        if [ -n "$pid" ]
+        then
+           echo "Filebeat is running with pid: $pid"
+        else
+           echo "Filebeat is not running"
+        fi
+        ;;
     *)
-        echo $"Usage: $0 {start|stop|status|restart|condrestart}"
-        exit 1
+        echo $"Usage: $NAME {start|stop|restart|status}"
 esac
 
-exit $RETVAL
+exit 0
