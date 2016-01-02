@@ -16,7 +16,7 @@ cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 
 # Download newest go version.
-if [ "$arch" == "i686" ]
+if [ "$arch" == "i386" ]
 then
 su ulyaoth -c "wget https://storage.googleapis.com/golang/go'"$goversion"'.linux-386.tar.gz"
 su ulyaoth -c "tar xvzf go'"$goversion"'.linux-386.tar.gz"
