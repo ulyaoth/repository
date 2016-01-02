@@ -37,7 +37,7 @@ Group:      Applications/Internet
 URL:        https://www.elastic.co/products/beats/packetbeat
 Vendor:     Elasticsearch
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    filebeat
+Source0:    packetbeat
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-packetbeat/SOURCES/packetbeat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-packetbeat/SOURCES/packetbeat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-packetbeat/SOURCES/packetbeat.yml
