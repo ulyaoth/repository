@@ -5,7 +5,7 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-User=filebeat
+User=topbeat
 ExecStart=/usr/bin/topbeat -c /etc/topbeat/topbeat.yml
 Restart=always
 
