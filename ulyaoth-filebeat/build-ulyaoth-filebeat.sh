@@ -1,6 +1,6 @@
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-logstashforwarderversion=0.4.0
+filebeatversion=1.0.1
 
 if [ "$arch" == "i686" ]
 then
@@ -10,43 +10,40 @@ fi
 if grep -q -i "release 6" /etc/redhat-release
 then
 yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
-elif grep -q -i "release 6" /etc/centos-release
-then
-yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
-else
-echo yeah Fedora!
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf install -y go golang
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf install go golang -y
+elif type yum 2>/dev/null
 then
-dnf install -y go golang
-else
-yum install -y go golang
+  yum install go golang -y
 fi
+
 
 useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
-su ulyaoth -c "wget https://github.com/elastic/logstash-forwarder/archive/v'"$logstashforwarderversion"'.tar.gz"
-su ulyaoth -c "tar xvzf v'"$logstashforwarderversion"'.tar.gz"
-su ulyaoth -c "cd /home/ulyaoth/logstash-forwarder-'"$logstashforwarderversion"'/ && go build"
-su ulyaoth -c "mv /home/ulyaoth/logstash-forwarder-'"$logstashforwarderversion"'/logstash-forwarder-'"$logstashforwarderversion"' /home/ulyaoth/rpmbuild/SOURCES/logstash-forwarder"
-su ulyaoth -c "rm -rf /home/ulyaoth/logstash-forwarder-'"$logstashforwarderversion"'/"
+su ulyaoth -c "wget https://github.com/elastic/beats/archive/v'"$filebeatversion"'.tar.gz"
+su ulyaoth -c "tar xvzf v'"$filebeatversion"'.tar.gz"
+su ulyaoth -c "mkdir -p src/github.com/elastic"
+su - ulyaoth -c "mv beats-'"$filebeatversion"' src/github.com/elastic/beats"
+su - ulyaoth -c "export GOPATH=$HOME && cd /home/ulyaoth/src/github.com/elastic/beats/filebeat/ && gmake"
+su ulyaoth -c "mv /home/ulyaoth/src/github.com/elastic/beats/filebeat/filebeat /home/ulyaoth/rpmbuild/SOURCES/"
+su ulyaoth -c "rm -rf src v'"$filebeatversion"'.tar.gz"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SPECS/ulyaoth-logstash-forwarder.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SPECS/ulyaoth-filebeat.spec"
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-logstash-forwarder.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-filebeat.spec
 fi
 
-su ulyaoth -c "spectool ulyaoth-logstash-forwarder.spec -g -R"
-su ulyaoth -c "rpmbuild -bb ulyaoth-logstash-forwarder.spec"
+su ulyaoth -c "spectool ulyaoth-filebeat.spec -g -R"
+su ulyaoth -c "rpmbuild -bb ulyaoth-filebeat.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /home/ulyaoth/rpmbuild/
-rm -rf /root/build-ulyaoth-logstash-forwarder.sh
+rm -rf /home/ulyaoth/rpmbuild
+rm -rf /root/build-ulyaoth-filebeat.sh

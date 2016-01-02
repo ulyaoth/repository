@@ -1,15 +1,12 @@
 [Unit]
-Description=Logstash Forwarder is a tool to collect logs locally in preparation for processing elsewhere!
-Documentation=https://github.com/elasticsearch/logstash-forwarder
-After=network.target remote-fs.target nss-lookup.target
- 
+Description=Filebeat
+Documentation=https://www.elastic.co/guide/en/beats/filebeat/current/index.html
+Wants=network-online.target
+After=network-online.target
+
 [Service]
-User=logstash-forwarder
-Group=logstash-forwarder
-Type=simple
-PIDFile=/var/run/logstash-forwarder.pid
-ExecStart=/opt/logstash-forwarder/bin/logstash-forwarder -config /opt/logstash-forwarder/conf/logstash-forwarder.conf
-PrivateTmp=true
- 
+ExecStart=/usr/bin/filebeat -c /etc/filebeat/filebeat.yml
+Restart=always
+
 [Install]
 WantedBy=multi-user.target
