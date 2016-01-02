@@ -2,6 +2,7 @@
 %define filebeat_home /etc/filebeat
 %define filebeat_group filebeat
 %define filebeat_user filebeat
+%define filebeat_loggroup adm
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -80,6 +81,7 @@ Filebeat is a lightweight, open source shipper for log file data. As the next-ge
    $RPM_BUILD_ROOT/etc/filebeat/filebeat.template.json
    
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/filebeat
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/filebeat
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -95,7 +97,8 @@ getent passwd %{filebeat_user} >/dev/null || /usr/sbin/useradd --comment "Filebe
 /etc/filebeat/filebeat.template.json
 /usr/bin/filebeat
 
-%attr(0755,filebeat,adm) %dir %{_localstatedir}/log/filebeat
+%attr(0755,%{filebeat_user},%{filebeat_loggroup}) %dir %{_localstatedir}/log/filebeat
+%attr(0755,%{filebeat_user},%{filebeat_group}) %dir %{_localstatedir}/lib/filebeat
 
 %defattr(-,root,root)
 %if %{use_systemd}
