@@ -5,7 +5,6 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-User=packetbeat
 ExecStart=/usr/bin/packetbeat -c /etc/packetbeat/packetbeat.yml
 Restart=always
 

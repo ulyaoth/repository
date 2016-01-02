@@ -18,7 +18,7 @@
 ### END INIT INFO
 
 NAME=packetbeat
-PACKETBEAT_USER=packetbeat
+PACKETBEAT_USER=root #we need root due to sniffing permission.
 PACKETBEAT_HOME="/usr"
 PACKETBEAT_CONFIG="/etc/packetbeat/packetbeat.yml"
 
@@ -29,7 +29,7 @@ packetbeat_pid() {
 start() {
   # Start packetbeat
   echo "Starting Packetbeat"
-  /bin/su - -c "cd $PACKETBEAT_HOME/bin && $PACKETBEAT_HOME/bin/packetbeat -c $PACKETBEAT_CONFIG > /dev/null 2>&1 &" $PACKETBEAT_USER
+  $PACKETBEAT_HOME/bin/packetbeat -c $PACKETBEAT_CONFIG > /dev/null 2>&1 &
   return 0
 }
 
