@@ -90,9 +90,10 @@ getent passwd %{filebeat_user} >/dev/null || /usr/sbin/useradd --comment "Filebe
 
 %files
 %defattr(-,%{filebeat_user},%{filebeat_group})
-%{filebeat_home}
-%{filebeat_home}/*
-%config(noreplace) %{filebeat_home}/filebeat.yml
+%dir /etc/filebeat
+%config(noreplace) /etc/filebeat/filebeat.yml
+/etc/filebeat/filebeat.template.json
+/usr/bin/filebeat
 
 %attr(0755,filebeat,adm) %dir %{_localstatedir}/log/filebeat
 
