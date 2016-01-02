@@ -284,6 +284,16 @@ ulyaoth-filebeat()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/build-ulyaoth-filebeat.sh ; chmod +x build-ulyaoth-filebeat.sh ; ./build-ulyaoth-filebeat.sh
 }
 
+ulyaoth-topbeat()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-topbeat/build-ulyaoth-topbeat.sh ; chmod +x build-ulyaoth-topbeat.sh ; ./build-ulyaoth-topbeat.sh
+}
+
+ulyaoth-packetbeat()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-packetbeat/build-ulyaoth-packetbeat.sh ; chmod +x build-ulyaoth-packetbeat.sh ; ./build-ulyaoth-packetbeat.sh
+}
+
 # Move package to repository server
 scppackage()
 {
