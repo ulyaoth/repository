@@ -40,7 +40,7 @@ sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-filebeat.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-filebeat.spec -g -R"
-su ulyaoth -c "rpmbuild -bb ulyaoth-filebeat.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-filebeat.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
