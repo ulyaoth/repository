@@ -20,9 +20,11 @@ if [ "$arch" == "i386" ]
 then
 su ulyaoth -c "wget https://storage.googleapis.com/golang/go'"$goversion"'.linux-386.tar.gz"
 su ulyaoth -c "tar xvzf go'"$goversion"'.linux-386.tar.gz"
+su ulyaoth -c "rm -rf go'"$goversion"'.linux-386.tar.gz"
 else
 su ulyaoth -c "wget https://storage.googleapis.com/golang/go'"$goversion"'.linux-amd64.tar.gz"
 su ulyaoth -c "tar xvzf go'"$goversion"'.linux-amd64.tar.gz"
+su ulyaoth -c "rm -rf go'"$goversion"'.linux-amd64.tar.gz"
 fi
 
 # Add where to find go into bashrc
