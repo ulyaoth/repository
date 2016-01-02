@@ -1,7 +1,7 @@
 %define debug_package %{nil}
-%define lforward_home /opt/logstash-forwarder
-%define lforward_group logstash-forwarder
-%define lforward_user logstash-forwarder
+%define filebeat_home /etc/filebeat
+%define filebeat_group filebeat
+%define filebeat_user filebeat
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -26,102 +26,98 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary:    Logstash Forwarder is a tool to collect logs locally in preparation for processing elsewhere!
-Name:       ulyaoth-logstash-forwarder
-Version:    0.4.0
-Release:    2%{?dist}
+Summary:    Filebeat is a log data shipper initially based on the Logstash-Forwarder source code.
+Name:       ulyaoth-filebeat
+Version:    1.0.1
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/elasticsearch/logstash-forwarder
-Vendor:     Elasticsearch BV
+Vendor:     Elasticsearch
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    logstash-forwarder
-Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.service
-Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.init
-Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.conf
-BuildRoot:  %{_tmppath}/logstash-forwarder-%{version}-%{release}-root-%(%{__id_u} -n)
+Source0:    filebeat
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SOURCES/filebeat.service
+Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SOURCES/filebeat.init
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SOURCES/filebeat.yml
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SOURCES/filebeat.template.json
+BuildRoot:  %{_tmppath}/filebeat-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Provides: logstash-forwarder
-Provides: lumberjack
-Provides: ulyaoth-logstash-forwarder
-Provides: ulyaoth-lumberjack
+Provides: filebeat
+Provides: ulyaoth-filebeat
 
 %description
-♫ I'm a lumberjack and I'm ok! I sleep when idle, then I ship logs all day! I parse your logs, I eat the JVM agent for lunch! ♫
-(This project was recently renamed from 'lumberjack' to 'logstash-forwarder' to make its intended use clear. The 'lumberjack' name now remains as the network protocol, and 'logstash-forwarder' is the name of the program. It's still the same lovely log forwarding program you love.)
-Logstash Forwarder is s tool to collect logs locally in preparation for processing elsewhere!
+Filebeat is a lightweight, open source shipper for log file data. As the next-generation Logstash Forwarder, Filebeat tails logs and quickly sends this information to Logstash for further parsing and enrichment or to Elasticsearch for centralized storage and analysis.
 
 %prep
 
 %build
 
 %install
-install -d -m 755 %{buildroot}/%{lforward_home}/
-%{__mkdir} -p $RPM_BUILD_ROOT/opt/logstash-forwarder/ssl
 
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m644 %SOURCE1 \
-        $RPM_BUILD_ROOT%{_unitdir}/logstash-forwarder.service
+        $RPM_BUILD_ROOT%{_unitdir}/filebeat.service
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
 %{__install} -m755 %{SOURCE2} \
-   $RPM_BUILD_ROOT%{_initrddir}/logstash-forwarder
+   $RPM_BUILD_ROOT%{_initrddir}/filebeat
 %endif
 
 # install binary file
-%{__mkdir} -p $RPM_BUILD_ROOT/opt/logstash-forwarder/bin
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/bin
 %{__install} -m 755 -p %{SOURCE0} \
-   $RPM_BUILD_ROOT/opt/logstash-forwarder/bin/logstash-forwarder
+   $RPM_BUILD_ROOT/usr/bin/filebeat
    
 # install configuration file
-%{__mkdir} -p $RPM_BUILD_ROOT/opt/logstash-forwarder/conf
+%{__mkdir} -p $RPM_BUILD_ROOT/etc/filebeat
 %{__install} -m 644 -p %{SOURCE3} \
-   $RPM_BUILD_ROOT/opt/logstash-forwarder/conf/logstash-forwarder.conf
+   $RPM_BUILD_ROOT/etc/filebeat/filebeat.yml
    
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/logstash-forwarder
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/filebeat
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %pre
-getent group %{lforward_group} >/dev/null || groupadd -r %{lforward_group}
-getent passwd %{lforward_user} >/dev/null || /usr/sbin/useradd --comment "Logstash Forwarder Daemon User" --shell /bin/bash -M -r -g %{lforward_group} --home %{lforward_home} %{lforward_user}
+getent group %{filebeat_group} >/dev/null || groupadd -r %{filebeat_group}
+getent passwd %{filebeat_user} >/dev/null || /usr/sbin/useradd --comment "Filebeat Daemon User" --shell /bin/bash -M -r -g %{filebeat_group} --home %{filebeat_home} %{filebeat_user}
 
 %files
-%defattr(-,%{lforward_user},%{lforward_group})
-%{lforward_home}
-%{lforward_home}/*
-%config(noreplace) %{lforward_home}/conf/logstash-forwarder.conf
-%attr(0755,logstash-forwarder,root) %dir %{_localstatedir}/log/logstash-forwarder
+%defattr(-,%{filebeat_user},%{filebeat_group})
+%{filebeat_home}
+%{filebeat_home}/*
+%config(noreplace) %{filebeat_home}/filebeat.yml
+
+%attr(0755,filebeat,adm) %dir %{_localstatedir}/log/filebeat
 
 %defattr(-,root,root)
 %if %{use_systemd}
-%{_unitdir}/logstash-forwarder.service
+%{_unitdir}/filebeat.service
 %else
-%{_initrddir}/logstash-forwarder
+%{_initrddir}/filebeat
 %endif
 
 
 %post
-# Register the logstash-forwarder service
+# Register the filebeat service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
-    /usr/bin/systemctl preset logstash-forwarder.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl preset filebeat.service >/dev/null 2>&1 ||:
 %else
-    /sbin/chkconfig --add logstash-forwarder
+    /sbin/chkconfig --add filebeat
 %endif
 
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-logstash-forwarder!
+Thanks for using ulyaoth-filebeat!
 
 Please find the official documentation for logstash-forwarder here:
-* https://github.com/elasticsearch/logstash-forwarder
+* https://www.elastic.co/guide/en/beats/filebeat/current/index.html
 
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
@@ -133,26 +129,22 @@ fi
 %preun
 if [ $1 -eq 0 ]; then
 %if %use_systemd
-    /usr/bin/systemctl --no-reload disable logstash-forwarder.service >/dev/null 2>&1 ||:
-    /usr/bin/systemctl stop logstash-forwarder.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl --no-reload disable filebeat.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl stop filebeat.service >/dev/null 2>&1 ||:
 %else
-    /sbin/service logstash-forwarder stop > /dev/null 2>&1
-    /sbin/chkconfig --del logstash-forwarder
+    /sbin/service filebeat stop > /dev/null 2>&1
+    /sbin/chkconfig --del filebeat
 %endif
 fi
 
 %postun
 %if %use_systemd
-/usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
+/usr/bin/systemctl filebeat >/dev/null 2>&1 ||:
 %endif
 if [ $1 -ge 1 ]; then
-    /sbin/service logstash-forwarder status  >/dev/null 2>&1 || exit 0
+    /sbin/service filebeat status  >/dev/null 2>&1 || exit 0
 fi
 
 %changelog
-* Thu Jul 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.4.0-2
-- Fix to systemd script to use correct user: logstash-forwarder.
-
-* Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.4.0-1
-- Creating Stable version from official released "tar.gz" file.
-- Thank you Fred Emmott.
+* Sat Jan 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.1-1
+- Initial release.
