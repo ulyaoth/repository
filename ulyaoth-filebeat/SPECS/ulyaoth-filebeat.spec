@@ -40,7 +40,7 @@ Source0:    filebeat
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SOURCES/filebeat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SOURCES/filebeat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SOURCES/filebeat.yml
-Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SOURCES/filebeat.template.json
+Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/SOURCES/filebeat.template.json
 BuildRoot:  %{_tmppath}/filebeat-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: filebeat
@@ -76,6 +76,8 @@ Filebeat is a lightweight, open source shipper for log file data. As the next-ge
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/filebeat
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT/etc/filebeat/filebeat.yml
+%{__install} -m 644 -p %{SOURCE4} \
+   $RPM_BUILD_ROOT/etc/filebeat/filebeat.template.json
    
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/filebeat
    
