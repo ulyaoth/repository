@@ -210,7 +210,7 @@ fi
 %endif
 
 %changelog
-* Fri Jan 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.7-1
+* Fri Jan 8 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.7-1
 - Updated to Monkey 1.6.7.
 
 * Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.6-1
