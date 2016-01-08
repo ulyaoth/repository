@@ -4,6 +4,7 @@
 %define monkey_user monkey
 %define monkey_group monkey
 %define monkey_loggroup adm
+%define mbedtls_version 2.2.1
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -25,10 +26,10 @@ Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mon
 
 License: GPLv2+
 
-Requires: ulyaoth-mbedtls2.2
+Requires: ulyaoth-mbedtls2.2 = %{mbedtls_version}
 
 BuildRoot: %{_tmppath}/monkey-%{version}-%{release}-root
-BuildRequires: ulyaoth-mbedtls2.2
+BuildRequires: ulyaoth-mbedtls2.2 = %{mbedtls_version}
 BuildRequires: cmake
 
 Provides: webserver
@@ -212,6 +213,7 @@ fi
 %changelog
 * Fri Jan 8 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.7-1
 - Updated to Monkey 1.6.7.
+- Updating to use MbedTLS 2.2.1.
 
 * Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.6-1
 - Updated to Monkey 1.6.6.
