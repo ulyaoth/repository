@@ -93,7 +93,7 @@ BANNER
 %postun
 
 %changelog
-* Fri Jan 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.1-1
+* Fri Jan 8 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.1-1
 - Updated to mbed TLS 2.2.1.
 
 * Sat Nov 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.0-1
