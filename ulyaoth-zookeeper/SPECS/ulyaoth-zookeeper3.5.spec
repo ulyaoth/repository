@@ -148,6 +148,7 @@ getent passwd %{zookeeper_user} >/dev/null || /usr/sbin/useradd --comment "Zooke
 %{_bindir}/zkCleanup.sh
 %{_bindir}/zkCli.sh
 %{_bindir}/zkServer.sh
+%{_bindir}/zkServer-initialize.sh
 %{_libdir}/libzookeeper_mt.so
 %{_libdir}/libzookeeper_mt.so.2
 %{_libdir}/libzookeeper_mt.so.2.0.0
