@@ -206,5 +206,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed Dec 23 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.5.1-1
-- Initial rpm release.
+* Sat Jan 9 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.5.1-1
+- Initial rpm release with Zookeeper 3.5.1.
