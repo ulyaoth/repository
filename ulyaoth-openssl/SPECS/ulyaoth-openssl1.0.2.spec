@@ -12,7 +12,11 @@ Group:      System Environment/Libraries
 URL:        https://www.openssl.org/
 Vendor:     OpenSSL
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+%if 0%{?fedora}  == 19
+Source0:    http://www.openssl.org/source/openssl-%{version}.tar.gz
+%else
 Source0:    https://www.openssl.org/source/openssl-%{version}.tar.gz
+%endif
 BuildRoot:  %{_tmppath}/openssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: ulyaoth-openssl1.0.2
