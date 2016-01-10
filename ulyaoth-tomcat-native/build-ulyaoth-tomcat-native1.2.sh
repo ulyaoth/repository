@@ -1,5 +1,29 @@
 buildarch="$(uname -m)"
 
+if grep -q -i "rhel" /etc/ulyaoth
+then
+  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-rhel.repo -O /etc/yum.repos.d/ulyaoth.repo
+elif grep -q -i "CentOS" /etc/ulyaoth
+then
+  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-centos.repo -O /etc/yum.repos.d/ulyaoth.repo
+elif grep -q -i "Fedora" /etc/ulyaoth
+then
+  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-fedora.repo -O /etc/yum.repos.d/ulyaoth.repo
+elif grep -q -i "OracleLinux" /etc/ulyaoth
+then
+  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-oraclelinux.repo -O /etc/yum.repos.d/ulyaoth.repo
+elif grep -q -i "scientific" /etc/ulyaoth
+then
+  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-scientific.repo -O /etc/yum.repos.d/ulyaoth.repo
+elif grep -q -i "amazon" /etc/ulyaoth
+then
+  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-amazon.repo -O /etc/yum.repos.d/ulyaoth.repo
+else
+  echo "A unsupported OS was detected!"
+fi
+
+rpm --import https://repos.ulyaoth.net/RPM-GPG-KEY-ulyaoth
+
 useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
