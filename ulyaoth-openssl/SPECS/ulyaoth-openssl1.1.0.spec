@@ -26,7 +26,7 @@ OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim
 %setup -q -n openssl-%{version}-pre1
 
 %build
-./config --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 no-ssl2 no-ssl3
+./config --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0
 make depend
 make all
 make rehash
