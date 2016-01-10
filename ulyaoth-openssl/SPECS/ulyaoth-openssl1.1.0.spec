@@ -4,19 +4,19 @@
 
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.1.0
-Version:    1.1.0pre1
-Release:    1%{?dist}
+Version:    1.1.0
+Release:    0.1.pre1%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
 URL:        https://www.openssl.org/
 Vendor:     OpenSSL
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    https://www.openssl.org/source/openssl-%{version}.tar.gz
+Source0:    https://www.openssl.org/source/openssl-%{version}-pre1.tar.gz
 BuildRoot:  %{_tmppath}/openssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: ulyaoth-openssl1.1.0
-Provides: ulyaoth-openssl1.1.0pre1
+Provides: ulyaoth-openssl1.1.0-pre1
 
 %description
 The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan, and develop the OpenSSL toolkit and its related documentation.
@@ -69,5 +69,5 @@ BANNER
 %postun
 
 %changelog
-* Sun Jan 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0pre1-1
+* Sun Jan 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-0.1.pre1
 - Initial release with openssl 1.1.0-pre1.
