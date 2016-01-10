@@ -1,7 +1,12 @@
+%if (0%{?rhel}  >= 6) || (0%{?fedora} <= 22)
+AutoReqProv: no
+%endif
+
 %define debug_package %{nil}
 %define tomcat_home /opt/tomcat
 %define tomcat_group tomcat
 %define tomcat_user tomcat
+%define ulyaoth_openssl 1.0.2
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native1.2
@@ -24,8 +29,13 @@ BuildRequires: apr-devel >= 1.4.3
 BuildRequires: java-devel >= 1.8.0
 %endif
 
-BuildRequires:  jpackage-utils
+%if (0%{?rhel}  >= 6) || (0%{?fedora} <= 22)
+BuildRequires: ulyaoth-openssl1.0.2
+%else
 BuildRequires:  openssl-devel
+%endif
+
+BuildRequires:  jpackage-utils
 
 Provides:  tcnative = %{version}-%{release}
 Provides:  tomcat-native
@@ -52,12 +62,19 @@ f=CHANGELOG.txt ; iconv -f iso-8859-1 -t utf-8 $f > $f.utf8 ; mv $f.utf8 $f
 
 %build
 cd native
+
+%if (0%{?rhel}  >= 6) || (0%{?fedora} <= 22)
+%configure \
+  --with-apr=%{_bindir}/apr-1-config \
+  --with-java-home=%{java_home} \
+  --with-ssl=/usr/local/ulyaoth/ssl/%{ulyaoth_openssl}
+%else
 %configure \
     --with-apr=%{_bindir}/apr-1-config \
 	--with-ssl=yes \
     --with-java-home=%{java_home}
+%endif
 make %{?_smp_mflags}
-
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
