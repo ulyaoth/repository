@@ -8,7 +8,7 @@ AutoReqProv: no
 %define tomcat_home /opt/tomcat
 %define tomcat_group tomcat
 %define tomcat_user tomcat
-%define ulyaoth_openssl 1.0.2
+%define ulyaoth_openssl_version 1.0.2
 %define java_version 1.8.0
 
 Summary:    Tomcat native library
@@ -33,7 +33,7 @@ BuildRequires: apr-devel >= 1.4.3
 %if 0%{?fedora} >= 23
 BuildRequires: openssl-devel
 %else
-BuildRequires: ulyaoth-openssl1.0.2
+BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}
 %endif
 
 BuildRequires: java-%{java_version}-openjdk-devel
@@ -65,16 +65,16 @@ f=CHANGELOG.txt ; iconv -f iso-8859-1 -t utf-8 $f > $f.utf8 ; mv $f.utf8 $f
 %build
 cd native
 
-%if (0%{?rhel}  >= 6) || (0%{?fedora} <= 22)
-%configure \
-  --with-apr=%{_bindir}/apr-1-config \
-  --with-java-home=%{java_home} \
-  --with-ssl=/usr/local/ulyaoth/ssl/%{ulyaoth_openssl}
-%else
+%if 0%{?fedora} >= 23
 %configure \
     --with-apr=%{_bindir}/apr-1-config \
 	--with-ssl=yes \
     --with-java-home=%{java_home}
+%else	
+%configure \
+  --with-apr=%{_bindir}/apr-1-config \
+  --with-java-home=%{java_home} \
+  --with-ssl=/usr/local/ulyaoth/ssl/%{ulyaoth_openssl_version}
 %endif
 make %{?_smp_mflags}
 
