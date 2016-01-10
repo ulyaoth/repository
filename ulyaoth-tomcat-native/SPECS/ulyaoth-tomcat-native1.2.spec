@@ -1,4 +1,6 @@
-%if (0%{?rhel}  >= 6) || (0%{?fedora} <= 22)
+%if 0%{?fedora} >= 23
+AutoReqProv: yes
+%else
 AutoReqProv: no
 %endif
 
@@ -28,10 +30,10 @@ BuildRequires: ulyaoth-apr-devel
 BuildRequires: apr-devel >= 1.4.3
 %endif
 
-%if (0%{?rhel}  >= 6) || (0%{?fedora} <= 22)
-BuildRequires: ulyaoth-openssl1.0.2
-%else
+%if 0%{?fedora} >= 23
 BuildRequires: openssl-devel
+%else
+BuildRequires: ulyaoth-openssl1.0.2
 %endif
 
 BuildRequires: java-%{java_version}-openjdk-devel
