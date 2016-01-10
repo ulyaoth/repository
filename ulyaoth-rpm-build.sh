@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-apr()
+{
+wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-apr/build-ulyaoth-apr.sh ; chmod +x build-ulyaoth-apr.sh ; ./build-ulyaoth-apr.sh
+}
+
 ulyaoth-zookeeper3.5()
 {
 wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/build-ulyaoth-zookeeper3.5.sh ; chmod +x build-ulyaoth-zookeeper3.5.sh ; ./build-ulyaoth-zookeeper3.5.sh
