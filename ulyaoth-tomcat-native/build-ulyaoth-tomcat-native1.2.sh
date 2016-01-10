@@ -20,7 +20,20 @@ then
 fi
 
 su ulyaoth -c "spectool ulyaoth-tomcat-native1.2.spec -g -R"
+
+if [ grep -q -i "release 19" /etc/fedora-release ] || [ grep -q -i "release 20" /etc/fedora-release ] || [ grep -q -i "release 21" /etc/fedora-release ] || [ grep -q -i "release 22" /etc/fedora-release ]
+then
+su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-tomcat-native1.2.spec"
+elif [ grep -q -i "release 6" /etc/redhat-release ] || [ grep -q -i "release 7" /etc/redhat-release ]
+then
+su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-tomcat-native1.2.spec"
+else
 su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat-native1.2.spec"
+fi
+
+
+
+
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/

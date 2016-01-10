@@ -78,7 +78,7 @@ make %{?_smp_mflags}
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
-make -C jni/native install DESTDIR=$RPM_BUILD_ROOT
+make -C native install DESTDIR=$RPM_BUILD_ROOT
 %{__rm} -f $RPM_BUILD_ROOT/usr/lib64/libtcnative*.*a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib64/pkgconfig
 %{__rm} -f $RPM_BUILD_ROOT/usr/lib/libtcnative*.*a
