@@ -39,6 +39,12 @@ BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}
 BuildRequires: java-%{java_version}-openjdk-devel
 BuildRequires: jpackage-utils
 
+%if 0%{?fedora} >= 23
+Requires: openssl
+%else
+Requires: ulyaoth-openssl
+%endif
+
 Provides:  tcnative = %{version}-%{release}
 Provides:  tomcat-native
 provides:  ulyaoth-tomcat-native1.2
