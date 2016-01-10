@@ -1,5 +1,7 @@
 How to create a package:
 
 ulyaoth-tomcat-native:
-
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-native/build-ulyaoth-tomcat-native.sh ; chmod +x build-ulyaoth-tomcat-native.sh ; ./build-ulyaoth-tomcat-native.sh
+
+ulyaoth-tomcat-native1.2:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-native/build-ulyaoth-tomcat-native1.2.sh ; chmod +x build-ulyaoth-tomcat-native1.2.sh ; ./build-ulyaoth-tomcat-native1.2.sh
