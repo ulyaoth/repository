@@ -17,12 +17,13 @@ Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-connectors/native/
 BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if 0%{?rhel}  == 6
-BuildRequires:  ulyaoth-apr-devel
+BuildRequires: ulyaoth-apr-devel
+BuildRequires: java-1.8.0-openjdk-devel
 %else
-BuildRequires:  apr-devel >= 1.4.3
+BuildRequires: apr-devel >= 1.4.3
+BuildRequires: java-devel >= 1.8.0
 %endif
 
-BuildRequires:  java-devel >= 1.8.0
 BuildRequires:  jpackage-utils
 BuildRequires:  openssl-devel
 
@@ -54,8 +55,7 @@ cd native
 %configure \
     --with-apr=%{_bindir}/apr-1-config \
 	--with-ssl=yes \
-    --with-java-home=%{java_home} \
-    --with-java-platform=2
+    --with-java-home=%{java_home}
 make %{?_smp_mflags}
 
 
