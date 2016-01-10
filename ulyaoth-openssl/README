@@ -1,0 +1,16 @@
+You can build the rpm by running the build script:
+
+ulyaoth-openssl1.1.0:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.1.0.sh ; chmod +x build-ulyaoth-openssl1.1.0.sh ; ./build-ulyaoth-openssl1.1.0.sh
+
+ulyaoth-openssl1.0.2:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.2.sh ; chmod +x build-ulyaoth-openssl1.0.2.sh ; ./build-ulyaoth-openssl1.0.2.sh
+
+ulyaoth-openssl1.0.1:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.1.sh ; chmod +x build-ulyaoth-openssl1.0.1.sh ; ./build-ulyaoth-openssl1.0.1.sh
+
+ulyaoth-openssl1.0.0:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.0.sh ; chmod +x build-ulyaoth-openssl1.0.0.sh ; ./build-ulyaoth-openssl1.0.0.sh
+
+ulyaoth-openssl0.9.8:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl0.9.8.sh ; chmod +x build-ulyaoth-openssl0.9.8.sh ; ./build-ulyaoth-openssl0.9.8.sh
