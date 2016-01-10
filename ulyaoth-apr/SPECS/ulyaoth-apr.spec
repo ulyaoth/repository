@@ -99,7 +99,7 @@ BANNER
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-apr!
+Thanks for using ulyaoth-apr-devel!
 
 Please find the official documentation for apr here:
 * https://apr.apache.org/
