@@ -29,6 +29,31 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-openssl0.9.8()
+{
+wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl0.9.8.sh ; chmod +x build-ulyaoth-openssl0.9.8.sh ; ./build-ulyaoth-openssl0.9.8.sh
+}
+
+ulyaoth-openssl1.0.0()
+{
+wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.0.sh ; chmod +x build-ulyaoth-openssl1.0.0.sh ; ./build-ulyaoth-openssl1.0.0.sh
+}
+
+ulyaoth-openssl1.0.1()
+{
+wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.1.sh ; chmod +x build-ulyaoth-openssl1.0.1.sh ; ./build-ulyaoth-openssl1.0.1.sh
+}
+
+ulyaoth-openssl1.0.2()
+{
+wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.2.sh ; chmod +x build-ulyaoth-openssl1.0.2.sh ; ./build-ulyaoth-openssl1.0.2.sh
+}
+
+ulyaoth-openssl1.1.0()
+{
+wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.1.0.sh ; chmod +x build-ulyaoth-openssl1.1.0.sh ; ./build-ulyaoth-openssl1.1.0.sh
+}
+
 ulyaoth-apr()
 {
 wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-apr/build-ulyaoth-apr.sh ; chmod +x build-ulyaoth-apr.sh ; ./build-ulyaoth-apr.sh
@@ -92,6 +117,11 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-
 ulyaoth-tomcat-native()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-native/build-ulyaoth-tomcat-native.sh ; chmod +x build-ulyaoth-tomcat-native.sh ; ./build-ulyaoth-tomcat-native.sh
+}
+
+ulyaoth-tomcat-native1.2()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-native/build-ulyaoth-tomcat-native1.2.sh ; chmod +x build-ulyaoth-tomcat-native1.2.sh ; ./build-ulyaoth-tomcat-native1.2.sh
 }
 
 ulyaoth-tomcat9()
