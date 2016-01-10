@@ -42,7 +42,7 @@ BuildRequires: jpackage-utils
 %if 0%{?fedora} >= 23
 Requires: openssl
 %else
-Requires: ulyaoth-openssl
+Requires: ulyaoth-openssl%{ulyaoth_openssl_version}
 %endif
 
 Provides:  tcnative = %{version}-%{release}
