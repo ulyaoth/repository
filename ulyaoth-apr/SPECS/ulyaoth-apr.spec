@@ -94,6 +94,22 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
+%post devel
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thanks for using ulyaoth-apr!
+
+Please find the official documentation for apr here:
+* https://apr.apache.org/
+
+For any additional help please visit my forum at:
+* https://www.ulyaoth.net
+
+----------------------------------------------------------------------
+BANNER
+
 %postun
 /sbin/ldconfig
 
