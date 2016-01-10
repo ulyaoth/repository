@@ -7,6 +7,7 @@ AutoReqProv: no
 %define tomcat_group tomcat
 %define tomcat_user tomcat
 %define ulyaoth_openssl 1.0.2
+%define java_version 1.8.0
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native1.2
@@ -23,19 +24,18 @@ BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if 0%{?rhel}  == 6
 BuildRequires: ulyaoth-apr-devel
-BuildRequires: java-1.8.0-openjdk-devel
 %else
 BuildRequires: apr-devel >= 1.4.3
-BuildRequires: java-devel >= 1.8.0
 %endif
 
 %if (0%{?rhel}  >= 6) || (0%{?fedora} <= 22)
 BuildRequires: ulyaoth-openssl1.0.2
 %else
-BuildRequires:  openssl-devel
+BuildRequires: openssl-devel
 %endif
 
-BuildRequires:  jpackage-utils
+BuildRequires: java-%{java_version}-openjdk-devel
+BuildRequires: jpackage-utils
 
 Provides:  tcnative = %{version}-%{release}
 Provides:  tomcat-native
