@@ -26,7 +26,6 @@ BuildRequires: ulyaoth-apr-devel
 BuildRequires: java-1.8.0-openjdk-devel
 %else
 BuildRequires: apr-devel >= 1.4.3
-BuildRequires: java-devel >= 1.8.0
 %endif
 
 %if (0%{?rhel}  >= 6) || (0%{?fedora} <= 22)
