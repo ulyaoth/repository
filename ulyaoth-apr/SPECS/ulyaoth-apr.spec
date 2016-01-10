@@ -26,6 +26,8 @@ The mission of the Apache Portable Runtime (APR) project is to create and mainta
 Group: Development/Libraries
 Summary: APR library development kit
 Requires: ulyaoth-apr = %{version}-%{release}, pkgconfig
+Provides: ulyaoth-apr-devel
+Provides: apr-devel
 
 %description devel
 This package provides the support files which can be used to build applications using the APR library.  The mission of the Apache Portable Runtime (APR) is to provide a free library of C data structures and routines.
@@ -46,14 +48,38 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/aclocal
+install -m 644 build/find_apr.m4 $RPM_BUILD_ROOT/%{_datadir}/aclocal
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/apr.exp
+
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %pre
 
 %files
+%defattr(-,root,root,-)
+%doc CHANGES LICENSE NOTICE
+%{_libdir}/libapr-%{aprver}.so.*
+
+%files devel
+%defattr(-,root,root,-)
+%doc docs/APRDesign.html docs/canonical_filenames.html
+%doc docs/incomplete_types docs/non_apr_programs
+%{_bindir}/apr-%{aprver}-config
+%{_libdir}/libapr-%{aprver}.*a
+%{_libdir}/libapr-%{aprver}.so
+%{_libdir}/pkgconfig/*.pc
+%dir %{_libdir}/apr-%{aprver}
+%dir %{_libdir}/apr-%{aprver}/build
+%{_libdir}/apr-%{aprver}/build/*
+%dir %{_includedir}/apr-%{aprver}
+%{_includedir}/apr-%{aprver}/*.h
+%{_datadir}/aclocal/*.m4
 
 %post
+/sbin/ldconfig
 cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -67,11 +93,9 @@ For any additional help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
-fi
-
-%preun
 
 %postun
+/sbin/ldconfig
 
 %changelog
 * Sun Jan 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.5.2-1
