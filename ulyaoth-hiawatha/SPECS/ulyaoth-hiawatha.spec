@@ -250,7 +250,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Mon Jan 11 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.0-3
+* Tue Jan 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.0-3
 - Added obsoletes for ulyaoth-mbedtls and ulyaoth-mbedtls2.1.
 
 * Fri Jan 8 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.0-2
