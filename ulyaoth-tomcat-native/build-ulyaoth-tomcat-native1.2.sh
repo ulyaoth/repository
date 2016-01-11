@@ -51,6 +51,9 @@ su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-tomcat-native1
 elif grep -q -i "release 6" /etc/redhat-release || grep -q -i "release 7" /etc/redhat-release
 then
 su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-tomcat-native1.2.spec"
+elif grep -q -i "amazon" /etc/ulyaoth
+then
+su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-tomcat-native1.2.spec"
 else
 su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat-native1.2.spec"
 fi
