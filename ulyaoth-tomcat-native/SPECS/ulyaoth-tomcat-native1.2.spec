@@ -80,7 +80,7 @@ cd native
 %configure \
   --with-apr=%{_bindir}/apr-1-config \
   --with-java-home=/usr/lib/jvm/java \
-  --with-ssl=/usr/local/ulyaoth/ssl/%{ulyaoth_openssl_version}
+  --with-ssl=/usr/local/ulyaoth/ssl/openssl%{ulyaoth_openssl_version}
 %endif
 make %{?_smp_mflags}
 
