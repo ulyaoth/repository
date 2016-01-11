@@ -1,3 +1,4 @@
+AutoReqProv: no
 %define debug_package %{nil}
 
 # end of distribution specific definitions
@@ -5,7 +6,7 @@
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.1.0
 Version:    1.1.0
-Release:    0.1.pre1%{?dist}
+Release:    0.2.pre1%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
@@ -36,7 +37,7 @@ OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim
 %setup -q -n openssl-%{version}-pre1
 
 %build
-./config --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0
+./config --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 shared
 make depend
 make all
 make rehash
@@ -79,5 +80,8 @@ BANNER
 %postun
 
 %changelog
+* Mon Jan 11 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-0.2.pre1
+- added "shared" to compile options.
+
 * Sun Jan 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-0.1.pre1
 - Initial release with openssl 1.1.0-pre1.

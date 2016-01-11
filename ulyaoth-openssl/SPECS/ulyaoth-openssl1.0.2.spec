@@ -1,3 +1,4 @@
+AutoReqProv: no
 %define debug_package %{nil}
 
 # end of distribution specific definitions
@@ -5,7 +6,7 @@
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.0.2
 Version:    1.0.2e
-Release:    1%{?dist}
+Release:    2%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
@@ -73,5 +74,8 @@ BANNER
 %postun
 
 %changelog
+* Mon Jan 11 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.2e-2
+- added "shared" to compile options.
+
 * Sun Jan 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.2e-1
 - Initial release with openssl 1.0.2e.

@@ -1,3 +1,4 @@
+AutoReqProv: no
 %define debug_package %{nil}
 
 # end of distribution specific definitions
@@ -5,7 +6,7 @@
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl0.9.8
 Version:    0.9.8zh
-Release:    1%{?dist}
+Release:    2%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
@@ -30,7 +31,7 @@ OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim
 %setup -q -n openssl-%{version}
 
 %build
-./config --openssldir=/usr/local/ulyaoth/ssl/openssl0.9.8 no-ssl2 no-ssl3
+./config --openssldir=/usr/local/ulyaoth/ssl/openssl0.9.8 no-ssl2 no-ssl3 shared
 make depend
 make all
 make rehash
@@ -73,5 +74,8 @@ BANNER
 %postun
 
 %changelog
+* Mon Jan 11 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.8zh-2
+- added "shared" to compile options.
+
 * Sun Jan 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.8zh-1
 - Initial release with openssl 0.9.8zh.
