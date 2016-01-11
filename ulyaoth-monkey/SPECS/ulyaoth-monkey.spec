@@ -12,7 +12,7 @@
 Summary: Monkey is a lightweight and powerful web server and development stack for GNU/Linux.
 Name: ulyaoth-monkey
 Version: 1.6.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Vendor: Monkey HTTP Daemon development group.
 URL: http://monkey-project.com/
@@ -31,6 +31,9 @@ Requires: ulyaoth-mbedtls2.2 = %{mbedtls_version}
 BuildRoot: %{_tmppath}/monkey-%{version}-%{release}-root
 BuildRequires: ulyaoth-mbedtls2.2 = %{mbedtls_version}
 BuildRequires: cmake
+
+Obsoletes: ulyaoth-mbedtls
+Obsoletes: ulyaoth-mbedtls2.1
 
 Provides: webserver
 Provides: monkey
@@ -211,6 +214,9 @@ fi
 %endif
 
 %changelog
+* Tue Jan 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.7-2
+- Added obsoletes for ulyaoth-mbedtls and ulyaoth-mbedtls2.1.
+
 * Fri Jan 8 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.7-1
 - Updated to Monkey 1.6.7.
 - Updating to use MbedTLS 2.2.1.
