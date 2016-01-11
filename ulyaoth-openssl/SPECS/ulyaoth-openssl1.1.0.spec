@@ -20,7 +20,9 @@ Source0:    https://www.openssl.org/source/openssl-%{version}-pre1.tar.gz
 %endif
 BuildRoot:  %{_tmppath}/openssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
+%if 0%{?fedora}  == 19
 BuildRequires: perl-Pod-MinimumVersion
+%endif
 
 Provides: ulyaoth-openssl1.1.0
 Provides: ulyaoth-openssl1.1.0-pre1
