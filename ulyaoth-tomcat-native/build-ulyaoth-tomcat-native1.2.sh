@@ -37,9 +37,11 @@ fi
 
 if type dnf 2>/dev/null
 then
+  dnf remove -y apr apr-devel
   dnf builddep -y ulyaoth-tomcat-native1.2.spec
 elif type yum 2>/dev/null
 then
+  yum remove -y apr apr-devel
   yum-builddep -y ulyaoth-tomcat-native1.2.spec
 fi
 
