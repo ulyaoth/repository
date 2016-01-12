@@ -97,7 +97,7 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
-* Mon Jan 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.34-2
+* Tue Jan 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.34-2
 - Added conflict for new Tomcat Native 1.2 rpm.
 
 * Sun Dec 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.34-1
