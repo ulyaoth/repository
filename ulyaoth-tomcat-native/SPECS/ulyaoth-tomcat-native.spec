@@ -2,6 +2,7 @@
 %define tomcat_home /opt/tomcat
 %define tomcat_group tomcat
 %define tomcat_user tomcat
+%define java_version 1.8.0
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native
@@ -16,7 +17,7 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-connectors/native/%{version}/source/tomcat-native-%{version}-src.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  java-devel
+BuildRequires:  java-%{java_version}-openjdk-devel
 BuildRequires:  jpackage-utils
 BuildRequires:  apr-devel >= 1.2.1
 BuildRequires:  openssl-devel
@@ -49,7 +50,7 @@ cd jni/native
 %configure \
     --with-apr=%{_bindir}/apr-1-config \
 	--with-ssl=yes \
-    --with-java-home=%{java_home} \
+    --with-java-home=/usr/lib/jvm/java \
     --with-java-platform=2
 make %{?_smp_mflags}
 
@@ -99,6 +100,7 @@ BANNER
 %changelog
 * Tue Jan 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.34-2
 - Added conflict for new Tomcat Native 1.2 rpm.
+- Forced build with Java 8, sorry about time.
 
 * Sun Dec 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.34-1
 - Updated to Tomcat Native 1.1.34.

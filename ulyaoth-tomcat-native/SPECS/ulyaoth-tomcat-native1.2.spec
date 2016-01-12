@@ -75,7 +75,7 @@ cd native
 %configure \
     --with-apr=%{_bindir}/apr-1-config \
 	--with-ssl=yes \
-    --with-java-home=/usr/lib/jvm/java/
+    --with-java-home=/usr/lib/jvm/java
 %else	
 %configure \
   --with-apr=%{_bindir}/apr-1-config \
