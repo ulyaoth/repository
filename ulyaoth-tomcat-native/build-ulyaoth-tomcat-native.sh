@@ -11,15 +11,16 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-tomcat-native.spec
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y ulyaoth-tomcat-native.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf install -y java-1.8.0-openjdk-devel
+  dnf builddep -y ulyaoth-tomcat-native1.2.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y ulyaoth-tomcat-native.spec
-else
-yum-builddep -y ulyaoth-tomcat-native.spec
+  yum install -y java-1.8.0-openjdk-devel
+  yum-builddep -y ulyaoth-tomcat-native1.2.spec
 fi
+
 
 su ulyaoth -c "spectool ulyaoth-tomcat-native.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat-native.spec"
