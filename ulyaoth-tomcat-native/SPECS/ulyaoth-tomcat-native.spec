@@ -88,8 +88,8 @@ cat <<BANNER
 
 Thanks for using ulyaoth-tomcat-native!
 
-Please find the official documentation for tomcat here:
-* http://tomcat.apache.org/download-native.cgi
+Please find the official documentation for Tomcat Native here:
+* https://tomcat.apache.org/
 
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
