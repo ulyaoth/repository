@@ -62,7 +62,7 @@ cat <<BANNER
 
 Thanks for using ulyaoth-openssl1.0.1!
 
-Please find the official documentation for apr here:
+Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
 For any additional help please visit my forum at:
