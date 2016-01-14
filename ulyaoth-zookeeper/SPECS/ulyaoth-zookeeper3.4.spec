@@ -30,7 +30,7 @@ BuildRequires: systemd
 
 Summary:    Apache ZooKeeper is an effort to develop and maintain an open-source server which enables highly reliable distributed coordination.
 Name:       ulyaoth-zookeeper3.4
-Version:    3.4.7
+Version:    3.4.6
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -55,8 +55,8 @@ BuildRequires: gawk
 BuildRequires: make
 
 Provides: zookeeper
-Provides: zookeeper3.4
 Provides: apache-zookeeper
+Provides: ulyaoth-zookeeper
 Provides: ulyaoth-zookeeper3.4
 
 %description
@@ -204,5 +204,13 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue Dec 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.4.7-2
+- Due to a bug in Zookeeper 3.4.7 I have to recompile this with 3.4.6.
+- Zookeeper decided to remove the whole version instead of properly adding a fixed 3.4.8.
+- See more info at: http://search-hadoop.com/m/JhBoa1OmyLXHVkU12&subj=+DISCUSS+Remove+3+4+7+from+mirrors+and+the+Web+site+references
+
 * Tue Dec 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.4.7-1
 - Initial rpm release.
+
+* Tue Dec 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.4.6-1
+- Initial rpm release for Zookeeper 3.4.6.
