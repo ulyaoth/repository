@@ -31,7 +31,7 @@ The OpenSSL Project is a collaborative effort to develop a robust, commercial-gr
 OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim Hudson. The OpenSSL toolkit is licensed under an Apache-style license, which basically means that you are free to get and use it for commercial and non-commercial purposes subject to some simple license conditions.
 
 %prep
-%setup -q -n openssl-%{version}-pre1
+%setup -q -n openssl-%{version}-pre2
 
 %build
 ./config --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 shared
