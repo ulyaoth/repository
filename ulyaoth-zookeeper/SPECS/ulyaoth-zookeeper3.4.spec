@@ -1,4 +1,5 @@
 
+AutoReqProv: no
 %define __jar_repack %{nil}
 %define debug_package %{nil}
 %define zookeeper_home /var/lib/zookeeper
