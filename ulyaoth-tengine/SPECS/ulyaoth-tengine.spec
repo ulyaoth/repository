@@ -1,7 +1,7 @@
 #
 %define nginx_home %{_localstatedir}/cache/nginx
-%define nginx_user nginx
-%define nginx_group nginx
+%define nginx_user tengine
+%define nginx_group tengine
 %define nginx_loggroup adm
 
 # distribution specific definitions
@@ -39,8 +39,8 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-tengine
-Version: 2.1.1
-Release: 2%{?dist}
+Version: 2.1.2
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Taobao
 URL: http://tengine.taobao.org/
@@ -141,11 +141,14 @@ Not stripped version of tengine built with the debugging log support.
 		--with-http_upstream_least_conn_module=shared \
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
+		--add-module=/etc/nginx/modules/headersmore=shared \
+		--with-stream \
+        --with-stream_ssl_module \
 		--with-mail \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
-		--with-http_spdy_module \
+		--with-http_v2_module \
 		--dso-path=%{_sysconfdir}/nginx/modules \
 		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
@@ -201,11 +204,14 @@ make %{?_smp_mflags}
 		--with-http_upstream_least_conn_module=shared \
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
+		--add-module=/etc/nginx/modules/headersmore=shared \
+		--with-stream \
+        --with-stream_ssl_module \
 		--with-mail \
 		--with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-		--with-http_spdy_module \
+		--with-http_v2_module \
 		--dso-path=%{_sysconfdir}/nginx/modules \
 		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
@@ -361,13 +367,13 @@ BANNER
         if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
             touch %{_localstatedir}/log/nginx/access.log
             %{__chmod} 640 %{_localstatedir}/log/nginx/access.log
-            %{__chown} nginx:%{nginx_loggroup} %{_localstatedir}/log/nginx/access.log
+            %{__chown} %{nginx_user}:%{nginx_loggroup} %{_localstatedir}/log/nginx/access.log
         fi
 
         if [ ! -e %{_localstatedir}/log/nginx/error.log ]; then
             touch %{_localstatedir}/log/nginx/error.log
             %{__chmod} 640 %{_localstatedir}/log/nginx/error.log
-            %{__chown} nginx:%{nginx_loggroup} %{_localstatedir}/log/nginx/error.log
+            %{__chown} %{nginx_user}:%{nginx_loggroup} %{_localstatedir}/log/nginx/error.log
         fi
     fi
 fi
@@ -394,6 +400,12 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Jan 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.2-1
+- Updated to Tengine 2.1.2.
+- Added http/2.
+- Added Stream module.
+- Added Headers More module.
+
 * Tue Sep 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.1-2
 - Fixed wrong preun and postun as repoted by Botao Pan in issue #17.
 
