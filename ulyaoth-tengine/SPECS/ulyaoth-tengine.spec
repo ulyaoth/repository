@@ -142,8 +142,6 @@ Not stripped version of tengine built with the debugging log support.
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
 		--add-module=/etc/nginx/modules/headersmore=shared \
-		--with-stream \
-        --with-stream_ssl_module \
 		--with-mail \
         --with-file-aio \
         --with-ipv6 \
@@ -205,8 +203,6 @@ make %{?_smp_mflags}
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
 		--add-module=/etc/nginx/modules/headersmore=shared \
-		--with-stream \
-        --with-stream_ssl_module \
 		--with-mail \
 		--with-mail_ssl_module \
         --with-file-aio \
@@ -328,11 +324,11 @@ make %{?_smp_mflags}
 %attr(0755,root,root) %{_sbindir}/nginx.debug
 
 %pre
-# Add the "nginx" user
+# Add the "Tengine" user
 getent group %{nginx_group} >/dev/null || groupadd -r %{nginx_group}
 getent passwd %{nginx_user} >/dev/null || \
     useradd -r -g %{nginx_group} -s /sbin/nologin \
-    -d %{nginx_home} -c "nginx user"  %{nginx_user}
+    -d %{nginx_home} -c "Tengine user"  %{nginx_user}
 exit 0
 
 %post
@@ -403,7 +399,6 @@ fi
 * Fri Jan 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.2-1
 - Updated to Tengine 2.1.2.
 - Added http/2.
-- Added Stream module.
 - Added Headers More module.
 
 * Tue Sep 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.1-2
