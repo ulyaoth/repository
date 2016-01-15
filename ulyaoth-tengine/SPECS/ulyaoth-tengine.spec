@@ -141,7 +141,6 @@ Not stripped version of tengine built with the debugging log support.
 		--with-http_upstream_least_conn_module=shared \
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
-		--add-module=/etc/nginx/modules/headersmore=shared \
 		--with-mail \
         --with-file-aio \
         --with-ipv6 \
@@ -202,7 +201,6 @@ make %{?_smp_mflags}
 		--with-http_upstream_least_conn_module=shared \
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
-		--add-module=/etc/nginx/modules/headersmore=shared \
 		--with-mail \
 		--with-mail_ssl_module \
         --with-file-aio \
@@ -399,7 +397,6 @@ fi
 * Fri Jan 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.2-1
 - Updated to Tengine 2.1.2.
 - Added http/2.
-- Added Headers More module.
 
 * Tue Sep 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.1-2
 - Fixed wrong preun and postun as repoted by Botao Pan in issue #17.
