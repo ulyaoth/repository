@@ -5,6 +5,7 @@ useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 
+# Downloads solr 5 package and prepare for rpm build.
 su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.4.0/solr-5.4.0.tgz"
 su ulyaoth -c "tar xvf solr-$version.tgz"
 rm -rf /home/ulyaoth/solr-$version/example
@@ -16,23 +17,64 @@ rm -rf /home/ulyaoth/solr-$version/server/resources/log4j.properties
 su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
 su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
-cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-log4j.properties"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-solr.init"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-solr.service"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr.logrotate"
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-solr.in.sh"
-
+# Download spec file.
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr5.spec"
 
+# Check if we use 32 bit and if we do change spec file.
 if [ "$arch" != "x86_64" ]
 then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr5.spec
 fi
 
+# Install the solr requirements for building the rpm.
+if type dnf 2>/dev/null
+then
+  dnf builddep -y ulyaoth-solr5.spec
+elif type yum 2>/dev/null
+then
+  yum-builddep -y ulyaoth-solr5.spec
+fi
+
+# Build Solr 5 rpm.
+su ulyaoth -c "spectool ulyaoth-solr5.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-solr5.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+rm -rf /home/ulyaoth/rpmbuild
+
+# Downloads solr 5 package and prepare for examples and documentation.
+cd /home/ulyaoth
+su ulyaoth -c "rpmdev-setuptree"
+su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.4.0/solr-5.4.0.tgz"
+su ulyaoth -c "tar xvf solr-$version.tgz"
+su ulyaoth -c "mv solr-$version solr"
+su ulyaoth -c "mkdir -p /home/ulyaoth/solr-$version"
+mv /home/ulyaoth/solr/example /home/ulyaoth/solr-$version/
+su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
+su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
+
+# Build solr 5 examples rpm.
+cd /home/ulyaoth/rpmbuild/SPECS/
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr5-examples.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-solr5.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+
+# Build Solr 5 Documentation rpm.
+cd /home/ulyaoth/rpmbuild/SPECS/
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr5-docs.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-solr5.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+
+# Clean all files.
+rm -rf /home/ulyaoth/solr*
+rm -rf /home/ulyaoth/rpmbuild
+rm -rf /root/build-ulyaoth-solr5.sh
