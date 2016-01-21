@@ -18,8 +18,12 @@
 # affecting other Java applications on your server/workstation.
 #SOLR_JAVA_HOME=""
 
-# Increase Java Min/Max Heap as needed to support your indexing / query needs
-SOLR_JAVA_MEM="-Xms512m -Xmx512m"
+# Increase Java Heap as needed to support your indexing / query needs
+SOLR_HEAP="512m"
+
+# Expert: If you want finer control over memory options, specify them directly
+# Comment out SOLR_HEAP if you are using this though, that takes precedence
+#SOLR_JAVA_MEM="-Xms512m -Xmx512m"
 
 # Enable verbose GC logging
 GC_LOG_OPTS="-verbose:gc -XX:+PrintHeapAtGC -XX:+PrintGCDetails \
@@ -46,8 +50,6 @@ GC_TUNE="-XX:NewRatio=3 \
 # Leave empty if not using SolrCloud
 #ZK_HOST=""
 
-
-
 # Set the ZooKeeper client timeout (for SolrCloud mode)
 #ZK_CLIENT_TIMEOUT="15000"
 
@@ -66,6 +68,9 @@ ENABLE_REMOTE_JMX_OPTS="false"
 # The script will use SOLR_PORT+10000 for the RMI_PORT or you can set it here
 # RMI_PORT=18983
 
+# Set the thread stack size
+SOLR_OPTS="$SOLR_OPTS -Xss256k"
+
 # Anything you add to the SOLR_OPTS variable will be included in the java
 # start command line as-is, in ADDITION to other options. If you specify the
 # -a option on start script, those options will be appended as well. Examples:
@@ -75,12 +80,12 @@ ENABLE_REMOTE_JMX_OPTS="false"
 
 # Location where the bin/solr script will save PID files for running instances
 # If not set, the script will create PID files in $SOLR_TIP/bin
-#SOLR_PID_DIR=
+SOLR_PID_DIR=/var/run
 
-# Path to a directory where Solr creates index files, the specified directory
-# must contain a solr.xml; by default, Solr will use server/solr
-#SOLR_HOME=
-
+# Path to a directory for Solr to store cores and their data. By default, Solr will use server/solr
+# If solr.xml is not stored in ZooKeeper, this directory needs to contain solr.xml
+SOLR_HOME=/var/solr/data
+ 
 # Solr provides a default Log4J configuration properties file in server/resources
 # however, you may want to customize the log settings and file appender location
 # so you can point the script to use a different log4j.properties file
@@ -88,22 +93,28 @@ ENABLE_REMOTE_JMX_OPTS="false"
 
 # Location where Solr should write logs to; should agree with the file appender
 # settings in server/resources/log4j.properties
-#SOLR_LOGS_DIR=
+SOLR_LOGS_DIR=/var/log/solr
 
 # Sets the port Solr binds to, default is 8983
-#SOLR_PORT=8983
+SOLR_PORT=8983
 
 # Uncomment to set SSL-related system properties
 # Be sure to update the paths to the correct keystore for your environment
-#SOLR_SSL_OPTS="-Djavax.net.ssl.keyStore=etc/solr-ssl.keystore.jks \
-#-Djavax.net.ssl.keyStorePassword=secret \
-#-Djavax.net.ssl.trustStore=etc/solr-ssl.keystore.jks \
-#-Djavax.net.ssl.trustStorePassword=secret"
+#SOLR_SSL_KEY_STORE=etc/solr-ssl.keystore.jks
+#SOLR_SSL_KEY_STORE_PASSWORD=secret
+#SOLR_SSL_TRUST_STORE=etc/solr-ssl.keystore.jks
+#SOLR_SSL_TRUST_STORE_PASSWORD=secret
+#SOLR_SSL_NEED_CLIENT_AUTH=false
+#SOLR_SSL_WANT_CLIENT_AUTH=false
 
-# Uncomment to set a specific SSL port (-Djetty.ssl.port=N); if not set
-# and you are using SSL, then the start script will use SOLR_PORT for the SSL port
-#SOLR_SSL_PORT=
-SOLR_PID_DIR=/var/solr
-SOLR_HOME=/var/solr/data
-SOLR_LOGS_DIR=/var/log/solr
-SOLR_PORT=8983
+# Uncomment if you want to override previously defined SSL values for HTTP client
+# otherwise keep them commented and the above values will automatically be set for HTTP clients
+#SOLR_SSL_CLIENT_KEY_STORE=
+#SOLR_SSL_CLIENT_KEY_STORE_PASSWORD=
+#SOLR_SSL_CLIENT_TRUST_STORE=
+#SOLR_SSL_CLIENT_TRUST_STORE_PASSWORD=
+
+# Settings for authentication
+#SOLR_AUTHENTICATION_CLIENT_CONFIGURER=
+#SOLR_AUTHENTICATION_OPTS=
+

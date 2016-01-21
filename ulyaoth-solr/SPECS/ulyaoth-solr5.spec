@@ -42,12 +42,15 @@ Source2:    solr5-solr.init
 Source3:    solr5-solr.service
 Source4:    solr.logrotate
 Source5:    solr5-solr.in.sh
+Source6:    solr.conf
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: solr
 Provides: solr5
 Provides: ulyaoth-solr
 Provides: ulyaoth-solr5
+
+Requires: lsof
 
 %description
 Solr is highly reliable, scalable and fault tolerant, providing distributed indexing, replication and load-balanced querying, automated failover and recovery, centralized configuration and more.
@@ -61,16 +64,23 @@ Solr is highly reliable, scalable and fault tolerant, providing distributed inde
 install -d -m 755 %{buildroot}/%{solr_home}/
 cp -R * %{buildroot}/%{solr_home}/
 
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/solr/data/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/solr/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/solr/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/default
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/tmpfiles.d
+
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{solr_home}/server/resources/log4j.properties
 
 %{__install} -m 755 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{solr_home}/bin/solr.in.sh
+   
+%{__install} -m 644 -p %{SOURCE6} \
+   $RPM_BUILD_ROOT/etc/tmpfiles.d/solr.conf
 
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/solr/data/
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/solr/
-
-cp -R %{buildroot}/%{solr_home}/server/solr/solr.xml $RPM_BUILD_ROOT/var/solr/data/
+cp -R %{buildroot}/%{solr_home}/server/solr/solr.xml $RPM_BUILD_ROOT%{_localstatedir}/solr/data/
+cp -R %{buildroot}/%{solr_home}/bin/solr.in.sh $RPM_BUILD_ROOT%{_sysconfdir}/default
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -103,6 +113,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %dir %{_localstatedir}/log/solr
 %dir %{_localstatedir}/solr/data
 %dir %{_localstatedir}/solr/
+%dir %{_localstatedir}/run/solr/
 %config(noreplace) %{solr_home}/server/resources/log4j.properties
 %config(noreplace) %{solr_home}/server/contexts/solr-jetty-context.xml
 %config(noreplace) %{solr_home}/server/etc/jetty-https-ssl.xml
@@ -111,9 +122,11 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %config(noreplace) %{solr_home}/server/solr/solr.xml
 %config(noreplace) %{solr_home}/server/solr/zoo.cfg
 %config(noreplace) %{_localstatedir}/solr/data/solr.xml
+%config(noreplace) %{_sysconfdir}/default/solr.in.sh
 
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/logrotate.d/solr
+%config(noreplace) %{_sysconfdir}/tmpfiles.d/hhvm.conf
 %if %{use_systemd}
 %{_unitdir}/solr.service
 %else
@@ -165,6 +178,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Jan 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.0-2
+- Fixed init.d script, taken from ShimiTaNaka on github.
+- Added solr.in.sh to /var/solr.
+
 * Tue Dec 29 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.0-1
 - Updated to Solr 5.4.0.
 
