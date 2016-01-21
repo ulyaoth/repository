@@ -43,6 +43,7 @@ cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+cd /root
 rm -rf /home/ulyaoth/rpmbuild
 rm -rf /home/ulyaoth/solr-$version
 
@@ -64,11 +65,14 @@ cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+cd /root
 rm -rf /home/ulyaoth/rpmbuild
 rm -rf /home/ulyaoth/solr
 rm -rf /home/ulyaoth/solr-$version
 
 # Downloads solr 5 package and prepare for documentation.
+cd /home/ulyaoth
+su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "tar xvf solr-$version.tgz"
 su ulyaoth -c "mv solr-$version solr"
 su ulyaoth -c "mkdir -p /home/ulyaoth/solr-$version"
@@ -84,6 +88,7 @@ cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+cd /root
 
 # Clean all files.
 rm -rf /home/ulyaoth/solr*
