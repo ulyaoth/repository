@@ -60,6 +60,12 @@ su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 # Build solr 5 examples rpm.
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr5-examples.spec"
+
+if [ "$arch" != "x86_64" ]
+then
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr5-examples.spec
+fi
+
 su ulyaoth -c "rpmbuild -ba ulyaoth-solr5-examples.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
@@ -83,6 +89,12 @@ su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 # Build Solr 5 Documentation rpm.
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr5-docs.spec"
+
+if [ "$arch" != "x86_64" ]
+then
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr5-docs.spec
+fi
+
 su ulyaoth -c "rpmbuild -ba ulyaoth-solr5-docs.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
