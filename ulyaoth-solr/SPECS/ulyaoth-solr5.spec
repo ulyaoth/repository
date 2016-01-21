@@ -37,12 +37,12 @@ URL:        https://lucene.apache.org/solr/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    solr-%{version}.tar.gz
-Source1:    solr5-log4j.properties
-Source2:    solr5-solr.init
-Source3:    solr5-solr.service
-Source4:    solr.logrotate
-Source5:    solr5-solr.in.sh
-Source6:    solr.conf
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-log4j.properties
+Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-solr.init
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-solr.service
+Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr.logrotate
+Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-solr.in.sh
+Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr.conf
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: solr
