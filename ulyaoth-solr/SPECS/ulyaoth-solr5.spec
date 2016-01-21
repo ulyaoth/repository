@@ -126,7 +126,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/logrotate.d/solr
-%config(noreplace) %{_sysconfdir}/tmpfiles.d/hhvm.conf
+%config(noreplace) %{_sysconfdir}/tmpfiles.d/solr.conf
 %if %{use_systemd}
 %{_unitdir}/solr.service
 %else
