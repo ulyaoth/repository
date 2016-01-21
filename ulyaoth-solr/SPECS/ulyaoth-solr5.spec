@@ -178,9 +178,12 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Jan 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.0-2
+* Thu Jan 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.0-2
 - Fixed init.d script, taken from ShimiTaNaka on github.
 - Added solr.in.sh to /var/solr.
+- Added pid filr to /var/run/solr.
+- Added tpmfiles.d with solr config for /var/run/solr permissions.
+- This release fixes: https://www.ulyaoth.net/threads/patch-for-solr-5-4-0-for-rhel-6-x86_64-startup-script.96095/ & github issue #274.
 
 * Tue Dec 29 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.0-1
 - Updated to Solr 5.4.0.
