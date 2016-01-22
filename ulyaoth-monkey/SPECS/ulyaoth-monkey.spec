@@ -11,8 +11,8 @@
 
 Summary: Monkey is a lightweight and powerful web server and development stack for GNU/Linux.
 Name: ulyaoth-monkey
-Version: 1.6.7
-Release: 2%{?dist}
+Version: 1.6.8
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Monkey HTTP Daemon development group.
 URL: http://monkey-project.com/
@@ -214,6 +214,9 @@ fi
 %endif
 
 %changelog
+* Fri Jan 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.8-1
+- Updated to Monkey 1.6.8.
+
 * Tue Jan 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.7-2
 - Added obsoletes for ulyaoth-mbedtls and ulyaoth-mbedtls2.1.
 
