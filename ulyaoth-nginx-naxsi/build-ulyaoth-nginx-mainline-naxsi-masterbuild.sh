@@ -40,14 +40,12 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-mainline-naxsi-masterbuild.spec
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf builddep -y ulyaoth-nginx-mainline-naxsi-masterbuild.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec
-else
-yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec
+  yum-builddep -y ulyaoth-nginx-mainline-naxsi-masterbuild.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-nginx-mainline-naxsi-masterbuild.spec -g -R"
