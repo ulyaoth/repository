@@ -28,7 +28,7 @@ BuildRequires: systemd
 
 Summary:    Apache Solr
 Name:       ulyaoth-solr5
-Version:    5.4.0
+Version:    5.4.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -178,6 +178,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Jan 24 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.1-1
+- Updated to Solr 5.4.1.
+
 * Thu Jan 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.0-2
 - Fixed init.d script, taken from ShimiTaNaka on github.
 - Added solr.in.sh to /var/solr.
