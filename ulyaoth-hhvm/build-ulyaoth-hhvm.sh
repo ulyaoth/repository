@@ -2,9 +2,9 @@
 # Argument = -h (shows the help information)
 # Argument = -l (lists all supported versions)
 # Argument = -b (branch .i.e 3.11)
-# Argument = -v (version .i.e 3.11.0)
+# Argument = -v (version .i.e 3.11.1)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2015/12/15
+# Last Edit By: Sjir Bagmeijer - 2016/01/24
 # https://www.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
@@ -69,14 +69,12 @@ then
 yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y ulyaoth-hhvm*.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf builddep -y ulyaoth-hhvm*.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y ulyaoth-hhvm*.spec
-else
-yum-builddep -y ulyaoth-hhvm*.spec
+  yum-builddep -y ulyaoth-hhvm*.spec
 fi
 
 # HHVM 3.10 Requires ocaml 4.01 or higher.
@@ -156,6 +154,7 @@ availablehhvmversions()
 {
 cat <<EOF
 Branch 3.11 versions supported:
+* 3.11.1
 * 3.11.0
 
 Branch 3.9 versions supported: (LTS build)
@@ -203,7 +202,7 @@ hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
 supportedbranches=('3.3' '3.6' '3.9' '3.11')
-supportedversions=('3.11.0' '3.8.1' '3.8.0' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+supportedversions=('3.11.1' '3.11.0' '3.8.1' '3.8.0' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
