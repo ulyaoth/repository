@@ -106,4 +106,4 @@ cd /root
 # Clean all files.
 rm -rf /home/ulyaoth/solr*
 rm -rf /home/ulyaoth/rpmbuild
-rm -rf /root/build-ulyaoth-solr5.sh
+rm -rf /root/build-ulyaoth-solr4.sh

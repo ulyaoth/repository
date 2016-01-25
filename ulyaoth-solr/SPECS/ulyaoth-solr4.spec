@@ -74,7 +74,7 @@ cp -R * %{buildroot}/%{solr_home}/
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/tmpfiles.d
 
 %{__install} -m 644 -p %{SOURCE1} \
-   $RPM_BUILD_ROOT%{solr_home}/server/resources/log4j.properties
+   $RPM_BUILD_ROOT%{_localstatedir}/solr/log4j.properties
 
 %{__install} -m 755 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{solr_home}/bin/solr.in.sh
