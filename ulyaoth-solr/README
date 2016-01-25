@@ -3,5 +3,5 @@ How to create a package:
 ulyaoth-solr5: (includes docs & examples rpm)
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr5.sh ; chmod +x build-ulyaoth-solr5.sh ; ./build-ulyaoth-solr5.sh
 
-ulyaoth-solr4: (includes docs & examples rpm)
+ulyaoth-solr4: (single rpm)
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr4.sh ; chmod +x build-ulyaoth-solr4.sh ; ./build-ulyaoth-solr4.sh
