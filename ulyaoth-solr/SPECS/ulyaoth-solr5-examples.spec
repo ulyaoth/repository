@@ -25,6 +25,8 @@ Provides: solr5-examples
 Provides: ulyaoth-solr-examples
 Provides: ulyaoth-solr5-examples
 
+Conflicts: ulyaoth-solr4-examples
+
 %description
 Solr is highly reliable, scalable and fault tolerant, providing distributed indexing, replication and load-balanced querying, automated failover and recovery, centralized configuration and more.
 

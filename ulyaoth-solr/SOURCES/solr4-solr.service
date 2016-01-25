@@ -1,0 +1,14 @@
+[Unit]
+Description=Service script for the Solr search engine
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+PIDFile=/opt/solr/bin/solr-8983.pid
+ExecStart=/opt/solr/bin/solr start
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/opt/solr/bin/solr stop
+User=solr
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

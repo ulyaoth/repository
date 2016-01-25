@@ -6,8 +6,8 @@
 %define solr_user solr
 
 Summary:    Apache Solr Documentations
-Name:       ulyaoth-solr5-docs
-Version:    5.4.1
+Name:       ulyaoth-solr4-docs
+Version:    4.10.4
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -18,14 +18,14 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    solr-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires: ulyaoth-solr5
+Requires: ulyaoth-solr4
 
 Provides: solr-docs
-Provides: solr5-docs
+Provides: solr4-docs
 Provides: ulyaoth-solr-docs
-Provides: ulyaoth-solr5-docs
+Provides: ulyaoth-solr4-docs
 
-Conflicts: ulyaoth-solr4-docs
+Conflicts: ulyaoth-solr5-docs
 
 %description
 Solr is highly reliable, scalable and fault tolerant, providing distributed indexing, replication and load-balanced querying, automated failover and recovery, centralized configuration and more.
@@ -55,7 +55,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-solr5-docs!
+Thanks for using ulyaoth-solr4-docs!
 
 Please find the official documentation for solr here:
 * https://lucene.apache.org/solr/
@@ -67,26 +67,5 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
-* Sun Jan 24 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.1-1
-- Updated to Solr 5.4.1.
-
-* Tue Dec 29 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.0-1
-- Updated to Solr 5.4.0.
-
-* Sun Oct 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.1-1
-- Updated to Solr 5.3.1.
-
-* Sun Aug 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.0-1
-- Updated to Solr 5.3.0.
-
-* Mon Jun 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.2.1-1
-- Updated to Solr 5.2.1.
-
-* Tue Jun 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.2.0-1
-- Updated to Solr 5.2.0.
-
-* Thu Apr 16 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.1.0-1
-- Updated to Solr 5.1.0.
-
-* Sat Mar 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.0-1
-- Initial release.
+* Mon Jan 25 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.10.4-1
+- Initial release for Solr 4.10.4.

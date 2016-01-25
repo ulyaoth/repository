@@ -27,8 +27,8 @@ BuildRequires: systemd
 %endif
 
 Summary:    Apache Solr
-Name:       ulyaoth-solr5
-Version:    5.4.1
+Name:       ulyaoth-solr4
+Version:    4.10.4
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -39,20 +39,21 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    solr-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr-log4j.properties
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr-solr.init
-Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-solr.service
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr4-solr.service
 Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr.logrotate
-Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr5-solr.in.sh
+Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr4-solr.in.sh
 Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr.conf
+Source7:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr4-solr.xml
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: solr
-Provides: solr5
+Provides: solr4
 Provides: ulyaoth-solr
-Provides: ulyaoth-solr5
+Provides: ulyaoth-solr4
 
 Requires: lsof
 
-Conflicts: ulyaoth-solr4
+Conflicts: ulyaoth-solr5
 
 %description
 Solr is highly reliable, scalable and fault tolerant, providing distributed indexing, replication and load-balanced querying, automated failover and recovery, centralized configuration and more.
@@ -81,7 +82,9 @@ cp -R * %{buildroot}/%{solr_home}/
 %{__install} -m 644 -p %{SOURCE6} \
    $RPM_BUILD_ROOT/etc/tmpfiles.d/solr.conf
 
-cp -R %{buildroot}/%{solr_home}/server/solr/solr.xml $RPM_BUILD_ROOT%{_localstatedir}/solr/data/
+%{__install} -m 644 -p %{SOURCE7} \
+   $RPM_BUILD_ROOT%{_localstatedir}/solr/data/solr.xml
+   
 cp -R %{buildroot}/%{solr_home}/bin/solr.in.sh $RPM_BUILD_ROOT%{_sysconfdir}/default
 
 %if %{use_systemd}
@@ -148,7 +151,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-solr5!
+Thanks for using ulyaoth-solr4!
 
 Please find the official documentation for solr here:
 * https://lucene.apache.org/solr/
@@ -180,33 +183,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Jan 24 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.1-1
-- Updated to Solr 5.4.1.
-
-* Thu Jan 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.0-2
-- Fixed init.d script, taken from ShimiTaNaka on github.
-- Added solr.in.sh to /var/solr.
-- Added pid filr to /var/run/solr.
-- Added tpmfiles.d with solr config for /var/run/solr permissions.
-- This release fixes: https://www.ulyaoth.net/threads/patch-for-solr-5-4-0-for-rhel-6-x86_64-startup-script.96095/ & github issue #274.
-
-* Tue Dec 29 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.4.0-1
-- Updated to Solr 5.4.0.
-
-* Sun Oct 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.1-1
-- Updated to Solr 5.3.1.
-
-* Sun Aug 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.0-1
-- Updated to Solr 5.3.0.
-
-* Mon Jun 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.2.1-1
-- Updated to Solr 5.2.1.
-
-* Tue Jun 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.2.0-1
-- Updated to Solr 5.2.0.
-
-* Thu Apr 16 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.1.0-1
-- Updated to Solr 5.1.0.
-
-* Sat Mar 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.0-1
-- Initial release.
+* Mon Jan 25 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.10.4-1
+- Initial release for Solr 4.10.4.
