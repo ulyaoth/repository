@@ -274,6 +274,11 @@ ulyaoth-banana()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-banana/build-ulyaoth-banana.sh ; chmod +x build-ulyaoth-banana.sh ; ./build-ulyaoth-banana.sh
 }
 
+ulyaoth-solr4()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr4.sh ; chmod +x build-ulyaoth-solr4.sh ; ./build-ulyaoth-solr4.sh
+}
+
 ulyaoth-solr5()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr5.sh ; chmod +x build-ulyaoth-solr5.sh ; ./build-ulyaoth-solr5.sh
