@@ -119,13 +119,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %dir %{_localstatedir}/solr/data
 %dir %{_localstatedir}/solr/
 %dir %{_localstatedir}/run/solr/
-%config(noreplace) %{solr_home}/server/resources/log4j.properties
-%config(noreplace) %{solr_home}/server/contexts/solr-jetty-context.xml
-%config(noreplace) %{solr_home}/server/etc/jetty-https-ssl.xml
-%config(noreplace) %{solr_home}/server/etc/jetty.xml
-%config(noreplace) %{solr_home}/server/etc/webdefault.xml
-%config(noreplace) %{solr_home}/server/solr/solr.xml
-%config(noreplace) %{solr_home}/server/solr/zoo.cfg
+%config(noreplace) %{_localstatedir}/solr/log4j.properties
 %config(noreplace) %{_localstatedir}/solr/data/solr.xml
 %config(noreplace) %{_sysconfdir}/default/solr.in.sh
 
