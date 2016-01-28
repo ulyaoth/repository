@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.8.0
+%define nginx_version 1.8.1
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -367,6 +367,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.8.1-1
+- Updated to Nginx 1.8.1.
+
 * Mon Aug 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 2.9.0-1
 - Renamed the package version to the ModSecurity version.
 - Updated to the fixed Nginx branch from the ModSecurity Github.
