@@ -374,7 +374,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Jan 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.23-2
+* Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.23-2
 - Updated to Nginx 1.8.1.
 
 * Fri Dec 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.23-1
