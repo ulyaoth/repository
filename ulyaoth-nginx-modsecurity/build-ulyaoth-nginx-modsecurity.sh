@@ -22,8 +22,6 @@ fi
 useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
-cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SPECS/ulyaoth-nginx-modsecurity.spec"
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
 wget https://www.modsecurity.org/tarball/2.9.0/modsecurity-2.9.0.tar.gz
@@ -40,20 +38,19 @@ mv modsecurity.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 chown -R ulyaoth:ulyaoth /etc/nginx/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/SPECS/ulyaoth-nginx-modsecurity.spec"
 
 if [ "$arch" != "x86_64" ]
 then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-modsecurity.spec
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y ulyaoth-nginx-modsecurity.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf builddep -y ulyaoth-nginx-modsecurity.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y ulyaoth-nginx-modsecurity.spec
-else
-yum-builddep -y ulyaoth-nginx-modsecurity.spec
+  yum-builddep -y ulyaoth-nginx-modsecurity.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-nginx-modsecurity -g -R"
@@ -68,6 +65,7 @@ mv modsecurity.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-modsecurity.spec"
+cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
