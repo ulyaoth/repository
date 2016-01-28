@@ -5,8 +5,8 @@ AutoReqProv: no
 
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.0.1
-Version:    1.0.1q
-Release:    2%{?dist}
+Version:    1.0.1r
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
@@ -21,7 +21,7 @@ Source0:    https://www.openssl.org/source/openssl-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/openssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: ulyaoth-openssl1.0.1
-Provides: ulyaoth-openssl1.0.1q
+Provides: ulyaoth-openssl1.0.1r
 
 %description
 The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan, and develop the OpenSSL toolkit and its related documentation.
@@ -74,6 +74,9 @@ BANNER
 %postun
 
 %changelog
+* Thur Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.1r-1
+- Updated to OpenSSL version 1.0.1r.
+
 * Mon Jan 11 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.1q-2
 - added "shared" to compile options.
 
