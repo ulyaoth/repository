@@ -53,7 +53,7 @@ then
   yum-builddep -y ulyaoth-nginx-modsecurity.spec
 fi
 
-su ulyaoth -c "spectool ulyaoth-nginx-modsecurity -g -R"
+su ulyaoth -c "spectool ulyaoth-nginx-modsecurity.spec -g -R"
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-modsecurity.spec"
 rm -rf /home/ulyaoth/rpmbuild/BUILD/*
 rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*
@@ -64,7 +64,7 @@ tar cvf modsecurity.tar.gz modsecurity
 mv modsecurity.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-modsecurity.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-modsecurity.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
