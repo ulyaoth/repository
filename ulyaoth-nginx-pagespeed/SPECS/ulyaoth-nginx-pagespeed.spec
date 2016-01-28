@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.8.0
+%define nginx_version 1.8.1
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -40,7 +40,7 @@ BuildRequires: systemd
 Summary: High performance web server compiled with pagespeed.
 Name: ulyaoth-nginx-pagespeed
 Version: 1.10.33.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -365,6 +365,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.33.2-2
+- Updating to Nginx 1.8.1.
+
 * Thu Jan 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.33.2-1
 - Updating to Pagespeed v1.10.33.2-beta.
 

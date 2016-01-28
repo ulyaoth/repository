@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.8.0
+%define nginx_version 1.8.1
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -40,7 +40,7 @@ BuildRequires: systemd
 Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-naxsi
 Version: 0.54
-Release: 2%{?dist}
+Release: 3%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -368,6 +368,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-3
+- Update to Nginx 1.8.1.
+
 * Mon Dec 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.54-2
 - Added the following symlink: /opt/naxsi -> /etc/nginx/modules/naxsi/nxapi.
 
