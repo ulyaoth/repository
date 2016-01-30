@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-go()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth-go.sh ; chmod +x build-ulyaoth-go.sh ; ./build-ulyaoth-go.sh
+}
+
 ulyaoth-openssl0.9.8()
 {
 wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl0.9.8.sh ; chmod +x build-ulyaoth-openssl0.9.8.sh ; ./build-ulyaoth-openssl0.9.8.sh
