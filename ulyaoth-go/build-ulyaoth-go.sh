@@ -10,7 +10,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/
 if [ "$arch" != "x86_64" ]
 then
   sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-go.spec
-  sed -i '/linux-amd64/c\linux-386' ulyaoth-go.spec
+  sed -i 's/amd64/386/g' ulyaoth-go.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-go.spec -g -R"
