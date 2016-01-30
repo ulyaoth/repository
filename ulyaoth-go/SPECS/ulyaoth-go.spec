@@ -10,7 +10,7 @@ BuildArch: x86_64
 URL: https://golang.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz
+Source0: https://storage.googleapis.com/golang/go%{version}.linux-amd64.tar.gz
 BuildRoot:  %{_tmppath}/ulyaoth-golang-%{version}-%{release}-root-%(%{__id_u} -n)
 
 License: BSD
