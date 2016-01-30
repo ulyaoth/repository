@@ -1,0 +1,4 @@
+How to build:
+
+ulyaoth-go:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-go/build-ulyaoth-go.sh ; chmod +x build-ulyaoth-go.sh ; ./build-ulyaoth-go.sh
