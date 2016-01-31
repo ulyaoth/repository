@@ -72,7 +72,6 @@ BuildRequires: openssl-devel
 BuildRequires: curl-devel
 BuildRequires: libxml2-devel
 BuildRequires: httpd-devel
-BuildRequires: yajl-devel
 BuildRequires: lua-devel
 BuildRequires: lua-static
 
