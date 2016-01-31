@@ -40,7 +40,7 @@ BuildRequires: systemd
 Summary: High performance web server
 Name: ulyaoth-nginx-modsecurity
 Version: 2.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc & Trustwave Holdings, Inc.
 URL: https://www.modsecurity.org/
@@ -67,9 +67,7 @@ Requires: GeoIP
 BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
-BuildRequires: openssl
+BuildRequires: geoip-devel
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
 BuildRequires: libxml2-devel
@@ -77,8 +75,6 @@ BuildRequires: httpd-devel
 BuildRequires: yajl-devel
 BuildRequires: lua-devel
 BuildRequires: lua-static
-BuildRequires: ssdeep-devel
-
 
 Provides: webserver
 Provides: nginx
@@ -367,7 +363,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.8.1-1
+* Sun Jan 31 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.9.0-2
 - Updated to Nginx 1.8.1.
 
 * Mon Aug 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 2.9.0-1
