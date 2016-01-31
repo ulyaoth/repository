@@ -24,15 +24,13 @@ then
   dnf install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static
 elif type yum 2>/dev/null
 then
-  if grep -q -i "release 19" /etc/fedora-release
+  if grep -q -i "release 19" /etc/fedora-release || grep -q -i "release 20" /etc/fedora-release
   then
     yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static
   else
     yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static ssdeep-devel
   fi
 fi
-
-
 
 useradd ulyaoth
 cd /home/ulyaoth/
@@ -66,7 +64,7 @@ then
 fi
 
 su ulyaoth -c "spectool ulyaoth-nginx-modsecurity.spec -g -R"
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-modsecurity.spec"
+su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-nginx-modsecurity.spec"
 rm -rf /home/ulyaoth/rpmbuild/BUILD/*
 rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*
 rm -rf /home/ulyaoth/rpmbuild/RPMS/*
