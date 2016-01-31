@@ -29,7 +29,7 @@ then
     yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static
   elif grep -q -i "amazon" /etc/ulyaoth
   then
-   yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel lua-devel lua-static ssdeep-devel
+   yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel lua-devel lua-static
   else
     yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static ssdeep-devel
   fi
