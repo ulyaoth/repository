@@ -191,7 +191,7 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-p
 
 ulyaoth-nginx-modsecurity()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/build-ulyaoth-nginx-modsecurity.sh ; chmod +x build-ulyaoth-nginx-modsecurity.sh ; ./build-ulyaoth-nginx-modsecurity.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modsecurity/build-ulyaoth-nginx-modsecurity-with-nginx-fix.sh ; chmod +x build-ulyaoth-nginx-modsecurity-with-nginx-fix.sh ; ./build-ulyaoth-nginx-modsecurity-with-nginx-fix.sh
 }
 
 ulyaoth-nginx-naxsi-masterbuild()
