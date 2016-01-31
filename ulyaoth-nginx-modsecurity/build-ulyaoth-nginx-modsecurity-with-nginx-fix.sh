@@ -21,7 +21,7 @@ fi
 
 if type dnf 2>/dev/null
 then
-  dnf install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static
+  dnf install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static ssdeep-devel
 elif type yum 2>/dev/null
 then
   if grep -q -i "release 19" /etc/fedora-release || grep -q -i "release 20" /etc/fedora-release
