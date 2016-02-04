@@ -31,7 +31,7 @@ BuildRequires: systemd
 
 Summary:    Logstash
 Name:       ulyaoth-logstash
-Version:    2.1.1
+Version:    2.2.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    ASL 2.0
@@ -160,6 +160,9 @@ fi
 %endif
 
 %changelog
+* Thu Feb 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.0-1
+- Updating to Logstash 2.2.0.
+
 * Fri Jan 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.1-1
 - Initial Release.
 - System script based on: https://github.com/guardian/machine-images/blob/master/packer/resources/features/elk-stack/systemd-logstash.service

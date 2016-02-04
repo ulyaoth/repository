@@ -1,8 +1,8 @@
 # Required variables.
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-packetbeatversion=1.0.1
-goversion=1.5.2
+packetbeatversion=1.1.0
+goversion=1.5.3
 
 # Check if we are using a 32-bit system.
 if [ "$arch" == "i686" ]
