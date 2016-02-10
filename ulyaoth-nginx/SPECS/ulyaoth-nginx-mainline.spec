@@ -50,13 +50,14 @@ Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.init
 Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.sysconf
-Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.conf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx-mainline.conf
 Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.vh.default.conf
 Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.vh.example_ssl.conf
 Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.init
 Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.service
 Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.upgrade.sh
 Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.logrotate
+Source11: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/COPYRIGHT
 
 License: 2-clause BSD-like license
 
@@ -66,6 +67,7 @@ BuildRequires: pcre-devel
 BuildRequires: geoip-devel
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
+BuildRequires: gd-devel
 
 Requires: openssl
 Requires: geoip
@@ -120,14 +122,12 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_stub_status_module \
         --with-http_auth_request_module \
 		--with-http_image_filter_module=dynamic \
-		--with-http_xslt_module=dynamic \
         --with-http_geoip_module=dynamic \
-	    --add-dynamic-module=/etc/nginx/modules/headersmore \
+	    --add-module=/etc/nginx/modules/headersmore \
         --with-threads \
         --with-stream=dynamic \
-        --with-stream_ssl_module=dynamic \
+		--with-http_slice_module \
         --with-mail=dynamic \
-        --with-mail_ssl_modul=dynamice \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
@@ -166,14 +166,12 @@ make %{?_smp_mflags}
         --with-http_stub_status_module \
         --with-http_auth_request_module \
 		--with-http_image_filter_module=dynamic \
-		--with-http_xslt_module=dynamic \
         --with-http_geoip_module=dynamic \
-	    --add-dynamic-module=/etc/nginx/modules/headersmore \
+	    --add-module=/etc/nginx/modules/headersmore \
         --with-threads \
         --with-stream=dynamic \
-        --with-stream_ssl_module=dynamic \
+		--with-http_slice_module \
         --with-mail=dynamic \
-        --with-mail_ssl_modul=dynamice \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
@@ -196,6 +194,10 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
+
+%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/doc/%{name}-%{version}
+%{__install} -m 644 -p %{SOURCE11} \
+    $RPM_BUILD_ROOT%{_datadir}/doc/%{name}-%{version}/
 
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
@@ -257,6 +259,12 @@ make %{?_smp_mflags}
 %dir %{_sysconfdir}/nginx/conf.d
 %dir %{_sysconfdir}/nginx/sites-available
 %dir %{_sysconfdir}/nginx/sites-enabled
+%dir %{_sysconfdir}/nginx/modules
+
+%{_sysconfdir}/nginx/modules/ngx_http_geoip_module.so
+%{_sysconfdir}/nginx/modules/ngx_http_image_filter_module.so
+%{_sysconfdir}/nginx/modules/ngx_mail_module.so
+%{_sysconfdir}/nginx/modules/ngx_stream_module.so
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
@@ -285,6 +293,9 @@ make %{?_smp_mflags}
 
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
+
+%doc %{_datadir}/doc/%{name}-%{version}
+%doc %{_datadir}/doc/%{name}-%{version}/COPYRIGHT
 
 %files debug
 %attr(0755,root,root) %{_sbindir}/nginx.debug
