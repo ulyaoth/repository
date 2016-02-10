@@ -123,7 +123,7 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_auth_request_module \
 		--with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
-	    --add-module=/etc/nginx/modules/headersmore \
+	    --add-dynamic-module=/etc/nginx/modules/headersmore \
         --with-threads \
         --with-stream=dynamic \
 		--with-http_slice_module \
@@ -167,7 +167,7 @@ make %{?_smp_mflags}
         --with-http_auth_request_module \
 		--with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
-	    --add-module=/etc/nginx/modules/headersmore \
+	    --add-dynamic-module=/etc/nginx/modules/headersmore \
         --with-threads \
         --with-stream=dynamic \
 		--with-http_slice_module \
@@ -265,6 +265,7 @@ make %{?_smp_mflags}
 %{_sysconfdir}/nginx/modules/ngx_http_image_filter_module.so
 %{_sysconfdir}/nginx/modules/ngx_mail_module.so
 %{_sysconfdir}/nginx/modules/ngx_stream_module.so
+%{_sysconfdir}/nginx/modules/ngx_http_headers_more_filter_module.so
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
