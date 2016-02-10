@@ -68,6 +68,7 @@ BuildRequires: geoip-devel
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
 BuildRequires: gd-devel
+BuildRequires: pam-devel
 
 Requires: openssl
 Requires: geoip
@@ -124,6 +125,8 @@ Not stripped version of nginx built with the debugging log support.
 		--with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
 	    --add-dynamic-module=/etc/nginx/modules/headersmore \
+	    --add-dynamic-module=/etc/nginx/modules/awsauth \
+	    --add-dynamic-module=/etc/nginx/modules/pamauth \
         --with-threads \
         --with-stream=dynamic \
 		--with-http_slice_module \
@@ -168,6 +171,8 @@ make %{?_smp_mflags}
 		--with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
 	    --add-dynamic-module=/etc/nginx/modules/headersmore \
+	    --add-dynamic-module=/etc/nginx/modules/awsauth \
+	    --add-dynamic-module=/etc/nginx/modules/pamauth \
         --with-threads \
         --with-stream=dynamic \
 		--with-http_slice_module \
@@ -266,6 +271,8 @@ make %{?_smp_mflags}
 %{_sysconfdir}/nginx/modules/ngx_mail_module.so
 %{_sysconfdir}/nginx/modules/ngx_stream_module.so
 %{_sysconfdir}/nginx/modules/ngx_http_headers_more_filter_module.so
+%{_sysconfdir}/nginx/modules/ngx_http_aws_auth.so
+%{_sysconfdir}/nginx/modules/ngx_http_auth_pam_module.so
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
@@ -376,7 +383,10 @@ fi
 %changelog
 * Wed Feb 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.11-1
 - Updated to Nginx Mainline 1.9.11.
-- We now use Dynamic Modules.
+- We now use Dynamic Modules for certain nginx core modules.
+- Changed Headers More module to dynamic.
+- Added AWS Auth module as dynamic.
+- Added PAM Auth module as dynamic.
 
 * Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.10-1
 - Updated to Nginx Mainline 1.9.10.
