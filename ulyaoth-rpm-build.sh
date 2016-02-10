@@ -229,6 +229,11 @@ ulyaoth-nginx-mainline()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-mainline.sh ; chmod +x build-ulyaoth-nginx-mainline.sh ; ./build-ulyaoth-nginx-mainline.sh
 }
 
+ulyaoth-nginx-mainline-selinux()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-mainline-selinux.sh ; chmod +x build-ulyaoth-nginx-mainline-selinux.sh ; ./build-ulyaoth-nginx-mainline-selinux.sh
+}
+
 ulyaoth-nginx-mainline-naxsi-masterbuild()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh ; chmod +x build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh ; ./build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh
