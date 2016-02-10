@@ -1,5 +1,6 @@
 arch="$(uname -m)"
 buildarch="$(uname -m)"
+headersmoreversion=0.29
 
 if [ "$arch" == "i686" ]
 then
@@ -25,10 +26,10 @@ mkdir -p /etc/nginx/modules
 chown -R ulyaoth:ulyaoth /etc/nginx
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
-su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v0.28.tar.gz"
-su ulyaoth -c "tar xvf v0.28.tar.gz"
-su ulyaoth -c "mv headers-more-nginx-module-0.28 /etc/nginx/modules/headersmore"
-su ulyaoth -c "rm -rf v0.28.tar.gz"
+su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v$headersmoreversion.tar.gz"
+su ulyaoth -c "tar xvf v$headersmoreversion.tar.gz"
+su ulyaoth -c "mv headers-more-nginx-module-$headersmoreversion /etc/nginx/modules/headersmore"
+su ulyaoth -c "rm -rf v$headersmoreversion.tar.gz"
 chown -R ulyaoth:ulyaoth /etc/nginx
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SPECS/ulyaoth-nginx-mainline.spec"
@@ -38,14 +39,12 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-mainline.spec
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y ulyaoth-nginx-mainline.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf builddep -y ulyaoth-nginx-mainline.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y ulyaoth-nginx-mainline.spec
-else
-yum-builddep -y ulyaoth-nginx-mainline.spec
+  yum-builddep -y ulyaoth-nginx-mainline.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-nginx-mainline.spec -g -R"
