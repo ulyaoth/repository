@@ -26,10 +26,17 @@ mkdir -p /etc/nginx/modules
 chown -R ulyaoth:ulyaoth /etc/nginx
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
-su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v$headersmoreversion.tar.gz"
-su ulyaoth -c "tar xvf v$headersmoreversion.tar.gz"
-su ulyaoth -c "mv headers-more-nginx-module-$headersmoreversion /etc/nginx/modules/headersmore"
-su ulyaoth -c "rm -rf v$headersmoreversion.tar.gz"
+
+# Temp fix for headersmore for dynamic modules
+su ulyaoth -c "wget https://github.com/sbagmeijer/headers-more-nginx-module/archive/master.zip"
+su ulyaoth -c "unzip master.zip"
+su ulyaoth -c "mv headers-more-nginx-module-master/ headersmore/etc/nginx/modules/headersmore"
+su ulyaoth -c "rm -rf master.zip"
+
+#su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v$headersmoreversion.tar.gz"
+#su ulyaoth -c "tar xvf v$headersmoreversion.tar.gz"
+#su ulyaoth -c "mv headers-more-nginx-module-$headersmoreversion /etc/nginx/modules/headersmore"
+#su ulyaoth -c "rm -rf v$headersmoreversion.tar.gz"
 chown -R ulyaoth:ulyaoth /etc/nginx
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SPECS/ulyaoth-nginx-mainline.spec"
