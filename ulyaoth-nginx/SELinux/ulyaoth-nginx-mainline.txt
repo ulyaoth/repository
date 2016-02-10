@@ -1,0 +1,1 @@
+type=AVC msg=audit(1455131379.225:558): avc:  denied  { execute } for  pid=10247 comm="nginx" path="/etc/nginx/modules/ngx_http_geoip_module.so" dev="dm-0" ino=100663399 scontext=system_u:system_r:httpd_t:s0 tcontext=system_u:object_r:httpd_config_t:s0 tclass=file permissive=0
