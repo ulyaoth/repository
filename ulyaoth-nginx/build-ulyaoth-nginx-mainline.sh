@@ -30,7 +30,19 @@ su ulyaoth -c "rpmdev-setuptree"
 # Temp fix for headersmore for dynamic modules
 su ulyaoth -c "wget https://github.com/sbagmeijer/headers-more-nginx-module/archive/master.zip"
 su ulyaoth -c "unzip master.zip"
-su ulyaoth -c "mv headers-more-nginx-module-master/ headersmore/etc/nginx/modules/headersmore"
+su ulyaoth -c "mv headers-more-nginx-module-master /etc/nginx/modules/headersmore"
+su ulyaoth -c "rm -rf master.zip"
+
+# AWS Auth Module
+su ulyaoth -c "wget https://github.com/sbagmeijer/ngx_aws_auth/archive/master.zip"
+su ulyaoth -c "unzip master.zip"
+su ulyaoth -c "mv ngx_aws_auth-master /etc/nginx/modules/awsauth"
+su ulyaoth -c "rm -rf master.zip"
+
+# PAM Auth Module
+su ulyaoth -c "wget https://github.com/sbagmeijer/ngx_http_auth_pam_module/archive/master.zip"
+su ulyaoth -c "unzip master.zip"
+su ulyaoth -c "mv ngx_http_auth_pam_module-master /etc/nginx/modules/pamauth"
 su ulyaoth -c "rm -rf master.zip"
 
 #su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v$headersmoreversion.tar.gz"
