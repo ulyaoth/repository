@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-nginx-mainline
-Version: 1.9.10
+Version: 1.9.11
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -119,13 +119,15 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
-	    --add-module=/etc/nginx/modules/headersmore \
+		--with-http_image_filter_module=dynamic \
+		--with-http_xslt_module=dynamic \
+        --with-http_geoip_module=dynamic \
+	    --add-dynamic-module=/etc/nginx/modules/headersmore \
         --with-threads \
-        --with-stream \
-        --with-stream_ssl_module \
-        --with-mail \
-        --with-mail_ssl_module \
+        --with-stream=dynamic \
+        --with-stream_ssl_module=dynamic \
+        --with-mail=dynamic \
+        --with-mail_ssl_modul=dynamice \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
@@ -163,15 +165,18 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-	    --with-http_geoip_module \
-	    --add-module=/etc/nginx/modules/headersmore \
+		--with-http_image_filter_module=dynamic \
+		--with-http_xslt_module=dynamic \
+        --with-http_geoip_module=dynamic \
+	    --add-dynamic-module=/etc/nginx/modules/headersmore \
         --with-threads \
-        --with-stream \
-        --with-stream_ssl_module \
-        --with-mail \
-        --with-mail_ssl_module \
+        --with-stream=dynamic \
+        --with-stream_ssl_module=dynamic \
+        --with-mail=dynamic \
+        --with-mail_ssl_modul=dynamice \
         --with-file-aio \
         --with-ipv6 \
+        --with-debug \
         --with-http_v2_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
@@ -357,6 +362,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Feb 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.11-1
+- Updated to Nginx Mainline 1.9.11.
+- We now use Dynamic Modules.
+
 * Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.10-1
 - Updated to Nginx Mainline 1.9.10.
 
