@@ -8,7 +8,7 @@
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9-docs
 Version:    9.0.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -77,5 +77,8 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Fri Feb 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-2
+- Updating to Tomcat 9.0.0.M3.
+
 * Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-1
 - Initial release for Tomcat 9.0.0.M1.
