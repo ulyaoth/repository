@@ -1,7 +1,7 @@
 # Required variables.
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-filebeatversion=1.1.0
+filebeatversion=1.1.1
 goversion=1.5.3
 
 # Check if we are using a 32-bit system.

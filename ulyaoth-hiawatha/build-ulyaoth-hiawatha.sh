@@ -98,14 +98,12 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-hiawatha.spec
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y ulyaoth-hiawatha.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf builddep -y ulyaoth-hiawatha.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y ulyaoth-hiawatha.spec
-else
-yum-builddep -y ulyaoth-hiawatha.spec
+  yum-builddep -y ulyaoth-hiawatha.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-hiawatha.spec -g -R"

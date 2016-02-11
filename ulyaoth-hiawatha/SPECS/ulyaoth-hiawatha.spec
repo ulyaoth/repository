@@ -39,8 +39,8 @@ BuildRequires: systemd-devel
 
 Summary: Hiawatha is an open source webserver with a focus on security.
 Name: ulyaoth-hiawatha
-Version: 10.0
-Release: 3%{?dist}
+Version: 10.1
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Hiawatha.
 URL: https://www.hiawatha-webserver.org/
@@ -250,6 +250,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Feb 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.1-1
+- Updated to Hiawatha 10.1.
+
 * Tue Jan 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.0-3
 - Added obsoletes for ulyaoth-mbedtls and ulyaoth-mbedtls2.1.
 
