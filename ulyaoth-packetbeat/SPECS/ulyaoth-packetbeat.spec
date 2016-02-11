@@ -29,7 +29,7 @@ BuildRequires: systemd
 
 Summary:    Change the way you put your network packet data to work with Packetbeat.
 Name:       ulyaoth-packetbeat
-Version:    1.1.0
+Version:    1.1.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -154,6 +154,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Feb 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.1-1
+- Updated Packetbeat to 1.1.1.
+
 * Thu Feb 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-1
 - Updated Packetbeat to 1.1.0.
 
