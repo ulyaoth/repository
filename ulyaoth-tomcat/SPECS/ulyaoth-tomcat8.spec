@@ -30,7 +30,7 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8
-Version:    8.0.30
+Version:    8.0.32
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -167,6 +167,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Feb 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.32-1
+- Updated to Tomcat 8.0.32.
+
 * Sun Dec 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.30-1
 - Updated to Tomcat 8.0.30.
 
