@@ -38,11 +38,11 @@ Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M1/bin/apache-tomcat-%{version}.M1.tar.gz
+Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M3/bin/apache-tomcat-%{version}.M3.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.logrotate
-BuildRoot:  %{_tmppath}/tomcat-%{version}.M1-%{release}-root-%(%{__id_u} -n)
+BuildRoot:  %{_tmppath}/tomcat-%{version}.M3-%{release}-root-%(%{__id_u} -n)
 
 Provides: tomcat
 Provides: apache-tomcat
@@ -59,7 +59,7 @@ Apache Tomcat powers numerous large-scale, mission-critical web applications acr
 Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat project logo are trademarks of the Apache Software Foundation.
 
 %prep
-%setup -q -n apache-tomcat-%{version}.M1
+%setup -q -n apache-tomcat-%{version}.M3
 
 %build
 
