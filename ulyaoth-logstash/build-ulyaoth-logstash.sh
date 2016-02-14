@@ -1,5 +1,5 @@
 buildarch="$(uname -m)"
-version=2.2.0
+version=2.2.1
 
 if type dnf 2>/dev/null
 then
@@ -22,7 +22,7 @@ then
 yum install libyaml-devel readline-devel zlib-devel libffi-devel openssl-devel sqlite-devel -y
 su - ulyaoth -c "gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3"
 su - ulyaoth -c "\curl -sSL https://get.rvm.io | bash -s stable --gems=rake"
-su - ulyaoth -c "cd /home/ulyaoth/logstash-2.2.0 && rake artifact:tar"
+su - ulyaoth -c "cd /home/ulyaoth/logstash-$version && rake artifact:tar"
 else
 su ulyaoth -c "cd logstash-$version && rake artifact:tar"
 fi
