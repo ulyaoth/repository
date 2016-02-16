@@ -47,15 +47,11 @@ su ulyaoth -c "mv ngx_http_auth_pam_module-master /etc/nginx/modules/pamauth"
 su ulyaoth -c "rm -rf master.zip"
 
 # AJP Module
-su ulyaoth -c "wget https://github.com/yaoweibin/nginx_ajp_module/archive/v$ajpversion.zip"
-su ulyaoth -c "unzip v$ajpversion.zip"
-su ulyaoth -c "mv nginx_ajp_module-$ajpversion/ /etc/nginx/modules/ajp"
-su ulyaoth -c "rm -rf v$ajpversion.zip"
+su ulyaoth -c "wget https://github.com/yaoweibin/nginx_ajp_module/archive/master.zip"
+su ulyaoth -c "unzip master.zip"
+su ulyaoth -c "mv nginx_ajp_module-master /etc/nginx/modules/ajp"
+su ulyaoth -c "rm -rf master.zip"
 
-#su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v$headersmoreversion.tar.gz"
-#su ulyaoth -c "tar xvf v$headersmoreversion.tar.gz"
-#su ulyaoth -c "mv headers-more-nginx-module-$headersmoreversion /etc/nginx/modules/headersmore"
-#su ulyaoth -c "rm -rf v$headersmoreversion.tar.gz"
 chown -R ulyaoth:ulyaoth /etc/nginx
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SPECS/ulyaoth-nginx-mainline.spec"
