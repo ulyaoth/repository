@@ -48,9 +48,9 @@ su ulyaoth -c "rm -rf master.zip"
 
 # AJP Module
 su ulyaoth -c "wget https://github.com/yaoweibin/nginx_ajp_module/archive/v$ajpversion.zip"
-su ulyaoth -c "unzip $ajpversion.zip"
+su ulyaoth -c "unzip v$ajpversion.zip"
 su ulyaoth -c "mv nginx_ajp_module-$ajpversion/ /etc/nginx/modules/ajp"
-su ulyaoth -c "rm -rf $ajpversion.zip"
+su ulyaoth -c "rm -rf v$ajpversion.zip"
 
 #su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v$headersmoreversion.tar.gz"
 #su ulyaoth -c "tar xvf v$headersmoreversion.tar.gz"
