@@ -40,7 +40,7 @@ BuildRequires: systemd
 Summary: High performance web server
 Name: ulyaoth-nginx-mainline
 Version: 1.9.11
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -127,6 +127,7 @@ Not stripped version of nginx built with the debugging log support.
 	    --add-dynamic-module=/etc/nginx/modules/headersmore \
 	    --add-dynamic-module=/etc/nginx/modules/awsauth \
 	    --add-dynamic-module=/etc/nginx/modules/pamauth \
+	    --add-module=/etc/nginx/modules/ajp \
         --with-threads \
         --with-stream=dynamic \
 		--with-http_slice_module \
@@ -173,6 +174,7 @@ make %{?_smp_mflags}
 	    --add-dynamic-module=/etc/nginx/modules/headersmore \
 	    --add-dynamic-module=/etc/nginx/modules/awsauth \
 	    --add-dynamic-module=/etc/nginx/modules/pamauth \
+	    --add-module=/etc/nginx/modules/ajp \
         --with-threads \
         --with-stream=dynamic \
 		--with-http_slice_module \
@@ -381,6 +383,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue Feb 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.11-2
+- Added support for ajp module.
+
 * Wed Feb 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.11-1
 - Updated to Nginx Mainline 1.9.11.
 - We now use Dynamic Modules for certain nginx core modules.
