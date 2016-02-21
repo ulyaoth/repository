@@ -231,16 +231,15 @@ u)
 esac
 done
 
-$option
 
 if [ "$option" == "create" ]
 then
   create
-echo "Your tomcat instance has been successfully created."
+  echo "Your tomcat instance has been successfully created."
 exit 1
 elif [ "$option" == "remove" ]
 then
-remove
+  remove
   echo "Your tomcat instance has been successfully removed."
 exit 1
 else
