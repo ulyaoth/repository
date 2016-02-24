@@ -1,5 +1,5 @@
 buildarch="$(uname -m)"
-version=2.2.1
+version=2.2.2
 
 if type dnf 2>/dev/null
 then
