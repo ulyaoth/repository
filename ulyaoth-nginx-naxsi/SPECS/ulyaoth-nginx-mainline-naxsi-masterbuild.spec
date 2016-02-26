@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.9.11
+%define nginx_version 1.9.12
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
@@ -40,7 +40,7 @@ BuildRequires: systemd
 
 Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-mainline-naxsi-masterbuild
-Version: 20160211
+Version: 20160227
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -382,6 +382,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Feb 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20160227-1
+- Update to Nginx Mainline 1.9.12.
+
 * Thu Feb 11 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20160211-1
 - Update to Nginx Mainline 1.9.11.
 

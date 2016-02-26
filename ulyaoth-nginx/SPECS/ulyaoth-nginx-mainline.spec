@@ -39,8 +39,8 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-nginx-mainline
-Version: 1.9.11
-Release: 2%{?dist}
+Version: 1.9.12
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -383,6 +383,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Feb 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.12-1
+- Updated to Nginx Mainline 1.9.12.
+
 * Tue Feb 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.11-2
 - Added support for ajp module.
 

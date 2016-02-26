@@ -1,5 +1,5 @@
 buildarch="$(uname -m)"
-bananaversion=1.5.0
+bananaversion=1.5.1
 
 useradd ulyaoth
 cd /home/ulyaoth
