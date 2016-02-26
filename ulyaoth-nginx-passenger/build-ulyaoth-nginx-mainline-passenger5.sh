@@ -30,9 +30,9 @@ su ulyaoth -c "rm -rf v0.28.tar.gz"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SPECS/ulyaoth-nginx-mainline-passenger5.spec"
 cd /etc/nginx/modules
-wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.24.tar.gz
-tar xvf passenger-5.0.24.tar.gz
-mv passenger-5.0.24 passenger
+wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.26.tar.gz
+tar xvf passenger-5.0.26.tar.gz
+mv passenger-5.0.26 passenger
 rm -rf /etc/nginx/modules/passenger/packaging
 tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
