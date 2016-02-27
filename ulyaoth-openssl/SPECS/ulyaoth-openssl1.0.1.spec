@@ -74,7 +74,7 @@ BANNER
 %postun
 
 %changelog
-* Sat Feb 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.1s-1
+* Tue Mar 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.1s-1
 - Updated to OpenSSL version 1.0.1s.
 
 * Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.1r-1
