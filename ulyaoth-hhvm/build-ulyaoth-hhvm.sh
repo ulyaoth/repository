@@ -174,6 +174,7 @@ availablehhvmversions()
 {
 cat <<EOF
 Branch 3.12 versions supported: (LTS build)
+* 3.12.1
 * 3.12.0
 
 Branch 3.11 versions supported:
@@ -225,7 +226,7 @@ hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
 supportedbranches=('3.3' '3.6' '3.9' '3.11' '3.12')
-supportedversions=('3.12.0' '3.11.1' '3.11.0' '3.8.1' '3.8.0' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+supportedversions=('3.12.1' '3.12.0' '3.11.1' '3.11.0' '3.8.1' '3.8.0' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
