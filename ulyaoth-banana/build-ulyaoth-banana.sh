@@ -1,5 +1,5 @@
 buildarch="$(uname -m)"
-bananaversion=1.5.1
+bananaversion=1.6.0
 
 useradd ulyaoth
 cd /home/ulyaoth
@@ -14,14 +14,12 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-banana.spec
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y ulyaoth-banana.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf builddep -y ulyaoth-banana.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y ulyaoth-banana.spec
-else
-yum-builddep -y ulyaoth-banana.spec
+  yum-builddep -y ulyaoth-banana.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-banana.spec -g -R"
