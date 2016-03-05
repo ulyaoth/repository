@@ -66,7 +66,7 @@ su ulyaoth -c "tar cvf hhvm-'"$hhvmversion"'.tar.gz hhvm-'"$hhvmversion"'/"
 mv /home/ulyaoth/hhvm-$hhvmversion.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-'"$hhvmversion"'.spec"
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-'"$hhvmbranchversion"'.spec"
 }
 
 # Cleaning build directory and script.
