@@ -29,7 +29,7 @@ cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS/
 
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-'"$hhvmversion"'.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-'"$hhvmbranchversion"'.spec"
 
 if grep -q -i "release 7" /etc/redhat-release
 then
