@@ -7,7 +7,7 @@
 
 Summary:    Banana UI
 Name:       ulyaoth-banana
-Version:    1.5.1
+Version:    1.6.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -65,6 +65,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Mar 5 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
+- Updated to Banana version 1.6.0.
+
 * Sat Feb 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.5.1-1
 - Updated to Banana version 1.5.1.
 
