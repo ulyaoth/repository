@@ -236,13 +236,14 @@ if [ "$option" == "create" ]
 then
   create
   echo "Your tomcat instance has been successfully created."
-exit 1
+  echo "Your instance was put on autostart."
+exit 0
 elif [ "$option" == "remove" ]
 then
   remove
   echo "Your tomcat instance has been successfully removed."
-exit 1
+exit 0
 else
   usage
-exit 1
+exit 0
 fi
