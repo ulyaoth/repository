@@ -27,7 +27,7 @@ BuildRequires: systemd
 
 Summary:    Tomcat multiple instances
 Name:       ulyaoth-tomcat-multi
-Version:    1.0.1
+Version:    1.0.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -113,7 +113,10 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
-* Sun Feb 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.1-1
+* Mon Mar 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.2-1
+- Fixed tomcat-multi script so it does a correct exit 0 instead of exit 1.
+
+* Sun Feb 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.2-1
 - Fixed tomcat-multi script to not do the create part two times.
 
 * Sun Dec 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.0-1
