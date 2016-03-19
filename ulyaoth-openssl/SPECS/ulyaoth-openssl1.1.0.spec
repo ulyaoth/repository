@@ -6,7 +6,7 @@ AutoReqProv: no
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.1.0
 Version:    1.1.0
-Release:    0.4.pre3%{?dist}
+Release:    0.4.pre4%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
@@ -14,9 +14,9 @@ URL:        https://www.openssl.org/
 Vendor:     OpenSSL
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 %if 0%{?fedora}  == 19
-Source0:    http://www.openssl.org/source/openssl-%{version}-pre3.tar.gz
+Source0:    http://www.openssl.org/source/openssl-%{version}-pre4.tar.gz
 %else
-Source0:    https://www.openssl.org/source/openssl-%{version}-pre3.tar.gz
+Source0:    https://www.openssl.org/source/openssl-%{version}-pre4.tar.gz
 %endif
 BuildRoot:  %{_tmppath}/openssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -31,7 +31,7 @@ The OpenSSL Project is a collaborative effort to develop a robust, commercial-gr
 OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim Hudson. The OpenSSL toolkit is licensed under an Apache-style license, which basically means that you are free to get and use it for commercial and non-commercial purposes subject to some simple license conditions.
 
 %prep
-%setup -q -n openssl-%{version}-pre3
+%setup -q -n openssl-%{version}-pre4
 
 %build
 
@@ -82,8 +82,10 @@ BANNER
 %postun
 
 %changelog
-* Sat Feb 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-0.4.pre3
-- Updated to OpenSSL 1.1.0 Alpha 3.
+
+
+* Sat Mar 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-0.4.pre4
+- Updated to OpenSSL 1.1.0 Beta 1.
 
 * Thu Jan 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-0.3.pre2
 - Updated to OpenSSL 1.1.0 Alpha 2.
