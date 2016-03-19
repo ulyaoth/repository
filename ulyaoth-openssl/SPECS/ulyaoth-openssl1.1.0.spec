@@ -35,7 +35,13 @@ OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim
 
 %build
 
-./config --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 shared
+%ifarch i386 i486 i586 i686
+./Configure --prefix=/usr/local/ulyaoth/ssl/openssl1.1.0 --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 linux-elf shared
+%endif
+%ifarch x86_64
+./Configure --prefix=/usr/local/ulyaoth/ssl/openssl1.1.0 --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 linux-x86_64 shared
+%endif
+
 make depend
 make all
 make %{?_smp_mflags}
@@ -44,8 +50,12 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0
+mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/man
 
-make INSTALL_PREFIX=$RPM_BUILD_ROOT install
+make MANDIR=/usr/local/ulyaoth/ssl/openssl1.1.0/man MANSUFFIX=ssl DESTDIR="$RPM_BUILD_ROOT" install
+
+mv $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share/doc $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
