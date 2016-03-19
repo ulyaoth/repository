@@ -35,14 +35,9 @@ OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim
 
 %build
 
-# Temp fix for 1.1.0 Alpha 3 see: https://github.com/openssl/openssl/issues/551
-# wget -O %{_builddir}/openssl-1.1.0-pre2/util/mkdef.pl https://raw.githubusercontent.com/openssl/openssl/master/util/mkdef.pl
-# end temp fix.
-
 ./config --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 shared
 make depend
 make all
-make rehash
 make %{?_smp_mflags}
 
 %install
@@ -82,8 +77,6 @@ BANNER
 %postun
 
 %changelog
-
-
 * Sat Mar 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-0.4.pre4
 - Updated to OpenSSL 1.1.0 Beta 1.
 
