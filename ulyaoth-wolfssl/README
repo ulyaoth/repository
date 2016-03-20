@@ -1,0 +1,4 @@
+You can build the rpm by running the build script:
+
+ulyaoth-wolfssl:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-wolfssl/build-ulyaoth-wolfssl.sh ; chmod +x build-ulyaoth-wolfssl.sh ; ./build-ulyaoth-wolfssl.sh
