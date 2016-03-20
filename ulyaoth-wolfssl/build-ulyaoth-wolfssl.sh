@@ -12,14 +12,6 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-wolfssl.spec
 fi
 
-if type dnf 2>/dev/null
-then
-  dnf builddep -y ulyaoth-wolfssl.spec
-elif type yum 2>/dev/null
-then
-  yum-builddep -y ulyaoth-wolfssl.spec
-fi
-
 su ulyaoth -c "spectool ulyaoth-wolfssl.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-wolfssl.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
