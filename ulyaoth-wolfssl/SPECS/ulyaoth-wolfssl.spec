@@ -12,7 +12,7 @@ Group:      System Environment/Libraries
 URL:        https://www.openssl.org/
 Vendor:     wolfSSL Inc
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    https://github.com/wolfSSL/wolfssl/archive/v%{version.tar.gz
+Source0:    https://github.com/wolfSSL/wolfssl/archive/v%{version}.tar.gz
 BuildRoot:  %{_tmppath}/wolfssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: ulyaoth-openssl1.1.0
