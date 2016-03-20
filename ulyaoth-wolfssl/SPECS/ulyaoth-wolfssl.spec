@@ -9,7 +9,7 @@ Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNU General Public License
 Group:      System Environment/Libraries
-URL:        https://www.openssl.org/
+URL:        https://www.wolfssl.com
 Vendor:     wolfSSL Inc
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://github.com/wolfSSL/wolfssl/archive/v%{version}.tar.gz
@@ -25,7 +25,7 @@ The wolfSSL embedded SSL library (formerly CyaSSL) is a lightweight, portable, C
 
 %build
 ./autogen.sh
-./configure --enable-dtls --enable-keygen --enable-certgen --enable-certreq --enable-certext  --enable-ocsp
+./configure --enable-dtls --enable-keygen --enable-certgen --enable-certreq --enable-certext  --enable-ocsp --prefix=/usr
 make %{?_smp_mflags}
 
 %install
@@ -40,14 +40,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%dir /usr/local/include/cyassl
-%dir /usr/local/include/wolfssl
-%dir /usr/local/share/doc/wolfssl
-/usr/local/bin/*
-/usr/local/lib/*
-/usr/local/include/cyassl/*
-/usr/local/include/wolfssl/*
-/usr/local/share/doc/wolfssl/*
+%dir %{_includedir}/cyassl
+%dir %{_includedir}/wolfssl
+%dir /usr/share/doc/wolfssl
+/usr/bin/*
+%{_libdir}/*
+%{_includedir}/cyassl/*
+%{_includedir}/wolfssl/*
+/usr/share/doc/wolfssl/*
 
 %post
 cat <<BANNER
