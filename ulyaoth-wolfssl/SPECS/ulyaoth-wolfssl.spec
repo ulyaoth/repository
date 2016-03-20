@@ -15,10 +15,6 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://github.com/wolfSSL/wolfssl/archive/v%{version.tar.gz
 BuildRoot:  %{_tmppath}/wolfssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
-%if 0%{?fedora}  == 19
-BuildRequires: perl-Pod-MinimumVersion
-%endif
-
 Provides: ulyaoth-openssl1.1.0
 
 %description
