@@ -43,6 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir /usr/local/include/cyassl
 %dir /usr/local/include/wolfssl
 %dir /usr/local/share/doc/wolfssl
+/usr/local/bin/*
 /usr/local/lib/*
 /usr/local/include/cyassl/*
 /usr/local/include/wolfssl/*
