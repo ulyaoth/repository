@@ -40,6 +40,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
+%dir /usr/local/include/cyassl
+%dir /usr/local/include/wolfssl
+%dir /usr/local/share/doc/wolfssl
+/usr/local/lib/*
+/usr/local/include/cyassl/*
+/usr/local/include/wolfssl/*
+/usr/local/share/doc/wolfssl/*
 
 %post
 cat <<BANNER
