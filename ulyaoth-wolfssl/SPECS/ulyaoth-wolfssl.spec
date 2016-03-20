@@ -24,8 +24,8 @@ The wolfSSL embedded SSL library (formerly CyaSSL) is a lightweight, portable, C
 %setup -q -n wolfssl-%{version}
 
 %build
-./autogen.sh
-./configure --enable-dtls --enable-keygen --enable-certgen --enable-certreq --enable-certext  --enable-ocsp --prefix=/usr --libdir=%{_libdir}
+./autogen.sh 
+./configure --enable-dtls --enable-keygen --enable-certgen --enable-certreq --enable-certext  --enable-ocsp --prefix=%{_prefix} --libdir=%{_libdir} --sysconfdir=%{_sysconfdir} --mandir=%{_mandir} --localstatedir=%{_localstatedir} --infodir=%{_infodir} --sharedstatedir=%{_sharedstatedir} --bindir=%{_bindir} --sbindir=%{_sbindir} --libexecdir=%{_libexecdir}
 make %{?_smp_mflags}
 
 %install
