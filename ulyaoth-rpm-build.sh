@@ -29,7 +29,7 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
-ulyaoth-woflssl()
+ulyaoth-wolfssl()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-wolfssl/build-ulyaoth-wolfssl.sh ; chmod +x build-ulyaoth-wolfssl.sh ; ./build-ulyaoth-wolfssl.sh
 }
