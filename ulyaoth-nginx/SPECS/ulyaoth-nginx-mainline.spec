@@ -70,6 +70,7 @@ BuildRequires: curl-devel
 BuildRequires: gd-devel
 BuildRequires: pam-devel
 BuildRequires: perl-devel
+BuildRequires: perl-ExtUtils-Embed
 
 Requires: openssl
 Requires: geoip
@@ -173,6 +174,7 @@ make %{?_smp_mflags}
         --with-http_auth_request_module \
 		--with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
+		--with-http_perl_module=dynamic \
 	    --add-dynamic-module=/etc/nginx/modules/headersmore \
 	    --add-dynamic-module=/etc/nginx/modules/awsauth \
 	    --add-dynamic-module=/etc/nginx/modules/pamauth \
