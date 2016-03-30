@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-nginx-mainline
-Version: 1.9.12
+Version: 1.9.13
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -69,6 +69,7 @@ BuildRequires: openssl-devel
 BuildRequires: curl-devel
 BuildRequires: gd-devel
 BuildRequires: pam-devel
+BuildRequires: perl-devel
 
 Requires: openssl
 Requires: geoip
@@ -124,6 +125,7 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_auth_request_module \
 		--with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
+		--with-http_perl_module=dynamic \
 	    --add-dynamic-module=/etc/nginx/modules/headersmore \
 	    --add-dynamic-module=/etc/nginx/modules/awsauth \
 	    --add-dynamic-module=/etc/nginx/modules/pamauth \
@@ -383,6 +385,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Mar 30 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.13-1
+- Updated to Nginx Mainline 1.9.13.
+- Added perl module as dynamic.
+
 * Sat Feb 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.12-1
 - Updated to Nginx Mainline 1.9.12.
 
