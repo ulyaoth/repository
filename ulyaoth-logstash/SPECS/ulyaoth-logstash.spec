@@ -31,7 +31,7 @@ BuildRequires: systemd
 
 Summary:    Logstash
 Name:       ulyaoth-logstash
-Version:    2.2.2
+Version:    2.3.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    ASL 2.0
@@ -160,6 +160,9 @@ fi
 %endif
 
 %changelog
+* Fri Apr 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.3.0-1
+- Updating to Logstash 2.3.0.
+
 * Wed Feb 24 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.2-1
 - Updating to Logstash 2.2.2.
 
