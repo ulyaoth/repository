@@ -1,4 +1,4 @@
 This is the rpm that will install the repository, it is a noarch that has to be build ones on each platform it does not matter what version.
 
-Ulyaoth noarch:
+Ulyaoth:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
