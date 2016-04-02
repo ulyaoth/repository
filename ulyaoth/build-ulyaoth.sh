@@ -8,6 +8,6 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/
 sed -i "s/sbagmeijer/$ulyaothos/g" /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec
 
 su ulyaoth -c "spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec -g -R"
-su ulyaoth -c "rpmbuild -bb /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec"
+su ulyaoth -c "rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec"
 
 cp /home/ulyaoth/rpmbuild/RPMS/noarch/* /root/
