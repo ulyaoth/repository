@@ -1,13 +1,14 @@
+%define ulyaothos sbagmeijer
+
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.0.10
-Release: 1%{?dist}
-BuildArch: x86_64
+Version: 1.1.0
+BuildArch: noarch
 URL: https://www.ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-
+Release: 1.%{ulyaothos}
 Source0: https://repos.ulyaoth.net/RPM-GPG-KEY-ulyaoth
-Source1: ulyaoth.repo
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-%{ulyaothos}.repo
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/COPYING
 BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -56,6 +57,9 @@ For any additional information or help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Apr 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-1
+- Changed to noarch to reduce rpms.
+
 * Tue Nov 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.10-1
 - Added Fedora 23 Support.
 
