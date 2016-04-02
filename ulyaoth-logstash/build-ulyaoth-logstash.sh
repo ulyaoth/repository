@@ -11,6 +11,7 @@ fi
 
 useradd ulyaoth
 cd /home/ulyaoth
+su ulyaoth -c "mkdir -p ~/.gradle/"
 su ulyaoth -c "touch ~/.gradle/gradle.properties && echo \"org.gradle.daemon=true\" >> ~/.gradle/gradle.properties"
 su ulyaoth -c "rpmdev-setuptree"
 
