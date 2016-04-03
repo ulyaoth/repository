@@ -29,6 +29,26 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-kafka8-scala2.11()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka8-scala2.11.sh ; chmod +x build-ulyaoth-kafka8-scala2.11.sh ; ./build-ulyaoth-kafka8-scala2.11.sh
+}
+
+ulyaoth-kafka8-scala2.10()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka8-scala2.10.sh ; chmod +x build-ulyaoth-kafka8-scala2.10.sh ; ./build-ulyaoth-kafka8-scala2.10.sh
+}
+
+ulyaoth-kafka8-scala2.9.2()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka8-scala2.9.2.sh ; chmod +x build-ulyaoth-kafka8-scala2.9.2.sh ; ./build-ulyaoth-kafka8-scala2.9.2.sh
+}
+
+ulyaoth-kafka8-scala2.9.1()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka8-scala2.9.1.sh ; chmod +x build-ulyaoth-kafka8-scala2.9.1.sh ; ./build-ulyaoth-kafka8-scala2.9.1.sh
+}
+
 ulyaoth-kafka9-scala2.11()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka9-scala2.11.sh ; chmod +x build-ulyaoth-kafka9-scala2.11.sh ; ./build-ulyaoth-kafka9-scala2.11.sh
