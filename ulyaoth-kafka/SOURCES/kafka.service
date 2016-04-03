@@ -4,8 +4,11 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/kafka-server-start.sh /etc/kafka/config/server.properties
-ExecStop=/usr/bin/kafka-server-stop.sh /etc/kafka/config/server.properties
+SyslogIdentifier=kafka
+WorkingDirectory=/var/lib/kafka
+EnvironmentFile=/etc/sysconfig/kafka
+ExecStart=/usr/bin/kafka-server-start.sh /etc/kafka/server.properties
+ExecStop=/usr/bin/kafka-server-stop.sh
 LimitNOFILE=200000
 User=kafka
 Group=hadoop
