@@ -1,0 +1,14 @@
+[Unit]
+Description=Apache Kafka is publish-subscribe messaging rethought as a distributed commit log.
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kafka-server-start.sh /etc/kafka/config/server.properties
+ExecStop=/usr/bin/kafka-server-stop.sh /etc/kafka/config/server.properties
+LimitNOFILE=200000
+User=kafka
+Group=hadoop
+
+[Install]
+WantedBy=multi-user.target
