@@ -42,10 +42,16 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    http://apache.mirrors.spacedump.net/kafka/%{version}/kafka_%{scala_version}-%{version}.tgz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka.init
-Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka
 Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-zookeeper.service
 Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-zookeeper.init
-Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-zookeeper
+
+%if %{use_systemd}
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-sysconfig-systemd
+Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-zookeeper-sysconfig-systemd
+%else
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-sysconfig-initd
+Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-zookeeper-sysconfig-initd
+%endif
 
 BuildRoot:  %{_tmppath}/kafka9-%{version}_%{scala_version}-%{release}-root-%(%{__id_u} -n)
 
@@ -78,6 +84,7 @@ cp -rf %_builddir/kafka_%{scala_version}-%{version}/bin/*.sh $RPM_BUILD_ROOT/usr
 cp -rf %_builddir/kafka_%{scala_version}-%{version}/config/*.properties $RPM_BUILD_ROOT/etc/kafka/
 cp -rf %_builddir/kafka_%{scala_version}-%{version}/libs/*.jar $RPM_BUILD_ROOT/usr/share/kafka/
 cp -rf %_builddir/kafka_%{scala_version}-%{version}/libs/*.asc $RPM_BUILD_ROOT/usr/share/kafka/
+tar xvzf %_builddir/kafka_%{scala_version}-%{version}/site-docs/kafka_%{scala_version}-%{version}-site-docs.tgz -C $RPM_BUILD_ROOT/usr/share/doc/kafka/ --strip-components=1
 
 sed -i 's#/tmp/kafka-logs#/var/lib/kafka#g' $RPM_BUILD_ROOT/etc/kafka/server.properties
 

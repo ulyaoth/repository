@@ -15,70 +15,52 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# 
-# ZooKeeper
-# 
-# chkconfig: 2345 89 9 
-# description: zookeeper
+#
+# Kaka
+#
+# chkconfig: 2345 89 9
+# description: kafka
 
 source /etc/rc.d/init.d/functions
-source /usr/libexec/zkEnv.sh
+source /etc/sysconfig/kafka
 
-RETVAL=0
-PIDFILE="${ZOOPIDFILE}"
-desc="ZooKeeper daemon"
-
-start() {
-  echo -n $"Starting $desc (zookeeper): "
-  daemon --user zookeeper zkServer.sh start
-  RETVAL=$?
-  echo
-  [ $RETVAL -eq 0 ] && touch /var/lock/subsys/zookeeper
-  return $RETVAL
-}
-
-stop() {
-  echo -n $"Stopping $desc (zookeeper): "
-  daemon --user zookeeper zkServer.sh stop
-  RETVAL=$?
-  sleep 5
-  echo
-  [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/zookeeper $PIDFILE
-}
-
-restart() {
-  stop
-  start
-}
-
-checkstatus(){
-  status -p $PIDFILE ${JAVA_HOME}/bin/java
-  RETVAL=$?
-}
-
-condrestart(){
-  [ -e /var/lock/subsys/zookeeper ] && restart || :
-}
+KAFKA_USER=kafka
 
 case "$1" in
+
   start)
+    echo -n "Starting Kafka:"
+    /sbin/runuser $KAFKA_USER -c "nohup /usr/bin/kafka-server-start.sh /etc/kafka/server.properties > /var/log/kafka/kafka-server.out 2> /var/log/kafka/kafka-server.err &"
+    echo " done."
+    exit 0
+    ;;
+
+  stop)
+    echo -n "Stopping Kafka: "
+    ps ax | grep -i 'kafka.kafka' | grep -v grep | awk '{print $1}' | xargs kill -9
+    echo " done."
+    exit 0
+    ;;
+
+  status)
+    c_pid=`ps -ef | grep kafka.kafka | grep -v grep | awk '{print $2}'`
+    if [ "$c_pid" = "" ] ; then
+      echo "Stopped"
+      exit 3
+    else
+      echo "Running $c_pid"
+      exit 0
+    fi
+    ;;
+
+  restart)
+    stop
     start
     ;;
-  stop)
-    stop
-    ;;
-  status)
-    checkstatus
-    ;;
-  restart)
-    restart
-    ;;
-  condrestart)
-    condrestart
-    ;;
-  *)
-    echo $"Usage: $0 {start|stop|status|restart|condrestart}"
-    exit 1
-esac
 
-exit $RETVAL
+  *)
+    echo "Usage: kafka {start|stop|hardstop|status|restart}"
+    exit 1
+    ;;
+
+esac

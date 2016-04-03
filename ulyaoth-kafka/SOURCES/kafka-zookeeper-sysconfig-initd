@@ -1,0 +1,5 @@
+export KAFKA_HEAP_OPTS="-Xmx512M -Xms512M"
+export EXTRA_ARGS="-name zookeeper -loggc"
+export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/etc/kafka/log4j.properties"
+export LOG_DIR="/var/log/kafka"
+export CLASSPATH=$CLASSPATH:/usr/share/kafka/*
