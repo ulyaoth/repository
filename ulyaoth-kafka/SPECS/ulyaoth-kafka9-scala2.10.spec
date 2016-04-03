@@ -4,7 +4,7 @@
 %define kafka_home /var/lib/kafka
 %define kafka_group hadoop
 %define kafka_user kafka
-%define scala_version 2.11
+%define scala_version 2.10
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -55,7 +55,7 @@ Provides: apache-kafka
 Provides: ulyaoth-kafka9
 Provides: ulyaoth-kafka9-scala%{scala_version}
 
-Conflicts: ulyaoth-kafka9-scala2.10
+Conflicts: ulyaoth-kafka9-scala2.11
 
 %description
 Kafka is designed to allow a single cluster to serve as the central data backbone for a large organization. It can be elastically and transparently expanded without downtime. Data streams are partitioned and spread over a cluster of machines to allow data streams larger than the capability of any single machine and to allow clusters of co-ordinated consumers.
@@ -165,16 +165,16 @@ getent passwd %{kafka_user} >/dev/null || /usr/sbin/useradd --comment "Kafka Dae
 /usr/share/kafka/jetty-servlet-9.2.12.v20150709.jar
 /usr/share/kafka/jetty-util-9.2.12.v20150709.jar
 /usr/share/kafka/jopt-simple-3.2.jar
-/usr/share/kafka/kafka_2.11-0.9.0.1.jar
-/usr/share/kafka/kafka_2.11-0.9.0.1.jar.asc
-/usr/share/kafka/kafka_2.11-0.9.0.1-javadoc.jar
-/usr/share/kafka/kafka_2.11-0.9.0.1-javadoc.jar.asc
-/usr/share/kafka/kafka_2.11-0.9.0.1-scaladoc.jar
-/usr/share/kafka/kafka_2.11-0.9.0.1-scaladoc.jar.asc
-/usr/share/kafka/kafka_2.11-0.9.0.1-sources.jar
-/usr/share/kafka/kafka_2.11-0.9.0.1-sources.jar.asc
-/usr/share/kafka/kafka_2.11-0.9.0.1-test.jar
-/usr/share/kafka/kafka_2.11-0.9.0.1-test.jar.asc
+/usr/share/kafka/kafka_2.10-0.9.0.1.jar
+/usr/share/kafka/kafka_2.10-0.9.0.1.jar.asc
+/usr/share/kafka/kafka_2.10-0.9.0.1-javadoc.jar
+/usr/share/kafka/kafka_2.10-0.9.0.1-javadoc.jar.asc
+/usr/share/kafka/kafka_2.10-0.9.0.1-scaladoc.jar
+/usr/share/kafka/kafka_2.10-0.9.0.1-scaladoc.jar.asc
+/usr/share/kafka/kafka_2.10-0.9.0.1-sources.jar
+/usr/share/kafka/kafka_2.10-0.9.0.1-sources.jar.asc
+/usr/share/kafka/kafka_2.10-0.9.0.1-test.jar
+/usr/share/kafka/kafka_2.10-0.9.0.1-test.jar.asc
 /usr/share/kafka/kafka-clients-0.9.0.1.jar
 /usr/share/kafka/kafka-log4j-appender-0.9.0.1.jar
 /usr/share/kafka/kafka-tools-0.9.0.1.jar
@@ -182,9 +182,7 @@ getent passwd %{kafka_user} >/dev/null || /usr/sbin/useradd --comment "Kafka Dae
 /usr/share/kafka/lz4-1.2.0.jar
 /usr/share/kafka/metrics-core-2.2.0.jar
 /usr/share/kafka/osgi-resource-locator-1.0.1.jar
-/usr/share/kafka/scala-library-2.11.7.jar
-/usr/share/kafka/scala-parser-combinators_2.11-1.0.4.jar
-/usr/share/kafka/scala-xml_2.11-1.0.4.jar
+/usr/share/kafka/scala-library-2.10.5.jar
 /usr/share/kafka/slf4j-api-1.7.6.jar
 /usr/share/kafka/slf4j-log4j12-1.7.6.jar
 /usr/share/kafka/snappy-java-1.1.1.7.jar
@@ -246,7 +244,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-kafka9 with Scale 2.11!
+Thanks for using ulyaoth-kafka9 with Scale 2.10!
 
 Please find the official documentation for kafka here:
 * https://kafka.apache.org
@@ -285,4 +283,4 @@ fi
 %changelog
 * Sun Apr 3 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.0.1-1
 - Initial rpm release.
-- Kafka 0.9.0.1 build with Scala 2.11.
+- Kafka 0.9.0.1 build with Scala 2.10.
