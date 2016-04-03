@@ -44,6 +44,10 @@ Source0:    http://apache.mirrors.spacedump.net/kafka/%{kafka_version}/kafka_%{s
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka
+Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-zookeeper.service
+Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-zookeeper.init
+Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-zookeeper
+
 BuildRoot:  %{_tmppath}/kafka-%{kafka_version}_%{scala_version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: kafka
@@ -77,17 +81,23 @@ sed -i 's#/tmp/kafka-logs#/var/lib/kafka#g' $RPM_BUILD_ROOT/etc/kafka/server.pro
 
 %{__install} -m644 %SOURCE3 \
         $RPM_BUILD_ROOT/etc/sysconfig/kafka
+%{__install} -m644 %SOURCE6 \
+        $RPM_BUILD_ROOT/etc/sysconfig/kafka-zookeeper
 
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m644 %SOURCE1 \
         $RPM_BUILD_ROOT%{_unitdir}/kafka.service
+%{__install} -m644 %SOURCE4 \
+        $RPM_BUILD_ROOT%{_unitdir}/kafka-zookeeper.service
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
 %{__install} -m755 %{SOURCE2} \
    $RPM_BUILD_ROOT%{_initrddir}/kafka
+%{__install} -m755 %{SOURCE5} \
+   $RPM_BUILD_ROOT%{_initrddir}/kafka-zookeeper
 %endif
 
 %clean
@@ -184,6 +194,7 @@ getent passwd %{kafka_user} >/dev/null || /usr/sbin/useradd --comment "Kafka Dae
 %dir /usr/share/doc/kafka/
 /usr/share/doc/kafka/*
 /etc/sysconfig/kafka
+/etc/sysconfig/kafka-zookeeper
 %{_bindir}/connect-distributed.sh
 %{_bindir}/connect-standalone.sh
 %{_bindir}/kafka-acls.sh
@@ -213,17 +224,21 @@ getent passwd %{kafka_user} >/dev/null || /usr/sbin/useradd --comment "Kafka Dae
 
 %if %{use_systemd}
 %{_unitdir}/kafka.service
+%{_unitdir}/kafka-zookeeper.service
 %else
 %{_initrddir}/kafka
+%{_initrddir}/kafka-zookeeper
 %endif
 
 %post
-# Register the kafka service
+# Register the kafka & kafka-zookeeper service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
     /usr/bin/systemctl preset kafka.service >/dev/null 2>&1 ||:
+	/usr/bin/systemctl preset kafka-zookeeper.service >/dev/null 2>&1 ||:
 %else
     /sbin/chkconfig --add kafka
+	/sbin/chkconfig --add kafka-zookeeper
 %endif
 
 cat <<BANNER
@@ -245,10 +260,14 @@ fi
 if [ $1 -eq 0 ]; then
 %if %use_systemd
     /usr/bin/systemctl --no-reload disable kafka.service >/dev/null 2>&1 ||:
+	/usr/bin/systemctl --no-reload disable kafka-zookeeper.service >/dev/null 2>&1 ||:
     /usr/bin/systemctl stop kafka.service >/dev/null 2>&1 ||:
+	/usr/bin/systemctl stop kafka-zookeeper.service >/dev/null 2>&1 ||:
 %else
     /sbin/service kafka stop > /dev/null 2>&1
+	/sbin/service kafka-zookeeper stop > /dev/null 2>&1
     /sbin/chkconfig --del kafka
+	/sbin/chkconfig --del kafka-zookeeper
 %endif
 fi
 
@@ -258,6 +277,7 @@ fi
 %endif
 if [ $1 -ge 1 ]; then
     /sbin/service kafka status  >/dev/null 2>&1 || exit 0
+	/sbin/service kafka-zookeeper status  >/dev/null 2>&1 || exit 0
 fi
 
 %changelog
