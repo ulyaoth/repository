@@ -1,4 +1,7 @@
 How to create a package:
 
-ulyaoth-kafka9 with scale 2.11:
+ulyaoth-kafka9 with scala 2.11:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka9-scala2.11.sh ; chmod +x build-ulyaoth-kafka9-scala2.11.sh ; ./build-ulyaoth-kafka9-scala2.11.sh
+
+ulyaoth-kafka9 with scala 2.10:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka9-scala2.10.sh ; chmod +x build-ulyaoth-kafka9-scala2.10.sh ; ./build-ulyaoth-kafka9-scala2.10.sh

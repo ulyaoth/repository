@@ -29,6 +29,16 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-kafka9-scala2.11()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka9-scala2.11.sh ; chmod +x build-ulyaoth-kafka9-scala2.11.sh ; ./build-ulyaoth-kafka9-scala2.11.sh
+}
+
+ulyaoth-kafka9-scala2.10()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka9-scala2.10.sh ; chmod +x build-ulyaoth-kafka9-scala2.10.sh ; ./build-ulyaoth-kafka9-scala2.10.sh
+}
+
 ulyaoth-wolfssl()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-wolfssl/build-ulyaoth-wolfssl.sh ; chmod +x build-ulyaoth-wolfssl.sh ; ./build-ulyaoth-wolfssl.sh
