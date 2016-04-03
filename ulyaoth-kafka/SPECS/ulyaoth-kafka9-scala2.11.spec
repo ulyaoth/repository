@@ -62,6 +62,10 @@ Provides: ulyaoth-kafka9
 Provides: ulyaoth-kafka9-scala%{scala_version}
 
 Conflicts: ulyaoth-kafka9-scala2.10
+Conflicts: ulyaoth-kafka8-scala2.9.1
+Conflicts: ulyaoth-kafka8-scala2.9.2
+Conflicts: ulyaoth-kafka8-scala2.10
+Conflicts: ulyaoth-kafka8-scala2.11
 
 %description
 Kafka is designed to allow a single cluster to serve as the central data backbone for a large organization. It can be elastically and transparently expanded without downtime. Data streams are partitioned and spread over a cluster of machines to allow data streams larger than the capability of any single machine and to allow clusters of co-ordinated consumers.
