@@ -37,7 +37,7 @@ su ulyaoth -c "mv headers-more-nginx-module-0.28 /etc/nginx/modules/headersmore"
 su ulyaoth -c "rm -rf v0.28.tar.gz"
 
 su ulyaoth -c "wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.11.33.0-beta.zip"
-su ulyaoth -c "wget https://dl.google.com/dl/page-speed/psol/11.11.33.0.tar.gz"
+su ulyaoth -c "wget https://dl.google.com/dl/page-speed/psol/1.11.33.0.tar.gz"
 su ulyaoth -c "unzip v1.11.33.0-beta.zip"
 su ulyaoth -c "tar xvf 1.11.33.0.tar.gz"
 su ulyaoth -c "cp -rf ngx_pagespeed-1.11.33.0-beta/* /etc/nginx/modules/pagespeed/"
