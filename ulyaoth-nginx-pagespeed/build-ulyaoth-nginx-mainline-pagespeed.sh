@@ -36,11 +36,11 @@ su ulyaoth -c "tar xvf v0.28.tar.gz"
 su ulyaoth -c "mv headers-more-nginx-module-0.28 /etc/nginx/modules/headersmore"
 su ulyaoth -c "rm -rf v0.28.tar.gz"
 
-su ulyaoth -c "wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.10.33.6-beta.zip"
-su ulyaoth -c "wget https://dl.google.com/dl/page-speed/psol/1.10.33.6.tar.gz"
-su ulyaoth -c "unzip v1.10.33.6-beta.zip"
-su ulyaoth -c "tar xvf 1.10.33.6.tar.gz"
-su ulyaoth -c "cp -rf ngx_pagespeed-1.10.33.6-beta/* /etc/nginx/modules/pagespeed/"
+su ulyaoth -c "wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.11.33.0-beta.zip"
+su ulyaoth -c "wget https://dl.google.com/dl/page-speed/psol/1.11.33.0.tar.gz"
+su ulyaoth -c "unzip v1.11.33.0-beta.zip"
+su ulyaoth -c "tar xvf 1.11.33.0.tar.gz"
+su ulyaoth -c "cp -rf ngx_pagespeed-1.11.33.0-beta/* /etc/nginx/modules/pagespeed/"
 su ulyaoth -c "mv psol/ /etc/nginx/modules/pagespeed/"
 
 if [ "$arch" == "x86_64" ]
@@ -52,7 +52,7 @@ su ulyaoth -c "rm -rf /etc/nginx/modules/pagespeed/psol/lib/Debug/linux/x64"
 su ulyaoth -c "rm -rf /etc/nginx/modules/pagespeed/psol/lib/Release/linux/x64"
 fi
 
-su ulyaoth -c "rm -rf 1.10.33.6.tar.gz ngx_pagespeed-1.10.33.6-beta v1.10.33.6-beta.zip"
+su ulyaoth -c "rm -rf 1.11.33.0.tar.gz ngx_pagespeed-1.11.33.0-beta v1.11.33.0-beta.zip"
 cd /etc/nginx/modules/pagespeed/
 su ulyaoth -c "tar cvf pagespeed.tar.gz scripts/ test/"
 su ulyaoth -c "mv pagespeed.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
