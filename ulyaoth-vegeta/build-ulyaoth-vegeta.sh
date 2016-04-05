@@ -59,14 +59,14 @@ echo 'export GOBIN=/usr/local/go/bin/' >> /home/ulyaoth/.bashrc
 su ulyaoth -c "source ~/.bashrc"
 
 # Download vegeta and build it.
-su - ulyaoth -s /usr/bin/bash -c "wget https://github.com/tsenart/vegeta/archive/v'"$vegetaversion"'.tar.gz"
-su - ulyaoth -s /usr/bin/bash -c "tar xvzf v'"$vegetaversion"'.tar.gz"
-su - ulyaoth -s /usr/bin/bash -c "go get -u github.com/tsenart/vegeta"
-su - ulyaoth -s /usr/bin/bash -c "rm -rf /home/ulyaoth/src/github.com/tsenart/vegeta"
-su - ulyaoth -s /usr/bin/bash -c "mv vegeta-'"$vegetaversion"' /home/ulyaoth/src/github.com/tsenart/vegeta"
-su - ulyaoth -s /usr/bin/bash -c "cd /home/ulyaoth/src/github.com/tsenart/vegeta/ && go build"
-su - ulyaoth -s /usr/bin/bash -c "mv /home/ulyaoth/src/github.com/tsenart/vegeta/vegeta /home/ulyaoth/rpmbuild/SOURCES/"
-su - ulyaoth -s /usr/bin/bash -c "rm -rf src v'"$vegetaversion"'.tar.gz pkg"
+su - ulyaoth -c "wget https://github.com/tsenart/vegeta/archive/v'"$vegetaversion"'.tar.gz"
+su - ulyaoth -c "tar xvzf v'"$vegetaversion"'.tar.gz"
+su - ulyaoth -c "go get -u github.com/tsenart/vegeta"
+su - ulyaoth -c "rm -rf /home/ulyaoth/src/github.com/tsenart/vegeta"
+su - ulyaoth -c "mv vegeta-'"$vegetaversion"' /home/ulyaoth/src/github.com/tsenart/vegeta"
+su - ulyaoth -c "cd /home/ulyaoth/src/github.com/tsenart/vegeta/ && go build"
+su - ulyaoth -c "mv /home/ulyaoth/src/github.com/tsenart/vegeta/vegeta /home/ulyaoth/rpmbuild/SOURCES/"
+su - ulyaoth -c "rm -rf src v'"$vegetaversion"'.tar.gz pkg"
 
 # Go to spec file directory and download the spec file.
 cd /home/ulyaoth/rpmbuild/SPECS
