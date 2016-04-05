@@ -52,7 +52,6 @@ For any additional help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
-fi
 
 %preun
 
