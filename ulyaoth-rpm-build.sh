@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-vegeta()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-vegeta/build-ulyaoth-vegeta.sh ; chmod +x build-ulyaoth-vegeta.sh ; ./build-ulyaoth-vegeta.sh
+}
+
 ulyaoth-kafka8-scala2.11()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka8-scala2.11.sh ; chmod +x build-ulyaoth-kafka8-scala2.11.sh ; ./build-ulyaoth-kafka8-scala2.11.sh
