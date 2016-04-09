@@ -17,14 +17,12 @@ sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-tomcat7-docs.spe
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-tomcat7-examples.spec
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y ulyaoth-tomcat7.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf builddep -y ulyaoth-tomcat7.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y ulyaoth-tomcat7.spec
-else
-yum-builddep -y ulyaoth-tomcat7.spec
+  yum-builddep -y ulyaoth-tomcat7.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-tomcat7.spec -g -R"
