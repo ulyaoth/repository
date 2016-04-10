@@ -1,3 +1,4 @@
+os=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 ulyaothrepo=1.1.0-1
 
