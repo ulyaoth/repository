@@ -42,10 +42,10 @@ fi
 
 if type dnf 2>/dev/null
 then
-  dnf remove fuse -y
+  dnf remove fuse fuse-libs -y
 elif type yum 2>/dev/null
 then
-  yum remove fuse -y
+  yum remove fuse fuse-libs -y
 fi
 
 if type dnf 2>/dev/null
