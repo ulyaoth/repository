@@ -1,0 +1,4 @@
+How to create a package:
+
+ulyaoth-fuse-s3fs:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-fuse-s3fs/build-ulyaoth-fuse-s3fs.sh ; chmod +x build-ulyaoth-fuse-s3fs.sh ; ./build-ulyaoth-fuse-s3fs.sh

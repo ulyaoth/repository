@@ -1,4 +1,0 @@
-How to create a package:
-
-ulyaoth-s3fs:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-s3fs/build-ulyaoth-s3fs.sh ; chmod +x build-ulyaoth-s3fs.sh ; ./build-ulyaoth-s3fs.sh
