@@ -31,7 +31,7 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-u
 
 ulyaoth-fuse()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-libfuse/build-ulyaoth-fuse.sh ; chmod +x build-ulyaoth-fuse.sh ; ./build-ulyaoth-fuse.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-fuse/build-ulyaoth-fuse.sh ; chmod +x build-ulyaoth-fuse.sh ; ./build-ulyaoth-fuse.sh
 }
 
 ulyaoth-vegeta()
