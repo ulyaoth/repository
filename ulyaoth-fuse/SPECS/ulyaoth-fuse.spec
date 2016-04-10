@@ -1,16 +1,16 @@
-%define libfuse_download_version 2_9_5
+%define fuse_download_version 2_9_5
 
 Summary:    FUSE (Filesystem in Userspace) is an interface for userspace programs to export a filesystem to the Linux kernel.
-Name:       ulyaoth-libfuse
+Name:       ulyaoth-fuse
 Version:    2.9.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv2
 Group:      Applications/Internet
 URL:        https://github.com/libfuse/libfuse
-Vendor:     libfuse
+Vendor:     FUSE
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    https://github.com/libfuse/libfuse/releases/download/fuse_%{libfuse_download_version}/fuse-%{version}.tar.gz
+Source0:    https://github.com/libfuse/libfuse/releases/download/fuse_%{fuse_download_version}/fuse-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/libfuse-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: gcc
@@ -26,13 +26,13 @@ BuildRequires: make
 
 Provides: fuse-libs
 Provides: fuse-devel
-Provides: ulyaoth-libfuse
+Provides: ulyaoth-fuse
 
 %description
 FUSE (Filesystem in Userspace) is an interface for userspace programs to export a filesystem to the Linux kernel. The FUSE project consists of two components: the fuse kernel module (maintained in the regular kernel repositories) and the libfuse userspace library (maintained in this repository). libfuse provides the reference implementation for communicating with the FUSE kernel module.
 
 %prep
-%setup -q -n libfuse-%{version}
+%setup -q -n fuse-%{version}
 
 %build
 ./autogen.sh 
@@ -57,9 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-libfuse!
+Thanks for using ulyaoth-fuse!
 
-Please find the official documentation for libfuse here:
+Please find the official documentation for fuse here:
 * https://github.com/libfuse/libfuse
 
 For any additional help please visit my forum at:
