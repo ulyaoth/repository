@@ -6,12 +6,12 @@ Version:    2.9.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv2
-Group:      Applications/Internet
+Group:      System Environment/Kernel
 URL:        https://github.com/libfuse/libfuse
 Vendor:     FUSE
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://github.com/libfuse/libfuse/releases/download/fuse_%{fuse_download_version}/fuse-%{version}.tar.gz
-BuildRoot:  %{_tmppath}/libfuse-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRoot:  %{_tmppath}/fuse-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: gcc
 BuildRequires: libstdc++-devel
