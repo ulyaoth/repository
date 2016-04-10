@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-libfuse()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-libfuse/build-ulyaoth-libfuse.sh ; chmod +x build-ulyaoth-libfuse.sh ; ./build-ulyaoth-libfuse.sh
+}
+
 ulyaoth-vegeta()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-vegeta/build-ulyaoth-vegeta.sh ; chmod +x build-ulyaoth-vegeta.sh ; ./build-ulyaoth-vegeta.sh
