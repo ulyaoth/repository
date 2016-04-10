@@ -1,3 +1,4 @@
+%define libfuse_download_version 2_9_5
 
 Summary:    FUSE (Filesystem in Userspace) is an interface for userspace programs to export a filesystem to the Linux kernel.
 Name:       ulyaoth-libfuse
@@ -9,7 +10,7 @@ Group:      Applications/Internet
 URL:        https://github.com/libfuse/libfuse
 Vendor:     libfuse
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    https://github.com/libfuse/libfuse/releases/download/fuse_%{version}/fuse-%{version}.tar.gz
+Source0:    https://github.com/libfuse/libfuse/releases/download/fuse_%{libfuse_download_version}/fuse-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/libfuse-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: gcc
