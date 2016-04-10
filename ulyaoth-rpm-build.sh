@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-s3fs()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-s3fs/build-ulyaoth-s3fs.sh ; chmod +x build-ulyaoth-s3fs.sh ; ./build-ulyaoth-s3fs.sh
+}
+
 ulyaoth-fuse()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-fuse/build-ulyaoth-fuse.sh ; chmod +x build-ulyaoth-fuse.sh ; ./build-ulyaoth-fuse.sh
