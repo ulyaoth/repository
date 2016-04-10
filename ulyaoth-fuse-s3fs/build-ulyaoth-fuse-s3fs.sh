@@ -6,11 +6,11 @@ usermod -Gulyaoth ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-s3fs/SPECS/ulyaoth-s3fs.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-fuse-s3fs/SPECS/ulyaoth-fuse-s3fs.spec"
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-s3fs.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-fuse-s3fs.spec
 fi
 
 if [ "$os" == "fedora" ]
@@ -41,17 +41,25 @@ fi
 
 if type dnf 2>/dev/null
 then
-  dnf builddep -y ulyaoth-s3fs.spec
+  dnf remove fuse
 elif type yum 2>/dev/null
 then
-  yum-builddep -y ulyaoth-s3fs.spec
+  yum remove fuse
 fi
 
-su ulyaoth -c "spectool ulyaoth-s3fs.spec -g -R"
-su ulyaoth -c "rpmbuild -ba ulyaoth-s3fs.spec"
+if type dnf 2>/dev/null
+then
+  dnf builddep -y ulyaoth-fuse-s3fs.spec
+elif type yum 2>/dev/null
+then
+  yum-builddep -y ulyaoth-fuse-s3fs.spec
+fi
+
+su ulyaoth -c "spectool ulyaoth-fuse-s3fs.spec -g -R"
+su ulyaoth -c "rpmbuild -ba ulyaoth-fuse-s3fs.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /root/build-ulyaoth-s3fs.sh
+rm -rf /root/build-ulyaoth-fuse-s3fs.sh
 rm -rf /home/ulyaoth/rpmbuild
