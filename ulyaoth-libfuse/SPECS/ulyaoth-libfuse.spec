@@ -12,6 +12,17 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://github.com/libfuse/libfuse/releases/download/fuse_%{version}/fuse-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/libfuse-%{version}-%{release}-root-%(%{__id_u} -n)
 
+BuildRequires: gcc
+BuildRequires: libstdc++-devel
+BuildRequires: gcc-c++
+BuildRequires: libxml2-devel
+BuildRequires: openssl-devel
+BuildRequires: mailcap
+BuildRequires: automake
+BuildRequires: libcurl-devel
+BuildRequires: git
+BuildRequires: make
+
 Provides: fuse-libs
 Provides: fuse-devel
 Provides: ulyaoth-libfuse
