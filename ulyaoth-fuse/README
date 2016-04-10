@@ -1,0 +1,4 @@
+How to create a package:
+
+ulyaoth-fuse:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-fuse/build-ulyaoth-fuse.sh ; chmod +x build-ulyaoth-fuse.sh ; ./build-ulyaoth-fuse.sh
