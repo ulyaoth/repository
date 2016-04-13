@@ -6,7 +6,7 @@
 %define solr_user solr
 
 Summary:    Apache Solr Documentations
-Name:       ulyaoth-solr5-docs
+Name:       ulyaoth-solr6-docs
 Version:    6.0.0
 Release:    1%{?dist}
 BuildArch: x86_64

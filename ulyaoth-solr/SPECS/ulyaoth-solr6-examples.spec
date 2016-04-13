@@ -6,7 +6,7 @@
 %define solr_user solr
 
 Summary:    Apache Solr Examples
-Name:       ulyaoth-solr5-examples
+Name:       ulyaoth-solr6-examples
 Version:    6.0.0
 Release:    1%{?dist}
 BuildArch: x86_64
