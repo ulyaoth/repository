@@ -1,7 +1,6 @@
 arch="$(uname -m)"
 buildarch="$(uname -m)"
 headersmoreversion=0.29
-ajpversion=0.2.6
 
 if [ "$arch" == "i686" ]
 then
@@ -44,12 +43,6 @@ su ulyaoth -c "rm -rf master.zip"
 su ulyaoth -c "wget https://github.com/sbagmeijer/ngx_http_auth_pam_module/archive/master.zip"
 su ulyaoth -c "unzip master.zip"
 su ulyaoth -c "mv ngx_http_auth_pam_module-master /etc/nginx/modules/pamauth"
-su ulyaoth -c "rm -rf master.zip"
-
-# AJP Module
-su ulyaoth -c "wget https://github.com/yaoweibin/nginx_ajp_module/archive/master.zip"
-su ulyaoth -c "unzip master.zip"
-su ulyaoth -c "mv nginx_ajp_module-master /etc/nginx/modules/ajp"
 su ulyaoth -c "rm -rf master.zip"
 
 chown -R ulyaoth:ulyaoth /etc/nginx

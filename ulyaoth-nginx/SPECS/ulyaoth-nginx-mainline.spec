@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-nginx-mainline
-Version: 1.9.13
+Version: 1.9.14
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -127,7 +127,6 @@ Not stripped version of nginx built with the debugging log support.
 	    --add-dynamic-module=/etc/nginx/modules/headersmore \
 	    --add-dynamic-module=/etc/nginx/modules/awsauth \
 	    --add-dynamic-module=/etc/nginx/modules/pamauth \
-	    --add-module=/etc/nginx/modules/ajp \
         --with-threads \
         --with-stream=dynamic \
 		--with-http_slice_module \
@@ -174,7 +173,6 @@ make %{?_smp_mflags}
 	    --add-dynamic-module=/etc/nginx/modules/headersmore \
 	    --add-dynamic-module=/etc/nginx/modules/awsauth \
 	    --add-dynamic-module=/etc/nginx/modules/pamauth \
-	    --add-module=/etc/nginx/modules/ajp \
         --with-threads \
         --with-stream=dynamic \
 		--with-http_slice_module \
@@ -383,6 +381,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Apr 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.14-1
+- Updated to Nginx Mainline 1.9.14.
+- Removed AJP due to multiple bugs see https://github.com/yaoweibin/nginx_ajp_module/issues.
+
 * Wed Mar 30 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.13-1
 - Updated to Nginx Mainline 1.9.13.
 
