@@ -1,10 +1,10 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
 # Argument = -l (lists all supported versions)
-# Argument = -b (branch .i.e 3.12)
-# Argument = -v (version .i.e 3.12.1)
+# Argument = -b (branch .i.e 3.13)
+# Argument = -v (version .i.e 3.13.1)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2016/03/05
+# Last Edit By: Sjir Bagmeijer - 2016/04/13
 # https://www.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
@@ -36,7 +36,7 @@ then
 yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 fi
 
-if [ "$hhvmbranchversion" == "3.9" ] || [ "$hhvmbranchversion" == "3.11" ] || [ "$hhvmbranchversion" == "3.12" ]
+if [ "$hhvmbranchversion" == "3.9" ] || [ "$hhvmbranchversion" == "3.11" ] || [ "$hhvmbranchversion" == "3.12" ] || [ "$hhvmbranchversion" == "3.13" ]
 then
   if grep -q -i "release 19" /etc/fedora-release || grep -q -i "release 20" /etc/fedora-release
   then
@@ -86,6 +86,9 @@ cd /root
 availablehhvmversions()
 {
 cat <<EOF
+Branch 3.13 versions supported: (LTS build)
+* 3.13.1
+* 3.13.0
 Branch 3.12 versions supported: (LTS build)
 * 3.12.1
 * 3.12.0
@@ -135,8 +138,8 @@ arraychecker() {
 hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
-supportedbranches=('3.3' '3.6' '3.9' '3.11' '3.12')
-supportedversions=('3.12.1' '3.12.0' '3.11.1' '3.11.0' '3.8.1' '3.8.0' '3.9.2' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+supportedbranches=('3.3' '3.6' '3.9' '3.11' '3.12' '3.13')
+supportedversions=('3.13.1' '3.13.0' '3.12.1' '3.12.0' '3.11.1' '3.11.0' '3.8.1' '3.8.0' '3.9.2' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
