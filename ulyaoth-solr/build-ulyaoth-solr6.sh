@@ -1,11 +1,11 @@
 buildarch="$(uname -m)"
-version=5.5.0
+version=6.0.0
 
 useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 
-# Downloads solr 5 package and prepare for rpm build.
+# Downloads solr 6 package and prepare for rpm build.
 su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/$version/solr-$version.tgz"
 su ulyaoth -c "tar xvf solr-$version.tgz"
 rm -rf /home/ulyaoth/solr-$version/example
@@ -19,26 +19,26 @@ su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
 # Download spec file.
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr5.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr6.spec"
 
 # Check if we use 32 bit and if we do change spec file.
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr5.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr6.spec
 fi
 
 # Install the solr requirements for building the rpm.
 if type dnf 2>/dev/null
 then
-  dnf builddep -y ulyaoth-solr5.spec
+  dnf builddep -y ulyaoth-solr6.spec
 elif type yum 2>/dev/null
 then
-  yum-builddep -y ulyaoth-solr5.spec
+  yum-builddep -y ulyaoth-solr6.spec
 fi
 
-# Build Solr 5 rpm.
-su ulyaoth -c "spectool ulyaoth-solr5.spec -g -R"
-su ulyaoth -c "rpmbuild -ba ulyaoth-solr5.spec"
+# Build Solr 6 rpm.
+su ulyaoth -c "spectool ulyaoth-solr6.spec -g -R"
+su ulyaoth -c "rpmbuild -ba ulyaoth-solr6.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
@@ -47,7 +47,7 @@ cd /root
 rm -rf /home/ulyaoth/rpmbuild
 rm -rf /home/ulyaoth/solr-$version
 
-# Downloads solr 5 package and prepare for examples.
+# Downloads solr 6 package and prepare for examples.
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "tar xvf solr-$version.tgz"
@@ -57,16 +57,16 @@ mv /home/ulyaoth/solr/example /home/ulyaoth/solr-$version/
 su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
 su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
-# Build solr 5 examples rpm.
+# Build solr 6 examples rpm.
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr5-examples.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr6-examples.spec"
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr5-examples.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr6-examples.spec
 fi
 
-su ulyaoth -c "rpmbuild -ba ulyaoth-solr5-examples.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-solr6-examples.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
@@ -76,7 +76,7 @@ rm -rf /home/ulyaoth/rpmbuild
 rm -rf /home/ulyaoth/solr
 rm -rf /home/ulyaoth/solr-$version
 
-# Downloads solr 5 package and prepare for documentation.
+# Downloads solr 6 package and prepare for documentation.
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "tar xvf solr-$version.tgz"
@@ -86,16 +86,16 @@ mv /home/ulyaoth/solr/docs /home/ulyaoth/solr-$version/
 su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
 su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
-# Build Solr 5 Documentation rpm.
+# Build Solr 6 Documentation rpm.
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr5-docs.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SPECS/ulyaoth-solr6-docs.spec"
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr5-docs.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr6-docs.spec
 fi
 
-su ulyaoth -c "rpmbuild -ba ulyaoth-solr5-docs.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-solr6-docs.spec"
 cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
@@ -105,4 +105,4 @@ cd /root
 # Clean all files.
 rm -rf /home/ulyaoth/solr*
 rm -rf /home/ulyaoth/rpmbuild
-rm -rf /root/build-ulyaoth-solr5.sh
+rm -rf /root/build-ulyaoth-solr6.sh
