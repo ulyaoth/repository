@@ -2,7 +2,7 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.1.0
+Version: 1.1.1
 BuildArch: noarch
 URL: https://www.ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
@@ -57,6 +57,12 @@ For any additional information or help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Apr 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.1-1
+- Changed domain to repos.ulyaoth.asia.
+- Added fallback to non SSL due to EL6 not supporting my ciphers.
+- All rpms have been moved to Amazon S3.
+- We are now using Cloudflare to speed up downloads.
+
 * Sat Apr 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-1
 - Changed to noarch to reduce rpms.
 
