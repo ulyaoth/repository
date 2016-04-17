@@ -2,12 +2,12 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.1.1
+Version: 1.1.2
 BuildArch: noarch
 URL: https://www.ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Release: 1.%{ulyaothos}
-Source0: https://repos.ulyaoth.net/RPM-GPG-KEY-ulyaoth
+Source0: https://repos.ulyaoth.asia/RPM-GPG-KEY-ulyaoth
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-%{ulyaothos}.repo
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/COPYING
 BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -15,9 +15,7 @@ BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
 License: GPLv3
 
 Provides: ulyaoth
-
-Obsoletes: ulyaoth <= %{version}
-Conflicts: ulyaoth
+Obsoletes: ulyaoth <= 1.0.8
 
 %description
 Ulyaoth repository.
@@ -57,6 +55,9 @@ For any additional information or help please visit my forum at:
 BANNER
 
 %changelog
+* Sun Apr 17 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.2-1
+- Fixing "not signed" problem.
+
 * Sat Apr 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.1-1
 - Changed domain to repos.ulyaoth.asia.
 - Added fallback to non SSL due to EL6 not supporting my ciphers.
