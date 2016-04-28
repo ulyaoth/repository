@@ -33,7 +33,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/
 
 if grep -q -i "release 7" /etc/redhat-release
 then
-yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+yum install -y  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 fi
 
 if [ "$hhvmbranchversion" == "3.9" ] || [ "$hhvmbranchversion" == "3.11" ] || [ "$hhvmbranchversion" == "3.12" ] || [ "$hhvmbranchversion" == "3.13" ]
