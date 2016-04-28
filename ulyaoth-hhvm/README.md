@@ -1,20 +1,24 @@
 ### You can build the HHVM package as following: (only 64-bit)
 
 ```bash
-./build-ulyaoth-hhvm.sh -b 3.12 -v 3.12.1
+./build-ulyaoth-hhvm.sh -b 3.13 -v 3.13.1
 ```
 ##### ulyaoth-hhvm:
 ```bash
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.12 -v 3.12.1
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.13 -v 3.13.1
 ```
 
 ### Options Available:
 * -h (shows the help information)
 * -l (lists all supported versions)
-* -b (branch .i.e 3.12)
-* -v (version .i.e 3.12.1)
+* -b (branch .i.e 3.13)
+* -v (version .i.e 3.13.1)
 
 ###Supported Versions:
+##### Branch 3.13 versions supported:
+* 3.13.1
+* 3.13.0
+
 ##### Branch 3.12 versions supported: (LTS build)
 * 3.12.1
 * 3.12.0
