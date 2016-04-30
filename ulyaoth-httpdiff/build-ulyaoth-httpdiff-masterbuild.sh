@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
 
@@ -8,22 +9,20 @@ fi
 
 if grep -q -i "release 6" /etc/redhat-release
 then
-yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 elif grep -q -i "release 6" /etc/centos-release
 then
-yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 else
 echo yeah Fedora!
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf install -y go golang
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf install -y go golang
+elif type yum 2>/dev/null
 then
-dnf install -y go golang
-else
-yum install -y go golang
+  yum install -y go golang
 fi
 
 useradd ulyaoth
@@ -41,9 +40,20 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-httpdiff-masterbuild.spec
 fi
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-httpdiff-masterbuild.spec"
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /home/ulyaoth/rpmbuild/
-rm -rf /root/build-ulyaoth-httpdiff-masterbuild.sh
+su ulyaoth -c "rpmbuild -ba ulyaoth-httpdiff-masterbuild.spec"
+
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
+rm -rf /home/ulyaoth/rpmbuild

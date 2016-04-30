@@ -72,13 +72,23 @@ su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-'"$hhvmbranchversi
 # Cleaning build directory and script.
 clean()
 {
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /home/ulyaoth/hhvm-$hhvmversion
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild
-rm -rf /root/build-ulyaoth-hhvm*
+rm -rf /home/ulyaoth/hhvm-$hhvmversion
 cd /root
 }
 
@@ -135,6 +145,7 @@ arraychecker() {
 }
 
 # Set some required variables
+ulyaothos=`cat /etc/ulyaoth`
 hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"

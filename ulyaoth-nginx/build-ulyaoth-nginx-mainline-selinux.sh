@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
 
@@ -37,10 +38,19 @@ then
 fi
 
 su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-selinux.spec"
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /home/ulyaoth/rpmbuild/
-rm -rf /home/ulyaoth/ulyaoth-*
-rm -rf /root/build-ulyaoth-nginx-pagespeed-selinux.sh
+
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
+rm -rf /home/ulyaoth/rpmbuild

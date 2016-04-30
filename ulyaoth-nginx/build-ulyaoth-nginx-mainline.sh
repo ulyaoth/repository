@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
 headersmoreversion=0.29
@@ -9,10 +10,10 @@ fi
 
 if grep -q -i "release 6" /etc/redhat-release
 then
-yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 elif grep -q -i "release 6" /etc/centos-release
 then
-yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 elif grep -q -i "release 7" /etc/oracle-release
 then
 yum install -y http://mirror.centos.org/centos/7/os/x86_64/Packages/GeoIP-devel-1.5.0-9.el7.x86_64.rpm
@@ -64,10 +65,20 @@ fi
 
 su ulyaoth -c "spectool ulyaoth-nginx-mainline.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline.spec"
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /etc/nginx
-rm -rf /root/build-ulyaoth-nginx-mainline.sh
+
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild
+rm -rf /etc/nginx

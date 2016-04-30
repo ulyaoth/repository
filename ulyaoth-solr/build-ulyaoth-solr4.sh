@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 version=4.10.4
 
@@ -35,15 +36,21 @@ fi
 # Build Solr 4 rpm.
 su ulyaoth -c "spectool ulyaoth-solr4.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-solr4.spec"
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-cd /root
-rm -rf /home/ulyaoth/rpmbuild
-rm -rf /home/ulyaoth/solr-$version
+
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
 
 # Clean all files.
 rm -rf /home/ulyaoth/solr*
+rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild
-rm -rf /root/build-ulyaoth-solr4.sh

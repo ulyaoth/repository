@@ -1,5 +1,5 @@
 # Required variables.
-os=`cat /etc/ulyaoth`
+ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
 vegetaversion=6.1.0
@@ -10,30 +10,30 @@ then
 arch="i386"
 fi
 
-if [ "$os" == "fedora" ]
+if [ "$ulyaothos" == "fedora" ]
 then
 if type dnf 2>/dev/null
 then
-  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-1.1.0-1.fedora.noarch.rpm -y
+  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
 elif type yum 2>/dev/null
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-1.1.0-1.fedora.noarch.rpm -y
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
 fi
-elif [ "$os" == "redhat" ]
+elif [ "$ulyaothos" == "redhat" ]
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-1.1.0-1.redhat.noarch.rpm -y
-elif [ "$os" == "amazonlinux" ]
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.noarch.rpm -y
+elif [ "$ulyaothos" == "amazonlinux" ]
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-1.1.0-1.amazonlinux.noarch.rpm -y
-elif [ "$os" == "centos" ]
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.amazonlinux.noarch.rpm -y
+elif [ "$ulyaothos" == "centos" ]
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-1.1.0-1.centos.noarch.rpm -y
-elif [ "$os" == "oraclelinux" ]
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.centos.noarch.rpm -y
+elif [ "$ulyaothos" == "oraclelinux" ]
 then 
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-1.1.0-1.oraclelinux.noarch.rpm -y
-elif [ "$os" == "scientificlinux" ]
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.oraclelinux.noarch.rpm -y
+elif [ "$ulyaothos" == "scientificlinux" ]
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-1.1.0-1.scientificlinux.noarch.rpm -y
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
 fi
 
 # Create build user and go to it's home directory, and create the rpmbuild directory.
@@ -82,11 +82,19 @@ fi
 su ulyaoth -c "rpmbuild -ba ulyaoth-vegeta.spec"
 
 # Copy the rpms to root directory.
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
 
 # Clean everything we needed to build the rpm.
+rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild
-rm -rf /root/build-ulyaoth-vegeta.sh

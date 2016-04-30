@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 
 useradd ulyaoth
@@ -22,9 +23,19 @@ fi
 
 su ulyaoth -c "spectool ulyaoth-apr.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-apr.spec"
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /root/build-ulyaoth-apr.sh
+
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild

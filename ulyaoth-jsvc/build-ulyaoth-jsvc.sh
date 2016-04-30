@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
 
@@ -12,18 +13,29 @@ then
   sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-jsvc.spec
 fi
 
-
-if grep -q -i "release 22" /etc/fedora-release &>/dev/null || grep -q -i "release 23" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y ulyaoth-jsvc.spec
-else
-yum-builddep -y ulyaoth-jsvc.spec
+  dnf builddep -y ulyaoth-jsvc.spec
+elif type yum 2>/dev/null
+then
+  yum-builddep -y ulyaoth-jsvc.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-jsvc.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-jsvc.spec"
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild

@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 
 useradd ulyaoth
@@ -32,9 +33,18 @@ su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat6-admin.spec"
 su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat6-docs.spec"
 su ulyaoth -c "rpmbuild -ba ulyaoth-tomcat6-examples.spec"
 
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild"
-rm -rf /root/build-ulyaoth-tomcat6.sh
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
+rm -rf /home/ulyaoth/rpmbuild

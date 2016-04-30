@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
 logstashforwarderversion=0.4.0
@@ -9,22 +10,20 @@ fi
 
 if grep -q -i "release 6" /etc/redhat-release
 then
-yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 elif grep -q -i "release 6" /etc/centos-release
 then
-yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 else
 echo yeah Fedora!
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf install -y go golang
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf install -y go golang
+elif type yum 2>/dev/null
 then
-dnf install -y go golang
-else
-yum install -y go golang
+  yum install -y go golang
 fi
 
 useradd ulyaoth
@@ -44,9 +43,20 @@ sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-logstash-forward
 fi
 
 su ulyaoth -c "spectool ulyaoth-logstash-forwarder.spec -g -R"
-su ulyaoth -c "rpmbuild -bb ulyaoth-logstash-forwarder.spec"
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /home/ulyaoth/rpmbuild/
-rm -rf /root/build-ulyaoth-logstash-forwarder.sh
+su ulyaoth -c "rpmbuild -ba ulyaoth-logstash-forwarder.spec"
+
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
+rm -rf /home/ulyaoth/rpmbuild
