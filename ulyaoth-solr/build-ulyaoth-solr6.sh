@@ -42,10 +42,10 @@ su ulyaoth -c "spectool ulyaoth-solr6.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-solr6.spec"
 if [ "$ulyaothos" == "amazonlinux" ]
 then
-  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /home/ec2-user/
 else
   cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
   cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
@@ -78,10 +78,10 @@ fi
 su ulyaoth -c "rpmbuild -ba ulyaoth-solr6-examples.spec"
 if [ "$ulyaothos" == "amazonlinux" ]
 then
-  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /home/ec2-user/
 else
   cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
   cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
@@ -116,10 +116,10 @@ su ulyaoth -c "rpmbuild -ba ulyaoth-solr6-docs.spec"
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then
-  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /home/ec2-user/
 else
   cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
   cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/

@@ -26,10 +26,10 @@ su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-openssl1.1.0.s
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then
-  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /home/ec2-user/
 else
   cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
   cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
