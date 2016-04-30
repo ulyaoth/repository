@@ -1,4 +1,4 @@
-os=`cat /etc/ulyaoth`
+ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 ulyaothrepo=1.1.0-1
 
@@ -14,30 +14,30 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-fuse-s3fs.spec
 fi
 
-if [ "$os" == "fedora" ]
+if [ "$ulyaothos" == "fedora" ]
 then
 if type dnf 2>/dev/null
 then
-  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-$ulyaothrepo.fedora.noarch.rpm -y
+  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
 elif type yum 2>/dev/null
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-$ulyaothrepo.fedora.noarch.rpm -y
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
 fi
-elif [ "$os" == "redhat" ]
+elif [ "$ulyaothos" == "redhat" ]
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-$ulyaothrepo.redhat.noarch.rpm -y
-elif [ "$os" == "amazonlinux" ]
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.noarch.rpm -y
+elif [ "$ulyaothos" == "amazonlinux" ]
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-$ulyaothrepo.amazonlinux.noarch.rpm -y
-elif [ "$os" == "centos" ]
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.amazonlinux.noarch.rpm -y
+elif [ "$ulyaothos" == "centos" ]
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-$ulyaothrepo.centos.noarch.rpm -y
-elif [ "$os" == "oraclelinux" ]
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.centos.noarch.rpm -y
+elif [ "$ulyaothos" == "oraclelinux" ]
 then 
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-$ulyaothrepo.oraclelinux.noarch.rpm -y
-elif [ "$os" == "scientificlinux" ]
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.oraclelinux.noarch.rpm -y
+elif [ "$ulyaothos" == "scientificlinux" ]
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-$ulyaothrepo.scientificlinux.noarch.rpm -y
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
 fi
 
 if type dnf 2>/dev/null
@@ -58,9 +58,19 @@ fi
 
 su ulyaoth -c "spectool ulyaoth-fuse-s3fs.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-fuse-s3fs.spec"
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /root/build-ulyaoth-fuse-s3fs.sh
+
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild

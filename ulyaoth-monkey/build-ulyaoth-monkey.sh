@@ -1,22 +1,30 @@
+ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 
-if grep -q -i "rhel" /etc/ulyaoth
+if [ "$ulyaothos" == "fedora" ]
 then
-  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-rhel.repo -O /etc/yum.repos.d/ulyaoth.repo
-elif grep -q -i "CentOS" /etc/ulyaoth
+if type dnf 2>/dev/null
 then
-  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-centos.repo -O /etc/yum.repos.d/ulyaoth.repo
-elif grep -q -i "Fedora" /etc/ulyaoth
+  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
+elif type yum 2>/dev/null
 then
-  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-fedora.repo -O /etc/yum.repos.d/ulyaoth.repo
-elif grep -q -i "OracleLinux" /etc/ulyaoth
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
+fi
+elif [ "$ulyaothos" == "redhat" ]
 then
-  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-oraclelinux.repo -O /etc/yum.repos.d/ulyaoth.repo
-elif grep -q -i "scientific" /etc/ulyaoth
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.noarch.rpm -y
+elif [ "$ulyaothos" == "amazonlinux" ]
 then
-  wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-scientific.repo -O /etc/yum.repos.d/ulyaoth.repo
-else
-  echo "A unsupported OS was detected!"
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.amazonlinux.noarch.rpm -y
+elif [ "$ulyaothos" == "centos" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.centos.noarch.rpm -y
+elif [ "$ulyaothos" == "oraclelinux" ]
+then 
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.oraclelinux.noarch.rpm -y
+elif [ "$ulyaothos" == "scientificlinux" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
 fi
 
 sed -i "s/gpgcheck=1/gpgcheck=0/" /etc/yum.repos.d/ulyaoth.repo
@@ -43,9 +51,19 @@ fi
 
 su ulyaoth -c "spectool ulyaoth-monkey.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-monkey.spec"
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
-rm -rf /root/build-ulyaoth-monkey.sh
+
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild

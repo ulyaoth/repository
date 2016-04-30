@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 bananaversion=1.6.0
 
@@ -33,10 +34,21 @@ su ulyaoth -c "ant"
 mv /home/ulyaoth/banana-$bananaversion/build/banana-1.6.0.war /home/ulyaoth/rpmbuild/SOURCES/banana.war
 cd /home/ulyaoth/rpmbuild/SPECS/
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-banana.spec"
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+su ulyaoth -c "rpmbuild -ba ulyaoth-banana.spec"
 
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
+rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/banana-$bananaversion
 rm -rf /home/ulyaoth/rpmbuild

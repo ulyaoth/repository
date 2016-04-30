@@ -1,3 +1,4 @@
+ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 
 useradd ulyaoth
@@ -72,20 +73,28 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-spotify.spec
 fi
 
-if grep -q -i "release 22" /etc/fedora-release
+if type dnf 2>/dev/null
 then
-dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-spotify.spec
-elif grep -q -i "release 23" /etc/fedora-release
+  dnf builddep -y ulyaoth-spotify.spec
+elif type yum 2>/dev/null
 then
-dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-spotify.spec
-else
-yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-spotify.spec
+  yum-builddep -y ulyaoth-spotify.spec
 fi
 
 su ulyaoth -c "rpmbuild -ba ulyaoth-spotify.spec"
-cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
-cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+
+if [ "$os" == "amazonlinux" ]
+then
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+else
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+fi
+
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild"
 rm -rf /root/build-ulyaoth-spotify.sh
