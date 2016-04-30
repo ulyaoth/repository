@@ -61,10 +61,10 @@ su ulyaoth -c "rpmbuild -ba ulyaoth-topbeat.spec"
 # Copy the rpms to root directory.
 if [ "$ulyaothos" == "amazonlinux" ]
 then
-  cp /home/ulyaoth/rpmbuild/SRPMS/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /ec2-user/
+  cp /home/ulyaoth/rpmbuild/SRPMS/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/* /home/ec2-user/
 else
   cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
   cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
