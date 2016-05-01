@@ -10,7 +10,7 @@ Group:      System Environment/Kernel
 URL:        https://github.com/libfuse/libfuse
 Vendor:     FUSE
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    https://github.com/libfuse/libfuse/releases/download/fuse_%{fuse_download_version}/fuse-%{version}.tar.gz
+Source0:	https://github.com/libfuse/libfuse/releases/download/fuse-%{version}/fuse-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/fuse-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: gcc
