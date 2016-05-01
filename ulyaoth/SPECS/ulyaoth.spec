@@ -2,7 +2,7 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.1.2
+Version: 1.1.3
 BuildArch: noarch
 URL: https://www.ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
@@ -55,6 +55,9 @@ For any additional information or help please visit my forum at:
 BANNER
 
 %changelog
+* Sun May 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.3-1
+- Changed domain back to repos.ulyaoth.net.
+
 * Sun Apr 17 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.2-1
 - Fixing "not signed" problem.
 
