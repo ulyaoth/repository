@@ -148,7 +148,7 @@ URL: http://nginx.org/
 Group: %{_group}
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: http://nginx.org/download/%{name}-%{version}.tar.gz
+Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.init.in
 Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.sysconf
