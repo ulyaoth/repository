@@ -16,11 +16,13 @@ then
   cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /home/ec2-user/
   cp /home/ulyaoth/rpmbuild/RPMS/i686/* /home/ec2-user/
   cp /home/ulyaoth/rpmbuild/RPMS/i386/* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/noarch/* /home/ec2-user/
 else
   cp /home/ulyaoth/rpmbuild/SRPMS/* /root/
   cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
   cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
   cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/noarch/* /root/
 fi
 
 rm -rf /root/build-ulyaoth-*
