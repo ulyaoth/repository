@@ -354,6 +354,21 @@ ulyaoth-solr5-examples()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr5-examples.sh ; chmod +x build-ulyaoth-solr5-examples.sh ; ./build-ulyaoth-solr5-examples.sh
 }
 
+ulyaoth-solr6()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr6.sh ; chmod +x build-ulyaoth-solr6.sh ; ./build-ulyaoth-solr6.sh
+}
+
+ulyaoth-solr6-docs()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr6-docs.sh ; chmod +x build-ulyaoth-solr6-docs.sh ; ./build-ulyaoth-solr6-docs.sh
+}
+
+ulyaoth-solr6-examples()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr6-examples.sh ; chmod +x build-ulyaoth-solr6-examples.sh ; ./build-ulyaoth-solr6-examples.sh
+}
+
 ulyaoth-httpdiff-masterbuild()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httpdiff/build-ulyaoth-httpdiff-masterbuild.sh ; chmod +x build-ulyaoth-httpdiff-masterbuild.sh ; ./build-ulyaoth-httpdiff-masterbuild.sh
