@@ -21,16 +21,7 @@ echo No extra installation required for this OS!
 fi
 
 useradd ulyaoth
-usermod -Gulyaoth ulyaoth
-mkdir -p /etc/nginx/modules
-chown -R ulyaoth:ulyaoth /etc/nginx
-cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
-su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v0.28.tar.gz"
-su ulyaoth -c "tar xvf v0.28.tar.gz"
-su ulyaoth -c "mv headers-more-nginx-module-0.28 /etc/nginx/modules/headersmore"
-su ulyaoth -c "rm -rf v0.28.tar.gz"
-chown -R ulyaoth:ulyaoth /etc/nginx
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SPECS/ulyaoth-nginx.spec"
 

@@ -91,7 +91,7 @@ BuildRequires: libGeoIP-devel
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
 %define module_njs_release           1%{?dist}.ngx
 
-%define bdir %{_builddir}/%{name}-%{main_version}
+%define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
 %define WITH_CC_OPT $(echo %{optflags} $(pcre-config --cflags))
 
@@ -229,7 +229,7 @@ Summary: nginx nJScript module
 Dynamic nJScript module for nginx.
 
 %prep
-%setup -q -n nginx-%{version}
+%setup -q -n nginx-%{main_version}
 tar xvzf %SOURCE13
 cp %{SOURCE2} .
 sed -e 's|%%DEFAULTSTART%%|2 3 4 5|g' -e 's|%%DEFAULTSTOP%%|0 1 6|g' \
@@ -243,20 +243,20 @@ sed -e 's|%%DEFAULTSTART%%||g' -e 's|%%DEFAULTSTOP%%|0 1 2 3 4 5 6|g' \
     %{?perlldopts} \
     --with-debug
 make %{?_smp_mflags}
-%{__mv} %{bdir}/objs/nginx \
-    %{bdir}/objs/nginx-debug
-%{__mv} %{bdir}/objs/ngx_http_xslt_filter_module.so \
-    %{bdir}/objs/ngx_http_xslt_filter_module-debug.so
-%{__mv} %{bdir}/objs/ngx_http_image_filter_module.so \
-    %{bdir}/objs/ngx_http_image_filter_module-debug.so
-%{__mv} %{bdir}/objs/ngx_http_geoip_module.so \
-    %{bdir}/objs/ngx_http_geoip_module-debug.so
-%{__mv} %{bdir}/objs/ngx_http_perl_module.so \
-    %{bdir}/objs/ngx_http_perl_module-debug.so
-%{__mv} %{bdir}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx.so \
-    %{bdir}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
-%{__mv} %{bdir}/objs/ngx_http_js_module.so \
-    %{bdir}/objs/ngx_http_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/nginx \
+    %{_builddir}/nginx-%{main_version}/objs/nginx-debug
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_xslt_filter_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_xslt_filter_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_image_filter_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_image_filter_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_geoip_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_geoip_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_perl_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_perl_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx.so \
+    %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so
 ./configure %{COMMON_CONFIGURE_ARGS} \
     --with-cc-opt="%{WITH_CC_OPT}" \
     %{?perlldopts}
@@ -332,21 +332,21 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
 %endif
 
-%{__install} -m755 %{bdir}/objs/nginx-debug \
+%{__install} -m755 %{_builddir}/nginx-%{main_version}/objs/nginx-debug \
     $RPM_BUILD_ROOT%{_sbindir}/nginx-debug
 
-%{__install} -m644 %{bdir}/objs/ngx_http_xslt_filter_module-debug.so \
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_xslt_filter_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_xslt_filter_module-debug.so
-%{__install} -m644 %{bdir}/objs/ngx_http_image_filter_module-debug.so \
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_image_filter_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_image_filter_module-debug.so
-%{__install} -m644 %{bdir}/objs/ngx_http_geoip_module-debug.so \
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_geoip_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_geoip_module-debug.so
-%{__install} -m644 %{bdir}/objs/ngx_http_perl_module-debug.so \
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_perl_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_perl_module-debug.so
 %{__mkdir} -p $RPM_BUILD_ROOT%{perl_vendorarch}/auto/nginx
-%{__install} -m644 %{bdir}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so \
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so \
     $RPM_BUILD_ROOT%{perl_vendorarch}/auto/nginx/nginx-debug.so
-%{__install} -m644 %{bdir}/objs/ngx_http_js_module-debug.so \
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_js_module-debug.so
 
 %clean
