@@ -2,7 +2,7 @@
 ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-topbeatversion=1.2.1
+topbeatversion=1.2.2
 goversion=1.6
 
 # Check if we are using a 32-bit system.
