@@ -229,7 +229,7 @@ Summary: nginx nJScript module
 Dynamic nJScript module for nginx.
 
 %prep
-%setup -q
+%setup -q -n nginx-%{version}
 tar xvzf %SOURCE13
 cp %{SOURCE2} .
 sed -e 's|%%DEFAULTSTART%%|2 3 4 5|g' -e 's|%%DEFAULTSTOP%%|0 1 6|g' \
