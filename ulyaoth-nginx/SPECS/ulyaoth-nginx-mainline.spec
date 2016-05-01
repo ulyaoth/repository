@@ -381,6 +381,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun May 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.15-1
+- Updated to Nginx Mainline 1.9.15.
+
 * Thu Apr 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.14-1
 - Updated to Nginx Mainline 1.9.14.
 - Removed AJP due to multiple bugs see https://github.com/yaoweibin/nginx_ajp_module/issues.
