@@ -1,8 +1,8 @@
-%define fuse_download_version 2_9_5
+%define fuse_download_version 2_9_6
 
 Summary:    FUSE (Filesystem in Userspace) is an interface for userspace programs to export a filesystem to the Linux kernel.
 Name:       ulyaoth-fuse
-Version:    2.9.5
+Version:    2.9.6
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv2
@@ -111,5 +111,8 @@ BANNER
 %postun
 
 %changelog
+* Sun May 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.9.6-1
+- Udpdated Fuse to 2.9.6.
+
 * Sun Apr 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.9.5-1
 - Initial release.
