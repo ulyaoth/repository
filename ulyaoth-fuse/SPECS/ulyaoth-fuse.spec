@@ -79,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libfuse.la
 %{_libdir}/libfuse.so
 %{_libdir}/libfuse.so.2
-%{_libdir}/libfuse.so.2.9.4
+%{_libdir}/libfuse.so.2.9.6
 %{_libdir}/libulockmgr.a
 %{_libdir}/libulockmgr.la
 %{_libdir}/libulockmgr.so
