@@ -169,7 +169,6 @@ BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: libxslt-devel
 BuildRequires: gd-devel
-BuildRequires: systemd
 BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
