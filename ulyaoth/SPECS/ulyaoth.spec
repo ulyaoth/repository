@@ -56,6 +56,7 @@ BANNER
 
 %changelog
 * Sun May 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.3-1
+- Changed domain back to repos.ulyaoth.net.
 
 * Sun Apr 17 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.2-1
 - Fixing "not signed" problem.
