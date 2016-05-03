@@ -109,9 +109,6 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/sites-enabled
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/ssl
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/extra
-
-cp -rf %{_builddir}/hiawatha-%{version}/extra/letsencrypt $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/extra/
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -163,25 +160,6 @@ sed -i '19 c\ServerString = Hiawatha' %{buildroot}%{_sysconfdir}/hiawatha/hiawat
 %config(noreplace) %{_sysconfdir}/hiawatha/error.xslt
 %config(noreplace) %{_sysconfdir}/hiawatha/index.xslt
 %config(noreplace) %{_sysconfdir}/logrotate.d/hiawatha
-
-#letsencrypt extra files.
-%dir %{_sysconfdir}/hiawatha/extra
-%dir %{_sysconfdir}/hiawatha/extra/letsencrypt
-%dir %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries
-
-%attr(0755,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/letsencrypt
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/letsencrypt.conf
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/README.txt
-
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/acme.php
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/config.php
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/hiawatha_config.php
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/http.php
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/https.php
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/letsencrypt.php
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/openssl.conf
-%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/rsa.php
-
 
 %if %{use_systemd}
 %{_unitdir}/hiawatha.service

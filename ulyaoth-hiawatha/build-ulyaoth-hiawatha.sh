@@ -7,6 +7,7 @@ cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SPECS/ulyaoth-hiawatha.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SPECS/ulyaoth-hiawatha-letsencrypt.spec"
 
 if [ "$ulyaothos" == "fedora" ]
 then
@@ -37,6 +38,7 @@ fi
 if [ "$buildarch" != "x86_64" ]
 then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-hiawatha.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-hiawatha-letsencrypt.spec
 fi
 
 if type dnf 2>/dev/null
@@ -49,6 +51,7 @@ fi
 
 su ulyaoth -c "spectool ulyaoth-hiawatha.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-hiawatha.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-hiawatha-letsencrypt.spec"
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then
