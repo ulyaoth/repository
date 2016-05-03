@@ -62,7 +62,7 @@ cp -rf %{_builddir}/hiawatha-%{version}/extra/letsencrypt $RPM_BUILD_ROOT%{_sysc
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-hiawatha!
+Thanks for using ulyaoth-hiawatha-letsencrypt!
 
 Please find the official documentation for hiawatha here:
 * https://www.hiawatha-webserver.org
