@@ -111,7 +111,7 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/ssl
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/extra
 
-cp -rf %{_builddir}/hiawatha-%{version}/extras/letsencrypt $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/extra/
+cp -rf %{_builddir}/hiawatha-%{version}/extra/letsencrypt $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/extra/
 
 %if %{use_systemd}
 # install systemd-specific files
