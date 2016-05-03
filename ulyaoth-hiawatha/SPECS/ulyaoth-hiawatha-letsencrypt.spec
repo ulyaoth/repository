@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 
 Summary: Hiawatha is an open source webserver with a focus on security.
 Name: ulyaoth-hiawatha-letsencrypt
@@ -14,8 +15,6 @@ License: GPLv2
 
 BuildRoot: %{_tmppath}/hiawatha-%{version}-%{release}-root
 
-Requires: libxml2
-Requires: libxslt
 Requires: ulyaoth-hiawatha = %{version}
 
 Provides: hiawatha-letsencrypt
@@ -31,7 +30,6 @@ Hiawatha is an open source webserver with a focus on security. I started Hiawath
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/extra
 
