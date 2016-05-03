@@ -39,7 +39,7 @@ BuildRequires: systemd-devel
 
 Summary: Hiawatha is an open source webserver with a focus on security.
 Name: ulyaoth-hiawatha
-Version: 10.1
+Version: 10.2
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Hiawatha.
@@ -67,8 +67,8 @@ Requires: libxml2
 Requires: libxslt
 Requires: ulyaoth-mbedtls2.2 = %{mbedtls_version}
 
-Obsoletes: ulyaoth-mbedtls
-Obsoletes: ulyaoth-mbedtls2.1
+Conflicts: ulyaoth-mbedtls
+Conflicts: ulyaoth-mbedtls2.1
 
 Provides: hiawatha
 Provides: ulyaoth-hiawatha
@@ -109,6 +109,9 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/sites-enabled
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/ssl
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/extra
+
+cp -rf %{_builddir}/hiawatha-%{version}/extras/letsencrypt $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/extra/
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -160,6 +163,25 @@ sed -i '19 c\ServerString = Hiawatha' %{buildroot}%{_sysconfdir}/hiawatha/hiawat
 %config(noreplace) %{_sysconfdir}/hiawatha/error.xslt
 %config(noreplace) %{_sysconfdir}/hiawatha/index.xslt
 %config(noreplace) %{_sysconfdir}/logrotate.d/hiawatha
+
+#letsencrypt extra files.
+%dir %{_sysconfdir}/hiawatha/extra
+%dir %{_sysconfdir}/hiawatha/extra/letsencrypt
+%dir %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries
+
+%attr(0755,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/letsencrypt
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/letsencrypt.conf
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/README.txt
+
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/acme.php
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/config.php
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/hiawatha_config.php
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/http.php
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/https.php
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/letsencrypt.php
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/openssl.conf
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/rsa.php
+
 
 %if %{use_systemd}
 %{_unitdir}/hiawatha.service
@@ -250,6 +272,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue May 3 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.2-1
+- Updated to Hiawatha 10.2.
+
 * Fri Feb 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.1-1
 - Updated to Hiawatha 10.1.
 
