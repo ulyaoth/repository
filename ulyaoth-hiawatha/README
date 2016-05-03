@@ -1,4 +1,4 @@
 You can build the rpm by running the build script:
 
-ulyaoth-hiawatha:
+ulyaoth-hiawatha & ulyaoth-hiawatha-letsencrypt:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/build-ulyaoth-hiawatha.sh ; chmod +x build-ulyaoth-hiawatha.sh ; ./build-ulyaoth-hiawatha.sh
