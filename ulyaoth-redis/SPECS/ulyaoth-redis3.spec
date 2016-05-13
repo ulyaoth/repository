@@ -100,7 +100,6 @@ sed -i '/#daemonize yes/c\daemonize yes' $RPM_BUILD_ROOT%{_sysconfdir}/redis/red
 %defattr(-,root,root,-)
 /usr/bin/redis-benchmark
 /usr/bin/redis-check-aof
-/usr/bin/redis-check-dump
 /usr/bin/redis-cli
 /usr/bin/redis-sentinel
 /usr/bin/redis-server
