@@ -28,7 +28,7 @@ BuildRequires: systemd
 
 Summary:    Apache Solr
 Name:       ulyaoth-solr5
-Version:    5.5.0
+Version:    5.5.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -180,6 +180,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri May 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.1-1
+- Updated to Solr 5.5.1.
+
 * Sat Feb 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.0-1
 - Updated to Solr 5.5.0.
 
