@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.8.1
+%define nginx_version 1.10.0
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: High performance web server / Phusion Passenger web & app
 Name: ulyaoth-nginx-passenger5
-Version: 5.0.27
+Version: 5.0.28
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc. / Phusion
@@ -374,6 +374,11 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri May 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.28-1
+- Updated Passenger. 5.0.28.
+- Updated Nginx to 1.10.0.
+- Updated headersmore to 0.29
+
 * Thu Apr 7 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.27-1
 - Updated to Passenger 5.0.27.
 
