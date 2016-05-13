@@ -103,6 +103,7 @@ sed -i '/#daemonize yes/c\daemonize yes' $RPM_BUILD_ROOT%{_sysconfdir}/redis/red
 /usr/bin/redis-cli
 /usr/bin/redis-sentinel
 /usr/bin/redis-server
+/usr/bin/redis-check-rdb
 %dir /usr/share/licenses/redis
 /usr/share/licenses/redis/COPYING
 
