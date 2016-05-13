@@ -29,7 +29,7 @@ BuildRequires: systemd
 
 Summary:    Tomcat native library
 Name:       ulyaoth-redis3
-Version:    3.0.7
+Version:    3.2.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    three clause BSD license
@@ -178,6 +178,9 @@ fi
 %endif
 
 %changelog
+* Fri May 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.0-1
+- Updated to Redis 3.2.0.
+
 * Thu Feb 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.0.7-1
 - Updated to Redis 3.0.7.
 
