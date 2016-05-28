@@ -80,16 +80,16 @@ BuildRequires: libGeoIP-devel
 %define main_version                 1.10.0
 %define main_release                 2%{?dist}.ngx
 %define module_xslt_version          %{main_version}
-%define module_xslt_release          1%{?dist}.ngx
+%define module_xslt_release          2%{?dist}.ngx
 %define module_geoip_version         %{main_version}
-%define module_geoip_release         1%{?dist}.ngx
+%define module_geoip_release         2%{?dist}.ngx
 %define module_image_filter_version  %{main_version}
-%define module_image_filter_release  1%{?dist}.ngx
+%define module_image_filter_release  2%{?dist}.ngx
 %define module_perl_version          %{main_version}
-%define module_perl_release          1%{?dist}.ngx
+%define module_perl_release          2%{?dist}.ngx
 %define module_njs_shaid             1c50334fbea6
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
-%define module_njs_release           1%{?dist}.ngx
+%define module_njs_release           2%{?dist}.ngx
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -368,7 +368,7 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %dir %{_sysconfdir}/nginx/sites-available
 %dir %{_sysconfdir}/nginx/sites-enabled
 %dir %{_sysconfdir}/nginx/conf.d
-%{_sysconfdir}/nginx/modules
+%dir %{_sysconfdir}/nginx/modules
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
@@ -611,6 +611,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat May 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.0-2
+- Added a conflict for ulyaoth-nginx-mainline.
+- Fixed modules directory so it lists correctly as a directory.
+
 * Sun May 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.0-1
 - Updated to Nginx 1.10.0.
 - Changed spec file to the one provided in Nginx source package.
