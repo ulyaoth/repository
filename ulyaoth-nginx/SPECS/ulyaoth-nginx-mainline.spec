@@ -310,6 +310,7 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
 
 %if %{use_systemd}
 # install systemd-specific files
