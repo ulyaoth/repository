@@ -30,6 +30,12 @@ su ulyaoth -c "wget https://github.com/LucidWorks/banana/archive/v'"$bananaversi
 su ulyaoth -c "tar xvzf v'"$bananaversion"'.tar.gz"
 su ulyaoth -c "mkdir -p /home/ulyaoth/banana-'"$bananaversion"'/build"
 cd /home/ulyaoth/banana-$bananaversion
+
+### Temp download seems missing in 1.6.8.
+su ulyaoth -c "wget http://d2ujn7sdjfz3mg.cloudfront.net/build.xml"
+su ulyaoth -c "wget http://d2ujn7sdjfz3mg.cloudfront.net/default.properties"
+###
+
 su ulyaoth -c "ant"
 mv /home/ulyaoth/banana-$bananaversion/build/banana-$bananaversion.war /home/ulyaoth/rpmbuild/SOURCES/banana.war
 cd /home/ulyaoth/rpmbuild/SPECS/
