@@ -7,7 +7,7 @@
 
 Summary:    Banana UI
 Name:       ulyaoth-banana
-Version:    1.6.0
+Version:    1.6.8
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -53,7 +53,7 @@ getent passwd %{banana_user} >/dev/null || /usr/sbin/useradd --comment "Solr Dae
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-banana!
+Thank you for using ulyaoth-banana!
 
 Please find the official documentation for Banana here:
 * https://github.com/LucidWorks/banana/
@@ -65,6 +65,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sat May 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.8-1
+- Updated to Banana version 1.6.8.
+
 * Sat Mar 5 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
 - Updated to Banana version 1.6.0.
 
