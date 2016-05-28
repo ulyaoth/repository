@@ -221,7 +221,7 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/build-u
 
 ulyaoth-nginx()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx.sh ; chmod +x build-ulyaoth-nginx.sh ; ./build-ulyaoth-nginx.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-or-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline.sh ; ./build-ulyaoth-nginx-stable-or-mainline.sh stable
 }
 
 ulyaoth-nginx-naxsi()
@@ -276,7 +276,7 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-p
 
 ulyaoth-nginx-mainline()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-mainline.sh ; chmod +x build-ulyaoth-nginx-mainline.sh ; ./build-ulyaoth-nginx-mainline.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-or-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline.sh ; ./build-ulyaoth-nginx-stable-or-mainline.sh mainline
 }
 
 ulyaoth-nginx-mainline-selinux()

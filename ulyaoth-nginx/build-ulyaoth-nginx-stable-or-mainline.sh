@@ -1,3 +1,20 @@
+#!/bin/bash
+ 
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 stable or mainline."
+  exit 1
+fi
+
+if [ "$1" = "stable" ]; then
+nginxversion="nginx"
+elif [ "$1" = "mainline" ]; then
+nginxversion="nginx-mainline"
+else
+echo "We only support the input stable or mainline."
+exit 1
+fi
+
+
 ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
@@ -23,24 +40,24 @@ fi
 useradd ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SPECS/ulyaoth-nginx.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SPECS/ulyaoth-$nginxversion.spec"
 
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-$nginxversion.spec
 fi
 
 if type dnf 2>/dev/null
 then
-  dnf builddep -y ulyaoth-nginx.spec
+  dnf builddep -y ulyaoth-$nginxversion.spec
 elif type yum 2>/dev/null
 then
-  yum-builddep -y ulyaoth-nginx.spec
+  yum-builddep -y ulyaoth-$nginxversion.spec
 fi
 
-su ulyaoth -c "spectool ulyaoth-nginx.spec -g -R"
-su ulyaoth -c "rpmbuild -ba ulyaoth-nginx.spec"
+su ulyaoth -c "spectool ulyaoth-$nginxversion.spec -g -R"
+su ulyaoth -c "rpmbuild -ba ulyaoth-$nginxversion.spec"
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then
@@ -57,4 +74,3 @@ fi
 
 rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild
-rm -rf /etc/nginx
