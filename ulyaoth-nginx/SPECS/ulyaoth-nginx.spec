@@ -78,7 +78,7 @@ BuildRequires: libGeoIP-devel
 # end of distribution specific definitions
 
 %define main_version                 1.10.0
-%define main_release                 1%{?dist}.ngx
+%define main_release                 2%{?dist}.ngx
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -177,6 +177,8 @@ BuildRequires: GeoIP-devel
 Provides: webserver
 Provides: nginx
 Provides: ulyaoth-nginx
+
+Conflicts: ulyaoth-nginx-mainline
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
