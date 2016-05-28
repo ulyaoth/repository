@@ -310,7 +310,6 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -369,7 +368,7 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %dir %{_sysconfdir}/nginx/sites-available
 %dir %{_sysconfdir}/nginx/sites-enabled
 %dir %{_sysconfdir}/nginx/conf.d
-%dir %{_sysconfdir}/nginx/modules
+%{_sysconfdir}/nginx/modules
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
@@ -614,7 +613,6 @@ fi
 %changelog
 * Sat May 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.0-2
 - Added a conflict for ulyaoth-nginx.
-- Fixed modules directory so it lists correctly as a directory.
 
 * Sat May 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.0-1
 - Updated to Nginx 1.11.0.
