@@ -31,7 +31,7 @@ su ulyaoth -c "tar xvzf v'"$bananaversion"'.tar.gz"
 su ulyaoth -c "mkdir -p /home/ulyaoth/banana-'"$bananaversion"'/build"
 cd /home/ulyaoth/banana-$bananaversion
 su ulyaoth -c "ant"
-mv /home/ulyaoth/banana-$bananaversion/build/banana-1.6.0.war /home/ulyaoth/rpmbuild/SOURCES/banana.war
+mv /home/ulyaoth/banana-$bananaversion/build/banana-$bananaversion.war /home/ulyaoth/rpmbuild/SOURCES/banana.war
 cd /home/ulyaoth/rpmbuild/SPECS/
 
 su ulyaoth -c "rpmbuild -ba ulyaoth-banana.spec"
