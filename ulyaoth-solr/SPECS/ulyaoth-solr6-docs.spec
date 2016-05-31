@@ -7,7 +7,7 @@
 
 Summary:    Apache Solr Documentations
 Name:       ulyaoth-solr6-docs
-Version:    6.0.0
+Version:    6.0.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -56,7 +56,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-solr6-docs!
+Thank you for using ulyaoth-solr6-docs!
 
 Please find the official documentation for solr here:
 * https://lucene.apache.org/solr/
@@ -68,5 +68,8 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Tue May 31 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.1-1
+- Updated to Solr 6 version 6.0.1.
+
 * Wed Apr 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.0-1
 - Initial release.

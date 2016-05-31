@@ -28,7 +28,7 @@ BuildRequires: systemd
 
 Summary:    Apache Solr
 Name:       ulyaoth-solr6
-Version:    6.0.0
+Version:    6.0.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -148,7 +148,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-solr6!
+Thank you for using ulyaoth-solr6!
 
 Please find the official documentation for solr here:
 * https://lucene.apache.org/solr/
@@ -180,5 +180,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue May 31 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.1-1
+- Updated to Solr 6 version 6.0.1.
+
 * Wed Apr 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.0-1
 - Initial release.
