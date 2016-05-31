@@ -1,8 +1,8 @@
 
 Summary:    s3fs allows Linux and Mac OS X to mount an S3 bucket via FUSE.
 Name:       ulyaoth-fuse-s3fs
-Version:    1.79
-Release:    2%{?dist}
+Version:    1.80
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv2
 Group:      Applications/System
@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-fuse-s3fs!
+Thank you for using ulyaoth-fuse-s3fs!
 
 Please find the official documentation for fuse-s3fs here:
 * https://github.com/s3fs-fuse/s3fs-fuse
@@ -80,6 +80,9 @@ BANNER
 %postun
 
 %changelog
+* Tue May 31 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.80-1
+- Updated to fuse-s3fs 1.80.
+
 * Mon May 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.79-2
 - Recompiled with Fuse 2.9.6.
 
