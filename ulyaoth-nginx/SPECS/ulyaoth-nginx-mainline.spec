@@ -77,19 +77,19 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.11.0
-%define main_release                 2%{?dist}.ngx
+%define main_version                 1.11.1
+%define main_release                 1%{?dist}.ngx
 %define module_xslt_version          %{main_version}
-%define module_xslt_release          2%{?dist}.ngx
+%define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
-%define module_geoip_release         2%{?dist}.ngx
+%define module_geoip_release         1%{?dist}.ngx
 %define module_image_filter_version  %{main_version}
-%define module_image_filter_release  2%{?dist}.ngx
+%define module_image_filter_release  1%{?dist}.ngx
 %define module_perl_version          %{main_version}
-%define module_perl_release          2%{?dist}.ngx
+%define module_perl_release          1%{?dist}.ngx
 %define module_njs_shaid             1c50334fbea6
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
-%define module_njs_release           2%{?dist}.ngx
+%define module_njs_release           1%{?dist}.ngx
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -611,6 +611,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Jun 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.1-1
+- Updated to Nginx Mainline 1.11.1.
+
 * Sat May 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.0-2
 - Added a conflict for ulyaoth-nginx.
 
