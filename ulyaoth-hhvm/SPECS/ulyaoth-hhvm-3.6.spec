@@ -102,7 +102,7 @@ HHVM is an open-source virtual machine designed for executing programs written i
 %{__rm} -rf $RPM_BUILD_ROOT 
 export CMAKE_PREFIX_PATH=$RPM_BUILD_ROOT%{_prefix}
 cmake . -DCMAKE_INSTALL_PREFIX=$RPM_BUILD_ROOT%{_prefix} -DMYSQL_UNIX_SOCK_ADDR=/var/lib/mysql/mysql.sock
-make
+make -j5
 
 %install
 %{__make} install
