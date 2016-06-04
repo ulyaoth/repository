@@ -6,7 +6,7 @@
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm-lts-3.12
-Version: 3.12.1
+Version: 3.12.2
 Release: 1%{?dist}
 BuildArch: x86_64
 Group: Applications/Internet
@@ -91,7 +91,7 @@ BuildRequires: libatomic
 Provides: hhvm-lts
 Provides: hhvm-lts-3.12
 Provides: ulyaoth-hhvm-lts
-Provides: ulyaoth-hhvm-lts-3.1
+Provides: ulyaoth-hhvm-lts-3.12
 
 %description 
 HHVM is an open-source virtual machine designed for executing programs written in Hack and PHP. HHVM uses a just-in-time (JIT) compilation approach to achieve superior performance while maintaining the development flexibility that PHP provides.
@@ -197,7 +197,7 @@ exit 0
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-hhvm-lts-3.12!
+Thank you for using ulyaoth-hhvm-lts-3.12!
 
 Please find the official documentation for HHVM here:
 * http://www.hhvm.com/
@@ -212,6 +212,9 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+* Sat Jun 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.12.2-1
+- Updated to HHVM 3.12.2 (LTS)
+
 * Wed Mar 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.12.1-1
 - Updated to HHVM 3.12.1 (LTS)
 
