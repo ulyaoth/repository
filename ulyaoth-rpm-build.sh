@@ -29,6 +29,31 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-hhvm3.13()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.13 -v 3.13.2
+}
+
+ulyaoth-hhvm3.12()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.12 -v 3.12.2
+}
+
+ulyaoth-hhvm3.11()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.11 -v 3.11.1
+}
+
+ulyaoth-hhvm3.9()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.9 -v 3.9.3
+}
+
+ulyaoth-hhvm3.6()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.6 -v 3.6.6
+}
+
 ulyaoth-fuse-s3fs()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-fuse-s3fs/build-ulyaoth-fuse-s3fs.sh ; chmod +x build-ulyaoth-fuse-s3fs.sh ; ./build-ulyaoth-fuse-s3fs.sh
