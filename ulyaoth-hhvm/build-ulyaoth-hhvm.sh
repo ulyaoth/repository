@@ -41,7 +41,7 @@ then
   if grep -q -i "release 19" /etc/fedora-release || grep -q -i "release 20" /etc/fedora-release
   then
     yum remove -y ocaml
-    yum install -y https://dl.fedoraproject.org/pub/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-4.01.0-24.fc21.x86_64.rpm https://dl.fedoraproject.org/pub/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-compiler-libs-4.01.0-24.fc21.x86_64.rpm https://dl.fedoraproject.org/pub/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-runtime-4.01.0-24.fc21.x86_64.rpm
+    yum install -y https://archive.fedoraproject.org/pub/archive/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-4.01.0-24.fc21.x86_64.rpm https://archive.fedoraproject.org/pub/archive/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-compiler-libs-4.01.0-24.fc21.x86_64.rpm https://archive.fedoraproject.org/pub/archive/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-runtime-4.01.0-24.fc21.x86_64.rpm
   fi
 fi
 
