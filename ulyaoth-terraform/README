@@ -1,4 +1,4 @@
 To build this rpm run the following command.
 
 ulyaoth-terraform:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-terraform/build-ulyaoth-terraform.sh ; chmod +x build-ulyaoth-terrfaorm.sh ; ./build-ulyaoth-terraform.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-terraform/build-ulyaoth-terraform.sh ; chmod +x build-ulyaoth-terraform.sh ; ./build-ulyaoth-terraform.sh
