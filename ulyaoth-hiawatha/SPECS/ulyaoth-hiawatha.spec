@@ -39,7 +39,7 @@ BuildRequires: systemd-devel
 
 Summary: Hiawatha is an open source webserver with a focus on security.
 Name: ulyaoth-hiawatha
-Version: 10.2
+Version: 10.3
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Hiawatha.
@@ -187,7 +187,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-hiawatha!
+Thank you for using ulyaoth-hiawatha!
 
 Please find the official documentation for hiawatha here:
 * https://www.hiawatha-webserver.org
@@ -250,6 +250,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Jun 6 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.3-1
+- Updated to Hiawatha 10.3.
+
 * Tue May 3 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.2-1
 - Updated to Hiawatha 10.2.
 

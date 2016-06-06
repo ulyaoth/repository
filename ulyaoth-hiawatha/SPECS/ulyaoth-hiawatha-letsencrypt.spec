@@ -2,7 +2,7 @@
 
 Summary: Hiawatha is an open source webserver with a focus on security.
 Name: ulyaoth-hiawatha-letsencrypt
-Version: 10.2
+Version: 10.3
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Hiawatha.
@@ -62,7 +62,7 @@ cp -rf %{_builddir}/hiawatha-%{version}/extra/letsencrypt $RPM_BUILD_ROOT%{_sysc
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-hiawatha-letsencrypt!
+Thank you for using ulyaoth-hiawatha-letsencrypt!
 
 Please find the official documentation for hiawatha here:
 * https://www.hiawatha-webserver.org
@@ -78,5 +78,8 @@ BANNER
 %postun
 
 %changelog
+* Mon Jun 6 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.3-1
+- Updated to Hiawatha 10.3.
+
 * Tue May 3 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.2-1
 - Initial release with Hiawatha 10.2.
