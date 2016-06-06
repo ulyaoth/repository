@@ -56,7 +56,6 @@ echo 'export GOPATH=/root' >> /root/.bashrc
 echo 'export PATH=$GOPATH/bin:$PATH' >> /root/.bashrc
 echo 'export GOBIN=/usr/local/go/bin' >> /root/.bashrc
 
-exec bash
 source ~/.bashrc
 
 #Create and build terraform

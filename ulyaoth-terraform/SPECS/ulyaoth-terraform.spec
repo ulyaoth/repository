@@ -8,7 +8,7 @@ Group:      Applications/Internet
 URL:        https://www.terraform.io/
 Vendor:     Hashicorp
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    vegeta
+Source0:    terraform
 BuildRoot:  %{_tmppath}/terraform-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: terraform
