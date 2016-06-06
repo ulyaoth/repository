@@ -439,6 +439,11 @@ ulyaoth-packetbeat()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-packetbeat/build-ulyaoth-packetbeat.sh ; chmod +x build-ulyaoth-packetbeat.sh ; ./build-ulyaoth-packetbeat.sh
 }
 
+ulyaoth-terraform()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-terraform/build-ulyaoth-terraform.sh ; chmod +x build-ulyaoth-terraform.sh ; ./build-ulyaoth-terraform.sh
+}
+
 # Move package to repository server
 scppackage()
 {
