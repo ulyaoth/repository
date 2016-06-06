@@ -65,7 +65,14 @@ wget https://github.com/hashicorp/terraform/archive/v$terraformversion.tar.gz
 tar xvzf v$terraformversion.tar.gz
 mv terraform-$terraformversion /root/src/github.com/hashicorp/terraform
 cd /root/src/github.com/hashicorp/terraform 
+
+# If we use 32-bit build for 32-bit.
+if [ "$arch" != "x86_64" ]
+then
+XC_OS=linux XC_ARCH=386 make bin
+else
 XC_OS=linux XC_ARCH=amd64 make bin
+fi
 
 mv /root/src/github.com/hashicorp/terraform/bin/terraform /home/ulyaoth/rpmbuild/SOURCES/
 chown ulyaoth:ulyaoth /home/ulyaoth/rpmbuild/SOURCES/terraform
