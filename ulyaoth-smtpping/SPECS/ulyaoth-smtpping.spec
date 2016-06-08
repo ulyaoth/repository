@@ -39,7 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %{_bindir}/smtpping
-%{_mandir}/man1/smtpping.1
+%{_mandir}/man1/smtpping.1.gz
 
 %post
 cat <<BANNER
