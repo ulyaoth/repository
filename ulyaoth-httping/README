@@ -1,0 +1,4 @@
+How to create a package:
+
+ulyaoth-httping:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httping/build-ulyaoth-httping.sh ; chmod +x build-ulyaoth-httping.sh ; ./build-ulyaoth-httping.sh

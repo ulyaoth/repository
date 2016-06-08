@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-httping()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httping/build-ulyaoth-httping.sh ; chmod +x build-ulyaoth-httping.sh ; ./build-ulyaoth-httping.sh
+}
+
 ulyaoth-hhvm3.13()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.13 -v 3.13.2
