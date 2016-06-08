@@ -66,7 +66,7 @@ cat <<BANNER
 
 Thank you for using ulyaoth-httping!
 
-Please find the official documentation for fuse-s3fs here:
+Please find the official documentation for httping here:
 * https://www.vanheusden.com/httping/
 
 For any additional help please visit my forum at:
