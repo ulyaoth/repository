@@ -23,7 +23,7 @@ A simple, portable tool for measuring SMTP server delay, delay variation and thr
 %setup -q -n smtpping-%{version}
 
 %build
-%cmake -DCMAKE_BUILD_TYPE:String="Release" .
+%cmake -DCMAKE_BUILD_TYPE:String="Release" -DMAN_INSTALL_DIR=%{_mandir} -DBIN_INSTALL_DIR=%{_bindir}  . 
 make %{?_smp_mflags}
 
 %install
