@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-smtpping()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-smtpping/build-ulyaoth-smtpping.sh ; chmod +x build-ulyaoth-smtpping.sh ; ./build-ulyaoth-smtpping.sh
+}
+
 ulyaoth-httping()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httping/build-ulyaoth-httping.sh ; chmod +x build-ulyaoth-httping.sh ; ./build-ulyaoth-httping.sh
