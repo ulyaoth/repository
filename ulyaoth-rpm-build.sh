@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-kafka-manager()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/build-ulyaoth-kafka-manager.sh ; chmod +x build-ulyaoth-kafka-manager.sh ; ./build-ulyaoth-kafka-manager.sh
+}
+
 ulyaoth-smtpping()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-smtpping/build-ulyaoth-smtpping.sh ; chmod +x build-ulyaoth-smtpping.sh ; ./build-ulyaoth-smtpping.sh
