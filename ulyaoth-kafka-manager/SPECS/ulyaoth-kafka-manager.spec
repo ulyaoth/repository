@@ -92,8 +92,8 @@ cp -rf %_builddir/kafka-manager-%{version}/share/doc/api/* $RPM_BUILD_ROOT/usr/s
 
 sed -i 's|$(realpath "${app_home}/../lib")|/usr/share/kafka-manager|' $RPM_BUILD_ROOT%{_bindir}/kafka-manager
 sed -i 's|${app_home}/../conf/application.ini|/etc/kafka-manager/application.ini|' $RPM_BUILD_ROOT%{_bindir}/kafka-manager
-sed -i 's|${application.home}/logs/application.log|/var/log/kafka-manager/application.log|' %{kafka_manager_home}/logback.xml
-sed -i 's|${application.home}/logs/application.log|/var/log/kafka-manager/application.log|' %{kafka_manager_home}/logger.xml
+sed -i 's|${application.home}/logs/application.log|/var/log/kafka-manager/application.log|' $RPM_BUILD_ROOT%{kafka_manager_home}/logback.xml
+sed -i 's|${application.home}/logs/application.log|/var/log/kafka-manager/application.log|' $RPM_BUILD_ROOT%{kafka_manager_home}/logger.xml
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
