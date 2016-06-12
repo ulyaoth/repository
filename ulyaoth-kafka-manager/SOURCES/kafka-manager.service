@@ -1,0 +1,16 @@
+[Unit]
+Description=Kafka Manager
+After=network.target
+ConditionPathExists=/etc/kafka-manager/application.ini
+
+[Service]
+Type=simple
+SyslogIdentifier=kafka-manager
+ExecStart=/usr/bin/kafka-manager
+ExecStop=/usr/bin/kafka-manager
+
+User=kafka-manager
+Group=hadoop
+
+[Install]
+WantedBy=multi-user.target
