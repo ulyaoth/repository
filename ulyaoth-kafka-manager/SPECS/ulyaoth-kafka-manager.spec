@@ -42,7 +42,7 @@ Source0:    kafka-manager-%{version}.zip
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/SOURCES/kafka-manager.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/SOURCES/kafka-manager.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/SOURCES/application.ini
-Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/SOURCES/kafka-manager.conf
+Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/SOURCES/kafka-manager.conf
 BuildRoot:  %{_tmppath}/kafka-manager-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: java-1.8.0-openjdk-devel

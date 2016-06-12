@@ -1,4 +1,4 @@
 How to create a package:
 
 ulyaoth-kafka-manager:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kibana/build-ulyaoth-kafka-manager.sh ; chmod +x build-ulyaoth-kafka-manager.sh ; ./build-ulyaoth-kafka-manager.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/build-ulyaoth-kafka-manager.sh ; chmod +x build-ulyaoth-kafka-manager.sh ; ./build-ulyaoth-kafka-manager.sh
