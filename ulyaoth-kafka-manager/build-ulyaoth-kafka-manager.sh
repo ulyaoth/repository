@@ -59,3 +59,6 @@ fi
 
 rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild
+rm -rf /home/ulyaoth/kafka-manager-$kafkamanagerversion
+rm -rf /home/ulyaoth/$kafkamanagerversion.tar.gz
+rm -rf /home/ulyaoth/.sbt
