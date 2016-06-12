@@ -106,6 +106,7 @@ getent passwd %{kafka_manager_user} >/dev/null || /usr/sbin/useradd --comment "K
 %defattr(-,%{kafka_manager_user},%{kafka_manager_group})
 %dir %{kafka_manager_home}
 %dir %{_localstatedir}/log/kafka-manager
+%dir %{_localstatedir}/run/kafka-manager
 %config(noreplace) %{kafka_manager_home}/application.conf
 %config(noreplace) %{kafka_manager_home}/logback.xml
 %config(noreplace) %{kafka_manager_home}/logger.xml
@@ -119,6 +120,7 @@ getent passwd %{kafka_manager_user} >/dev/null || /usr/sbin/useradd --comment "K
 
 %defattr(-,root,root)
 %{_bindir}/kafka-manager
+/etc/tmpfiles.d/kafka-manager.conf
 %if %{use_systemd}
 %{_unitdir}/kafka-manager.service
 %else
