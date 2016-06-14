@@ -38,7 +38,7 @@ Group:      Applications/Internet
 URL:        https://kafka.apache.org
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/kafka/%{version}/kafka_%{scala_version}-%{version}.tgz
+Source0:    https://archive.apache.org/dist/kafka/%{version}/kafka_%{scala_version}-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka.init
 Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/SOURCES/kafka-zookeeper.service
