@@ -33,14 +33,14 @@ su ulyaoth -c "cd /home/ulyaoth/httpdiff/ && go build"
 su ulyaoth -c "mv /home/ulyaoth/httpdiff/httpdiff /home/ulyaoth/rpmbuild/SOURCES/"
 su ulyaoth -c "rm -rf /home/ulyaoth/httpdiff/"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httpdiff/SPECS/ulyaoth-httpdiff-masterbuild.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httpdiff/SPECS/ulyaoth-httpdiff.spec"
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-httpdiff-masterbuild.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-httpdiff.spec
 fi
 
-su ulyaoth -c "rpmbuild -ba ulyaoth-httpdiff-masterbuild.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-httpdiff.spec"
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then
