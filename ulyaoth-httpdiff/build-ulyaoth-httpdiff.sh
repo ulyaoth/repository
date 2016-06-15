@@ -43,10 +43,10 @@ su ulyaoth -c "rpmdev-setuptree"
 
 if type dnf 2>/dev/null
 then
-  dnf install ulyaoth-go -y
+  dnf install ulyaoth-go git -y
 elif type yum 2>/dev/null
 then
-  yum install ulyaoth-go -y
+  yum install ulyaoth-go git -y
 fi
 
 # Add where to find go into bashrc
@@ -60,7 +60,7 @@ su ulyaoth -c "source ~/.bashrc"
 
 su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "git clone git://github.com/jgrahamc/httpdiff.git"
-su ulyaoth -c "cd /home/ulyaoth/httpdiff/ && go build"
+su ulyaoth -c "cd /home/ulyaoth/httpdiff/ && /usr/local/go/bin/go build"
 su ulyaoth -c "mv /home/ulyaoth/httpdiff/httpdiff /home/ulyaoth/rpmbuild/SOURCES/"
 su ulyaoth -c "rm -rf /home/ulyaoth/httpdiff/"
 cd /home/ulyaoth/rpmbuild/SPECS
