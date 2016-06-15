@@ -7,26 +7,57 @@ then
 arch="i386"
 fi
 
-if grep -q -i "release 6" /etc/redhat-release
+useradd ulyaoth
+cd /home/ulyaoth/
+
+if [ "$ulyaothos" == "fedora" ]
 then
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-elif grep -q -i "release 6" /etc/centos-release
+if type dnf 2>/dev/null
 then
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-else
-echo yeah Fedora!
+  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
+elif type yum 2>/dev/null
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
 fi
+elif [ "$ulyaothos" == "redhat" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.noarch.rpm -y
+elif [ "$ulyaothos" == "amazonlinux" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.amazonlinux.noarch.rpm -y
+elif [ "$ulyaothos" == "centos" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.centos.noarch.rpm -y
+elif [ "$ulyaothos" == "oraclelinux" ]
+then 
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.oraclelinux.noarch.rpm -y
+elif [ "$ulyaothos" == "scientificlinux" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
+fi
+
+# Create build user and go to it's home directory, and create the rpmbuild directory.
+useradd ulyaoth
+cd /home/ulyaoth/
+su ulyaoth -c "rpmdev-setuptree"
 
 if type dnf 2>/dev/null
 then
-  dnf install -y go golang
+  dnf install ulyaoth-go -y
 elif type yum 2>/dev/null
 then
-  yum install -y go golang
+  yum install ulyaoth-go -y
 fi
 
-useradd ulyaoth
-cd /home/ulyaoth/
+# Add where to find go into bashrc
+echo 'export GOROOT=/usr/local/go' >> /home/ulyaoth/.bashrc
+echo 'export PATH=$PATH:$GOROOT/bin' >> /home/ulyaoth/.bashrc
+echo 'export GOPATH=/home/ulyaoth/' >> /home/ulyaoth/.bashrc
+echo 'export PATH=$GOPATH/bin:$PATH' >> /home/ulyaoth/.bashrc
+echo 'export GOBIN=/usr/local/go/bin/' >> /home/ulyaoth/.bashrc
+
+su ulyaoth -c "source ~/.bashrc"
+
 su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "git clone git://github.com/jgrahamc/httpdiff.git"
 su ulyaoth -c "cd /home/ulyaoth/httpdiff/ && go build"
