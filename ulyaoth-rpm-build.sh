@@ -409,9 +409,9 @@ ulyaoth-solr6-examples()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr6-examples.sh ; chmod +x build-ulyaoth-solr6-examples.sh ; ./build-ulyaoth-solr6-examples.sh
 }
 
-ulyaoth-httpdiff-masterbuild()
+ulyaoth-httpdiff()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httpdiff/build-ulyaoth-httpdiff-masterbuild.sh ; chmod +x build-ulyaoth-httpdiff-masterbuild.sh ; ./build-ulyaoth-httpdiff-masterbuild.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httpdiff/build-ulyaoth-httpdiff.sh ; chmod +x build-ulyaoth-httpdiff.sh ; ./build-ulyaoth-httpdiff.sh
 }
 
 ulyaoth-tengine()
