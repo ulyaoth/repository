@@ -4,8 +4,8 @@
 # end of distribution specific definitions
 
 Summary:    Perform the same request against two HTTP servers and diff the results. For best results use in a terminal that supports ANSI escape sequences.
-Name:       ulyaoth-httpdiff-masterbuild
-Version:    20150614
+Name:       ulyaoth-httpdiff
+Version:    20160615
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNU GENERAL PUBLIC LICENSE Version 2
@@ -14,11 +14,12 @@ URL:        https://github.com/jgrahamc/httpdiff
 Vendor:     John Graham-Cumming
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    httpdiff
-BuildRoot:  %{_tmppath}/ulyaoth-httpdiff-masterbuild-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRoot:  %{_tmppath}/ulyaoth-httpdiff-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: httpdiff
 Provides: ulyaoth-httpdiff
-Provides: ulyaoth-httpdiff-masterbuild
+
+Replaces: ulyaoth-httpdiff-masterbuild
 
 %description
 Perform the same request against two HTTP servers and diff the results. For best results use in a terminal that supports ANSI escape sequences.
@@ -47,7 +48,7 @@ Perform the same request against two HTTP servers and diff the results. For best
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-httpdiff-masterbuild!
+Thank you for using ulyaoth-httpdiff!
 
 Please find the official documentation for httpdiff here:
 * https://github.com/jgrahamc/httpdiff
@@ -66,6 +67,10 @@ BANNER
 
 
 %changelog
+* Sun Jun 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 20160615-1
+- Updating to today's master branch.
+- Renamed rpm to ulyaoth-httpdiff.
+
 * Sun Jun 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150614-1
 - Updating to today's master branch.
 
