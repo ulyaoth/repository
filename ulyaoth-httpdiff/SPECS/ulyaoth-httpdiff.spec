@@ -19,7 +19,7 @@ BuildRoot:  %{_tmppath}/ulyaoth-httpdiff-%{version}-%{release}-root-%(%{__id_u} 
 Provides: httpdiff
 Provides: ulyaoth-httpdiff
 
-Replaces: ulyaoth-httpdiff-masterbuild
+Obsoletes: ulyaoth-httpdiff-masterbuild
 
 %description
 Perform the same request against two HTTP servers and diff the results. For best results use in a terminal that supports ANSI escape sequences.
