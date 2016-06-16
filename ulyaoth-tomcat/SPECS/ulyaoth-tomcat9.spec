@@ -31,18 +31,18 @@ BuildRequires: systemd
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9
 Version:    9.0.0
-Release:    4%{?dist}
+Release:    5%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M6/bin/apache-tomcat-%{version}.M6.tar.gz
+Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M8/bin/apache-tomcat-%{version}.M8.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.logrotate
-BuildRoot:  %{_tmppath}/tomcat-%{version}.M6-%{release}-root-%(%{__id_u} -n)
+BuildRoot:  %{_tmppath}/tomcat-%{version}.M8-%{release}-root-%(%{__id_u} -n)
 
 Provides: tomcat
 Provides: apache-tomcat
@@ -59,7 +59,7 @@ Apache Tomcat powers numerous large-scale, mission-critical web applications acr
 Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat project logo are trademarks of the Apache Software Foundation.
 
 %prep
-%setup -q -n apache-tomcat-%{version}.M6
+%setup -q -n apache-tomcat-%{version}.M8
 
 %build
 
@@ -135,7 +135,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-tomcat9!
+Thank you for using ulyaoth-tomcat9!
 
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
@@ -167,6 +167,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Jun 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-5
+- Updating to Tomcat 9.0.0.M8.
+
 * Sat May 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-4
 - Updating to Tomcat 9.0.0.M6.
 
