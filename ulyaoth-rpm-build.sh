@@ -224,6 +224,11 @@ ulyaoth-tomcat9()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-ulyaoth-tomcat9.sh ; chmod +x build-ulyaoth-tomcat9.sh ; ./build-ulyaoth-tomcat9.sh
 }
 
+ulyaoth-tomcat8.5()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-ulyaoth-tomcat8.5.sh ; chmod +x build-ulyaoth-tomcat8.5.sh ; ./build-ulyaoth-tomcat8.5.sh
+}
+
 ulyaoth-tomcat8()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-ulyaoth-tomcat8.sh ; chmod +x build-ulyaoth-tomcat8.sh ; ./build-ulyaoth-tomcat8.sh
