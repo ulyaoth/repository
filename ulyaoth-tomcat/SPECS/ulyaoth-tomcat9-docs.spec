@@ -8,15 +8,15 @@
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9-docs
 Version:    9.0.0
-Release:    4%{?dist}
+Release:    5%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M6/bin/apache-tomcat-%{version}.M6.tar.gz
-BuildRoot:  %{_tmppath}/tomcat-%{version}.M6-%{release}-root-%(%{__id_u} -n)
+Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M8/bin/apache-tomcat-%{version}.M8.tar.gz
+BuildRoot:  %{_tmppath}/tomcat-%{version}.M8-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat9
 
@@ -29,7 +29,7 @@ Provides: ulyaoth-tomcat9-docs
 The package contains the official Apache Tomcat "webapps/docs" directory.
 
 %prep
-%setup -q -n apache-tomcat-%{version}.M6
+%setup -q -n apache-tomcat-%{version}.M8
 
 %build
 
@@ -65,7 +65,7 @@ cp -R * %{buildroot}/%{tomcat_home}/
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-tomcat9-docs!
+Thank you for using ulyaoth-tomcat9-docs!
 
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
@@ -77,6 +77,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Thu Jun 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-5
+- Updating to Tomcat 9.0.0.M8.
+
 * Sat May 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-4
 - Updating to Tomcat 9.0.0.M6.
 
