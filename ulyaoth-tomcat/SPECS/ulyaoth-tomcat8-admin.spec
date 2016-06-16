@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8-admin
-Version:    8.0.35
+Version:    8.0.36
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -66,7 +66,7 @@ cp -R * %{buildroot}/%{tomcat_home}/
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-tomcat8-admin!
+Thank you for using ulyaoth-tomcat8-admin!
 
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
@@ -78,6 +78,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Thu Jun 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.36-1
+- Updated to Tomcat 8.0.36.
+
 * Sat May 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.0.35-1
 - Updated to Tomcat 8.0.35.
 
