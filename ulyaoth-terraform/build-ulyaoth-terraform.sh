@@ -2,7 +2,7 @@
 ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-terraformversion=0.7.0-rc1
+terraformversion=0.7.0-rc2
 
 # Check if we are using a 32-bit system.
 if [ "$arch" == "i686" ]
