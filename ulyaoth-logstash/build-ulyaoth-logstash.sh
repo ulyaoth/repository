@@ -1,6 +1,6 @@
 ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
-version=2.3.2
+version=2.3.3
 
 if type dnf 2>/dev/null
 then
