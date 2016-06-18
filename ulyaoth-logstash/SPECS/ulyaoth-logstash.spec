@@ -31,7 +31,7 @@ BuildRequires: systemd
 
 Summary:    Logstash
 Name:       ulyaoth-logstash
-Version:    2.3.2
+Version:    2.3.3
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    ASL 2.0
@@ -121,7 +121,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-logstash!
+Thank you for using ulyaoth-logstash!
 
 Please find the official documentation for logstash here:
 * https://www.elastic.co/products/logstash
@@ -160,6 +160,9 @@ fi
 %endif
 
 %changelog
+* Sat Jun 18 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.3.3-1
+- Updating to Logstash 2.3.3.
+
 * Mon May 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.3.2-1
 - Updating to Logstash 2.3.2.
 
