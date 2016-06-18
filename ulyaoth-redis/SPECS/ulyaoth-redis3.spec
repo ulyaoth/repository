@@ -29,7 +29,7 @@ BuildRequires: systemd
 
 Summary:    Tomcat native library
 Name:       ulyaoth-redis3
-Version:    3.2.0
+Version:    3.2.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    three clause BSD license
@@ -139,7 +139,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-redis3!
+Thank you for using ulyaoth-redis3!
 
 Please find the official documentation for redis here:
 * http://redis.io
@@ -178,6 +178,9 @@ fi
 %endif
 
 %changelog
+* Sat Jun 18 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.1-1
+- Updated to Redis 3.2.1.
+
 * Fri May 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.0-1
 - Updated to Redis 3.2.0.
 
