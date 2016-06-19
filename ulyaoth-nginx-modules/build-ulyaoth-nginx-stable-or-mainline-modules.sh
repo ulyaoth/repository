@@ -17,6 +17,10 @@ moduleversion=1.5.1
 elif [ "$1" = "form-input" ]; then
 module="form-input-module"
 moduleversion=0.12
+develkitversion=0.3.0
+elif [ "$1" = "devel-kit" ]; then
+module="devel-kit-module"
+moduleversion=0.3.0
 else
 echo "We only support limited modules please see the Github readme for more information."
 exit 1
@@ -67,6 +71,10 @@ su ulyaoth -c "wget https://github.com/calio/form-input-nginx-module/archive/v$m
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
 su ulyaoth -c "mv form-input-nginx-module-$moduleversion /home/ulyaoth/$module"
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
+su ulyaoth -c "wget https://github.com/calio/form-input-nginx-module/archive/v$moduleversion.tar.gz"
+su ulyaoth -c "tar xvf v$develkitversion.tar.gz"
+su ulyaoth -c "mv ngx_devel_kit-$develkitversion /home/ulyaoth/devel-kit"
+su ulyaoth -c "rm -rf v$develkitversion.tar.gz"
 fi
 
 su ulyaoth -c "rpmdev-setuptree"
@@ -112,3 +120,4 @@ fi
 rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/$module
 rm -rf /home/ulyaoth/rpmbuild
+rm -rf /home/ulyaoth/devel-kit
