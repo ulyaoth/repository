@@ -5,22 +5,32 @@ if [ $# -lt 1 ]; then
   exit 1
 fi
 
+# headers-more
 if [ "$1" = "headers-more" ]; then
 module="headers-more-module"
 moduleversion=0.30
+# echo
 elif [ "$1" = "echo" ]; then
 module="echo-module"
 moduleversion=0.59
+# pam
 elif [ "$1" = "pam" ]; then
 module="pam-module"
 moduleversion=1.5.1
+# form-input
 elif [ "$1" = "form-input" ]; then
 module="form-input-module"
 moduleversion=0.12
 develkitversion=0.3.0
+# devel-kit
 elif [ "$1" = "devel-kit" ]; then
 module="devel-kit-module"
 moduleversion=0.3.0
+# encrypted-session
+elif [ "$1" = "encrypted-session" ]; then
+module="encrypted-session-module"
+moduleversion=0.05
+develkitversion=0.3.0
 else
 echo "We only support limited modules please see the Github readme for more information."
 exit 1
@@ -51,21 +61,25 @@ fi
 useradd ulyaoth
 cd /home/ulyaoth/
 
+# headers-more
 if [ "$module" = "headers-more-module" ]; then
 su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
 su ulyaoth -c "mv headers-more-nginx-module-$moduleversion /home/ulyaoth/$module"
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
+# echo
 elif [ "$module" = "echo-module" ]; then
 su ulyaoth -c "wget https://github.com/openresty/echo-nginx-module/archive/v$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
 su ulyaoth -c "mv echo-nginx-module-$moduleversion /home/ulyaoth/$module"
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
+#pam
 elif [ "$module" = "pam-module" ]; then
 su ulyaoth -c "wget https://github.com/stogh/ngx_http_auth_pam_module/archive/v$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
 su ulyaoth -c "mv ngx_http_auth_pam_module-$moduleversion /home/ulyaoth/$module"
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
+# form-input
 elif [ "$module" = "form-input-module" ]; then
 su ulyaoth -c "wget https://github.com/calio/form-input-nginx-module/archive/v$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
@@ -75,11 +89,22 @@ su ulyaoth -c "wget https://github.com/simpl/ngx_devel_kit/archive/v$develkitver
 su ulyaoth -c "tar xvf v$develkitversion.tar.gz"
 su ulyaoth -c "mv ngx_devel_kit-$develkitversion /home/ulyaoth/devel-kit-module"
 su ulyaoth -c "rm -rf v$develkitversion.tar.gz"
+# devel-kit
 elif [ "$module" = "devel-kit-module" ]; then
 su ulyaoth -c "wget https://github.com/simpl/ngx_devel_kit/archive/v$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
 su ulyaoth -c "mv ngx_devel_kit-$moduleversion /home/ulyaoth/$module"
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
+# encrypted-session
+elif [ "$module" = "encrypted-session-module" ]; then
+su ulyaoth -c "wget https://github.com/openresty/encrypted-session-nginx-module/archive/v$moduleversion.tar.gz"
+su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
+su ulyaoth -c "mv encrypted-session-nginx-module-$moduleversion /home/ulyaoth/$module"
+su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
+su ulyaoth -c "wget https://github.com/simpl/ngx_devel_kit/archive/v$develkitversion.tar.gz"
+su ulyaoth -c "tar xvf v$develkitversion.tar.gz"
+su ulyaoth -c "mv ngx_devel_kit-$develkitversion /home/ulyaoth/devel-kit-module"
+su ulyaoth -c "rm -rf v$develkitversion.tar.gz"
 fi
 
 su ulyaoth -c "rpmdev-setuptree"
