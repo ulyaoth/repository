@@ -140,6 +140,7 @@ BuildRequires: libGeoIP-devel
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
+        --add-dynamic-module=/home/ulyaoth/devel-kit \
         --add-dynamic-module=/home/ulyaoth/form-input-module \
         %{?with_http2:--with-http_v2_module}")
 
@@ -243,9 +244,9 @@ Version: %{module_form_input_version}
 Release: %{module_form_input_release}
 Group: %{_group}
 Requires: ulyaoth-nginx
-Summary: nginx forum input module
+Summary: nginx form input module
 %description module-form-input
-Dynamic pam module for nginx.
+Dynamic form input module for nginx.
 
 %prep
 %setup -q -n nginx-%{main_version}
