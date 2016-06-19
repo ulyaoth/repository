@@ -1,24 +1,14 @@
 #!/bin/bash
  
 if [ $# -lt 1 ]; then
-  echo "Usage: $1 stable or mainline."
-  echo "Usage: $2 (module name, example: headers-more)"
+  echo "Usage: $1 (module name, example: headers-more)"
   exit 1
 fi
 
-if [ "$1" = "stable" ]; then
-nginxversion="nginx"
-elif [ "$1" = "mainline" ]; then
-nginxversion="nginx-mainline"
-else
-echo "We only support the input stable or mainline."
-exit 1
-fi
-
-if [ "$2" = "headers-more" ]; then
+if [ "$1" = "headers-more" ]; then
 module="headers-more-module"
 moduleversion=0.30
-elif [ "$2" = "echo" ]; then
+elif [ "$1" = "echo" ]; then
 module="echo-module"
 moduleversion=0.59
 else
@@ -65,36 +55,42 @@ fi
 
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/SPECS/ulyaoth-$nginxversion-$module.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/SPECS/ulyaoth-nginx-$module.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/SPECS/ulyaoth-nginx-mainline-$module.spec"
 
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-$nginxversion-$module.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-$module.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-mainline-$module.spec
 fi
 
 if type dnf 2>/dev/null
 then
-  dnf builddep -y ulyaoth-$nginxversion-$module.spec
+  dnf builddep -y ulyaoth-nginx-$module.spec
+  dnf builddep -y ulyaoth-nginx-mainline-$module.spec
 elif type yum 2>/dev/null
 then
-  yum-builddep -y ulyaoth-$nginxversion-$module.spec
+  yum-builddep -y ulyaoth-nginx-$module.spec
+  yum-builddep -y ulyaoth-nginx-mainline-$module.spec
 fi
 
-su ulyaoth -c "spectool ulyaoth-$nginxversion-$module.spec -g -R"
-su ulyaoth -c "rpmbuild -ba ulyaoth-$nginxversion-$module.spec"
+su ulyaoth -c "spectool ulyaoth-nginx-$module.spec -g -R"
+su ulyaoth -c "spectool ulyaoth-nginx-mainline-$module.spec -g -R"
+su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-$module.spec"
+su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-$module.spec"
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then
-  cp /home/ulyaoth/rpmbuild/SRPMS/*$2* /home/ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/*$2* /home/ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i686/*$2* /home/ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i386/*$2* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/SRPMS/*$1* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/*$1* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/*$1* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/*$1* /home/ec2-user/
 else
-  cp /home/ulyaoth/rpmbuild/SRPMS/*$2* /root/
-  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/*$2* /root/
-  cp /home/ulyaoth/rpmbuild/RPMS/i686/*$2* /root/
-  cp /home/ulyaoth/rpmbuild/RPMS/i386/*$2* /root/
+  cp /home/ulyaoth/rpmbuild/SRPMS/*$1* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/*$1* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/*$1* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/*$1* /root/
 fi
 
 rm -rf /root/build-ulyaoth-*
