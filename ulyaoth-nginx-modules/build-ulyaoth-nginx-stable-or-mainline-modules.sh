@@ -86,15 +86,15 @@ su ulyaoth -c "rpmbuild -ba ulyaoth-$nginxversion-$module.spec"
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then
-  cp /home/ulyaoth/rpmbuild/SRPMS/*$module* /home/ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/*$module* /home/ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i686/*$module* /home/ec2-user/
-  cp /home/ulyaoth/rpmbuild/RPMS/i386/*$module* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/SRPMS/*$2* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/*$2* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/*$2* /home/ec2-user/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/*$2* /home/ec2-user/
 else
-  cp /home/ulyaoth/rpmbuild/SRPMS/*$module* /root/
-  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/*$module* /root/
-  cp /home/ulyaoth/rpmbuild/RPMS/i686/*$module* /root/
-  cp /home/ulyaoth/rpmbuild/RPMS/i386/*$module* /root/
+  cp /home/ulyaoth/rpmbuild/SRPMS/*$2* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/x86_64/*$2* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i686/*$2* /root/
+  cp /home/ulyaoth/rpmbuild/RPMS/i386/*$2* /root/
 fi
 
 rm -rf /root/build-ulyaoth-*
