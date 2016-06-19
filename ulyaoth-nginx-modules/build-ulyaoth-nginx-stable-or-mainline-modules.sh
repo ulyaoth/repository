@@ -53,9 +53,14 @@ cd /home/ulyaoth/
 
 if [ "$module" = "headers-more-module" ]; then
 su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v$moduleversion.tar.gz"
+su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
+su ulyaoth -c "mv headers-more-nginx-module-$moduleversion /home/ulyaoth/$module"
+su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
 elif [ "$module" = "echo" ]; then
 su ulyaoth -c "wget https://github.com/openresty/echo-nginx-module/archive/v$moduleversion.tar.gz"
-
+su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
+su ulyaoth -c "mv echo-nginx-module-$moduleversion /home/ulyaoth/$module"
+su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
 fi
 
 su ulyaoth -c "rpmdev-setuptree"
