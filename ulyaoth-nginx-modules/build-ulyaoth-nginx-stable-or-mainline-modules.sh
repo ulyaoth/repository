@@ -15,7 +15,7 @@ echo "We only support the input stable or mainline."
 exit 1
 fi
 
-if [ "$2" = "headers-more-module" ]; then
+if [ "$2" = "headers-more" ]; then
 module="headers-more-module"
 moduleversion=0.30
 elif [ "$2" = "echo" ]; then
@@ -65,7 +65,7 @@ fi
 
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SPECS/ulyaoth-$nginxversion-$module.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/SPECS/ulyaoth-$nginxversion-$module.spec"
 
 
 if [ "$arch" != "x86_64" ]
