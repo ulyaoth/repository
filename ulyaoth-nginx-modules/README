@@ -1,19 +1,11 @@
 Please be aware this spec file is based on the original spec file that nginx provides in their source rpm packages.
 
-You can build the rpms by running the build script: ./build-ulyaoth-nginx-stable-and-mainline-modules.sh stable headers-more
+You can build the rpms by running the build script: ./build-ulyaoth-nginx-stable-and-mainline-modules.sh headers-more
 
-First input should be the nginx version so for example “stable” or “mainline”.
-Second input should be the module name for example “headers-more”
+The below command would build both the stable and mainline module.
 
 So you can build a module rpm as following:
-
-headers-more module for stable nginx:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh stable headers-more
-
-
-headers-more module for mainline nginx:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh mainline headers-more
-
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh headers-more
 
 Supported modules:
 headers-more (https://github.com/openresty/headers-more-nginx-module)
