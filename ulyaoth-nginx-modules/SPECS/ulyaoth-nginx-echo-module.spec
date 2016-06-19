@@ -78,7 +78,7 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.11.1
+%define main_version                 1.10.1
 %define main_release                 1%{?dist}.ngx
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
@@ -91,8 +91,8 @@ BuildRequires: libGeoIP-devel
 %define module_njs_shaid             1c50334fbea6
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
 %define module_njs_release           1%{?dist}.ngx
-%define module_headers_more_version  0.30
-%define module_headers_more_release  1%{?dist}
+%define module_echo_version  0.59
+%define module_echo_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -140,11 +140,11 @@ BuildRequires: libGeoIP-devel
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        --add-dynamic-module=/home/ulyaoth/headers-more-module \
+        --add-dynamic-module=/home/ulyaoth/echo-module \
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
-Name: ulyaoth-nginx-mainline
+Name: ulyaoth-nginx
 Version: %{main_version}
 Release: %{main_release}
 Vendor: Nginx, Inc.
@@ -180,9 +180,9 @@ BuildRequires: GeoIP-devel
 
 Provides: webserver
 Provides: nginx
-Provides: ulyaoth-nginx-mainline
+Provides: ulyaoth-nginx
 
-Conflicts: ulyaoth-nginx
+Conflicts: ulyaoth-nginx-mainline
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
@@ -238,14 +238,14 @@ Summary: nginx nJScript module
 %description module-njs
 Dynamic nJScript module for nginx.
 
-%package module-headers-more
-Version: %{module_headers_more_version}
-Release: %{module_headers_more_release}
+%package module-echo
+Version: %{module_echo_version}
+Release: %{module_echo_release}
 Group: %{_group}
 Requires: ulyaoth-nginx-mainline
-Summary: nginx headers more module
-%description module-headers-more
-Dynamic headers more module for nginx.
+Summary: nginx echo module
+%description module-echo
+Dynamic echo module for nginx.
 
 %prep
 %setup -q -n nginx-%{main_version}
@@ -276,8 +276,8 @@ make %{?_smp_mflags}
     %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_headers_more_filter_module.so \
-    %{_builddir}/nginx-%{main_version}/objs/ngx_http_headers_more_filter_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_echo_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_echo_module-debug.so
 ./configure %{COMMON_CONFIGURE_ARGS} \
     --with-cc-opt="%{WITH_CC_OPT}" \
     %{?perlldopts}
@@ -369,8 +369,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{perl_vendorarch}/auto/nginx/nginx-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_js_module-debug.so
-%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_headers_more_filter_module-debug.so \
-    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_headers_more_filter_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_echo_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_echo_module-debug.so
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -447,9 +447,9 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
 
-%files module-headers-more
-%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_headers_more_filter_module.so
-%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_headers_more_filter_module-debug.so
+%files module-echo
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_echo_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_echo_module-debug.so
 
 %pre
 # Add the "nginx" user
@@ -473,7 +473,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-nginx-mainline!
+Thanks for using ulyaoth-nginx!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -609,19 +609,19 @@ For any additional help please visit my forum at:
 BANNER
 fi
 
-%post module-headers-more
+%post module-echo
 if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-The headers more dynamic module for nginx has been installed.
+The echo dynamic module for nginx has been installed.
 To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
-    load_module modules/ngx_http_headers_more_filter_module.so;
+    load_module modules/ngx_http_echo_module.so;
 
 Please refer to the module documentation for further details:
-https://github.com/openresty/headers-more-nginx-module
+https://github.com/openresty/echo-nginx-module
 
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
@@ -653,5 +653,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Jun 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.30-1
-- Initial release for headers-more module.
+* Sun Jun 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.59-1
+- Initial release for echo module.
