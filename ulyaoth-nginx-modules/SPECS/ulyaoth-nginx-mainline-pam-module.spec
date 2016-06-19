@@ -240,9 +240,11 @@ Dynamic nJScript module for nginx.
 
 %package module-pam
 Version: %{module_pam_version}
-Release: %{module_epam_release}
+Release: %{module_pam_release}
 Group: %{_group}
 Requires: ulyaoth-nginx-mainline
+Requires: pam
+BuildRequires: pam-devel
 Summary: nginx pam module
 %description module-pam
 Dynamic pam module for nginx.
