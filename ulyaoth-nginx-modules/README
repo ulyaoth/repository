@@ -18,4 +18,5 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-m
 Supported modules:
 headers-more
 echo
+pam
 

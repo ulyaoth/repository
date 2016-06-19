@@ -11,6 +11,9 @@ moduleversion=0.30
 elif [ "$1" = "echo" ]; then
 module="echo-module"
 moduleversion=0.59
+elif [ "$1" = "pam" ]; then
+module="pam-module"
+moduleversion=1.5.1
 else
 echo "We only support limited modules please see the Github readme for more information."
 exit 1
@@ -50,6 +53,11 @@ elif [ "$module" = "echo-module" ]; then
 su ulyaoth -c "wget https://github.com/openresty/echo-nginx-module/archive/v$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
 su ulyaoth -c "mv echo-nginx-module-$moduleversion /home/ulyaoth/$module"
+su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
+elif [ "$module" = "pam-module" ]; then
+su ulyaoth -c "wget https://github.com/stogh/ngx_http_auth_pam_module/archive/v$moduleversion.tar.gz"
+su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
+su ulyaoth -c "mv ngx_http_auth_pam_module-$moduleversion /home/ulyaoth/$module"
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
 fi
 

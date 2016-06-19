@@ -242,7 +242,7 @@ Dynamic nJScript module for nginx.
 Version: %{module_headers_more_version}
 Release: %{module_headers_more_release}
 Group: %{_group}
-Requires: ulyaoth-nginx-mainline
+Requires: ulyaoth-nginx
 Summary: nginx headers more module
 %description module-headers-more
 Dynamic headers more module for nginx.
