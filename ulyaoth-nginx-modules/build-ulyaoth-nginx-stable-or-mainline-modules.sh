@@ -78,7 +78,7 @@ su ulyaoth -c "rm -rf v$develkitversion.tar.gz"
 elif [ "$module" = "devel-kit-module" ]; then
 su ulyaoth -c "wget https://github.com/simpl/ngx_devel_kit/archive/v$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
-su ulyaoth -c "mv ngx_devel_kit-$develkitversion /home/ulyaoth/$module"
+su ulyaoth -c "mv ngx_devel_kit-$moduleversion /home/ulyaoth/$module"
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
 fi
 
