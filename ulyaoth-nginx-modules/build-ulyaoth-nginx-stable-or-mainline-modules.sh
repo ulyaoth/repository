@@ -71,10 +71,15 @@ su ulyaoth -c "wget https://github.com/calio/form-input-nginx-module/archive/v$m
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
 su ulyaoth -c "mv form-input-nginx-module-$moduleversion /home/ulyaoth/$module"
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
-su ulyaoth -c "wget https://github.com/calio/form-input-nginx-module/archive/v$moduleversion.tar.gz"
+su ulyaoth -c "wget https://github.com/simpl/ngx_devel_kit/archive/v$develkitversion.tar.gz"
 su ulyaoth -c "tar xvf v$develkitversion.tar.gz"
-su ulyaoth -c "mv ngx_devel_kit-$develkitversion /home/ulyaoth/devel-kit"
+su ulyaoth -c "mv ngx_devel_kit-$develkitversion /home/ulyaoth/devel-kit-module"
 su ulyaoth -c "rm -rf v$develkitversion.tar.gz"
+elif [ "$module" = "devel-kit-module" ]; then
+su ulyaoth -c "wget https://github.com/simpl/ngx_devel_kit/archive/v$moduleversion.tar.gz"
+su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
+su ulyaoth -c "mv ngx_devel_kit-$develkitversion /home/ulyaoth/$module"
+su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
 fi
 
 su ulyaoth -c "rpmdev-setuptree"
