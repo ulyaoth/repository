@@ -243,6 +243,8 @@ Version: %{module_pam_version}
 Release: %{module_pam_release}
 Group: %{_group}
 Requires: ulyaoth-nginx
+Requires: pam
+BuildRequires: pam-devel
 Summary: nginx pam module
 %description module-pam
 Dynamic pam module for nginx.
