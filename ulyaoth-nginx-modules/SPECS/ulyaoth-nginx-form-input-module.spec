@@ -140,7 +140,7 @@ BuildRequires: libGeoIP-devel
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        --add-dynamic-module=/home/ulyaoth/devel-kit \
+        --add-dynamic-module=/home/ulyaoth/devel-kit-module \
         --add-dynamic-module=/home/ulyaoth/form-input-module \
         %{?with_http2:--with-http_v2_module}")
 
