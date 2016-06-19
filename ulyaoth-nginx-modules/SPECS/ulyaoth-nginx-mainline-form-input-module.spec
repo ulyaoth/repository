@@ -91,6 +91,8 @@ BuildRequires: libGeoIP-devel
 %define module_njs_shaid             1c50334fbea6
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
 %define module_njs_release           1%{?dist}.ngx
+%define module_devel_kit_version  0.3.0
+%define module_devel_kit_release  1%{?dist}
 %define module_form_input_version  0.12
 %define module_form_input_release  1%{?dist}
 
@@ -239,6 +241,15 @@ Summary: nginx nJScript module
 %description module-njs
 Dynamic nJScript module for nginx.
 
+%package module-devel-kit
+Version: %{module_devel_kit_version}
+Release: %{module_devel_kit_release}
+Group: %{_group}
+Requires: ulyaoth-nginx-mainline
+Summary: nginx devel kit module
+%description module-devel-kit
+Dynamic devel kit module for nginx.
+
 %package module-form-input
 Version: %{module_form_input_version}
 Release: %{module_form_input_release}
@@ -278,6 +289,8 @@ make %{?_smp_mflags}
     %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ndk_http_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ndk_http_module-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_form_input_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ngx_http_form_input_module-debug.so
 ./configure %{COMMON_CONFIGURE_ARGS} \
@@ -371,6 +384,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{perl_vendorarch}/auto/nginx/nginx-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ndk_http_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ndk_http_module-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_form_input_module.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_form_input_module-debug.so
 
@@ -450,6 +465,10 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %files module-njs
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+
+%files module-devel-kit
+%attr(0644,root,root) %{_libdir}/nginx/modules/ndk_http_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ndk_http_module-debug.so
 
 %files module-form-input
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_form_input_module.so
@@ -605,6 +624,27 @@ and reload nginx:
 
 Please refer to the module documentation for further details:
 https://www.nginx.com/resources/wiki/nginScript/
+
+For any additional help please visit my forum at:
+* https://www.ulyaoth.net
+
+----------------------------------------------------------------------
+BANNER
+fi
+
+%post module-devel-kit
+if [ $1 -eq 1 ]; then
+    cat <<BANNER
+----------------------------------------------------------------------
+
+The devel kit dynamic module for nginx has been installed.
+To enable this module, add the following to /etc/nginx/nginx.conf
+and reload nginx:
+
+    load_module modules/ndk_http_module.so;
+
+Please refer to the module documentation for further details:
+https://github.com/simpl/ngx_devel_kit
 
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
