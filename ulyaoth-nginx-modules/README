@@ -22,5 +22,4 @@ pam (https://github.com/stogh/ngx_http_auth_pam_module)
 form-input (https://github.com/calio/form-input-nginx-module)
 devel-kit (https://github.com/simpl/ngx_devel_kit)
 encrypted-session (https://github.com/openresty/encrypted-session-nginx-module)
-
-
+array-var (https://github.com/openresty/array-var-nginx-module)
