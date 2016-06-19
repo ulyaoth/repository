@@ -243,7 +243,8 @@ Dynamic nJScript module for nginx.
 Version: %{module_form_input_version}
 Release: %{module_form_input_release}
 Group: %{_group}
-Requires: ulyaoth-nginx
+Requires: ulyaoth-nginx-mainline
+Requires: ulyaoth-nginx-mainline-module-devel-kit
 Summary: nginx form input module
 %description module-form-input
 Dynamic form input module for nginx.
