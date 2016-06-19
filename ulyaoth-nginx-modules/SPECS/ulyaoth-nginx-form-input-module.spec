@@ -384,6 +384,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{perl_vendorarch}/auto/nginx/nginx-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ndk_http_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ndk_http_module-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_form_input_module.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_form_input_module-debug.so
 
