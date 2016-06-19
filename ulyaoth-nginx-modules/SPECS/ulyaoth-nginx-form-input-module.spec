@@ -424,6 +424,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %dir %{_datadir}/doc/%{name}-%{main_version}
 %doc %{_datadir}/doc/%{name}-%{main_version}/COPYRIGHT
 
+%attr(0644,root,root) %{_libdir}/nginx/modules/ndk_http_module.so
+
 %files module-xslt
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_xslt_filter_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_xslt_filter_module-debug.so

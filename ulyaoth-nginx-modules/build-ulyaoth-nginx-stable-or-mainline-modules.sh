@@ -125,4 +125,4 @@ fi
 rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/$module
 rm -rf /home/ulyaoth/rpmbuild
-rm -rf /home/ulyaoth/devel-kit
+rm -rf /home/ulyaoth/devel-kit-module
