@@ -16,7 +16,8 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-m
 
 
 Supported modules:
-headers-more
-echo
-pam
+headers-more (https://github.com/openresty/headers-more-nginx-module)
+echo (https://github.com/openresty/echo-nginx-module)
+pam (https://github.com/stogh/ngx_http_auth_pam_module)
+form-input (https://github.com/calio/form-input-nginx-module)
 
