@@ -266,7 +266,7 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/build-u
 
 ulyaoth-nginx()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-or-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline.sh ; ./build-ulyaoth-nginx-stable-or-mainline.sh stable
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-and-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline.sh ; ./build-ulyaoth-nginx-stable-and-mainline.sh stable
 }
 
 ulyaoth-nginx-naxsi()
@@ -321,7 +321,7 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-p
 
 ulyaoth-nginx-mainline()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-or-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline.sh ; ./build-ulyaoth-nginx-stable-or-mainline.sh mainline
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-and-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline.sh ; ./build-ulyaoth-nginx-stable-and-mainline.sh mainline
 }
 
 ulyaoth-nginx-mainline-selinux()
@@ -464,39 +464,39 @@ ulyaoth-terraform()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-terraform/build-ulyaoth-terraform.sh ; chmod +x build-ulyaoth-terraform.sh ; ./build-ulyaoth-terraform.sh
 }
 
-ulyaoth-nginx-stable-or-mainline-module-devel-kit()
+ulyaoth-nginx-stable-and-mainline-module-devel-kit()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-or-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-or-mainline-modules.sh devel-kit
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh devel-kit
 }
 
-ulyaoth-nginx-stable-or-mainline-module-headers-more()
+ulyaoth-nginx-stable-and-mainline-module-headers-more()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-or-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-or-mainline-modules.sh headers-more
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh headers-more
 }
 
-ulyaoth-nginx-stable-or-mainline-module-form-input()
+ulyaoth-nginx-stable-and-mainline-module-form-input()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-or-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-or-mainline-modules.sh form-input
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh form-input
 }
 
-ulyaoth-nginx-stable-or-mainline-module-pam()
+ulyaoth-nginx-stable-and-mainline-module-pam()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-or-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-or-mainline-modules.sh pam
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh pam
 }
 
-ulyaoth-nginx-stable-or-mainline-module-echo()
+ulyaoth-nginx-stable-and-mainline-module-echo()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-or-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-or-mainline-modules.sh echo
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh echo
 }
 
-ulyaoth-nginx-stable-or-mainline-module-encrypted-session()
+ulyaoth-nginx-stable-and-mainline-module-encrypted-session()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-or-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-or-mainline-modules.sh encrypted-session
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh encrypted-session
 }
 
-ulyaoth-nginx-stable-or-mainline-module-array-var()
+ulyaoth-nginx-stable-and-mainline-module-array-var()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-or-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-or-mainline-modules.sh array-var
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh array-var
 }
 
 # Move package to repository server
