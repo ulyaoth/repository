@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7-docs
-Version:    7.0.69
+Version:    7.0.70
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -65,7 +65,7 @@ cp -R * %{buildroot}/%{tomcat_home}/
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-tomcat7-docs!
+Thank you for using ulyaoth-tomcat7-docs!
 
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
@@ -77,6 +77,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Wed Jun 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 7.0.70-1
+- Updated to Tomcat 7.0.70.
+
 * Tue Apr 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 7.0.69-1
 - Updated to Tomcat 7.0.69.
 
