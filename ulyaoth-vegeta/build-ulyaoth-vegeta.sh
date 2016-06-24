@@ -61,7 +61,7 @@ su ulyaoth -c "source ~/.bashrc"
 # Download vegeta and build it.
 su - ulyaoth -c "wget https://github.com/tsenart/vegeta/archive/v'"$vegetaversion"'.tar.gz"
 su - ulyaoth -c "tar xvzf v'"$vegetaversion"'.tar.gz"
-su - ulyaoth -c "go get -u github.com/tsenart/vegeta"
+#su - ulyaoth -c "go get -u github.com/tsenart/vegeta"
 su - ulyaoth -c "rm -rf /home/ulyaoth/src/github.com/tsenart/vegeta"
 su - ulyaoth -c "mv vegeta-'"$vegetaversion"' /home/ulyaoth/src/github.com/tsenart/vegeta"
 su - ulyaoth -c "cd /home/ulyaoth/src/github.com/tsenart/vegeta/ && go build"
