@@ -165,6 +165,8 @@ Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ng
 Source11: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx-debug.service
 Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/COPYRIGHT
 Source13: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/njs-%{module_njs_shaid}.tar.gz
+Source14: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/SOURCES/nbs.rules
+Source15: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/SOURCES/nginx.conf-naxsiexample
 
 License: 2-clause BSD-like license
 
@@ -374,6 +376,14 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_naxsi_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_naxsi_module-debug.so
 
+%{__mkdir} -p $RPM_BUILD_ROOT/opt/
+%{__cp} -rf /home/ulyaoth/naxsi-module/nxapi $RPM_BUILD_ROOT/opt/naxsi
+%{__cp} -rf /home/ulyaoth/naxsi-module/naxsi_config/naxsi_core.rules $RPM_BUILD_ROOT%{_sysconfdir}/nginx/
+%{__install} -m 644 -p %{SOURCE14} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nbs.rules
+%{__install} -m 644 -p %{SOURCE15} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf-naxsiexample
+
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
@@ -452,6 +462,10 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %files module-naxsi
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_naxsi_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_naxsi_module-debug.so
+%attr(0644,root,root) %{_sysconfdir}/nginx/nginx.conf-naxsiexample
+%config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
+%config(noreplace) %{_sysconfdir}/nginx/nbs.rules
+/opt/naxsi/*
 
 %pre
 # Add the "nginx" user
