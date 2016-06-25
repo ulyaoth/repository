@@ -36,6 +36,10 @@ elif [ "$1" = "array-var" ]; then
 module="array-var-module"
 moduleversion=0.05
 develkitversion=0.3.0
+# naxsi
+elif [ "$1" = "naxsi" ]; then
+module="naxsi-module"
+moduleversion=0.55rc2
 else
 echo "We only support limited modules please see the Github readme for more information."
 exit 1
@@ -120,6 +124,12 @@ su ulyaoth -c "wget https://github.com/simpl/ngx_devel_kit/archive/v$develkitver
 su ulyaoth -c "tar xvf v$develkitversion.tar.gz"
 su ulyaoth -c "mv ngx_devel_kit-$develkitversion /home/ulyaoth/devel-kit-module"
 su ulyaoth -c "rm -rf v$develkitversion.tar.gz"
+# naxsi
+elif [ "$module" = "naxsi-module" ]; then
+su ulyaoth -c "wget https://github.com/nbs-system/naxsi/archive/$moduleversion.tar.gz"
+su ulyaoth -c "tar xvf $moduleversion.tar.gz"
+su ulyaoth -c "mv naxsi-$moduleversion /home/ulyaoth/$module"
+su ulyaoth -c "rm -rf $moduleversion.tar.gz"
 fi
 
 su ulyaoth -c "rpmdev-setuptree"
