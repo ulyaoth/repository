@@ -610,7 +610,7 @@ For any additional help please visit my forum at:
 BANNER
 fi
 
-%post module-headers-more
+%post module-naxsi
 if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
