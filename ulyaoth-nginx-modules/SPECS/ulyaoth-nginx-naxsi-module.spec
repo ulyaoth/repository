@@ -244,6 +244,7 @@ Version: %{module_naxsi_version}
 Release: %{module_naxsi_release}
 Group: %{_group}
 Requires: ulyaoth-nginx
+Obsoletes: ulyaoth-nginx-naxsi
 Summary: nginx naxsi module
 %description module-naxsi
 Dynamic naxsi module for nginx.
