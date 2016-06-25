@@ -126,42 +126,42 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-go/buil
 
 ulyaoth-openssl0.9.8()
 {
-wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl0.9.8.sh ; chmod +x build-ulyaoth-openssl0.9.8.sh ; ./build-ulyaoth-openssl0.9.8.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl0.9.8.sh ; chmod +x build-ulyaoth-openssl0.9.8.sh ; ./build-ulyaoth-openssl0.9.8.sh
 }
 
 ulyaoth-openssl1.0.0()
 {
-wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.0.sh ; chmod +x build-ulyaoth-openssl1.0.0.sh ; ./build-ulyaoth-openssl1.0.0.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.0.sh ; chmod +x build-ulyaoth-openssl1.0.0.sh ; ./build-ulyaoth-openssl1.0.0.sh
 }
 
 ulyaoth-openssl1.0.1()
 {
-wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.1.sh ; chmod +x build-ulyaoth-openssl1.0.1.sh ; ./build-ulyaoth-openssl1.0.1.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.1.sh ; chmod +x build-ulyaoth-openssl1.0.1.sh ; ./build-ulyaoth-openssl1.0.1.sh
 }
 
 ulyaoth-openssl1.0.2()
 {
-wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.2.sh ; chmod +x build-ulyaoth-openssl1.0.2.sh ; ./build-ulyaoth-openssl1.0.2.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.0.2.sh ; chmod +x build-ulyaoth-openssl1.0.2.sh ; ./build-ulyaoth-openssl1.0.2.sh
 }
 
 ulyaoth-openssl1.1.0()
 {
-wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.1.0.sh ; chmod +x build-ulyaoth-openssl1.1.0.sh ; ./build-ulyaoth-openssl1.1.0.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.1.0.sh ; chmod +x build-ulyaoth-openssl1.1.0.sh ; ./build-ulyaoth-openssl1.1.0.sh
 }
 
 ulyaoth-apr()
 {
-wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-apr/build-ulyaoth-apr.sh ; chmod +x build-ulyaoth-apr.sh ; ./build-ulyaoth-apr.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-apr/build-ulyaoth-apr.sh ; chmod +x build-ulyaoth-apr.sh ; ./build-ulyaoth-apr.sh
 }
 
 ulyaoth-zookeeper3.5()
 {
-wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/build-ulyaoth-zookeeper3.5.sh ; chmod +x build-ulyaoth-zookeeper3.5.sh ; ./build-ulyaoth-zookeeper3.5.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/build-ulyaoth-zookeeper3.5.sh ; chmod +x build-ulyaoth-zookeeper3.5.sh ; ./build-ulyaoth-zookeeper3.5.sh
 }
 
 ulyaoth-zookeeper3.4()
 {
-wget wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/build-ulyaoth-zookeeper3.4.sh ; chmod +x build-ulyaoth-zookeeper3.4.sh ; ./build-ulyaoth-zookeeper3.4.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/build-ulyaoth-zookeeper3.4.sh ; chmod +x build-ulyaoth-zookeeper3.4.sh ; ./build-ulyaoth-zookeeper3.4.sh
 }
 
 ulyaoth-redis3()
@@ -266,7 +266,7 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/build-u
 
 ulyaoth-nginx()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-and-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline.sh ; ./build-ulyaoth-nginx-stable-and-mainline.sh stable
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-or-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline.sh ; ./build-ulyaoth-nginx-stable-or-mainline.sh stable
 }
 
 ulyaoth-nginx-naxsi()
@@ -321,22 +321,12 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-p
 
 ulyaoth-nginx-mainline()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-and-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline.sh ; ./build-ulyaoth-nginx-stable-and-mainline.sh mainline
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-or-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline.sh ; ./build-ulyaoth-nginx-stable-or-mainline.sh mainline
 }
 
 ulyaoth-nginx-mainline-selinux()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-mainline-selinux.sh ; chmod +x build-ulyaoth-nginx-mainline-selinux.sh ; ./build-ulyaoth-nginx-mainline-selinux.sh
-}
-
-ulyaoth-nginx-mainline-naxsi-masterbuild()
-{
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh ; chmod +x build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh ; ./build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh
-}
-
-ulyaoth-nginx-mainline-naxsi()
-{
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-mainline-naxsi.sh ; chmod +x build-ulyaoth-nginx-mainline-naxsi.sh ; ./build-ulyaoth-nginx-mainline-naxsi.sh
 }
 
 ulyaoth-nginx-mainline-pagespeed()
@@ -497,6 +487,11 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-m
 ulyaoth-nginx-stable-and-mainline-module-array-var()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh array-var
+}
+
+ulyaoth-nginx-stable-and-mainline-module-naxsi()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh naxsi
 }
 
 # Move package to repository server
