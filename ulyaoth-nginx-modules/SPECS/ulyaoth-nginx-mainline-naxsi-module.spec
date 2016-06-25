@@ -140,7 +140,7 @@ BuildRequires: libGeoIP-devel
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        --add-dynamic-module=/home/ulyaoth/naxsi-module \
+        --add-dynamic-module=/home/ulyaoth/naxsi-module/naxsi_src \
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
