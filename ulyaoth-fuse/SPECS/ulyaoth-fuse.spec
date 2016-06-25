@@ -1,8 +1,8 @@
-%define fuse_download_version 2_9_6
+%define fuse_download_version 2_9_7
 
 Summary:    FUSE (Filesystem in Userspace) is an interface for userspace programs to export a filesystem to the Linux kernel.
 Name:       ulyaoth-fuse
-Version:    2.9.6
+Version:    2.9.7
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv2
@@ -79,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libfuse.la
 %{_libdir}/libfuse.so
 %{_libdir}/libfuse.so.2
-%{_libdir}/libfuse.so.2.9.6
+%{_libdir}/libfuse.so.%{version}
 %{_libdir}/libulockmgr.a
 %{_libdir}/libulockmgr.la
 %{_libdir}/libulockmgr.so
@@ -95,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-fuse!
+Thank you for using ulyaoth-fuse!
 
 Please find the official documentation for fuse here:
 * https://github.com/libfuse/libfuse
@@ -111,8 +111,11 @@ BANNER
 %postun
 
 %changelog
+* Sat Jun 25 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.9.7-1
+- Updated Fuse to 2.9.7.
+
 * Sun May 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.9.6-1
-- Udpdated Fuse to 2.9.6.
+- Updated Fuse to 2.9.6.
 
 * Sun Apr 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.9.5-1
 - Initial release.
