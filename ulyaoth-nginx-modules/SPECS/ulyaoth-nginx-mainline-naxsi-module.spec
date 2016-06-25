@@ -183,7 +183,7 @@ Provides: nginx
 Provides: ulyaoth-nginx-mainline
 
 Conflicts: ulyaoth-nginx
-Replaces: ulyaoth-nginx-mainline-naxsi
+Obsoletes: ulyaoth-nginx-mainline-naxsi
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
