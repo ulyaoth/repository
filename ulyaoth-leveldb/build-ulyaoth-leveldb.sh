@@ -1,5 +1,6 @@
 ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
+arch="$(uname -m)"
 
 useradd ulyaoth
 usermod -Gulyaoth ulyaoth
