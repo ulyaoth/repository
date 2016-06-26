@@ -30,12 +30,14 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_libdir}
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/local
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/licenses/leveldb
+%{__mkdir} -p $RPM_BUILD_ROOT%{_docdir}/leveldb
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.a $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so.1 $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so.%{version} $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/include/leveldb $RPM_BUILD_ROOT/usr/local/
 %{__mv} %{_builddir}leveldb-%{version}/LICENSE $RPM_BUILD_ROOT/usr/share/licenses/leveldb/
+%{__mv} %{_builddir}leveldb-%{version}/doc/* $RPM_BUILD_ROOT%{_docdir}/leveldb/
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -50,7 +52,17 @@ make %{?_smp_mflags}
 %{_libdir}/libleveldb.so.%{version}
 %dir /usr/local/leveldb
 %dir /usr/share/licenses/leveldb
-/usr/share/licenses/leveldb/LICENSE
+%dir %{_docdir}/leveldb
+%dir %{_docdir}/leveldb/bench
+%doc /usr/share/licenses/leveldb/LICENSE
+%doc %{_docdir}/leveldb/benchmark.html
+%doc %{_docdir}/leveldb/doc.css
+%doc %{_docdir}/leveldb/impl.html
+%doc %{_docdir}/leveldb/index.html
+%doc %{_docdir}/leveldb/log_format.txt
+%doc %{_docdir}/leveldb/table_format.txt
+%doc %{_docdir}/leveldb/bench/db_bench_sqlite3.cc
+%doc %{_docdir}/leveldb/bench/db_bench_tree_db.cc
 /usr/local/leveldb/cache.h
 /usr/local/leveldb/c.h
 /usr/local/leveldb/comparator.h
