@@ -28,14 +28,14 @@ make %{?_smp_mflags}
 
 %install
 %{__mkdir} -p $RPM_BUILD_ROOT%{_libdir}
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/local
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/include
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/licenses/leveldb
 %{__mkdir} -p $RPM_BUILD_ROOT%{_docdir}/leveldb
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.a $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so.1 $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so.%{version} $RPM_BUILD_ROOT%{_libdir}
-%{__mv} %{_builddir}/leveldb-%{version}/include/leveldb $RPM_BUILD_ROOT/usr/local/
+%{__mv} %{_builddir}/leveldb-%{version}/include/leveldb $RPM_BUILD_ROOT/usr/include/
 %{__mv} %{_builddir}/leveldb-%{version}/LICENSE $RPM_BUILD_ROOT/usr/share/licenses/leveldb/
 %{__mv} %{_builddir}/leveldb-%{version}/doc/* $RPM_BUILD_ROOT%{_docdir}/leveldb/
    
