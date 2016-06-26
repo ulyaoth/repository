@@ -38,6 +38,7 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__rm} -rf $RPM_BUILD_ROOT/lib
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -47,7 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 /usr/bin/tmux
-%doc /usr/share/man/man1/tmux.1
+%doc /usr/share/man/man1/tmux.1.gz
 
 %post
 cat <<BANNER
