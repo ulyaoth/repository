@@ -6,11 +6,11 @@ usermod -Gulyaoth ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-fuse-s3fs/SPECS/ulyaoth-fuse-s3fs.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-leveldb/SPECS/ulyaoth-leveldb.spec"
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-fuse-s3fs.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-leveldb.spec
 fi
 
 if [ "$ulyaothos" == "fedora" ]
@@ -39,24 +39,17 @@ then
   yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
 fi
 
-if type dnf 2>/dev/null
-then
-  dnf remove fuse fuse-libs -y
-elif type yum 2>/dev/null
-then
-  yum remove fuse fuse-libs -y
-fi
 
 if type dnf 2>/dev/null
 then
-  dnf builddep -y ulyaoth-fuse-s3fs.spec
+  dnf builddep -y ulyaoth-leveldb.spec
 elif type yum 2>/dev/null
 then
-  yum-builddep -y ulyaoth-fuse-s3fs.spec
+  yum-builddep -y ulyaoth-leveldb.spec
 fi
 
-su ulyaoth -c "spectool ulyaoth-fuse-s3fs.spec -g -R"
-su ulyaoth -c "rpmbuild -ba ulyaoth-fuse-s3fs.spec"
+su ulyaoth -c "spectool ulyaoth-leveldb.spec -g -R"
+su ulyaoth -c "rpmbuild -ba ulyaoth-leveldb.spec"
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then
