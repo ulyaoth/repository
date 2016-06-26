@@ -50,7 +50,7 @@ make %{?_smp_mflags}
 %{_libdir}/libleveldb.so
 %{_libdir}/libleveldb.so.1
 %{_libdir}/libleveldb.so.%{version}
-%dir /usr/local/leveldb
+%dir /usr/include/leveldb
 %dir /usr/share/licenses/leveldb
 %dir %{_docdir}/leveldb
 %dir %{_docdir}/leveldb/bench
@@ -63,20 +63,20 @@ make %{?_smp_mflags}
 %doc %{_docdir}/leveldb/table_format.txt
 %doc %{_docdir}/leveldb/bench/db_bench_sqlite3.cc
 %doc %{_docdir}/leveldb/bench/db_bench_tree_db.cc
-/usr/local/leveldb/cache.h
-/usr/local/leveldb/c.h
-/usr/local/leveldb/comparator.h
-/usr/local/leveldb/db.h
-/usr/local/leveldb/dumpfile.h
-/usr/local/leveldb/env.h
-/usr/local/leveldb/filter_policy.h
-/usr/local/leveldb/iterator.h
-/usr/local/leveldb/options.h
-/usr/local/leveldb/slice.h
-/usr/local/leveldb/status.h
-/usr/local/leveldb/table_builder.h
-/usr/local/leveldb/table.h
-/usr/local/leveldb/write_batch.h
+/usr/include/leveldb/cache.h
+/usr/include/leveldb/c.h
+/usr/include/leveldb/comparator.h
+/usr/include/leveldb/db.h
+/usr/include/leveldb/dumpfile.h
+/usr/include/leveldb/env.h
+/usr/include/leveldb/filter_policy.h
+/usr/include/leveldb/iterator.h
+/usr/include/leveldb/options.h
+/usr/include/leveldb/slice.h
+/usr/include/leveldb/status.h
+/usr/include/leveldb/table_builder.h
+/usr/include/leveldb/table.h
+/usr/include/leveldb/write_batch.h
 
 %post
 cat <<BANNER
