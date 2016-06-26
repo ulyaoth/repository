@@ -36,8 +36,8 @@ make %{?_smp_mflags}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so.1 $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so.%{version} $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/include/leveldb $RPM_BUILD_ROOT/usr/local/
-%{__mv} %{_builddir}leveldb-%{version}/LICENSE $RPM_BUILD_ROOT/usr/share/licenses/leveldb/
-%{__mv} %{_builddir}leveldb-%{version}/doc/* $RPM_BUILD_ROOT%{_docdir}/leveldb/
+%{__mv} %{_builddir}/leveldb-%{version}/LICENSE $RPM_BUILD_ROOT/usr/share/licenses/leveldb/
+%{__mv} %{_builddir}/leveldb-%{version}/doc/* $RPM_BUILD_ROOT%{_docdir}/leveldb/
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
