@@ -37,7 +37,7 @@ make %{?_smp_mflags}
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make INSTALL_PREFIX=$RPM_BUILD_ROOT install
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
