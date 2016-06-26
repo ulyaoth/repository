@@ -29,11 +29,13 @@ make %{?_smp_mflags}
 %install
 %{__mkdir} -p $RPM_BUILD_ROOT%{_libdir}
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/local
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/licenses/leveldb
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.a $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so.1 $RPM_BUILD_ROOT%{_libdir}
 %{__mv} %{_builddir}/leveldb-%{version}/libleveldb.so.%{version} $RPM_BUILD_ROOT%{_libdir}
-%{__mv} %{_builddir}/include/leveldb $RPM_BUILD_ROOT/usr/local/   
+%{__mv} %{_builddir}/include/leveldb $RPM_BUILD_ROOT/usr/local/
+%{__mv} %{_builddir}leveldb-%{version}/LICENSE $RPM_BUILD_ROOT/usr/share/licenses/leveldb/
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -47,6 +49,8 @@ make %{?_smp_mflags}
 %{_libdir}/libleveldb.so.1
 %{_libdir}/libleveldb.so.%{version}
 %dir /usr/local/leveldb
+%dir /usr/share/licenses/leveldb
+/usr/share/licenses/leveldb/LICENSE
 /usr/local/leveldb/cache.h
 /usr/local/leveldb/c.h
 /usr/local/leveldb/comparator.h
