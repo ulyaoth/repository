@@ -1,5 +1,11 @@
 ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
+arch="$(uname -m)"
+
+if [ "$arch" == "i686" ]
+then
+arch="i386"
+fi
 
 useradd ulyaoth
 usermod -Gulyaoth ulyaoth
@@ -11,6 +17,19 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/
 if [ "$arch" != "x86_64" ]
 then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-tmux.spec
+fi
+
+if [ "$ulyaothos" == "scientificlinux" ]
+then
+if grep -q -i "release 6" /etc/redhat-release
+then
+if [ "$arch" != "x86_64" ]
+then
+yum install http://mirror.centos.org/centos/6/os/i386/Packages/libevent2-2.0.21-2.el6.i686.rpm http://mirror.centos.org/centos/6/os/i386/Packages/libevent2-devel-2.0.21-2.el6.i686.rpm -y
+else
+yum install http://mirror.centos.org/centos/6/os/x86_64/Packages/libevent2-2.0.21-2.el6.x86_64.rpm http://mirror.centos.org/centos/6/os/x86_64/Packages/libevent2-devel-2.0.21-2.el6.x86_64.rpm -y
+fi
+fi
 fi
 
 if type dnf 2>/dev/null
