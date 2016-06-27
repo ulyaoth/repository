@@ -1,3 +1,6 @@
+#
+%define debug_package %{nil}
+
 Summary:    Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells.
 Name:       ulyaoth-screen
 Version:    4.4.0
@@ -9,7 +12,8 @@ URL:        https://www.gnu.org/software/screen/
 Vendor:     gnu
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    ftp://ftp.gnu.org/gnu/screen/screen-%{version}.tar.gz
-Source1:	screen.pam
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-screen/SOURCES/screen.pam
+Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-screen/SOURCES/screen.conf
 BuildRoot:  %{_tmppath}/screen-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: ncurses-devel
@@ -17,7 +21,7 @@ BuildRequires: pam-devel
 BuildRequires: libutempter-devel
 BuildRequires: autoconf
 BuildRequires: automake
-BuildRequires: textino
+BuildRequires: texinfo
 
 Provides: screen
 Provides: ulyaoth-screen
@@ -32,7 +36,7 @@ All windows run their programs completely independent of each other.
 Programs continue to run when their window is currently not visible and even when the whole screen session is detached from the users terminal.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n screen-%{version}
 
 %build
 ./autogen.sh
@@ -43,6 +47,8 @@ Programs continue to run when their window is currently not visible and even whe
 	--enable-rxvt_osc \
 	--enable-use-locale \
 	--enable-telnet \
+	--with-pty-mode=0620 \
+	--with-pty-group=$(getent group tty | cut -d : -f 3) \
 	--with-sys-screenrc="%{_sysconfdir}/screenrc" \
 	--with-socket-dir="%{_localstatedir}/run/screen"
 
@@ -56,6 +62,25 @@ rm -rf $RPM_BUILD_ROOT
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/licenses/screen
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/pam.d
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/screen
+%{__mkdir} -p $RPM_BUILD_ROOT%{_tmpfilesdir}
+
+install -m 0644 etc/etcscreenrc $RPM_BUILD_ROOT%{_sysconfdir}/screenrc
+cat etc/screenrc >> $RPM_BUILD_ROOT%{_sysconfdir}/screenrc
+
+%{__install} -m 644 -p %{SOURCE1} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/pam.d/screen
+%{__install} -m 644 -p %{SOURCE2} \
+   $RPM_BUILD_ROOT%{_tmpfilesdir}/screen.conf
+
+%{__rm} -rf $RPM_BUILD_ROOT%{_infodir}/dir
+
+%{__mv} %{_builddir}/screen-%{version}/COPYING $RPM_BUILD_ROOT/usr/share/licenses/screen/
+
+
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
@@ -63,6 +88,33 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
+/usr/bin/screen
+/usr/bin/screen-4.4.0
+/usr/share/info/screen.info.gz
+/usr/share/man/man1/screen.1.gz
+%dir {_docdir}/leveldb/
+%dir /usr/share/licenses/screen
+%dir /usr/share/screen
+/usr/share/screen/utf8encodings/01
+/usr/share/screen/utf8encodings/02
+/usr/share/screen/utf8encodings/03
+/usr/share/screen/utf8encodings/04
+/usr/share/screen/utf8encodings/18
+/usr/share/screen/utf8encodings/19
+/usr/share/screen/utf8encodings/a1
+/usr/share/screen/utf8encodings/bf
+/usr/share/screen/utf8encodings/c2
+/usr/share/screen/utf8encodings/c3
+/usr/share/screen/utf8encodings/c4
+/usr/share/screen/utf8encodings/c6
+/usr/share/screen/utf8encodings/c7
+/usr/share/screen/utf8encodings/c8
+/usr/share/screen/utf8encodings/cc
+/usr/share/screen/utf8encodings/cd
+/usr/share/screen/utf8encodings/d6
+%attr(775,root,root) %{_localstatedir}/run/screen
+%config(noreplace) %{_sysconfdir}/screenrc
+%config(noreplace) %{_sysconfdir}/pam.d/screen
 
 %post
 cat <<BANNER
@@ -85,4 +137,4 @@ BANNER
 
 %changelog
 * Mon Jun 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.4.0-1
-- Initial release.
+- Initial release based on Fedora spec file.
