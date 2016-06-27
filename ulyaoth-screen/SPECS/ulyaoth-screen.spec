@@ -93,7 +93,9 @@ cat etc/screenrc >> $RPM_BUILD_ROOT%{_sysconfdir}/screenrc
 /usr/share/info/screen.info.gz
 /usr/share/man/man1/screen.1.gz
 %dir /usr/share/licenses/screen
+%{_tmpfilesdir}/screen.conf
 %dir /usr/share/screen
+%license /usr/share/licenses/screen/COPYING
 /usr/share/screen/utf8encodings/01
 /usr/share/screen/utf8encodings/02
 /usr/share/screen/utf8encodings/03
