@@ -92,7 +92,6 @@ cat etc/screenrc >> $RPM_BUILD_ROOT%{_sysconfdir}/screenrc
 /usr/bin/screen-4.4.0
 /usr/share/info/screen.info.gz
 /usr/share/man/man1/screen.1.gz
-%dir {_docdir}/leveldb/
 %dir /usr/share/licenses/screen
 %dir /usr/share/screen
 /usr/share/screen/utf8encodings/01
