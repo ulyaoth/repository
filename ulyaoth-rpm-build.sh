@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-screen()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-screen/build-ulyaoth-screen.sh ; chmod +x build-ulyaoth-screen.sh ; ./build-ulyaoth-screen.sh
+}
+
 ulyaoth-tmux()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tmux/build-ulyaoth-tmux.sh ; chmod +x build-ulyaoth-tmux.sh ; ./build-ulyaoth-tmux.sh
