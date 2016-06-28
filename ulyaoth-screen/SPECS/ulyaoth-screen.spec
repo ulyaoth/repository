@@ -104,7 +104,6 @@ EOF
 %{_mandir}/man1/screen.1.gz
 %dir /usr/share/licenses/screen
 %dir /usr/share/screen
-%license /usr/share/licenses/screen/COPYING
 /usr/share/screen/utf8encodings/01
 /usr/share/screen/utf8encodings/02
 /usr/share/screen/utf8encodings/03
@@ -134,7 +133,9 @@ EOF
 %endif
 
 %if 0%{?rhel}  == 6
+%doc /usr/share/licenses/screen/COPYING
 %else
+%license /usr/share/licenses/screen/COPYING
 %{_tmpfilesdir}/screen.conf
 %endif
 
