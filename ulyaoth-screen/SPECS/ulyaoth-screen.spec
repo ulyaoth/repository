@@ -1,4 +1,5 @@
 #
+%bcond_with multiuser
 %define debug_package %{nil}
 
 Summary:    Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells.
@@ -13,7 +14,6 @@ Vendor:     gnu
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    ftp://ftp.gnu.org/gnu/screen/screen-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-screen/SOURCES/screen.pam
-Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-screen/SOURCES/screen.conf
 BuildRoot:  %{_tmppath}/screen-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: ncurses-devel
@@ -73,25 +73,33 @@ cat etc/screenrc >> $RPM_BUILD_ROOT%{_sysconfdir}/screenrc
 
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/pam.d/screen
-%{__install} -m 644 -p %{SOURCE2} \
-   $RPM_BUILD_ROOT%{_tmpfilesdir}/screen.conf
 
 %{__rm} -rf $RPM_BUILD_ROOT%{_infodir}/dir
 
 %{__mv} %{_builddir}/screen-%{version}/COPYING $RPM_BUILD_ROOT/usr/share/licenses/screen/
+
+cat <<EOF > $RPM_BUILD_ROOT%{_tmpfilesdir}/screen.conf
+# screen needs directory in /var/run
+%if %{with multiuser}
+d %{_localstatedir}/run/screen 0755 root root
+%else
+d %{_localstatedir}/run/screen 0775 root screen
+%endif
+EOF
 
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %pre
+/usr/sbin/groupadd -g 84 -r -f screen
+:
 
 %files
 %defattr(-,root,root)
 /usr/bin/screen
-/usr/bin/screen-4.4.0
-/usr/share/info/screen.info.gz
-/usr/share/man/man1/screen.1.gz
+%{_infodir}/screen.info.gz
+%{_mandir}/man1/screen.1.gz
 %dir /usr/share/licenses/screen
 %{_tmpfilesdir}/screen.conf
 %dir /usr/share/screen
@@ -113,9 +121,15 @@ cat etc/screenrc >> $RPM_BUILD_ROOT%{_sysconfdir}/screenrc
 /usr/share/screen/utf8encodings/cc
 /usr/share/screen/utf8encodings/cd
 /usr/share/screen/utf8encodings/d6
-%attr(775,root,root) %{_localstatedir}/run/screen
 %config(noreplace) %{_sysconfdir}/screenrc
 %config(noreplace) %{_sysconfdir}/pam.d/screen
+%if %{with multiuser}
+%attr(4755,root,root) %{_bindir}/screen-%{version}
+%attr(755,root,root) %{_localstatedir}/run/screen
+%else
+%attr(2755,root,screen) %{_bindir}/screen-%{version}
+%attr(775,root,screen) %{_localstatedir}/run/screen
+%endif
 
 %post
 cat <<BANNER
