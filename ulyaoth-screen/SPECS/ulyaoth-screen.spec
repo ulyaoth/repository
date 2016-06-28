@@ -7,7 +7,7 @@ Name:       ulyaoth-screen
 Version:    4.4.0
 Release:    1%{?dist}
 BuildArch: x86_64
-License:    GPLv2+
+License: GPLv2+
 Group:      Applications/System
 URL:        https://www.gnu.org/software/screen/
 Vendor:     gnu
