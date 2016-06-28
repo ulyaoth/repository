@@ -66,7 +66,6 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/pam.d
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/screen
-%{__mkdir} -p $RPM_BUILD_ROOT%{_tmpfilesdir}
 
 install -m 0644 etc/etcscreenrc $RPM_BUILD_ROOT%{_sysconfdir}/screenrc
 cat etc/screenrc >> $RPM_BUILD_ROOT%{_sysconfdir}/screenrc
@@ -78,6 +77,9 @@ cat etc/screenrc >> $RPM_BUILD_ROOT%{_sysconfdir}/screenrc
 
 %{__mv} %{_builddir}/screen-%{version}/COPYING $RPM_BUILD_ROOT/usr/share/licenses/screen/
 
+%if 0%{?rhel}  == 6
+%else
+%{__mkdir} -p $RPM_BUILD_ROOT%{_tmpfilesdir}
 cat <<EOF > $RPM_BUILD_ROOT%{_tmpfilesdir}/screen.conf
 # screen needs directory in /var/run
 %if %{with multiuser}
@@ -86,7 +88,7 @@ d %{_localstatedir}/run/screen 0755 root root
 d %{_localstatedir}/run/screen 0775 root screen
 %endif
 EOF
-
+%endif
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -101,7 +103,6 @@ EOF
 %{_infodir}/screen.info.gz
 %{_mandir}/man1/screen.1.gz
 %dir /usr/share/licenses/screen
-%{_tmpfilesdir}/screen.conf
 %dir /usr/share/screen
 %license /usr/share/licenses/screen/COPYING
 /usr/share/screen/utf8encodings/01
@@ -123,12 +124,18 @@ EOF
 /usr/share/screen/utf8encodings/d6
 %config(noreplace) %{_sysconfdir}/screenrc
 %config(noreplace) %{_sysconfdir}/pam.d/screen
+
 %if %{with multiuser}
 %attr(4755,root,root) %{_bindir}/screen-%{version}
 %attr(755,root,root) %{_localstatedir}/run/screen
 %else
 %attr(2755,root,screen) %{_bindir}/screen-%{version}
 %attr(775,root,screen) %{_localstatedir}/run/screen
+%endif
+
+%if 0%{?rhel}  == 6
+%else
+%{_tmpfilesdir}/screen.conf
 %endif
 
 %post
