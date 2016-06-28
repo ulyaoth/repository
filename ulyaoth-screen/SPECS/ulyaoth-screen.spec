@@ -1,6 +1,7 @@
 #
 %bcond_with multiuser
 %define debug_package %{nil}
+%define osbuildversion %(cat /etc/ulyaoth)
 
 Summary:    Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells.
 Name:       ulyaoth-screen
@@ -135,8 +136,12 @@ EOF
 %if 0%{?rhel}  == 6
 %doc /usr/share/licenses/screen/COPYING
 %else
+%if "%{osbuildversion}" == "amazonlinux"
+%license /usr/share/licenses/screen/COPYING
+%else
 %license /usr/share/licenses/screen/COPYING
 %{_tmpfilesdir}/screen.conf
+%endif
 %endif
 
 %post
