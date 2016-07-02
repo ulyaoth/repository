@@ -7,7 +7,7 @@
 
 Summary:    Apache Solr Documentations
 Name:       ulyaoth-solr5-docs
-Version:    5.5.1
+Version:    5.5.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -26,6 +26,7 @@ Provides: ulyaoth-solr-docs
 Provides: ulyaoth-solr5-docs
 
 Conflicts: ulyaoth-solr4-docs
+Conflicts: ulyaoth-solr6-docs
 
 %description
 Solr is highly reliable, scalable and fault tolerant, providing distributed indexing, replication and load-balanced querying, automated failover and recovery, centralized configuration and more.
@@ -67,6 +68,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Jul 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.2-1
+- Updated to Solr 5.5.2.
+
 * Fri May 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.1-1
 - Updated to Solr 5.5.1.
 
