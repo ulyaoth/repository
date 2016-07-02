@@ -4,7 +4,7 @@
 %define hiawatha_user hiawatha
 %define hiawatha_group hiawatha
 %define hiawatha_loggroup adm
-%define mbedtls_version 2.2.1
+%define mbedtls_version 2.3.0
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -40,7 +40,7 @@ BuildRequires: systemd-devel
 Summary: Hiawatha is an open source webserver with a focus on security.
 Name: ulyaoth-hiawatha
 Version: 10.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Vendor: Hiawatha.
 URL: https://www.hiawatha-webserver.org/
@@ -61,14 +61,15 @@ BuildRequires: glibc-devel
 BuildRequires: libxml2-devel
 BuildRequires: libxslt-devel
 BuildRequires: zlib-devel
-BuildRequires: ulyaoth-mbedtls2.2 = %{mbedtls_version}
+BuildRequires: ulyaoth-mbedtls2.3 = %{mbedtls_version}
 
 Requires: libxml2
 Requires: libxslt
-Requires: ulyaoth-mbedtls2.2 = %{mbedtls_version}
+Requires: ulyaoth-mbedtls2.3 = %{mbedtls_version}
 
 Conflicts: ulyaoth-mbedtls
 Conflicts: ulyaoth-mbedtls2.1
+Conflicts: ulyaoth-mbedtls2.2
 
 Provides: hiawatha
 Provides: ulyaoth-hiawatha
@@ -250,6 +251,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Jul 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.3-2
+- Updated to mbed TLS 2.3.0.
+
 * Mon Jun 6 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.3-1
 - Updated to Hiawatha 10.3.
 
