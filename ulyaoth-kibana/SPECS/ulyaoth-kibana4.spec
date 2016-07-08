@@ -32,7 +32,7 @@ BuildRequires: systemd
 
 Summary:    Kibana explore and visualize your data
 Name:       ulyaoth-kibana4
-Version:    4.5.1
+Version:    4.5.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -130,7 +130,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-kibana4!
+Thank you for using ulyaoth-kibana4!
 
 Please find the official documentation for kibana here:
 * http://www.elasticsearch.org/overview/kibana/
@@ -162,6 +162,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Jul 8 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.5.2-1
+- Updated to Kibana 4.5.2.
+
 * Sat May 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.5.1-1
 - Updated to Kibana 4.5.1.
 
