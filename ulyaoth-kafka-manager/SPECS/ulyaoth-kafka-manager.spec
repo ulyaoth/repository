@@ -30,7 +30,7 @@ BuildRequires: systemd
 
 Summary:    A tool for managing Apache Kafka.
 Name:       ulyaoth-kafka-manager
-Version:    1.3.0.8
+Version:    1.3.1.6
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -172,5 +172,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue Jul 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.1.6-1
+- Updated to 1.3.1.6.
+
 * Sun Jun 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.0.8-1
 - initial Release.
