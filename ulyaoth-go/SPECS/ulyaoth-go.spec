@@ -4,13 +4,13 @@ AutoReqProv: no
 
 Summary: The Go Programming Language
 Name: ulyaoth-go
-Version: 1.6.2
+Version: 1.6.3
 Release: 1%{?dist}
 BuildArch: x86_64
 URL: https://golang.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz
+Source0: https://storage.googleapis.com/golang/go1.6.3.linux-amd64.tar.gz
 BuildRoot:  %{_tmppath}/ulyaoth-golang-1.6-%{release}-root-%(%{__id_u} -n)
 
 License: BSD
@@ -52,6 +52,9 @@ For any additional information or help please visit my forum at:
 BANNER
 
 %changelog
+* Tue Jul 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.3-1
+- Updated to Go 1.6.3.
+
 * Sat Apr 30 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.2-1
 - Updated to Go 1.6.2.
 
