@@ -6,7 +6,7 @@
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm-lts-3.9
-Version: 3.9.5
+Version: 3.9.6
 Release: 1%{?dist}
 BuildArch: x86_64
 Group: Applications/Internet
@@ -212,15 +212,18 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+* Tue Jul 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.6-1
+- Updated to HHVM 3.9.6.
+
 * Sat Jul 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.5-1
-- Updated to HHVM 3.9.5
+- Updated to HHVM 3.9.5.
 
 * Sat Jun 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.3-1
-- Updated to HHVM 3.9.3
+- Updated to HHVM 3.9.3.
 
 * Fri Mar 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.2-1
-- Updated to HHVM 3.9.2
+- Updated to HHVM 3.9.2.
 
 * Sun Oct 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.1-1
-- Release HHVM 3.9.1
-- Initial Spec file release
+- Release HHVM 3.9.1.
+- Initial Spec file release.
