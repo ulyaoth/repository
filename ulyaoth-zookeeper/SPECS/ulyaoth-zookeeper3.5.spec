@@ -31,7 +31,7 @@ BuildRequires: systemd
 
 Summary:    Apache ZooKeeper is an effort to develop and maintain an open-source server which enables highly reliable distributed coordination.
 Name:       ulyaoth-zookeeper3.5
-Version:    3.5.1
+Version:    3.5.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -174,7 +174,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-zookeeper3.5!
+Thank you for using ulyaoth-zookeeper3.5!
 
 Please find the official documentation for zookeeper here:
 * https://zookeeper.apache.org/
@@ -206,5 +206,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Jul 24 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.5.2-1
+- Updated to Zookeeper 3.5.2.
+
 * Sat Jan 9 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.5.1-1
 - Initial rpm release with Zookeeper 3.5.1.
