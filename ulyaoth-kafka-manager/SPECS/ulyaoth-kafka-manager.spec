@@ -112,6 +112,7 @@ getent passwd %{kafka_manager_user} >/dev/null || /usr/sbin/useradd --comment "K
 %config(noreplace) %{kafka_manager_home}/logger.xml
 %config(noreplace) %{kafka_manager_home}/routes
 %config(noreplace) %{kafka_manager_home}/application.ini
+%config(noreplace) %{kafka_manager_home}/consumer.properties
 
 %dir /usr/share/doc/kafka-manager
 /usr/share/doc/kafka-manager/*
