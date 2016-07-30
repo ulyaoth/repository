@@ -77,8 +77,9 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.11.2
+%define main_version                 1.11.3
 %define main_release                 1%{?dist}.ngx
+%define njs_version                  0.1.0
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -87,8 +88,7 @@ BuildRequires: libGeoIP-devel
 %define module_image_filter_release  1%{?dist}.ngx
 %define module_perl_version          %{main_version}
 %define module_perl_release          1%{?dist}.ngx
-%define module_njs_shaid             1c50334fbea6
-%define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
+%define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
@@ -128,10 +128,11 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
+        --add-dynamic-module=njs-%{njs_version}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
+        --with-stream_geoip_module=dynamic \
         --with-http_slice_module \
         --with-mail \
         --with-mail_ssl_module \
@@ -160,7 +161,7 @@ Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ngi
 Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.logrotate
 Source11: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx-debug.service
 Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/COPYRIGHT
-Source13: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/njs-%{module_njs_shaid}.tar.gz
+Source13: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/njs-%{njs_version}.tar.gz
 
 License: 2-clause BSD-like license
 
@@ -247,26 +248,28 @@ sed -e 's|%%DEFAULTSTART%%||g' -e 's|%%DEFAULTSTOP%%|0 1 2 3 4 5 6|g' \
 %build
 ./configure %{COMMON_CONFIGURE_ARGS} \
     --with-cc-opt="%{WITH_CC_OPT}" \
-    %{?perlldopts} \
     --with-debug
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/nginx-%{main_version}/objs/nginx \
-    %{_builddir}/nginx-%{main_version}/objs/nginx-debug
-%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_xslt_filter_module.so \
-    %{_builddir}/nginx-%{main_version}/objs/ngx_http_xslt_filter_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version/objs/nginx \
+    %{_builddir}/nginx-%{main_version/objs/nginx-debug
+%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_http_xslt_filter_module.so \
+    %{_builddir}/nginx-%{main_version/objs/ngx_http_xslt_filter_module-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_image_filter_module.so \
-    %{_builddir}/nginx-%{main_version}/objs/ngx_http_image_filter_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_geoip_module.so \
-    %{_builddir}/nginx-%{main_version}/objs/ngx_http_geoip_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_perl_module.so \
-    %{_builddir}/nginx-%{main_version}/objs/ngx_http_perl_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx.so \
-    %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module.so \
-    %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so
+    %{_builddir}/nginx-%{main_version/objs/ngx_http_image_filter_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_http_geoip_module.so \
+    %{_builddir}/nginx-%{main_version/objs/ngx_http_geoip_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_http_perl_module.so \
+    %{_builddir}/nginx-%{main_version/objs/ngx_http_perl_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx.so \
+    %{_builddir}/nginx-%{main_version/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_http_js_module.so \
+    %{_builddir}/nginx-%{main_version/objs/ngx_http_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_stream_js_module.so \
+    %{_builddir}/nginx-%{main_version/objs/ngx_stream_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_stream_geoip_module.so \
+    %{_builddir}/nginx-%{main_version/objs/ngx_stream_geoip_module-debug.so
 ./configure %{COMMON_CONFIGURE_ARGS} \
-    --with-cc-opt="%{WITH_CC_OPT}" \
-    %{?perlldopts}
+    --with-cc-opt="%{WITH_CC_OPT}"
 make %{?_smp_mflags}
 
 %install
@@ -355,7 +358,11 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{perl_vendorarch}/auto/nginx/nginx-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_js_module-debug.so
-
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_stream_geoip_module-debug.so	
+	
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
@@ -430,6 +437,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %files module-njs
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
 
 %pre
 # Add the "nginx" user
@@ -578,6 +587,7 @@ To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
     load_module modules/ngx_http_js_module.so;
+    load_module modules/ngx_stream_js_module.so;
 
 Please refer to the module documentation for further details:
 https://www.nginx.com/resources/wiki/nginScript/
@@ -612,6 +622,13 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Jul 30 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.3-1
+- Updated to Nginx Mainline 1.11.3.
+- Updated spec file to latest spec file nginx provides.
+- njs updated to 0.1.0.
+- njs stream dynamic module added to nginx-module-njs package.
+- geoip stream dynamic module added to nginx-module-geoip package.
+
 * Sat Jul 9 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.2-1
 - Updated to Nginx Mainline 1.11.2.
 
