@@ -424,6 +424,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %files module-geoip
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_geoip_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_geoip_module-debug.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_geoip_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_geoip_module-debug.so
 
 %files module-perl
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_perl_module.so
