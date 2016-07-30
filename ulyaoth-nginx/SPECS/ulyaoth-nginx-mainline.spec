@@ -250,24 +250,24 @@ sed -e 's|%%DEFAULTSTART%%||g' -e 's|%%DEFAULTSTOP%%|0 1 2 3 4 5 6|g' \
     --with-cc-opt="%{WITH_CC_OPT}" \
     --with-debug
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/nginx-%{main_version/objs/nginx \
-    %{_builddir}/nginx-%{main_version/objs/nginx-debug
-%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_http_xslt_filter_module.so \
-    %{_builddir}/nginx-%{main_version/objs/ngx_http_xslt_filter_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/nginx \
+    %{_builddir}/nginx-%{main_version}/objs/nginx-debug
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_xslt_filter_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_xslt_filter_module-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_image_filter_module.so \
-    %{_builddir}/nginx-%{main_version/objs/ngx_http_image_filter_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_http_geoip_module.so \
-    %{_builddir}/nginx-%{main_version/objs/ngx_http_geoip_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_http_perl_module.so \
-    %{_builddir}/nginx-%{main_version/objs/ngx_http_perl_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx.so \
-    %{_builddir}/nginx-%{main_version/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_http_js_module.so \
-    %{_builddir}/nginx-%{main_version/objs/ngx_http_js_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_stream_js_module.so \
-    %{_builddir}/nginx-%{main_version/objs/ngx_stream_js_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version/objs/ngx_stream_geoip_module.so \
-    %{_builddir}/nginx-%{main_version/objs/ngx_stream_geoip_module-debug.so
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_image_filter_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_geoip_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_geoip_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_perl_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_perl_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx.so \
+    %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module-debug.so
 ./configure %{COMMON_CONFIGURE_ARGS} \
     --with-cc-opt="%{WITH_CC_OPT}"
 make %{?_smp_mflags}
