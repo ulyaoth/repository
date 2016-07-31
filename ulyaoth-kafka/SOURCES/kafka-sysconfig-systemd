@@ -1,0 +1,5 @@
+LOG_DIR="/var/log/kafka"
+CLASSPATH=$CLASSPATH:/usr/share/kafka/*
+KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/etc/kafka/log4j.properties"
+KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"
+EXTRA_ARGS="-name kafkaServer -loggc"
