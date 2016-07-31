@@ -1,0 +1,4 @@
+How to create a package:
+
+ulyaoth-kafka with scala 2.8.0:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka/build-ulyaoth-kafka-scala2.8.0.sh ; chmod +x build-ulyaoth-kafka-scala2.8.0.sh ; ./build-ulyaoth-kafka-scala2.8.0.sh
