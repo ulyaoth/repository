@@ -4,7 +4,7 @@
 # Argument = -b (branch .i.e 3.14)
 # Argument = -v (version .i.e 3.14.3)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2016/07/19
+# Last Edit By: Sjir Bagmeijer - 2016/08/06
 # https://www.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
@@ -106,6 +106,7 @@ Branch 3.13 versions supported:
 * 3.13.1
 * 3.13.0
 Branch 3.12 versions supported: (LTS build)
+* 3.12.7
 * 3.12.5
 * 3.12.4
 * 3.12.3
@@ -116,6 +117,7 @@ Branch 3.11 versions supported:
 * 3.11.1
 * 3.11.0
 Branch 3.9 versions supported: (LTS build)
+* 3.9.8
 * 3.9.6
 * 3.9.5
 * 3.9.4
@@ -164,7 +166,7 @@ hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
 supportedbranches=('3.3' '3.6' '3.9' '3.11' '3.12' '3.13' '3.14')
-supportedversions=('3.14.3' '3.14.2' '3.14.1' '3.14.0' '3.13.2' '3.13.1' '3.13.0' '3.12.5' '3.12.4' '3.12.3' '3.12.2' '3.12.1' '3.12.0' '3.11.1' '3.11.0' '3.8.1' '3.8.0' '3.9.6' '3.9.5' '3.9.4' '3.9.3' '3.9.2' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+supportedversions=('3.14.3' '3.14.2' '3.14.1' '3.14.0' '3.13.2' '3.13.1' '3.13.0' '3.12.7' '3.12.5' '3.12.4' '3.12.3' '3.12.2' '3.12.1' '3.12.0' '3.11.1' '3.11.0' '3.8.1' '3.8.0' '3.9.8' '3.9.6' '3.9.5' '3.9.4' '3.9.3' '3.9.2' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
