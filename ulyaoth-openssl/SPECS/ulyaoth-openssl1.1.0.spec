@@ -6,7 +6,7 @@ AutoReqProv: no
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.1.0
 Version:    1.1.0
-Release:    0.5.pre5%{?dist}
+Release:    0.6.pre6%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
@@ -14,9 +14,9 @@ URL:        https://www.openssl.org/
 Vendor:     OpenSSL
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 %if 0%{?fedora}  == 19
-Source0:    http://www.openssl.org/source/openssl-%{version}-pre5.tar.gz
+Source0:    http://www.openssl.org/source/openssl-%{version}-pre6.tar.gz
 %else
-Source0:    https://www.openssl.org/source/openssl-%{version}-pre5.tar.gz
+Source0:    https://www.openssl.org/source/openssl-%{version}-pre6.tar.gz
 %endif
 BuildRoot:  %{_tmppath}/openssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -31,7 +31,7 @@ The OpenSSL Project is a collaborative effort to develop a robust, commercial-gr
 OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim Hudson. The OpenSSL toolkit is licensed under an Apache-style license, which basically means that you are free to get and use it for commercial and non-commercial purposes subject to some simple license conditions.
 
 %prep
-%setup -q -n openssl-%{version}-pre5
+%setup -q -n openssl-%{version}-pre6
 
 %build
 
@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-openssl1.1.0!
+Thank you for using ulyaoth-openssl1.1.0!
 
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
@@ -87,6 +87,9 @@ BANNER
 %postun
 
 %changelog
+* Sat Aug 6 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-0.6.pre6
+- Updated to OpenSSL 1.1.0 Beta 3.
+
 * Sun May 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0-0.5.pre5
 - Updated to OpenSSL 1.1.0 Beta 2.
 
