@@ -1,7 +1,7 @@
 
 Summary:    LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values.
 Name:       ulyaoth-leveldb
-Version:    1.18
+Version:    1.19
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Contributor License Agreement (CLA)
@@ -98,5 +98,8 @@ BANNER
 %postun
 
 %changelog
+* Tue Aug 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.19-1
+- Updated to LevelDB 1.19.
+
 * Sun Jun 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.18-1
 - Initial release.
