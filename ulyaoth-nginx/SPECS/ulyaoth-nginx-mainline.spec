@@ -3,6 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
+%define _group System Environment/Daemons
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
@@ -526,6 +527,7 @@ To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
     load_module modules/ngx_http_geoip_module.so;
+    load_module modules/ngx_stream_geoip_module.so;
 
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_geoip_module.html
