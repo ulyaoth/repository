@@ -78,8 +78,9 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.11.1
+%define main_version                 1.11.3
 %define main_release                 1%{?dist}.ngx
+%define njs_version                  0.1.0
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -88,12 +89,11 @@ BuildRequires: libGeoIP-devel
 %define module_image_filter_release  1%{?dist}.ngx
 %define module_perl_version          %{main_version}
 %define module_perl_release          1%{?dist}.ngx
-%define module_njs_shaid             1c50334fbea6
-%define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
+%define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 %define module_devel_kit_version  0.3.0
 %define module_devel_kit_release  1%{?dist}
-%define module_encrypted_session_version  0.05
+%define module_encrypted_session_version  0.06
 %define module_encrypted_session_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
@@ -133,10 +133,11 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
+        --add-dynamic-module=njs-%{njs_version}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
+		--with-stream_geoip_module=dynamic \
         --with-http_slice_module \
         --with-mail \
         --with-mail_ssl_module \
@@ -167,7 +168,7 @@ Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ngi
 Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.logrotate
 Source11: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx-debug.service
 Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/COPYRIGHT
-Source13: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/njs-%{module_njs_shaid}.tar.gz
+Source13: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/njs-%{njs_version}.tar.gz
 
 License: 2-clause BSD-like license
 
@@ -289,6 +290,10 @@ make %{?_smp_mflags}
     %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ndk_http_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ndk_http_module-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_encrypted_session_module.so \
@@ -384,6 +389,10 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{perl_vendorarch}/auto/nginx/nginx-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_stream_geoip_module-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ndk_http_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ndk_http_module-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_encrypted_session_module.so \
@@ -452,6 +461,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %files module-geoip
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_geoip_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_geoip_module-debug.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_geoip_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_geoip_module-debug.so
 
 %files module-perl
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_perl_module.so
@@ -465,6 +476,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %files module-njs
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
 
 %files module-devel-kit
 %attr(0644,root,root) %{_libdir}/nginx/modules/ndk_http_module.so
@@ -558,6 +571,7 @@ To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
     load_module modules/ngx_http_geoip_module.so;
+    load_module modules/ngx_stream_geoip_module.so;
 
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_geoip_module.html
@@ -621,6 +635,7 @@ To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
     load_module modules/ngx_http_js_module.so;
+    load_module modules/ngx_stream_js_module.so;
 
 Please refer to the module documentation for further details:
 https://www.nginx.com/resources/wiki/nginScript/
@@ -698,5 +713,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Aug 20 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.06-1
+- Updated to encrypted session module 0.06.
+- Recompiled with Nginx Mainline 1.11.3.
+
 * Sun Jun 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.05-1
 - Initial release for encrypted session module.

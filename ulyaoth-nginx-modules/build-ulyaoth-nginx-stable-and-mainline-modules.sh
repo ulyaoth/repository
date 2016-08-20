@@ -8,11 +8,11 @@ fi
 # headers-more
 if [ "$1" = "headers-more" ]; then
 module="headers-more-module"
-moduleversion=0.30
+moduleversion=0.31
 # echo
 elif [ "$1" = "echo" ]; then
 module="echo-module"
-moduleversion=0.59
+moduleversion=0.60
 # pam
 elif [ "$1" = "pam" ]; then
 module="pam-module"
@@ -29,7 +29,7 @@ moduleversion=0.3.0
 # encrypted-session
 elif [ "$1" = "encrypted-session" ]; then
 module="encrypted-session-module"
-moduleversion=0.05
+moduleversion=0.06
 develkitversion=0.3.0
 # array var
 elif [ "$1" = "array-var" ]; then
