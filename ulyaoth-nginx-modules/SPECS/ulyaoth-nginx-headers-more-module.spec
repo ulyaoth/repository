@@ -91,7 +91,7 @@ BuildRequires: libGeoIP-devel
 %define module_njs_shaid             1c50334fbea6
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
 %define module_njs_release           1%{?dist}.ngx
-%define module_headers_more_version  0.30
+%define module_headers_more_version  0.31
 %define module_headers_more_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
@@ -473,7 +473,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx!
+Thank you for using ulyaoth-nginx!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -653,5 +653,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Aug 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.31-1
+- Updated headers-more module to version 0.31.
+
 * Sun Jun 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.30-1
 - Initial release for headers-more module.

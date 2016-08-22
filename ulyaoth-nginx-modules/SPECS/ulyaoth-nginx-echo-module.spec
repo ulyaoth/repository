@@ -91,7 +91,7 @@ BuildRequires: libGeoIP-devel
 %define module_njs_shaid             1c50334fbea6
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
 %define module_njs_release           1%{?dist}.ngx
-%define module_echo_version  0.59
+%define module_echo_version  0.60
 %define module_echo_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
@@ -653,5 +653,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Aug 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.60-1
+- Updated echo module to version 0.60.
+
 * Sun Jun 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.59-1
 - Initial release for echo module.
