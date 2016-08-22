@@ -93,7 +93,7 @@ BuildRequires: libGeoIP-devel
 %define module_njs_release           1%{?dist}.ngx
 %define module_devel_kit_version  0.3.0
 %define module_devel_kit_release  1%{?dist}
-%define module_encrypted_session_version  0.05
+%define module_encrypted_session_version  0.06
 %define module_encrypted_session_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
@@ -696,5 +696,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Aug 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.06-1
+- Updated encrypted-session module to version 0.06.
+
 * Sun Jun 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.05-1
 - Initial release for encrypted session module.
