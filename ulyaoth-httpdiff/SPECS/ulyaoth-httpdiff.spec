@@ -5,7 +5,7 @@
 
 Summary:    Perform the same request against two HTTP servers and diff the results. For best results use in a terminal that supports ANSI escape sequences.
 Name:       ulyaoth-httpdiff
-Version:    20160615
+Version:    1.0.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNU GENERAL PUBLIC LICENSE Version 2
@@ -20,6 +20,10 @@ Provides: httpdiff
 Provides: ulyaoth-httpdiff
 
 Obsoletes: ulyaoth-httpdiff-masterbuild
+Obsoletes: ulyaoth-httpdiff = 20160615
+Obsoletes: ulyaoth-httpdiff = 20150614
+Obsoletes: ulyaoth-httpdiff = 20150404
+Obsoletes: ulyaoth-httpdiff = 20150325
 
 %description
 Perform the same request against two HTTP servers and diff the results. For best results use in a terminal that supports ANSI escape sequences.
