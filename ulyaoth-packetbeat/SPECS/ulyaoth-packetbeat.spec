@@ -29,7 +29,7 @@ BuildRequires: systemd
 
 Summary:    Change the way you put your network packet data to work with Packetbeat.
 Name:       ulyaoth-packetbeat
-Version:    1.2.3
+Version:    1.3.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -122,7 +122,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-packetbeat!
+Thank you for using ulyaoth-packetbeat!
 
 Please find the official documentation for packetbeat here:
 * https://www.elastic.co/guide/en/beats/packetbeat/current/index.html
@@ -154,6 +154,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Sep 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.0-1
+- Updated to Packetbeat 1.3.0.
+
 * Sat May 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.3-1
 - Updated to Packetbeat 1.2.3.
 

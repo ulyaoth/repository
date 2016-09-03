@@ -29,7 +29,7 @@ BuildRequires: systemd
 
 Summary:    Filebeat is a log data shipper initially based on the Logstash-Forwarder source code.
 Name:       ulyaoth-filebeat
-Version:    1.2.3
+Version:    1.3.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -120,7 +120,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-filebeat!
+Thank you for using ulyaoth-filebeat!
 
 Please find the official documentation for filebeat here:
 * https://www.elastic.co/guide/en/beats/filebeat/current/index.html
@@ -152,6 +152,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Sep 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.0-1
+- Updated Filebeat to 1.3.0.
+
 * Sat May 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.3-1
 - Updated Filebeat to 1.2.3.
 
