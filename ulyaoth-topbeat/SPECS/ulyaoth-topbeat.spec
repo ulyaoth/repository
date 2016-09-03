@@ -29,7 +29,7 @@ BuildRequires: systemd
 
 Summary:    Topbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
 Name:       ulyaoth-topbeat
-Version:    1.2.3
+Version:    1.3.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -120,7 +120,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-topbeat!
+Thank you for using ulyaoth-topbeat!
 
 Please find the official documentation for topbeat here:
 * https://www.elastic.co/guide/en/beats/topbeat/current/index.html
@@ -152,6 +152,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Sep 3 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.0-1
+- Updated to Topbeat 1.3.0.
+
 * Sat May 21 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.3-1
 - Updated to Topbeat 1.2.3.
 

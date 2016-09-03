@@ -2,8 +2,8 @@
 ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-filebeatversion=1.2.3
-goversion=1.6.2
+filebeatversion=1.3.0
+goversion=1.7.0
 
 # Check if we are using a 32-bit system.
 if [ "$arch" == "i686" ]
