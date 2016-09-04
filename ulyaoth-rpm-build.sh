@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-beats()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/build-ulyaoth-beats.sh ; chmod +x build-ulyaoth-beats.sh ; ./build-ulyaoth-beats.sh
+}
+
 ulyaoth-screen()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-screen/build-ulyaoth-screen.sh ; chmod +x build-ulyaoth-screen.sh ; ./build-ulyaoth-screen.sh
@@ -452,21 +457,6 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine
 ulyaoth-jsvc()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-jsvc/build-ulyaoth-jsvc.sh ; chmod +x build-ulyaoth-jsvc.sh ; ./build-ulyaoth-jsvc.sh
-}
-
-ulyaoth-filebeat()
-{
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-filebeat/build-ulyaoth-filebeat.sh ; chmod +x build-ulyaoth-filebeat.sh ; ./build-ulyaoth-filebeat.sh
-}
-
-ulyaoth-topbeat()
-{
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-topbeat/build-ulyaoth-topbeat.sh ; chmod +x build-ulyaoth-topbeat.sh ; ./build-ulyaoth-topbeat.sh
-}
-
-ulyaoth-packetbeat()
-{
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-packetbeat/build-ulyaoth-packetbeat.sh ; chmod +x build-ulyaoth-packetbeat.sh ; ./build-ulyaoth-packetbeat.sh
 }
 
 ulyaoth-terraform()
