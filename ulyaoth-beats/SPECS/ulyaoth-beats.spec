@@ -245,8 +245,6 @@ if [ $1 -eq 1 ]; then
 %else
     /sbin/chkconfig --add filebeat
 %endif
-
-if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -270,8 +268,6 @@ if [ $1 -eq 1 ]; then
 %else
     /sbin/chkconfig --add packetbeat
 %endif
-
-if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -295,8 +291,6 @@ if [ $1 -eq 1 ]; then
 %else
     /sbin/chkconfig --add topbeat
 %endif
-
-if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
