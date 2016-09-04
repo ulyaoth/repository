@@ -35,11 +35,11 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary:    Filebeat is a log data shipper initially based on the Logstash-Forwarder source code.
-Name:       ulyaoth-beats
+Name:       ulyaoth
+Summary:    Beats is the platform for building lightweight, open source data shippers.
 Version:    1.3.0
 Release:    1%{?dist}
-BuildArch: x86_64
+BuildArch:  x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://www.elastic.co/products/beats
@@ -62,39 +62,49 @@ Source13:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-
 Source14:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/topbeat.template.json
 BuildRoot:  %{_tmppath}/beats-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Provides: beats
-Provides: ulyaoth-beats
-
 %description
+Beats is the platform for building lightweight, open source data shippers for many types of data you want to enrich with Logstash, search and analyze in Elasticsearch, and visualize in Kibana. Whether you’re interested in log files, infrastructure metrics, or network packets, Beats serves as the foundation for keeping a beat on your data.
 
-%package ulyaoth-filebeat
+%package filebeat
 Version: %{version}
 Release: %{release}
-Group: Applications/Internet
+License: %{license}
+Group: %{group}
+URL: %{url}
+Vendor: %{vendor}
+Packager: %{packager}
 Summary: Filebeat is a log data shipper initially based on the Logstash-Forwarder source code.
 Provides: filebeat
 Provides: ulyaoth-filebeat
-%description ulyaoth-filebeat
+%description filebeat
 Filebeat is a lightweight, open source shipper for log file data. As the next-generation Logstash Forwarder, Filebeat tails logs and quickly sends this information to Logstash for further parsing and enrichment or to Elasticsearch for centralized storage and analysis.
 
-%package ulyaoth-packetbeat
+%package packetbeat
 Version: %{version}
 Release: %{release}
-Group: Applications/Internet
+License: %{license}
+Group: %{group}
+URL: %{url}
+Vendor: %{vendor}
+Packager: %{packager}
 Summary: Change the way you put your network packet data to work with Packetbeat.
 Provides: packetbeat
 Provides: ulyaoth-packetbeat
-%description ulyaoth-packetbeat
+%description packetbeat
 Change the way you put your network packet data to work with Packetbeat.
 
-%package ulyaoth-topbeat
+%package topbeat
 Version: %{version}
 Release: %{release}
-Group: Applications/Internet
+License: %{license}
+Group: %{group}
+URL: %{url}
+Vendor: %{vendor}
+Packager: %{packager}
 Summary: Topbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
 Provides: topbeat
 Provides: ulyaoth-topbeat
-%description ulyaoth-topbeat
+%description topbeat
 Looking for a better way to understand how your server resources are used? The best place to start is your infrastructure metrics. Topbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
 
 %prep
@@ -131,7 +141,7 @@ Looking for a better way to understand how your server resources are used? The b
    $RPM_BUILD_ROOT/usr/bin/packetbeat
 %{__install} -m 755 -p %{SOURCE10} \
    $RPM_BUILD_ROOT/usr/bin/topbeat
-   
+
 # install configuration file
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/filebeat
 %{__install} -m 644 -p %{SOURCE3} \
@@ -157,25 +167,25 @@ Looking for a better way to understand how your server resources are used? The b
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/packetbeat
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/topbeat
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/topbeat
-  
+
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %pre
-%pre ulyaoth-filebeat
+%pre filebeat
 getent group %{filebeat_group} >/dev/null || groupadd -r %{filebeat_group}
 getent passwd %{filebeat_user} >/dev/null || /usr/sbin/useradd --comment "Filebeat Daemon User" --shell /bin/bash -M -r -g %{filebeat_group} --home %{filebeat_home} %{filebeat_user}
 
-%pre ulyaoth-packetbeat
+%pre packetbeat
 getent group %{packetbeat_group} >/dev/null || groupadd -r %{packetbeat_group}
 getent passwd %{packetbeat_user} >/dev/null || /usr/sbin/useradd --comment "Packetbeat Daemon User" --shell /bin/bash -M -r -g %{packetbeat_group} --home %{packetbeat_home} %{packetbeat_user}
 
-%pre ulyaoth-topbeat
+%pre topbeat
 getent group %{topbeat_group} >/dev/null || groupadd -r %{topbeat_group}
 getent passwd %{topbeat_user} >/dev/null || /usr/sbin/useradd --comment "Topbeat Daemon User" --shell /bin/bash -M -r -g %{topbeat_group} --home %{topbeat_home} %{topbeat_user}
 
 %files
-%files ulyaoth-filebeat
+%files filebeat
 %defattr(-,%{filebeat_user},%{filebeat_group})
 %dir /etc/filebeat
 %config(noreplace) /etc/filebeat/filebeat.yml
@@ -192,7 +202,7 @@ getent passwd %{topbeat_user} >/dev/null || /usr/sbin/useradd --comment "Topbeat
 %{_initrddir}/filebeat
 %endif
 
-%files ulyaoth-packetbeat
+%files packetbeat
 %defattr(-,%{packetbeat_user},%{packetbeat_group})
 %dir /etc/packetbeat
 %config(noreplace) /etc/packetbeat/packetbeat.yml
@@ -209,7 +219,7 @@ getent passwd %{topbeat_user} >/dev/null || /usr/sbin/useradd --comment "Topbeat
 %{_initrddir}/packetbeat
 %endif
 
-%files ulyaoth-topbeat
+%files topbeat
 %defattr(-,%{topbeat_user},%{topbeat_group})
 %dir /etc/topbeat
 %config(noreplace) /etc/topbeat/topbeat.yml
@@ -227,7 +237,7 @@ getent passwd %{topbeat_user} >/dev/null || /usr/sbin/useradd --comment "Topbeat
 %endif
 
 %post 
-%post ulyaoth-filebeat
+%post filebeat
 # Register the filebeat service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
@@ -252,7 +262,7 @@ For any additional help please visit my forum at:
 BANNER
 fi
 
-%post ulyaoth-packetbeat
+%post packetbeat
 # Register the packetbeat service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
@@ -277,7 +287,7 @@ For any additional help please visit my forum at:
 BANNER
 fi
 
-%post ulyaoth-topbeat
+%post topbeat
 # Register the topbeat service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
@@ -303,7 +313,7 @@ BANNER
 fi
 
 %preun
-%preun ulyaoth-filebeat
+%preun filebeat
 if [ $1 -eq 0 ]; then
 %if %use_systemd
     /usr/bin/systemctl --no-reload disable filebeat.service >/dev/null 2>&1 ||:
@@ -314,7 +324,7 @@ if [ $1 -eq 0 ]; then
 %endif
 fi
 
-%preun ulyaoth-packetbeat
+%preun packetbeat
 if [ $1 -eq 0 ]; then
 %if %use_systemd
     /usr/bin/systemctl --no-reload disable packetbeat.service >/dev/null 2>&1 ||:
@@ -325,7 +335,7 @@ if [ $1 -eq 0 ]; then
 %endif
 fi
 
-%preun ulyaoth-topbeat
+%preun topbeat
 if [ $1 -eq 0 ]; then
 %if %use_systemd
     /usr/bin/systemctl --no-reload disable topbeat.service >/dev/null 2>&1 ||:
@@ -337,7 +347,7 @@ if [ $1 -eq 0 ]; then
 fi
 
 %postun
-%postun ulyaoth-filebeat
+%postun filebeat
 %if %use_systemd
 /usr/bin/systemctl filebeat >/dev/null 2>&1 ||:
 %endif
@@ -345,7 +355,7 @@ if [ $1 -ge 1 ]; then
     /sbin/service filebeat status  >/dev/null 2>&1 || exit 0
 fi
 
-%postun ulyaoth-packetbeat
+%postun packetbeat
 %if %use_systemd
 /usr/bin/systemctl packetbeat >/dev/null 2>&1 ||:
 %endif
@@ -353,7 +363,7 @@ if [ $1 -ge 1 ]; then
     /sbin/service packetbeat status  >/dev/null 2>&1 || exit 0
 fi
 
-%postun ulyaoth-topbeat
+%postun topbeat
 %if %use_systemd
 /usr/bin/systemctl topbeat >/dev/null 2>&1 ||:
 %endif
