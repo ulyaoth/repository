@@ -95,4 +95,5 @@ else
 fi
 
 rm -rf /root/build-ulyaoth-*
+rm -rf /root/ulyaoth-$beatsversion-*
 rm -rf /home/ulyaoth/rpmbuild
