@@ -3,7 +3,6 @@ ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
 topbeatversion=1.3.0
-goversion=1.7.0
 
 # Check if we are using a 32-bit system.
 if [ "$arch" == "i686" ]
@@ -11,29 +10,53 @@ then
 arch="i386"
 fi
 
+if [ "$ulyaothos" == "fedora" ]
+then
+if type dnf 2>/dev/null
+then
+  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
+elif type yum 2>/dev/null
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
+fi
+elif [ "$ulyaothos" == "redhat" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.noarch.rpm -y
+elif [ "$ulyaothos" == "amazonlinux" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.amazonlinux.noarch.rpm -y
+elif [ "$ulyaothos" == "centos" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.centos.noarch.rpm -y
+elif [ "$ulyaothos" == "oraclelinux" ]
+then 
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.oraclelinux.noarch.rpm -y
+elif [ "$ulyaothos" == "scientificlinux" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
+fi
+
 # Create build user and go to it's home directory, and create the rpmbuild directory.
 useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 
-# Download newest go version.
-if [ "$arch" == "i386" ]
+if type dnf 2>/dev/null
 then
-su ulyaoth -c "wget https://storage.googleapis.com/golang/go'"$goversion"'.linux-386.tar.gz"
-su ulyaoth -c "tar xvzf go'"$goversion"'.linux-386.tar.gz"
-su ulyaoth -c "rm -rf go'"$goversion"'.linux-386.tar.gz"
-else
-su ulyaoth -c "wget https://storage.googleapis.com/golang/go'"$goversion"'.linux-amd64.tar.gz"
-su ulyaoth -c "tar xvzf go'"$goversion"'.linux-amd64.tar.gz"
-su ulyaoth -c "rm -rf go'"$goversion"'.linux-amd64.tar.gz"
+  dnf install ulyaoth-go -y
+elif type yum 2>/dev/null
+then
+  yum install ulyaoth-go -y
 fi
 
 # Add where to find go into bashrc
-echo 'export GOROOT=/home/ulyaoth/go' >> /home/ulyaoth/.bashrc
+echo 'export GOROOT=/usr/local/go' >> /home/ulyaoth/.bashrc
 echo 'export PATH=$PATH:$GOROOT/bin' >> /home/ulyaoth/.bashrc
 echo 'export GOPATH=/home/ulyaoth/' >> /home/ulyaoth/.bashrc
 echo 'export PATH=$GOPATH/bin:$PATH' >> /home/ulyaoth/.bashrc
-echo 'export GOBIN=/home/ulyaoth/go/bin/' >> /home/ulyaoth/.bashrc
+echo 'export GOBIN=/usr/local/go/bin/' >> /home/ulyaoth/.bashrc
+
+su ulyaoth -c "source ~/.bashrc"
 
 # Download filebeat and build it.
 su ulyaoth -c "wget https://github.com/elastic/beats/archive/v'"$topbeatversion"'.tar.gz"
