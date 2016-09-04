@@ -192,7 +192,7 @@ getent passwd %{topbeat_user} >/dev/null || /usr/sbin/useradd --comment "Topbeat
 %{_initrddir}/filebeat
 %endif
 
-%files ulyaoth-filebeat
+%files ulyaoth-packetbeat
 %defattr(-,%{packetbeat_user},%{packetbeat_group})
 %dir /etc/packetbeat
 %config(noreplace) /etc/packetbeat/packetbeat.yml
