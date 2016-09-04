@@ -67,7 +67,7 @@ Kibana is an open source (Apache Licensed), browser based analytics and search d
 
 %prep
 %ifarch x86_64
-%setup -q -n kibana-%{version}-linux-x64
+%setup -q -n kibana-%{version}-linux-x86_64
 %endif
 
 %ifarch i386
