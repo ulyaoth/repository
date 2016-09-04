@@ -1,0 +1,9 @@
+You can build the rpms by running the build script:
+
+ulyaoth-beats:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/build-ulyaoth-beats.sh ; chmod +x build-ulyaoth-beats.sh ; ./build-ulyaoth-beats.sh
+
+After running the above command you should receive the rpms for:
+* Filebeat
+* Packetbeat
+* Topbeat

@@ -1,0 +1,67 @@
+#!/bin/sh
+#
+# packetbeat        Startup script for packetbeat
+#
+# chkconfig: - 85 15
+# processname: packetbeat
+# config: /etc/packetbeat/packetbeat.yml
+# pidfile: /var/run/packetbeat.pid
+# description: Change the way you put your network packet data to work with Packetbeat.
+#
+### BEGIN INIT INFO
+# Provides: packetbeat
+# Required-Start: $local_fs $remote_fs $network
+# Required-Stop: $local_fs $remote_fs $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop packetbeat
+### END INIT INFO
+
+NAME=packetbeat
+PACKETBEAT_USER=root #we need root due to sniffing permission.
+PACKETBEAT_HOME="/usr"
+PACKETBEAT_CONFIG="/etc/packetbeat/packetbeat.yml"
+
+packetbeat_pid() {
+    echo `ps aux | grep packetbeat | grep -v grep | awk '{ print $2 }'`
+}
+
+start() {
+  # Start packetbeat
+  echo "Starting Packetbeat"
+  $PACKETBEAT_HOME/bin/packetbeat -c $PACKETBEAT_CONFIG > /dev/null 2>&1 &
+  return 0
+}
+
+stop() {
+  pid=$(packetbeat_pid)
+  echo "Shutting down Packetbeat"
+  kill -9 $pid
+  return 0
+}
+
+case $1 in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    status)
+       pid=$(packetbeat_pid)
+        if [ -n "$pid" ]
+        then
+           echo "Packetbeat is running with pid: $pid"
+        else
+           echo "Packetbeat is not running"
+        fi
+        ;;
+    *)
+        echo $"Usage: $NAME {start|stop|restart|status}"
+esac
+
+exit 0
