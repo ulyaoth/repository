@@ -1,0 +1,13 @@
+[Unit]
+Description=Topbeat
+Documentation=https://www.elastic.co/guide/en/beats/topbeat/current/index.html
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=topbeat
+ExecStart=/usr/bin/topbeat -c /etc/topbeat/topbeat.yml
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
