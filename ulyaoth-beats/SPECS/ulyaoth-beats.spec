@@ -50,11 +50,11 @@ Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/filebeat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/filebeat.yml
 Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/filebeat.template.json
-Source5:    packagebeat
-Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packagebeat.service
-Source7:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packagebeat.init
-Source8:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packagebeat.yml
-Source9:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packagebeat.template.json
+Source5:    packetbeat
+Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packetbeat.service
+Source7:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packetbeat.init
+Source8:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packetbeat.yml
+Source9:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packetbeat.template.json
 Source10:   topbeat
 Source11:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/topbeat.service
 Source12:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/topbeat.init
@@ -82,8 +82,8 @@ Version: %{version}
 Release: %{release}
 Group: Applications/Internet
 Summary: Change the way you put your network packet data to work with Packetbeat.
-Provides: packagebeat
-Provides: ulyaoth-packagebeat
+Provides: packetbeat
+Provides: ulyaoth-packetbeat
 %description ulyaoth-packetbeat
 Change the way you put your network packet data to work with Packetbeat.
 
@@ -109,7 +109,7 @@ Looking for a better way to understand how your server resources are used? The b
 %{__install} -m644 %SOURCE1 \
         $RPM_BUILD_ROOT%{_unitdir}/filebeat.service
 %{__install} -m644 %SOURCE6 \
-        $RPM_BUILD_ROOT%{_unitdir}/packagebeat.service
+        $RPM_BUILD_ROOT%{_unitdir}/packetbeat.service
 %{__install} -m644 %SOURCE11 \
         $RPM_BUILD_ROOT%{_unitdir}/topbeat.service
 %else
@@ -118,7 +118,7 @@ Looking for a better way to understand how your server resources are used? The b
 %{__install} -m755 %{SOURCE2} \
    $RPM_BUILD_ROOT%{_initrddir}/filebeat
 %{__install} -m755 %{SOURCE7} \
-   $RPM_BUILD_ROOT%{_initrddir}/packagebeat
+   $RPM_BUILD_ROOT%{_initrddir}/packetbeat
 %{__install} -m755 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_initrddir}/topbeat
 %endif
@@ -128,7 +128,7 @@ Looking for a better way to understand how your server resources are used? The b
 %{__install} -m 755 -p %{SOURCE0} \
    $RPM_BUILD_ROOT/usr/bin/filebeat
 %{__install} -m 755 -p %{SOURCE5} \
-   $RPM_BUILD_ROOT/usr/bin/packagebeat
+   $RPM_BUILD_ROOT/usr/bin/packetbeat
 %{__install} -m 755 -p %{SOURCE10} \
    $RPM_BUILD_ROOT/usr/bin/topbeat
    
@@ -139,11 +139,11 @@ Looking for a better way to understand how your server resources are used? The b
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT/etc/filebeat/filebeat.template.json
 
-%{__mkdir} -p $RPM_BUILD_ROOT/etc/packagebeat
+%{__mkdir} -p $RPM_BUILD_ROOT/etc/packetbeat
 %{__install} -m 644 -p %{SOURCE8} \
-   $RPM_BUILD_ROOT/etc/packagebeat/packagebeat.yml
+   $RPM_BUILD_ROOT/etc/packetbeat/packetbeat.yml
 %{__install} -m 644 -p %{SOURCE9} \
-   $RPM_BUILD_ROOT/etc/packagebeat/packagebeat.template.json
+   $RPM_BUILD_ROOT/etc/packetbeat/packetbeat.template.json
 
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/topbeat
 %{__install} -m 644 -p %{SOURCE13} \
@@ -153,8 +153,8 @@ Looking for a better way to understand how your server resources are used? The b
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/filebeat
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/filebeat
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/packagebeat
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/packagebeat
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/packetbeat
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/packetbeat
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/topbeat
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/topbeat
   
