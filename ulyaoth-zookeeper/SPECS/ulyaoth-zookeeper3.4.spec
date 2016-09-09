@@ -31,7 +31,7 @@ BuildRequires: systemd
 
 Summary:    Apache ZooKeeper is an effort to develop and maintain an open-source server which enables highly reliable distributed coordination.
 Name:       ulyaoth-zookeeper3.4
-Version:    3.4.8
+Version:    3.4.9
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -173,7 +173,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-zookeeper3.4!
+Thank you for using ulyaoth-zookeeper3.4!
 
 Please find the official documentation for zookeeper here:
 * https://zookeeper.apache.org/
@@ -205,6 +205,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Sep 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.4.9-1
+- Updating to Zookeeper 3.4.9.
+
 * Tue Feb 23 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.4.8-1
 - Updating to Zookeeper 3.4.8.
 
