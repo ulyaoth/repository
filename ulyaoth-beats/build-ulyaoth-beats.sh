@@ -37,10 +37,10 @@ su ulyaoth -c "rpmdev-setuptree"
 
 if type dnf 2>/dev/null
 then
-  dnf install ulyaoth-go -y
+  dnf install ulyaoth-go libpcap-devel -y
 elif type yum 2>/dev/null
 then
-  yum install ulyaoth-go -y
+  yum install ulyaoth-go libpcap-devel -y
 fi
 
 # Add where to find go into bashrc
