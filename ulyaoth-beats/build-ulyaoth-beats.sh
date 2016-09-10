@@ -77,6 +77,14 @@ su ulyaoth -c "rm -rf src v'"$beatsversion"'.tar.gz"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SPECS/ulyaoth-beats.spec"
 
+if type dnf 2>/dev/null
+then
+  dnf builddep -y ulyaoth-beats.spec
+elif type yum 2>/dev/null
+then
+  yum-builddep -y ulyaoth-beats.spec
+fi
+
 # Download the requirements the spec files specifies and build the rpm.
 su ulyaoth -c "spectool ulyaoth-beats.spec -g -R"
 su ulyaoth -c "rpmbuild -ba ulyaoth-beats.spec"
