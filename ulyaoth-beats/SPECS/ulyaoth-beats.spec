@@ -88,6 +88,7 @@ URL: %{url}
 Vendor: %{vendor}
 Packager: %{packager}
 Summary: Change the way you put your network packet data to work with Packetbeat.
+BuildRequires: libpcap-devel
 Requires: libpcap
 Provides: packetbeat
 Provides: ulyaoth-packetbeat
