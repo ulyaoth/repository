@@ -36,7 +36,7 @@ then
 yum install -y  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 fi
 
-if [ "$hhvmbranchversion" == "3.9" ] || [ "$hhvmbranchversion" == "3.11" ] || [ "$hhvmbranchversion" == "3.12" ] || [ "$hhvmbranchversion" == "3.13" ] || [ "$hhvmbranchversion" == "3.14"] || [ "$hhvmbranchversion" == "3.15" ]
+if [ "$hhvmbranchversion" == "3.9" ] || [ "$hhvmbranchversion" == "3.11" ] || [ "$hhvmbranchversion" == "3.12" ] || [ "$hhvmbranchversion" == "3.13" ] || [ "$hhvmbranchversion" == "3.14" ] || [ "$hhvmbranchversion" == "3.15" ]
 then
   if grep -q -i "release 19" /etc/fedora-release || grep -q -i "release 20" /etc/fedora-release
   then
