@@ -92,7 +92,7 @@ BuildRequires: libGeoIP-devel
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
 %define module_njs_release           1%{?dist}.ngx
 %define module_naxsi_version  0.55
-%define module_naxsi_release  0.1.rc2%{?dist}
+%define module_naxsi_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -669,5 +669,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Sep 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.55-1
+- Updated to Naxi 0.55 stable.
+
 * Sat Jun 25 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.55-0.1.rc2
 - Initial release for naxsi module.
