@@ -28,7 +28,7 @@ BuildRequires: systemd
 
 Summary:    Apache Solr
 Name:       ulyaoth-solr5
-Version:    5.5.2
+Version:    5.5.3
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -149,7 +149,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-solr5!
+Thank you for using ulyaoth-solr5!
 
 Please find the official documentation for solr here:
 * https://lucene.apache.org/solr/
@@ -181,6 +181,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Sep 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.3-1
+- Updated to Solr 5.5.3.
+
 * Sat Jul 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.2-1
 - Updated to Solr 5.5.2.
 
