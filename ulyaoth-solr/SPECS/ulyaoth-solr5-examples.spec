@@ -7,7 +7,7 @@
 
 Summary:    Apache Solr Examples
 Name:       ulyaoth-solr5-examples
-Version:    5.5.2
+Version:    5.5.3
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -56,7 +56,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-solr5-examples!
+Thank you for using ulyaoth-solr5-examples!
 
 Please find the official documentation for solr here:
 * https://lucene.apache.org/solr/
@@ -68,6 +68,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Fri Sep 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.3-1
+- Updated to Solr 5.5.3.
+
 * Sat Jul 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.2-1
 - Updated to Solr 5.5.2.
 
