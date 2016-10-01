@@ -1,7 +1,7 @@
 
 Summary:    tmux is a "terminal multiplexer"
 Name:       ulyaoth-tmux
-Version:    2.2
+Version:    2.3
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
@@ -70,5 +70,8 @@ BANNER
 %postun
 
 %changelog
-* Sun Jun 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.18-1
+* Sat Oct 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.3-1
+- Updated tmux to 2.3.
+
+* Sun Jun 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2-1
 - Initial release.
