@@ -7,7 +7,7 @@
 
 Summary:    Apache Solr Examples
 Name:       ulyaoth-solr6-examples
-Version:    6.2.0
+Version:    6.2.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -68,6 +68,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Oct 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.2.1-1
+- Updated to Solr 6 version 6.2.1.
+
 * Sat Aug 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.2.0-1
 - Updated to Solr 6 version 6.2.0.
 

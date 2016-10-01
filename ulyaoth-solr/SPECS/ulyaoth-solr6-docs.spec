@@ -7,7 +7,7 @@
 
 Summary:    Apache Solr Documentations
 Name:       ulyaoth-solr6-docs
-Version:    6.2.0
+Version:    6.2.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -18,7 +18,7 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    solr-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires: ulyaoth-solr5
+Requires: ulyaoth-solr6
 
 Provides: solr-docs
 Provides: solr6-docs
@@ -68,6 +68,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Oct 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.2.1-1
+- Updated to Solr 6 version 6.2.1.
+
 * Sat Aug 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.2.0-1
 - Updated to Solr 6 version 6.2.0.
 
