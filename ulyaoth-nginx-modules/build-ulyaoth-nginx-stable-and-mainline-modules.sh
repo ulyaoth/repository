@@ -39,7 +39,7 @@ develkitversion=0.3.0
 # naxsi
 elif [ "$1" = "naxsi" ]; then
 module="naxsi-module"
-moduleversion=0.55
+moduleversion=0.55.1
 else
 echo "We only support limited modules please see the Github readme for more information."
 exit 1
