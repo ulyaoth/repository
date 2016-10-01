@@ -181,7 +181,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Fri Sep 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.3-1
+* Sat Oct 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.3-1
 - Updated to Solr 5.5.3.
 
 * Sat Jul 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.2-1
