@@ -669,7 +669,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Oct 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.55.1-1
+* Sun Oct 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.55.1-1
 - Updated to Naxi 0.55.1.
 
 * Wed Sep 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.55-1
