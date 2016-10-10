@@ -38,10 +38,10 @@ OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim
 %build
 
 %ifarch i386 i486 i586 i686
-./Configure --prefix=/usr/local/ulyaoth/ssl/openssl1.1.0 --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 linux-elf shared
+./Configure -Wl,-rpath=/usr/local/ulyaoth/ssl/openssl1.1.0/lib --prefix=/usr/local/ulyaoth/ssl/openssl1.1.0 --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 linux-elf shared
 %endif
 %ifarch x86_64
-./Configure --prefix=/usr/local/ulyaoth/ssl/openssl1.1.0 --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 linux-x86_64 shared
+./Configure -Wl,-rpath=/usr/local/ulyaoth/ssl/openssl1.1.0/lib --prefix=/usr/local/ulyaoth/ssl/openssl1.1.0 --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 linux-x86_64 shared
 %endif
 
 make depend
