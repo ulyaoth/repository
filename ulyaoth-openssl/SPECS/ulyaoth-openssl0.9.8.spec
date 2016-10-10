@@ -63,7 +63,7 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 /etc/ld.so.conf.d/ulyaoth-openssl0.9.8.conf
 
 %post
-/usr/sbin/ldconfig
+/sbin/ldconfig
 cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -78,7 +78,7 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-%postun -p /usr/sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %changelog
 * Mon Oct 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.8zh-3
