@@ -60,6 +60,7 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 %dir /usr/local/ulyaoth/ssl
 %dir /usr/local/ulyaoth/ssl/openssl1.0.0
 /usr/local/ulyaoth/ssl/openssl1.0.0/*
+/etc/ld.so.conf.d/ulyaoth-openssl1.0.0.conf
 
 %post
 cat <<BANNER
