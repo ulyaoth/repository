@@ -6,7 +6,7 @@ AutoReqProv: no
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.1.0
 Version:    1.1.0b
-Release:    1%{?dist}
+Release:    2%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share
 /usr/local/ulyaoth/ssl/openssl1.1.0/*
 /etc/ld.so.conf.d/ulyaoth-openssl1.1.0.conf
 
-%post
+%post -p /sbin/ldconfig
 cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -91,9 +91,12 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-%postun
+%postun -p /sbin/ldconfig
 
 %changelog
+* Mon Oct 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0b-2
+- Added ldd fixes.
+
 * Mon Sep 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0b-1
 - Updated to OpenSSL 1.1.0b.
 
