@@ -6,7 +6,7 @@ AutoReqProv: no
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.0.1
 Version:    1.0.1u
-Release:    1%{?dist}
+Release:    2%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
@@ -62,7 +62,7 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 /usr/local/ulyaoth/ssl/openssl1.0.1/*
 /etc/ld.so.conf.d/ulyaoth-openssl1.0.1.conf
 
-%post
+%post -p /sbin/ldconfig
 cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -77,9 +77,12 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-%postun
+%postun -p /sbin/ldconfig
 
 %changelog
+* Mon Oct 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.1u-2
+- Added ldd fixes.
+
 * Mon Sep 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.1u-1
 - Updated to OpenSSL version 1.0.1u.
 
