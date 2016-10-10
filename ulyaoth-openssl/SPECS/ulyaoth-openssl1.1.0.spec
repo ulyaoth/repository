@@ -18,6 +18,7 @@ Source0:    http://www.openssl.org/source/openssl-%{version}.tar.gz
 %else
 Source0:    https://www.openssl.org/source/openssl-%{version}.tar.gz
 %endif
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/SOURCES/ulyaoth-openssl1.1.0.conf
 BuildRoot:  %{_tmppath}/openssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if 0%{?fedora}  == 19
@@ -57,6 +58,10 @@ make MANDIR=/usr/local/ulyaoth/ssl/openssl1.1.0/man MANSUFFIX=ssl DESTDIR="$RPM_
 
 mv $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share/doc $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/
 rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share
+
+%{__mkdir} -p $RPM_BUILD_ROOT/etc/ld.so.conf.d/
+%{__install} -m 644 -p %{SOURCE1} \
+    $RPM_BUILD_ROOT/etc/ld.so.conf.d/ulyaoth-openssl1.1.0.conf
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT

@@ -18,6 +18,7 @@ Source0:    http://www.openssl.org/source/openssl-%{version}.tar.gz
 %else
 Source0:    https://www.openssl.org/source/openssl-%{version}.tar.gz
 %endif
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/SOURCES/ulyaoth-openssl1.0.1.conf
 BuildRoot:  %{_tmppath}/openssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: ulyaoth-openssl1.0.1
@@ -43,6 +44,10 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.0.1
 
 make INSTALL_PREFIX=$RPM_BUILD_ROOT install
+
+%{__mkdir} -p $RPM_BUILD_ROOT/etc/ld.so.conf.d/
+%{__install} -m 644 -p %{SOURCE1} \
+    $RPM_BUILD_ROOT/etc/ld.so.conf.d/ulyaoth-openssl1.0.1.conf
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
