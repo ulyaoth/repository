@@ -76,7 +76,8 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share
 /usr/local/ulyaoth/ssl/openssl1.1.0/*
 /etc/ld.so.conf.d/ulyaoth-openssl1.1.0.conf
 
-%post -p /sbin/ldconfig
+%post
+/usr/sbin/ldconfig
 cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -91,7 +92,7 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-%postun -p /sbin/ldconfig
+%postun -p /usr/sbin/ldconfig
 
 %changelog
 * Mon Oct 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0b-2
