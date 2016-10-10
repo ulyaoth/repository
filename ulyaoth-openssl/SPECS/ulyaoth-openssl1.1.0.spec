@@ -74,6 +74,7 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share
 %dir /usr/local/ulyaoth/ssl
 %dir /usr/local/ulyaoth/ssl/openssl1.1.0
 /usr/local/ulyaoth/ssl/openssl1.1.0/*
+/etc/ld.so.conf.d/ulyaoth-openssl1.1.0.conf
 
 %post
 cat <<BANNER
