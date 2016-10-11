@@ -43,11 +43,15 @@ Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-
 BuildRoot:  %{_tmppath}/haproxy-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: zlib-devel
+BuildRequires: pcre-devel
 BuildRequires: ulyaoth-openssl1.0.2
 
 Requires: ulyaoth-openssl1.0.2
+Requires: pcre
+Requires: zlib
 
 Provides: haproxy1.6
+Provides: ulyaoth-haproxy1.6
 
 %description
 HAProxy is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications. It is particularly suited for very high traffic web sites and powers quite a number of the world's most visited ones. Over the years it has become the de-facto standard opensource load balancer, is now shipped with most mainstream Linux distributions, and is often deployed by default in cloud platforms. Since it does not advertise itself, we only know it's used when the admins report it :-)
@@ -57,7 +61,7 @@ HAProxy is a free, very fast and reliable solution offering high availability, l
 
 %build
 
-make PREFIX=/usr/local/ulyaoth/haproxy/haproxy1.6 TARGET=linux26 USE_LINUX_TPROXY=1 USE_ZLIB=1 USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/ssl/openssl1.0.2/include SSL_LIB=/usr/local/ulyaoth/ssl/openssl1.0.2/lib ADDLIB=-ldl
+make PREFIX=/usr/local/ulyaoth/haproxy/haproxy1.6 TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/ssl/openssl1.0.2/include SSL_LIB=/usr/local/ulyaoth/ssl/openssl1.0.2/lib ADDLIB=-ldl
 
 %install
 rm -rf $RPM_BUILD_ROOT
