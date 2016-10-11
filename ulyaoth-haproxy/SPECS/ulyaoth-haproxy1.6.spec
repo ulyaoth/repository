@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/share
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/haproxy1.6
 %{__install} -m 644 -p %{SOURCE1} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/haproxy/haproxy.cfg
+    $RPM_BUILD_ROOT%{_sysconfdir}/haproxy1.6/haproxy.cfg
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/haproxy1.6
 	
@@ -110,7 +110,7 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.6/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 %dir /usr/local/ulyaoth/haproxy/haproxy1.6
 
 %dir %{_sysconfdir}/haproxy1.6
-%config(noreplace) %{_sysconfdir}/haproxy/haproxy.cfg
+%config(noreplace) %{_sysconfdir}/haproxy1.6/haproxy.cfg
 
 %dir /usr/local/ulyaoth/haproxy/haproxy1.6/sbin
 /usr/local/ulyaoth/haproxy/haproxy1.6/sbin/haproxy
