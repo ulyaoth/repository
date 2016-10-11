@@ -84,7 +84,7 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.6/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
-%{__install} -m755 %SOURCE3 \
+%{__install} -m755 %SOURCE2 \
     $RPM_BUILD_ROOT%{_initrddir}/haproxy1.6
 %endif
 
