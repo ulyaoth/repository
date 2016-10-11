@@ -34,6 +34,21 @@ ulyaoth-haproxy1.6()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.6.sh ; chmod +x build-ulyaoth-haproxy1.6.sh ; ./build-ulyaoth-haproxy1.6.sh
 }
 
+ulyaoth-haproxy1.5()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.5.sh ; chmod +x build-ulyaoth-haproxy1.5.sh ; ./build-ulyaoth-haproxy1.5.sh
+}
+
+ulyaoth-haproxy1.4()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.4.sh ; chmod +x build-ulyaoth-haproxy1.4.sh ; ./build-ulyaoth-haproxy1.4.sh
+}
+
+ulyaoth-haproxy1.3()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.3.sh ; chmod +x build-ulyaoth-haproxy1.3.sh ; ./build-ulyaoth-haproxy1.3.sh
+}
+
 ulyaoth-beats()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/build-ulyaoth-beats.sh ; chmod +x build-ulyaoth-beats.sh ; ./build-ulyaoth-beats.sh
