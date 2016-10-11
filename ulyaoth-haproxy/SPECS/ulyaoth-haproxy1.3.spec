@@ -108,7 +108,7 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.3/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 %dir /usr/local/ulyaoth/haproxy/haproxy1.3
 
 %dir %{_sysconfdir}/haproxy1.3
-%config(noreplace) %{_sysconfdir}/haproxy/haproxy.cfg
+%config(noreplace) %{_sysconfdir}/haproxy1.3/haproxy.cfg
 
 %dir /usr/local/ulyaoth/haproxy/haproxy1.3/sbin
 /usr/local/ulyaoth/haproxy/haproxy1.3/sbin/haproxy
