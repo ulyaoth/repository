@@ -101,7 +101,8 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/share
 %{_initrddir}/haproxy1.6
 %endif
 
-%post -p /sbin/ldconfig
+%post
+/sbin/ldconfig
 cat <<BANNER
 ----------------------------------------------------------------------
 
