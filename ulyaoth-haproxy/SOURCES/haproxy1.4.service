@@ -6,7 +6,7 @@ After=network.target remote-fs.target nss-lookup.target
 [Service]
 Type=forking
 PIDFile=/run/haproxy1.4.pid
-ExecStart=/usr/sbin/haproxy1.4 -f /etc/haproxy/haproxy1.4.cfg -p /run/haproxy1.4.pid
+ExecStart=/usr/sbin/haproxy1.4 -f /etc/haproxy1.4/haproxy.cfg -p /run/haproxy1.4.pid
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true
