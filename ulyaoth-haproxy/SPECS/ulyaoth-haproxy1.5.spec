@@ -113,16 +113,6 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.5/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 
 %dir /usr/local/ulyaoth/haproxy/haproxy1.5/doc
 %dir /usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/architecture.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/close-options.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/configuration.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/cookie-options.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/intro.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/linux-syn-cookies.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/lua.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/management.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/network-namespaces.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/proxy-protocol.txt
 
 %if %{use_systemd}
 %{_unitdir}/haproxy1.5.service
