@@ -77,6 +77,8 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.5/share
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/haproxy
 %{__install} -m 644 -p %{SOURCE1} \
     $RPM_BUILD_ROOT%{_sysconfdir}/haproxy/haproxy1.5.cfg
+	
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/haproxy1.5
 
 ln -s /usr/local/ulyaoth/haproxy/haproxy1.5/sbin/haproxy $RPM_BUILD_ROOT/usr/sbin/haproxy1.5
 	
@@ -100,6 +102,8 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.5/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 %files
 %defattr(-,root,root,-)
 /usr/sbin/haproxy1.5
+
+%attr(0755,root,root) %dir %{_localstatedir}/log/haproxy1.5
 
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/haproxy
@@ -130,6 +134,14 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.5/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 
 %post
 /sbin/ldconfig
+# Register the haproxy1.5 service
+if [ $1 -eq 1 ]; then
+%if %{use_systemd}
+    /usr/bin/systemctl preset haproxy1.5.service >/dev/null 2>&1 ||:
+%else
+    /sbin/chkconfig --add haproxy1.5
+%endif
+
 cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -143,8 +155,29 @@ For any additional help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
+fi
 
-%postun -p /sbin/ldconfig
+%preun
+if [ $1 -eq 0 ]; then
+%if %use_systemd
+    /usr/bin/systemctl --no-reload disable haproxy1.5.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl stop haproxy1.5.service >/dev/null 2>&1 ||:
+%else
+    /sbin/service haproxy1.5 stop > /dev/null 2>&1
+    /sbin/chkconfig --del haproxy1.5
+%endif
+fi
+
+%postun
+/sbin/ldconfig
+%if %use_systemd
+/usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
+%endif
+if [ $1 -ge 1 ]; then
+    /sbin/service haproxy1.5 status  >/dev/null 2>&1 || exit 0
+    /sbin/service haproxy1.5 upgrade >/dev/null 2>&1 || echo \
+        "Binary upgrade failed."
+fi
 
 %changelog
 * Tue Oct 11 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.5.18-1
