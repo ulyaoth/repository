@@ -5,3 +5,9 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy
 
 ulyaoth-haproxy1.5:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.5.sh ; chmod +x build-ulyaoth-haproxy1.5.sh ; ./build-ulyaoth-haproxy1.5.sh
+
+ulyaoth-haproxy1.4:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.4.sh ; chmod +x build-ulyaoth-haproxy1.4.sh ; ./build-ulyaoth-haproxy1.4.sh
+
+ulyaoth-haproxy1.3:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.3.sh ; chmod +x build-ulyaoth-haproxy1.3.sh ; ./build-ulyaoth-haproxy1.3.sh

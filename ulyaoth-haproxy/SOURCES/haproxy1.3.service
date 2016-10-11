@@ -1,0 +1,16 @@
+[Unit]
+Description=HAProxy - The Reliable, High Performance TCP/HTTP Load Balancer
+Documentation=https://www.haproxy.org/
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/run/haproxy1.3.pid
+ExecStart=/usr/sbin/haproxy1.3 -f /etc/haproxy/haproxy1.3.cfg -p /run/haproxy1.3.pid
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+LimitNOFILE=200000
+
+[Install]
+WantedBy=multi-user.target
