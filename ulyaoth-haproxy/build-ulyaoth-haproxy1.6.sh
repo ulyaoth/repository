@@ -1,4 +1,3 @@
-ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 
 useradd ulyaoth
@@ -6,23 +5,18 @@ usermod -Gulyaoth ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/SPECS/ulyaoth-openssl0.9.8.spec"
-
-if [ "$arch" != "x86_64" ]
-then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-openssl0.9.8.spec
-fi
+su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SPECS/ulyaoth-haproxy1.6.spec"
 
 if type dnf 2>/dev/null
 then
-  dnf builddep -y ulyaoth-openssl0.9.8.spec
+  dnf builddep -y ulyaoth-haproxy1.6.spec
 elif type yum 2>/dev/null
 then
-  yum-builddep -y ulyaoth-openssl0.9.8.spec
+  yum-builddep -y ulyaoth-haproxy1.6.spec
 fi
 
-su ulyaoth -c "spectool ulyaoth-openssl0.9.8.spec -g -R"
-su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-openssl0.9.8.spec"
+su ulyaoth -c "spectool ulyaoth-haproxy1.6.spec -g -R"
+su ulyaoth -c "rpmbuild -ba ulyaoth-haproxy1.6.spec"
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then

@@ -2,8 +2,9 @@
 #
 # Init Script to run HaProxy in daemon mode at boot time.
 #
-# Author: Riccardo Riva - RPM S.r.l.
-# Revision 1.0  -  2011 November, 18</pre>
+# Original Author: Riccardo Riva - RPM S.r.l.
+# New Author: Sjir Bagmeijer - <sbagmeijer@ulyaoth.net>
+# Revision 1.0  -  2016 October, 11</pre>
  
 #====================================================================
 # Run level information:
@@ -11,11 +12,11 @@
 # chkconfig: 2345 85 15
 # description: HA-Proxy is a TCP/HTTP reverse proxy which is particularly suited
 #              for high availability environments.
-# processname: haproxy
-# config: /etc/haproxy.cfg
-# pidfile: /var/run/haproxy.pid
+# processname: haproxy1.6
+# config: /etc/haproxy1.6.cfg
+# pidfile: /var/run/haproxy1.6.pid
 #
-# Run "/sbin/chkconfig --add haproxy" to add the Run levels.
+# Run "/sbin/chkconfig --add haproxy1.6" to add the Run levels.
 # This will setup the symlinks and set the process to run at boot.
 #====================================================================
  
@@ -34,37 +35,37 @@ fi
 # Check that networking is up.
 [ ${NETWORKING} = "no" ] && exit 0
  
-[ -f /etc/haproxy/haproxy.cfg ] || exit 1
+[ -f /etc/haproxy/haproxy1.6.cfg ] || exit 1
  
 RETVAL=0
  
 start() {
-  /usr/local/sbin/haproxy -c -q -f /etc/haproxy/haproxy.cfg
+  /usr/sbin/haproxy1.6 -c -q -f /etc/haproxy/haproxy1.6.cfg
   if [ $? -ne 0 ]; then
     echo "Errors found in configuration file."
     return 1
   fi
  
   echo -n "Starting HAproxy: "
-  daemon /usr/local/sbin/haproxy -D -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid
+  daemon /usr/sbin/haproxy1.6 -D -f /etc/haproxy/haproxy1.6.cfg -p /var/run/haproxy1.6.pid
   RETVAL=$?
   echo
-  [ $RETVAL -eq 0 ] && touch /var/lock/subsys/haproxy
+  [ $RETVAL -eq 0 ] && touch /var/lock/subsys/haproxy1.6
   return $RETVAL
 }
  
 stop() {
   echo -n "Shutting down HAproxy: "
-  killproc haproxy -USR1
+  killproc haproxy1.6 -USR1
   RETVAL=$?
   echo
-  [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/haproxy
-  [ $RETVAL -eq 0 ] && rm -f /var/run/haproxy.pid
+  [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/haproxy1.6
+  [ $RETVAL -eq 0 ] && rm -f /var/run/haproxy1.6.pid
   return $RETVAL
 }
  
 restart() {
-  /usr/local/sbin/haproxy -c -q -f /etc/haproxy/haproxy.cfg
+  /usr/sbin/haproxy1.6 -c -q -f /etc/haproxy/haproxy1.6.cfg
   if [ $? -ne 0 ]; then
     echo "Errors found in configuration file, check it with 'haproxy check'."
     return 1
@@ -74,15 +75,15 @@ restart() {
 }
  
 check() {
-  /usr/local/sbin/haproxy -c -q -V -f /etc/haproxy/haproxy.cfg
+  /usr/sbin/haproxy1.6 -c -q -V -f /etc/haproxy/haproxy1.6.cfg
 }
  
 rhstatus() {
-  status haproxy
+  status haproxy1.6
 }
  
 condrestart() {
-  [ -e /var/lock/subsys/haproxy ] && restart || :
+  [ -e /var/lock/subsys/haproxy1.6 ] && restart || :
 }
  
 # See how we were called.
@@ -109,7 +110,7 @@ case "$1" in
     check
     ;;
   *)
-    echo $"Usage: haproxy {start|stop|restart|reload|condrestart|status|check}"
+    echo $"Usage: haproxy1.6 {start|stop|restart|reload|condrestart|status|check}"
     RETVAL=1
 esac
  
