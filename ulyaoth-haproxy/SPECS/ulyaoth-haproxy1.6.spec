@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 
 mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6
 
-make PREFIX=/usr/local/ulyaoth/haproxy/haproxy1.6 install
+make DESTDIR=$RPM_BUILD_ROOT install
 
 mv $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/share/man $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/
 rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/share
