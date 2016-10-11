@@ -1,3 +1,4 @@
+AutoReqProv: no
 %define debug_package %{nil}
 
 # distribution specific definitions
@@ -62,8 +63,9 @@ make PREFIX=/usr/local/ulyaoth/haproxy/haproxy1.6 TARGET=linux26 USE_LINUX_TPROX
 rm -rf $RPM_BUILD_ROOT
 
 mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6
+mkdir -p $RPM_BUILD_ROOT/usr/sbin
 
-make DESTDIR=$RPM_BUILD_ROOT install
+make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr/local/ulyaoth/haproxy/haproxy1.6 install
 
 mv $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/share/man $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/
 rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/share
@@ -72,6 +74,8 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/share
 %{__install} -m 644 -p %{SOURCE1} \
     $RPM_BUILD_ROOT%{_sysconfdir}/haproxy/haproxy1.6.cfg
 
+ln -s /usr/local/ulyaoth/haproxy/haproxy1.6/sbin/haproxy $RPM_BUILD_ROOT/usr/sbin/haproxy1.6
+	
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
@@ -91,6 +95,8 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.6/share
 
 %files
 %defattr(-,root,root,-)
+/usr/sbin/haproxy1.6
+
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/haproxy
 %dir /usr/local/ulyaoth/haproxy/haproxy1.6
