@@ -1,5 +1,28 @@
 %define debug_package %{nil}
 
+# distribution specific definitions
+%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
+
+%if 0%{?rhel}  == 6
+Requires(pre): shadow-utils
+Requires: initscripts >= 8.36
+Requires(post): chkconfig
+%endif
+
+%if 0%{?rhel}  == 7
+Requires(pre): shadow-utils
+Requires: systemd
+BuildRequires: systemd
+BuildRequires: systemd-devel
+%endif
+
+%if 0%{?fedora} >= 18
+Requires(pre): shadow-utils
+Requires: systemd
+BuildRequires: systemd
+BuildRequires: systemd-devel
+%endif
+
 # end of distribution specific definitions
 
 Summary:    The Reliable, High Performance TCP/HTTP Load Balancer
@@ -8,7 +31,7 @@ Version:    1.6.9
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPL/LGPL
-Group:      System Environment/Libraries
+Group:      System Environment/Daemons
 URL:        https://www.haproxy.org/
 Vendor:     HAProxy
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
