@@ -72,9 +72,9 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr/local/ulyaoth/haproxy/haproxy1.3 instal
 mv $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.3/share/man $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.3/
 rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.3/share
 
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/haproxy
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/haproxy1.3
 %{__install} -m 644 -p %{SOURCE1} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/haproxy/haproxy1.3.cfg
+    $RPM_BUILD_ROOT%{_sysconfdir}/haproxy/haproxy.cfg
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/haproxy1.3
 
@@ -107,8 +107,8 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.3/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 %dir /usr/local/ulyaoth/haproxy
 %dir /usr/local/ulyaoth/haproxy/haproxy1.3
 
-%dir %{_sysconfdir}/haproxy
-%config(noreplace) %{_sysconfdir}/haproxy/haproxy1.3.cfg
+%dir %{_sysconfdir}/haproxy1.3
+%config(noreplace) %{_sysconfdir}/haproxy/haproxy.cfg
 
 %dir /usr/local/ulyaoth/haproxy/haproxy1.3/sbin
 /usr/local/ulyaoth/haproxy/haproxy1.3/sbin/haproxy
