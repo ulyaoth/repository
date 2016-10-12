@@ -6,7 +6,7 @@ Version: 1.1.3
 BuildArch: noarch
 URL: https://www.ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Release: 1.%{ulyaothos}
+Release: 2.%{ulyaothos}
 Source0: https://repos.ulyaoth.asia/RPM-GPG-KEY-ulyaoth
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-%{ulyaothos}.repo
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/COPYING
@@ -55,6 +55,9 @@ For any additional information or help please visit my forum at:
 BANNER
 
 %changelog
+* Wed Oct 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.3-2
+- Forcing url to "latest" since amazon linux 2016.09 changed how "$releasever" works.
+
 * Sun May 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.3-1
 - Changed domain back to repos.ulyaoth.net.
 
