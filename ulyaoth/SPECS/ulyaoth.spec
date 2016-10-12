@@ -2,11 +2,11 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.1.3
+Version: 1.1.4
 BuildArch: x86_64
 URL: https://www.ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Release: 2.%{ulyaothos}
+Release: 1.%{ulyaothos}
 Source0: https://repos.ulyaoth.asia/RPM-GPG-KEY-ulyaoth
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-%{ulyaothos}.repo
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/COPYING
