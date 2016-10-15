@@ -8,15 +8,15 @@
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9-admin
 Version:    9.0.0
-Release:    7%{?dist}
+Release:    8%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M10/bin/apache-tomcat-%{version}.M10.tar.gz
-BuildRoot:  %{_tmppath}/tomcat-%{version}.M10-%{release}-root-%(%{__id_u} -n)
+Source0:    http://www.eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M11/bin/apache-tomcat-%{version}.M11.tar.gz
+BuildRoot:  %{_tmppath}/tomcat-%{version}.M11-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat9
 
@@ -29,7 +29,7 @@ Provides: ulyaoth-tomcat9-admin
 The package contains the official Apache Tomcat "webapps/manager" and "webapps/host-manager" directories.
 
 %prep
-%setup -q -n apache-tomcat-%{version}.M10
+%setup -q -n apache-tomcat-%{version}.M11
 
 %build
 
@@ -78,6 +78,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-8
+- Updating to Tomcat 9.0.0.M11.
+
 * Sat Sep 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-7
 - Updating to Tomcat 9.0.0.M10.
 
