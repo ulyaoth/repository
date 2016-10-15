@@ -138,7 +138,7 @@ BuildRequires: libGeoIP-devel
         --with-http_slice_module \
         --with-mail \
         --with-mail_ssl_module \
-        --with-file-aio
+        --with-file-aio \
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
