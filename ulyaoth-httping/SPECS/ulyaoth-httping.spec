@@ -1,6 +1,6 @@
 Summary:    Httping is like 'ping' but for http-requests.
 Name:       ulyaoth-httping
-Version:    2.4
+Version:    2.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv2
@@ -80,5 +80,8 @@ BANNER
 %postun
 
 %changelog
+* Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.5-1
+- Updated to httping 2.5.
+
 * Wed Jun 8 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.4-1
 - Initial release.
