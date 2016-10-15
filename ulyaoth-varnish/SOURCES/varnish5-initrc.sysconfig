@@ -64,5 +64,5 @@ DAEMON_OPTS="-a ${VARNISH_LISTEN_ADDRESS}:${VARNISH_LISTEN_PORT} \
              -p thread_pool_min=${VARNISH_MIN_THREADS} \
              -p thread_pool_max=${VARNISH_MAX_THREADS} \
              -S ${VARNISH_SECRET_FILE} \
-             -n /var/lib/varnish5
+             -n /var/lib/varnish5 \
              -s ${VARNISH_STORAGE}"
