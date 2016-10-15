@@ -78,7 +78,7 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.11.4
+%define main_version                 1.11.5
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.1.2
 %define module_xslt_version          %{main_version}
@@ -134,6 +134,7 @@ BuildRequires: libGeoIP-devel
         --with-stream \
         --with-stream_ssl_module \
         --with-stream_geoip_module=dynamic \
+		--with-stream_ssl_preread_module=dynamic \
         --with-http_slice_module \
         --with-mail \
         --with-mail_ssl_module \
@@ -626,6 +627,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.5-1
+- Updated to Nginx Mainline 1.11.5.
+
 * Wed Sep 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.4-1
 - Updated to Nginx Mainline 1.11.4.
 - njs updated to 0.1.2.
