@@ -32,8 +32,8 @@ su ulyaoth -c "mkdir -p /home/ulyaoth/banana-'"$bananaversion"'/build"
 cd /home/ulyaoth/banana-$bananaversion
 
 ### Temp download seems missing in 1.6.8.
-#su ulyaoth -c "wget http://d2ujn7sdjfz3mg.cloudfront.net/build.xml"
-#su ulyaoth -c "wget http://d2ujn7sdjfz3mg.cloudfront.net/default.properties"
+su ulyaoth -c "wget http://d2ujn7sdjfz3mg.cloudfront.net/build.xml"
+su ulyaoth -c "wget http://d2ujn7sdjfz3mg.cloudfront.net/default.properties"
 ###
 
 su ulyaoth -c "ant"
