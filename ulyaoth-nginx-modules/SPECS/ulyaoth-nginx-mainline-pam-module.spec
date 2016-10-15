@@ -78,7 +78,7 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.11.4
+%define main_version                 1.11.5
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.1.2
 %define module_xslt_version          %{main_version}
@@ -92,7 +92,7 @@ BuildRequires: libGeoIP-devel
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 %define module_pam_version  1.5.1
-%define module_pam_release  3%{?dist}
+%define module_pam_release  4%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -671,6 +671,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.5.1-4
+- Recompiled with Nginx Mainline 1.11.5.
+
 * Wed Sep 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.5.1-3
 - Recompiled with Nginx Mainline 1.11.4.
 
