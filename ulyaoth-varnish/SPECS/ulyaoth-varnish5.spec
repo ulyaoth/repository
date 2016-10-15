@@ -188,8 +188,6 @@ exit 0
 /etc/security/limits.d/varnish5.conf
 %config(noreplace) %{_sysconfdir}/ld.so.conf.d/ulyaoth-varnish5.conf
 
-%attr(0755,root,root) %dir %{_localstatedir}/log/varnish5
-
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/varnish
 %dir /usr/local/ulyaoth/varnish/varnish5
@@ -288,6 +286,8 @@ exit 0
 
 %defattr(-,varnish,varnish,-)
 %dir /var/lib/varnish5
+
+%attr(0755,varnish,varnish) %dir %{_localstatedir}/log/varnish5
 
 %post
 /sbin/ldconfig

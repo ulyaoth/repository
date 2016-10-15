@@ -44,7 +44,7 @@ start() {
 
 	echo -n "Starting varnish5 ncsa logging daemon: "
 
-	daemon --pidfile $pidfile $exec "$DAEMON_OPTS" 
+	daemon --pidfile $pidfile $exec -n /var/lib/varnish5 "$DAEMON_OPTS" 
 	echo
 	return $retval
 }
