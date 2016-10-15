@@ -88,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 
 mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5
 mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/examples
+mkdir -p $RPM_BUILD_ROOT/var/lib/varnish5
 mkdir -p $RPM_BUILD_ROOT/usr/sbin
 mkdir -p $RPM_BUILD_ROOT/usr/bin
 
@@ -189,6 +190,7 @@ exit 0
 
 %attr(0755,root,root) %dir %{_localstatedir}/log/varnish5
 
+%dir /var/lib/varnish5
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/varnish
 %dir /usr/local/ulyaoth/varnish/varnish5
