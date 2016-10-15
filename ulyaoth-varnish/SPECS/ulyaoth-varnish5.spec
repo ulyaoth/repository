@@ -1,4 +1,4 @@
-%define varnish5_home /usr/local/ulyaoth/varnish/varnish5
+%define varnish5_home /var/lib/varnish5
 %define varnish5_user varnish5
 %define varnish5_group varnish5
 %define varnish5_loggroup adm
