@@ -51,6 +51,7 @@ Source8:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-
 Source9:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/ulyaoth-varnish5.conf
 Source10:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish_reload_vcl
 Source11:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5-systemd.sysconfig
+Source12:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5-limits.conf
 BuildRoot:  %{_tmppath}/varnish5-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: autoconf
@@ -108,6 +109,10 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/doc
 %{__install} -m 644 -p %{SOURCE9} \
     $RPM_BUILD_ROOT/etc/ld.so.conf.d/ulyaoth-varnish5.conf
 
+mkdir -p $RPM_BUILD_ROOT/etc/security/limits.d/
+%{__install} -m 644 -p %{SOURCE12} \
+    $RPM_BUILD_ROOT/etc/security/limits.d/varnish5.conf
+	
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/varnish5
 %{__install} -m 644 -p %{SOURCE1} \
     $RPM_BUILD_ROOT%{_sysconfdir}/varnish5/default.vcl
