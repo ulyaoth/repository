@@ -40,12 +40,12 @@ fi
 
 if type dnf 2>/dev/null
 then
-  dnf remove -y apr apr-devel
+  dnf remove -y apr apr-devel java-1.7.0-openjdk
   dnf install -y java-1.8.0-openjdk-devel
   dnf builddep -y ulyaoth-tomcat-native1.2.spec
 elif type yum 2>/dev/null
 then
-  yum remove -y apr apr-devel
+  yum remove -y apr apr-devel java-1.7.0-openjdk
   yum install -y java-1.8.0-openjdk-devel
   yum-builddep -y ulyaoth-tomcat-native1.2.spec
 fi
