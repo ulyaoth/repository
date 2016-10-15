@@ -35,7 +35,7 @@ ExecStart=/usr/sbin/varnish5d \
         -T ${VARNISH_ADMIN_LISTEN_ADDRESS}:${VARNISH_ADMIN_LISTEN_PORT} \
         -S $VARNISH_SECRET_FILE \
         -s $VARNISH_STORAGE \
-        -n /var/lib/varnish5
+        -n /var/lib/varnish5 \
         $DAEMON_OPTS
 
 ExecReload=/usr/sbin/varnish5_reload_vcl
