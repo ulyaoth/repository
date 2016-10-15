@@ -76,7 +76,7 @@ Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as w
 %setup -q -n varnish-%{version}
 
 %build
-cd varnish-cache-varnish-5.0.0
+cd %_builddir/varnish-cache-varnish-5.0.0
 ./autogen.sh
 ./configure --prefix=/usr
 make %{?_smp_mflags}
