@@ -184,6 +184,7 @@ exit 0
 /usr/bin/varnish5test
 /usr/bin/varnish5top
 /etc/sysconfig/varnish5
+/etc/security/limits.d/varnish5.conf
 %config(noreplace) %{_sysconfdir}/ld.so.conf.d/ulyaoth-varnish5.conf
 
 %attr(0755,root,root) %dir %{_localstatedir}/log/varnish5
