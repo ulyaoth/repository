@@ -1,3 +1,4 @@
+%define varnish5_home /usr/local/ulyaoth/varnish/varnish5
 %define varnish5_user varnish5
 %define varnish5_group varnish5
 %define varnish5_loggroup adm
@@ -39,16 +40,17 @@ URL:        https://varnish-cache.org
 Vendor:     Varnish Software AS
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://github.com/varnishcache/varnish-cache/archive/varnish-%{version}.tar.gz
-Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/default.vlc
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/default.vcl
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5.service
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5log.service
 Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5ncsa.service
 Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5.initrc
-Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5.initrc
-Source7:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5.initrc
-Source8:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5-environment
+Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5log.initrc
+Source7:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5ncsa.initrc
+Source8:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5-initrc.sysconfig
 Source9:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/ulyaoth-varnish5.conf
 Source10:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish_reload_vcl
+Source11:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5-systemd.sysconfig
 BuildRoot:  %{_tmppath}/varnish5-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: autoconf
@@ -73,12 +75,11 @@ Provides: ulyaoth-varnish5
 Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as heavily consumed APIs.
 
 %prep
-%setup -q -n varnish-%{version}
+%setup -q -n varnish-cache-varnish-%{version}
 
 %build
-cd %_builddir/varnish-cache-varnish-5.0.0
 ./autogen.sh
-./configure --prefix=/usr
+./configure --prefix=/usr/local/ulyaoth/varnish/varnish5
 make %{?_smp_mflags}
 
 %install
@@ -87,10 +88,11 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5
 mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/examples
 mkdir -p $RPM_BUILD_ROOT/usr/sbin
+mkdir -p $RPM_BUILD_ROOT/usr/bin
 
 make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr/local/ulyaoth/varnish/varnish5 install
 
-%{__install} -m 644 -p %{SOURCE10} \
+%{__install} -m 755 -p %{SOURCE10} \
     $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/sbin/varnish_reload_vcl
 
 mv $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/share/man $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/
@@ -110,9 +112,17 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/doc
 %{__install} -m 644 -p %{SOURCE1} \
     $RPM_BUILD_ROOT%{_sysconfdir}/varnish5/default.vcl
 
+%if %{use_systemd}
+# install systemd-specific files
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
+%{__install} -m 644 -p %{SOURCE11} \
+    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/varnish5
+%else
+# install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE8} \
     $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/varnish5
+%endif
 	
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/varnish5
 	
@@ -153,7 +163,7 @@ ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishtop $RPM_BUILD_ROOT/usr/bin
 # Add the "varnish5" user
 getent group %{varnish5_group} >/dev/null || groupadd -r %{varnish5_group}
 getent passwd %{varnish5_user} >/dev/null || \
-    useradd -r -g %{vanrish5_group} -s /sbin/nologin \
+    useradd -r -g %{varnish5_group} -s /sbin/nologin \
     -d %{varnish5_home} -c "varnish5 user"  %{varnish5_user}
 exit 0
 
@@ -168,6 +178,8 @@ exit 0
 /usr/bin/varnish5stat
 /usr/bin/varnish5test
 /usr/bin/varnish5top
+/etc/sysconfig/varnish5
+%config(noreplace) %{_sysconfdir}/ld.so.conf.d/ulyaoth-varnish5.conf
 
 %attr(0755,root,root) %dir %{_localstatedir}/log/varnish5
 
@@ -197,6 +209,8 @@ exit 0
 
 %dir /usr/local/ulyaoth/varnish/varnish5/examples
 /usr/local/ulyaoth/varnish/varnish5/examples/vmodtool.py
+/usr/local/ulyaoth/varnish/varnish5/examples/vmodtool.pyc
+/usr/local/ulyaoth/varnish/varnish5/examples/vmodtool.pyo
 
 %dir /usr/local/ulyaoth/varnish/varnish5/examples/vcl
 /usr/local/ulyaoth/varnish/varnish5/examples/vcl/builtin.vcl
@@ -281,7 +295,7 @@ cat <<BANNER
 
 Thank you for using ulyaoth-varnish5!
 
-Please find the official documentation for HAProxy here:
+Please find the official documentation for Varnish here:
 * https://www.varnish-cache.org
 
 For any additional help please visit my forum at:
@@ -294,7 +308,7 @@ BANNER
     if [ -d %{_localstatedir}/log/varnish5 ]; then
         if [ ! -e %{_localstatedir}/log/varnish5/varnish.log ]; then
             touch %{_localstatedir}/log/varnish5/varnish.log
-            %{__chmod} 640 %{_localstatedir}/log/varnish/varnish.log
+            %{__chmod} 640 %{_localstatedir}/log/varnish5/varnish.log
             %{__chown} varnish5:%{varnish5_loggroup} %{_localstatedir}/log/varnish/varnish.log
         fi
 
@@ -313,7 +327,7 @@ if [ $1 -eq 0 ]; then
     /usr/bin/systemctl stop varnish5.service >/dev/null 2>&1 ||:
 %else
     /sbin/service varnish5 stop > /dev/null 2>&1
-    /sbin/chkconfig --del haproxy1.6
+    /sbin/chkconfig --del varnish5
 %endif
 fi
 
