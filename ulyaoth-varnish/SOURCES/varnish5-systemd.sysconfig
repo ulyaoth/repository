@@ -25,8 +25,8 @@ VARNISH_SECRET_FILE=/etc/varnish5/secret
 VARNISH_STORAGE="malloc,256M"
 
 # User and group for the varnishd worker processes
-VARNISH_USER=varnish5
-VARNISH_GROUP=varnish5
+VARNISH_USER=varnish
+VARNISH_GROUP=varnish
 
 # Other options, see the man page varnishd(1)
 #DAEMON_OPTS="-p thread_pool_min=5 -p thread_pool_max=500 -p thread_pool_timeout=300"
