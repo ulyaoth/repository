@@ -5,6 +5,8 @@ buildarch="$(uname -m)"
 # Install EPEL for rhel6 based os.
 if grep --quiet "release 6" /etc/redhat-release || grep --quiet "release 6" /etc/oracle-release || grep --quiet "release 6" /etc/centos-release; then
   yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+elif grep --quiet "release 7" /etc/redhat-release || grep --quiet "release 7" /etc/oracle-release || grep --quiet "release 7" /etc/centos-release; then
+  yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 fi
 
 # fix ldd
