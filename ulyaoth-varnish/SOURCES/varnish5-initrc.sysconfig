@@ -23,6 +23,10 @@ NPROCS="unlimited"
 # VARNISH_ADMIN_LISTEN_PORT, VARNISH_SECRET_FILE.
 RELOAD_VCL=1
 
+# User and group for the varnishd worker processes
+VARNISH_USER=varnish5
+VARNISH_GROUP=varnish5
+
 # Main configuration file.
 VARNISH_VCL_CONF=/etc/varnish5/default.vcl
 #
@@ -60,4 +64,5 @@ DAEMON_OPTS="-a ${VARNISH_LISTEN_ADDRESS}:${VARNISH_LISTEN_PORT} \
              -p thread_pool_min=${VARNISH_MIN_THREADS} \
              -p thread_pool_max=${VARNISH_MAX_THREADS} \
              -S ${VARNISH_SECRET_FILE} \
-             -s ${VARNISH_STORAGE}"
+             -s ${VARNISH_STORAGE}" \
+             -n /var/lib/varnish5
