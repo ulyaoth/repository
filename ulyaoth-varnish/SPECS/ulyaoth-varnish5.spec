@@ -286,8 +286,9 @@ exit 0
 
 %defattr(-,varnish,varnish,-)
 %dir /var/lib/varnish5
+%dir /var/log/varnish5
 
-%attr(0755,varnish,varnish) %dir %{_localstatedir}/log/varnish5
+%attr(0755,varnish,varnish) /var/log/varnish5
 
 %post
 /sbin/ldconfig
