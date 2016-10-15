@@ -3,6 +3,9 @@ ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 
 # Install EPEL for rhel6 based os.
+if grep --quiet "release 6" /etc/redhat-release || grep --quiet "release 6" /etc/oracle-release || grep --quiet "release 6" /etc/centos-release; then
+  yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+fi
 
 # fix ldd
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/ulyaoth-varnish5.conf -O /etc/ld.so.conf.d/ulyaoth-varnish5.conf
