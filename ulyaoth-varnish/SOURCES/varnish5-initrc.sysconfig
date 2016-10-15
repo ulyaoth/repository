@@ -24,8 +24,8 @@ NPROCS="unlimited"
 RELOAD_VCL=1
 
 # User and group for the varnishd worker processes
-VARNISH_USER=varnish5
-VARNISH_GROUP=varnish5
+VARNISH_USER=varnish
+VARNISH_GROUP=varnish
 
 # Main configuration file.
 VARNISH_VCL_CONF=/etc/varnish5/default.vcl

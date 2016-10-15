@@ -1,6 +1,6 @@
 %define varnish5_home /var/lib/varnish5
-%define varnish5_user varnish5
-%define varnish5_group varnish5
+%define varnish5_user varnish
+%define varnish5_group varnish
 %define varnish5_loggroup adm
 %define debug_package %{nil}
 
@@ -166,11 +166,11 @@ ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishtop $RPM_BUILD_ROOT/usr/bin
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %pre
-# Add the "varnish5" user
+# Add the "varnish" user
 getent group %{varnish5_group} >/dev/null || groupadd -r %{varnish5_group}
 getent passwd %{varnish5_user} >/dev/null || \
     useradd -r -g %{varnish5_group} -s /sbin/nologin \
-    -d %{varnish5_home} -c "varnish5 user"  %{varnish5_user}
+    -d %{varnish5_home} -c "varnish user"  %{varnish5_user}
 exit 0
 
 %files
@@ -286,7 +286,7 @@ exit 0
 %{_initrddir}/varnish5log
 %endif
 
-%defattr(-,varnish5,varnish5,-)
+%defattr(-,varnish,varnish,-)
 %dir /var/lib/varnish5
 
 %post
@@ -319,13 +319,13 @@ BANNER
         if [ ! -e %{_localstatedir}/log/varnish5/varnish.log ]; then
             touch %{_localstatedir}/log/varnish5/varnish.log
             %{__chmod} 640 %{_localstatedir}/log/varnish5/varnish.log
-            %{__chown} varnish5:%{varnish5_loggroup} %{_localstatedir}/log/varnish5/varnish.log
+            %{__chown} varnish:%{varnish5_loggroup} %{_localstatedir}/log/varnish5/varnish.log
         fi
 
         if [ ! -e %{_localstatedir}/log/varnish5/varnishncsa.log ]; then
             touch %{_localstatedir}/log/varnish5/varnishncsa.log
             %{__chmod} 640 %{_localstatedir}/log/varnish5/varnishncsa.log
-            %{__chown} varnish5:%{varnish5_loggroup} %{_localstatedir}/log/varnish5/varnishncsa.log
+            %{__chown} varnish:%{varnish5_loggroup} %{_localstatedir}/log/varnish5/varnishncsa.log
         fi
     fi
 fi
