@@ -317,7 +317,7 @@ BANNER
         if [ ! -e %{_localstatedir}/log/varnish5/varnish.log ]; then
             touch %{_localstatedir}/log/varnish5/varnish.log
             %{__chmod} 640 %{_localstatedir}/log/varnish5/varnish.log
-            %{__chown} varnish5:%{varnish5_loggroup} %{_localstatedir}/log/varnish/varnish.log
+            %{__chown} varnish5:%{varnish5_loggroup} %{_localstatedir}/log/varnish5/varnish.log
         fi
 
         if [ ! -e %{_localstatedir}/log/varnish5/varnishncsa.log ]; then
