@@ -8,7 +8,7 @@ Type=forking
 PIDFile=/var/run/varnish5ncsa/varnish5ncsa.pid
 User=varnish
 Group=varnish
-ExecStart=/usr/bin/varnish5ncsa -a -w /var/log/varnish5/varnishncsa.log -D -P /var/run/varnish5ncsa/varnishncsa.pid
+ExecStart=/usr/bin/varnish5ncsa -a -w /var/log/varnish5/varnishncsa.log -D -n /var/lib/varnish5 -P /var/run/varnish5ncsa/varnishn5csa.pid
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
