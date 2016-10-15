@@ -80,7 +80,6 @@ BuildRequires: libGeoIP-devel
 
 %define main_version                 1.10.1
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.1.3
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -89,7 +88,8 @@ BuildRequires: libGeoIP-devel
 %define module_image_filter_release  1%{?dist}.ngx
 %define module_perl_version          %{main_version}
 %define module_perl_release          1%{?dist}.ngx
-%define module_njs_version           %{main_version}.%{njs_version}
+%define module_njs_shaid             1c50334fbea6
+%define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
 %define module_njs_release           1%{?dist}.ngx
 %define module_echo_version  0.60
 %define module_echo_release  1%{?dist}
@@ -131,7 +131,7 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{njs_version}/nginx \
+        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \

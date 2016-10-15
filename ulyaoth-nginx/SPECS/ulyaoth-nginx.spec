@@ -79,18 +79,18 @@ BuildRequires: libGeoIP-devel
 # end of distribution specific definitions
 
 %define main_version                 1.10.1
-%define main_release                 2%{?dist}.ngx
-%define njs_version                  0.1.3
+%define main_release                 1%{?dist}.ngx
 %define module_xslt_version          %{main_version}
-%define module_xslt_release          2%{?dist}.ngx
+%define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
-%define module_geoip_release         2%{?dist}.ngx
+%define module_geoip_release         1%{?dist}.ngx
 %define module_image_filter_version  %{main_version}
-%define module_image_filter_release  2%{?dist}.ngx
+%define module_image_filter_release  1%{?dist}.ngx
 %define module_perl_version          %{main_version}
-%define module_perl_release          2%{?dist}.ngx
-%define module_njs_version           %{main_version}.%{njs_version}
-%define module_njs_release           2%{?dist}.ngx
+%define module_perl_release          1%{?dist}.ngx
+%define module_njs_shaid             1c50334fbea6
+%define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
+%define module_njs_release           1%{?dist}.ngx
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -129,7 +129,7 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{njs_version}/nginx \
+        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
@@ -161,7 +161,7 @@ Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ngi
 Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.logrotate
 Source11: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx-debug.service
 Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/COPYRIGHT
-Source13: https://github.com/nginx/njs/archive/%{njs_version}.tar.gz
+Source13: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/njs-%{module_njs_shaid}.tar.gz
 
 License: 2-clause BSD-like license
 
@@ -613,9 +613,6 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.1-2
-- Updated njs module to 0.1.3.
-
 * Sat Jun 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.1-1
 - Updated to Nginx 1.10.1.
 
