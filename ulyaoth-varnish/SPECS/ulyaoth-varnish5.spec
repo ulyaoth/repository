@@ -190,7 +190,6 @@ exit 0
 
 %attr(0755,root,root) %dir %{_localstatedir}/log/varnish5
 
-%dir /var/lib/varnish5
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/varnish
 %dir /usr/local/ulyaoth/varnish/varnish5
@@ -286,6 +285,9 @@ exit 0
 %{_initrddir}/varnish5ncsa
 %{_initrddir}/varnish5log
 %endif
+
+%defattr(-,varnish5,varnish5,-)
+%dir /var/lib/varnish5
 
 %post
 /sbin/ldconfig
