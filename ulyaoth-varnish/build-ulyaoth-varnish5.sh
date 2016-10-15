@@ -2,32 +2,11 @@
 ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 
-# Install ulyaoth repository for dependencies.
-if [ "$ulyaothos" == "fedora" ]
-then
-if type dnf 2>/dev/null
-then
-  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
-elif type yum 2>/dev/null
-then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.noarch.rpm -y
-fi
-elif [ "$ulyaothos" == "redhat" ]
-then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.noarch.rpm -y
-elif [ "$ulyaothos" == "amazonlinux" ]
-then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.amazonlinux.noarch.rpm -y
-elif [ "$ulyaothos" == "centos" ]
-then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.centos.noarch.rpm -y
-elif [ "$ulyaothos" == "oraclelinux" ]
-then 
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.oraclelinux.noarch.rpm -y
-elif [ "$ulyaothos" == "scientificlinux" ]
-then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
-fi
+# Install EPEL for rhel6 based os.
+
+# fix ldd
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/ulyaoth-varnish5.conf -O /etc/ld.so.conf.d/ulyaoth-varnish5.conf
+/sbin/ldconfig
 
 # Create build user and go to it's home directory, and create the rpmbuild directory.
 useradd ulyaoth
@@ -69,3 +48,5 @@ fi
 # Clean
 rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild
+rm -rf /etc/ld.so.conf.d/ulyaoth-varnish5.conf
+/sbin/ldconfig
