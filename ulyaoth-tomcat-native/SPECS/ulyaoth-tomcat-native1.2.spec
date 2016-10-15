@@ -13,7 +13,7 @@ AutoReqProv: no
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native1.2
-Version:    1.2.8
+Version:    1.2.10
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -127,6 +127,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.10-1
+- Updated to Tomcat Native 1.2.10.
+
 * Fri Jul 8 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.8-1
 - Updated to Tomcat Native 1.2.8.
 
