@@ -37,6 +37,8 @@ ExecStart=/usr/sbin/varnish5d \
         -s $VARNISH_STORAGE \
         -n /var/lib/varnish5 \
         $DAEMON_OPTS
+User=varnish5
+Group=varnish5
 
 ExecReload=/usr/sbin/varnish5_reload_vcl
 
