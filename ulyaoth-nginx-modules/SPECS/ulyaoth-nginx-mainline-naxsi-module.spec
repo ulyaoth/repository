@@ -165,7 +165,7 @@ Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ngi
 Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.logrotate
 Source11: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx-debug.service
 Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/COPYRIGHT
-Source13: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/njs-%{njs_version}.tar.gz
+Source13: https://github.com/nginx/njs/archive/%{njs_version}.tar.gz
 Source14: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/SOURCES/nbs.rules
 Source15: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/SOURCES/nginx.conf-naxsiexample
 
