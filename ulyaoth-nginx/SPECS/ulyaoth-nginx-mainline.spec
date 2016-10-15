@@ -80,7 +80,7 @@ BuildRequires: libGeoIP-devel
 
 %define main_version                 1.11.5
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.1.2
+%define njs_version                  0.1.3
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -134,12 +134,11 @@ BuildRequires: libGeoIP-devel
         --with-stream \
         --with-stream_ssl_module \
         --with-stream_geoip_module=dynamic \
-		--with-stream_ssl_preread_module=dynamic \
+		--with-stream_ssl_preread_module \
         --with-http_slice_module \
         --with-mail \
         --with-mail_ssl_module \
-        --with-file-aio \
-        --with-ipv6 \
+        --with-file-aio
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
@@ -629,6 +628,8 @@ fi
 %changelog
 * Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.5-1
 - Updated to Nginx Mainline 1.11.5.
+- Updated nsj to 0.1.3.
+- Added "stream_ssl_preread_module".
 
 * Wed Sep 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.4-1
 - Updated to Nginx Mainline 1.11.4.
