@@ -1,0 +1,116 @@
+#! /bin/sh
+#
+# Control the Varnish 5 Cache raw logging daemon
+#
+# chkconfig: - 90 10
+# description: Varnish 5 Cache raw logging daemon
+# processname: varnish5log
+# config: 
+# pidfile: /var/run/varnishlog.pid
+
+### BEGIN INIT INFO
+# Provides: varnish5log
+# Required-Start: $network $local_fs $remote_fs
+# Required-Stop: $network $local_fs $remote_fs
+# Default-Start:
+# Default-Stop:
+# Short-Description: start and stop varnish5log
+# Description: Varnish 5 Cache raw logging daemon
+### END INIT INFO
+
+# Source function library.
+. /etc/init.d/functions
+
+retval=0
+pidfile="/var/run/varnish5log.pid"
+lockfile="/var/lock/subsys/varnish5log"
+logfile="/var/log/varnish5/varnish.log"
+
+exec="/usr/bin/varnish5log"
+prog="varnish5log"
+
+DAEMON_OPTS="-a -w $logfile -D -P $pidfile"
+
+# Include varnish5log defaults
+[ -e /etc/sysconfig/varnish5log ] && . /etc/sysconfig/varnish5log
+
+start() {
+
+	if [ ! -x $exec ]
+	then
+		echo $exec not found
+		exit 5
+	fi
+
+	echo -n "Starting varnish 5 logging daemon: "
+
+	daemon --pidfile $pidfile $exec "$DAEMON_OPTS" 
+	echo
+	return $retval
+}
+
+stop() {
+	echo -n "Stopping varnish 5 logging daemon: "
+	killproc -p $pidfile $prog
+	retval=$?
+	echo
+	[ $retval -eq 0 ] && rm -f $lockfile
+	return $retval
+}
+
+restart() {
+	stop
+	start
+}
+
+reload() {
+	restart
+}
+
+force_reload() {
+	restart
+}
+
+rh_status() {
+	status -p $pidfile $prog
+}
+
+rh_status_q() {
+	rh_status >/dev/null 2>&1
+}
+
+# See how we were called.
+case "$1" in
+	start)
+		rh_status_q && exit 0
+		$1
+		;;
+	stop)
+		rh_status_q || exit 0
+		$1
+		;;
+	restart)
+		$1
+		;;
+	reload)
+		rh_status_q || exit 7
+		$1
+		;;
+	force-reload)
+		force_reload
+		;;
+	status)
+		rh_status
+		;;
+	condrestart|try-restart)
+		rh_status_q || exit 0
+		restart
+		;;
+	*)
+	echo "Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload}"
+
+	exit 2
+esac
+
+exit $?
+
