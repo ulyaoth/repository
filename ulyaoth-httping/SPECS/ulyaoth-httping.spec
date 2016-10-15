@@ -55,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/httping
 %{_mandir}/man1/httping.1.gz
 %{_mandir}/nl/man1/httping-nl.1.gz
-%{_mandir}/man/ru/man1/httping-ru.1.gz
+%{_mandir}/ru/man1/httping-ru.1.gz
 
 %doc %{_datadir}/doc/httping/license.txt
 %doc %{_datadir}/doc/httping/license.OpenSSL
