@@ -3,36 +3,39 @@ https://www.ulyaoth.net/resources/categories/repository.1/
 
 ### Available packages:
 * apr
-* Banana
-* Filebeat
-* Fuse
-* Fuse-s3fs
-* Go
-* HHVM
-* Hiawatha
+* banana
+* filebeat
+* fuse
+* fuse-s3fs
+* go
+* hhvm
+* haproxy
+* hiawatha
 * httpdiff
 * jsvc
-* Kafka
-* Kibana
-* Logstash
-* Logstash-Forwarder
-* mbed TLS
-* Monkey
-* Nginx
+* kafka
+* kibana
+* logstash
+* logstash-Forwarder
+* lua
+* mbed tls
+* monkey
+* nginx
 * nginx (modsecurity
 * nginx (naxsi)
 * nginx (pagespeed)
 * nginx (passenger)
-* OpenSSL
-* Packetbeat
-* Redis
-* Solr
-* Spotify
-* Tengine
-* Tomcat
-* Tomcat Native
-* Topbeat
-* Ulyaoth
-* Vegeta
-* wolfSSL
-* Zookeeper
+* openssl
+* packetbeat
+* redis
+* solr
+* spotify
+* tengine
+* tomcat
+* tomcat native
+* topbeat
+* ulyaoth
+* varnish
+* vegeta
+* wolfssl
+* zookeeper
