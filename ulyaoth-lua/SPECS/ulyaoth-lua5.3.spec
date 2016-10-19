@@ -36,7 +36,7 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/lua/5.3
 mkdir -p $RPM_BUILD_ROOT/usr/bin
 
-make DESTDIR=$RPM_BUILD_ROOT INSTALL_TOP=/usr/local/ulyaoth/lua/5.3 install
+make DESTDIR=$RPM_BUILD_ROOT INSTALL_TOP=$RPM_BUILD_ROOT/usr/local/ulyaoth/lua/5.3 install
 
 rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/lua/5.3/lib/lua
 rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/lua/5.3/share
