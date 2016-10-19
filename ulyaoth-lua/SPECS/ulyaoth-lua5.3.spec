@@ -1,30 +1,5 @@
 %define debug_package %{nil}
 
-# distribution specific definitions
-%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
-
-%if 0%{?rhel}  == 6
-Requires(pre): shadow-utils
-Requires: initscripts >= 8.36
-Requires(post): chkconfig
-%endif
-
-%if 0%{?rhel}  == 7
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-BuildRequires: systemd-devel
-%endif
-
-%if 0%{?fedora} >= 18
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-BuildRequires: systemd-devel
-%endif
-
-# end of distribution specific definitions
-
 Summary:    the programming language Lua
 Name:       ulyaoth-lua5.3
 Version:    5.3.3
