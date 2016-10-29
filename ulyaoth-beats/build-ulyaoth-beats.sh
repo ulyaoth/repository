@@ -58,9 +58,9 @@ su ulyaoth -c "tar xvzf v'"$beatsversion"'.tar.gz"
 su ulyaoth -c "mkdir -p /home/ulyaoth/src/github.com/elastic"
 su ulyaoth -c "mv beats-'"$beatsversion"' /home/ulyaoth/src/github.com/elastic/beats"
 
-# Build Topbeat and move to rpmbuild source.
-su - ulyaoth -c "cd /home/ulyaoth/src/github.com/elastic/beats/topbeat/ && gmake"
-su ulyaoth -c "mv /home/ulyaoth/src/github.com/elastic/beats/topbeat/topbeat /home/ulyaoth/rpmbuild/SOURCES/"
+# Build Metricbeat and move to rpmbuild source.
+su - ulyaoth -c "cd /home/ulyaoth/src/github.com/elastic/beats/metricbeat/ && gmake"
+su ulyaoth -c "mv /home/ulyaoth/src/github.com/elastic/beats/metricbeat/metricbeat /home/ulyaoth/rpmbuild/SOURCES/"
 
 # Build Packetbeat and move to rpmbuild source.
 su - ulyaoth -c "cd /home/ulyaoth/src/github.com/elastic/beats/packetbeat/ && gmake"
