@@ -29,7 +29,7 @@ else
 su ulyaoth -c "cd logstash-$version && rake artifact:tar"
 fi
 
-su ulyaoth -c "cp /home/ulyaoth/logstash-$version/build/logstash-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
+su ulyaoth -c "cp /home/ulyaoth/logstash-$version/build/logstash-$version-SNAPSHOT.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 rm -rf /home/ulyaoth/logstash-$version
 rm -rf /home/ulyaoth/v$version.tar.gz
 
