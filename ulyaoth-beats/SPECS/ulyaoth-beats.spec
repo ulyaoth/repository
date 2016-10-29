@@ -3,10 +3,10 @@
 %define filebeat_group filebeat
 %define filebeat_user filebeat
 %define filebeat_loggroup adm
-%define topbeat_home /etc/topbeat
-%define topbeat_group topbeat
-%define topbeat_user topbeat
-%define topbeat_loggroup adm
+%define metricbeat_home /etc/metricbeat
+%define metricbeat_group metricbeat
+%define metricbeat_user metricbeat
+%define metricbeat_loggroup adm
 %define packetbeat_home /etc/packetbeat
 %define packetbeat_group packetbeat
 %define packetbeat_user packetbeat
@@ -55,11 +55,11 @@ Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-
 Source7:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packetbeat.init
 Source8:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packetbeat.yml
 Source9:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/packetbeat.template.json
-Source10:   topbeat
-Source11:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/topbeat.service
-Source12:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/topbeat.init
-Source13:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/topbeat.yml
-Source14:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/topbeat.template.json
+Source10:   metricbeat
+Source11:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/metricbeat.service
+Source12:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/metricbeat.init
+Source13:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/metricbeat.yml
+Source14:   https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-beats/SOURCES/metricbeat.template.json
 BuildRoot:  %{_tmppath}/beats-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
@@ -95,7 +95,7 @@ Provides: ulyaoth-packetbeat
 %description packetbeat
 Change the way you put your network packet data to work with Packetbeat.
 
-%package topbeat
+%package metricbeat
 Version: %{version}
 Release: %{release}
 License: %{license}
@@ -103,11 +103,11 @@ Group: %{group}
 URL: %{url}
 Vendor: %{vendor}
 Packager: %{packager}
-Summary: Topbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
-Provides: topbeat
-Provides: ulyaoth-topbeat
-%description topbeat
-Looking for a better way to understand how your server resources are used? The best place to start is your infrastructure metrics. Topbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
+Summary: Metricbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
+Provides: metricbeat
+Provides: ulyaoth-metricbeat
+%description metricbeat
+Looking for a better way to understand how your server resources are used? The best place to start is your infrastructure metrics. Metricbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
 
 %prep
 
@@ -123,7 +123,7 @@ Looking for a better way to understand how your server resources are used? The b
 %{__install} -m644 %SOURCE6 \
         $RPM_BUILD_ROOT%{_unitdir}/packetbeat.service
 %{__install} -m644 %SOURCE11 \
-        $RPM_BUILD_ROOT%{_unitdir}/topbeat.service
+        $RPM_BUILD_ROOT%{_unitdir}/metricbeat.service
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
@@ -132,7 +132,7 @@ Looking for a better way to understand how your server resources are used? The b
 %{__install} -m755 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_initrddir}/packetbeat
 %{__install} -m755 %{SOURCE7} \
-   $RPM_BUILD_ROOT%{_initrddir}/topbeat
+   $RPM_BUILD_ROOT%{_initrddir}/metricbeat
 %endif
 
 # install binary file
@@ -142,7 +142,7 @@ Looking for a better way to understand how your server resources are used? The b
 %{__install} -m 755 -p %{SOURCE5} \
    $RPM_BUILD_ROOT/usr/bin/packetbeat
 %{__install} -m 755 -p %{SOURCE10} \
-   $RPM_BUILD_ROOT/usr/bin/topbeat
+   $RPM_BUILD_ROOT/usr/bin/metricbeat
 
 # install configuration file
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/filebeat
@@ -157,18 +157,18 @@ Looking for a better way to understand how your server resources are used? The b
 %{__install} -m 644 -p %{SOURCE9} \
    $RPM_BUILD_ROOT/etc/packetbeat/packetbeat.template.json
 
-%{__mkdir} -p $RPM_BUILD_ROOT/etc/topbeat
+%{__mkdir} -p $RPM_BUILD_ROOT/etc/metricbeat
 %{__install} -m 644 -p %{SOURCE13} \
-   $RPM_BUILD_ROOT/etc/topbeat/topbeat.yml
+   $RPM_BUILD_ROOT/etc/metricbeat/metricbeat.yml
 %{__install} -m 644 -p %{SOURCE14} \
-   $RPM_BUILD_ROOT/etc/topbeat/topbeat.template.json
+   $RPM_BUILD_ROOT/etc/metricbeat/metricbeat.template.json
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/filebeat
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/filebeat
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/packetbeat
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/packetbeat
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/topbeat
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/topbeat
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/metricbeat
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/lib/metricbeat
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -182,9 +182,9 @@ getent passwd %{filebeat_user} >/dev/null || /usr/sbin/useradd --comment "Filebe
 getent group %{packetbeat_group} >/dev/null || groupadd -r %{packetbeat_group}
 getent passwd %{packetbeat_user} >/dev/null || /usr/sbin/useradd --comment "Packetbeat Daemon User" --shell /bin/bash -M -r -g %{packetbeat_group} --home %{packetbeat_home} %{packetbeat_user}
 
-%pre topbeat
-getent group %{topbeat_group} >/dev/null || groupadd -r %{topbeat_group}
-getent passwd %{topbeat_user} >/dev/null || /usr/sbin/useradd --comment "Topbeat Daemon User" --shell /bin/bash -M -r -g %{topbeat_group} --home %{topbeat_home} %{topbeat_user}
+%pre metricbeat
+getent group %{metricbeat_group} >/dev/null || groupadd -r %{metricbeat_group}
+getent passwd %{metricbeat_user} >/dev/null || /usr/sbin/useradd --comment "Metricbeat Daemon User" --shell /bin/bash -M -r -g %{metricbeat_group} --home %{metricbeat_home} %{metricbeat_user}
 
 %files
 %files filebeat
@@ -221,21 +221,21 @@ getent passwd %{topbeat_user} >/dev/null || /usr/sbin/useradd --comment "Topbeat
 %{_initrddir}/packetbeat
 %endif
 
-%files topbeat
-%defattr(-,%{topbeat_user},%{topbeat_group})
-%dir /etc/topbeat
-%config(noreplace) /etc/topbeat/topbeat.yml
-/etc/topbeat/topbeat.template.json
-/usr/bin/topbeat
+%files metricbeat
+%defattr(-,%{metricbeat_user},%{metricbeat_group})
+%dir /etc/metricbeat
+%config(noreplace) /etc/metricbeat/metricbeat.yml
+/etc/metricbeat/metricbeat.template.json
+/usr/bin/metricbeat
 
-%attr(0755,%{topbeat_user},%{topbeat_loggroup}) %dir %{_localstatedir}/log/topbeat
-%attr(0755,%{topbeat_user},%{topbeat_group}) %dir %{_localstatedir}/lib/topbeat
+%attr(0755,%{metricbeat_user},%{metricbeat_loggroup}) %dir %{_localstatedir}/log/metricbeat
+%attr(0755,%{metricbeat_user},%{metricbeat_group}) %dir %{_localstatedir}/lib/metricbeat
 
 %defattr(-,root,root)
 %if %{use_systemd}
-%{_unitdir}/topbeat.service
+%{_unitdir}/metricbeat.service
 %else
-%{_initrddir}/topbeat
+%{_initrddir}/metricbeat
 %endif
 
 %post 
@@ -285,21 +285,21 @@ For any additional help please visit my forum at:
 BANNER
 fi
 
-%post topbeat
-# Register the topbeat service
+%post metricbeat
+# Register the metricbeat service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
-    /usr/bin/systemctl preset topbeat.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl preset metricbeat.service >/dev/null 2>&1 ||:
 %else
-    /sbin/chkconfig --add topbeat
+    /sbin/chkconfig --add metricbeat
 %endif
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-topbeat!
+Thank you for using ulyaoth-metricbeat!
 
-Please find the official documentation for topbeat here:
-* https://www.elastic.co/guide/en/beats/topbeat/current/index.html
+Please find the official documentation for metricbeat here:
+* https://www.elastic.co/guide/en/beats/metricbeat/current/index.html
 
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
@@ -331,14 +331,14 @@ if [ $1 -eq 0 ]; then
 %endif
 fi
 
-%preun topbeat
+%preun metricbeat
 if [ $1 -eq 0 ]; then
 %if %use_systemd
-    /usr/bin/systemctl --no-reload disable topbeat.service >/dev/null 2>&1 ||:
-    /usr/bin/systemctl stop topbeat.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl --no-reload disable metricbeat.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl stop metricbeat.service >/dev/null 2>&1 ||:
 %else
-    /sbin/service topbeat stop > /dev/null 2>&1
-    /sbin/chkconfig --del topbeat
+    /sbin/service metricbeat stop > /dev/null 2>&1
+    /sbin/chkconfig --del metricbeat
 %endif
 fi
 
@@ -359,12 +359,12 @@ if [ $1 -ge 1 ]; then
     /sbin/service packetbeat status  >/dev/null 2>&1 || exit 0
 fi
 
-%postun topbeat
+%postun metricbeat
 %if %use_systemd
-/usr/bin/systemctl topbeat >/dev/null 2>&1 ||:
+/usr/bin/systemctl metricbeat >/dev/null 2>&1 ||:
 %endif
 if [ $1 -ge 1 ]; then
-    /sbin/service topbeat status  >/dev/null 2>&1 || exit 0
+    /sbin/service metricbeat status  >/dev/null 2>&1 || exit 0
 fi
 
 %changelog
