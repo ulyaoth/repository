@@ -42,7 +42,7 @@ Vendor:     Elasticsearch BV
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 %ifarch x86_64
-Source0:    https://download.elastic.co/kibana/kibana/kibana-%{version}-linux-x86_64.tar.gz
+Source0:    https://artifacts.elastic.co/downloads/kibana/kibana-%{version}-linux-x86_64.tar.gz
 %endif
 
 %ifarch i386
