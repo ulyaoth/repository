@@ -1,41 +1,41 @@
 #!/bin/sh
 #
-# topbeat        Startup script for topbeat
+# metricbeat        Startup script for metricbeat
 #
 # chkconfig: - 85 15
-# processname: topbeat
-# config: /etc/topbeat/topbeat.yml
-# pidfile: /var/run/topbeat.pid
-# description: Looking for a better way to understand how your server resources are used? The best place to start is your infrastructure metrics. Topbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
+# processname: metricbeat
+# config: /etc/metricbeat/metricbeat.yml
+# pidfile: /var/run/metricbeat.pid
+# description: Looking for a better way to understand how your server resources are used? The best place to start is your infrastructure metrics. Metricbeat is a lightweight way to gather CPU, memory, and other per-process and system wide data, then ship it to Elasticsearch to analyze the results.
 #
 ### BEGIN INIT INFO
-# Provides: topbeat
+# Provides: metricbeat
 # Required-Start: $local_fs $remote_fs $network
 # Required-Stop: $local_fs $remote_fs $network
 # Default-Start: 2 3 4 5
 # Default-Stop: 0 1 6
-# Short-Description: start and stop topbeat
+# Short-Description: start and stop metricbeat
 ### END INIT INFO
 
-NAME=topbeat
-TOPBEAT_USER=topbeat
-TOPBEAT_HOME="/usr"
-TOPBEAT_CONFIG="/etc/topbeat/topbeat.yml"
+NAME=metricbeat
+METRICBEAT_USER=metricbeat
+METRICBEAT_HOME="/usr"
+METRICBEAT_CONFIG="/etc/metricbeat/metricbeat.yml"
 
-topbeat_pid() {
-    echo `ps aux | grep topbeat | grep -v grep | awk '{ print $2 }'`
+metricbeat_pid() {
+    echo `ps aux | grep metricbeat | grep -v grep | awk '{ print $2 }'`
 }
 
 start() {
-  # Start topbeat
-  echo "Starting Topbeat"
-  /bin/su - -c "cd $TOPBEAT_HOME/bin && $TOPBEAT_HOME/bin/topbeat -c $TOPBEAT_CONFIG > /dev/null 2>&1 &" $TOPBEAT_USER
+  # Start metricbeat
+  echo "Starting Metricbeat"
+  /bin/su - -c "cd $METRICBEAT_HOME/bin && $METRICBEAT_HOME/bin/metricbeat -c $METRICBEAT_CONFIG > /dev/null 2>&1 &" $METRICBEAT_USER
   return 0
 }
 
 stop() {
-  pid=$(topbeat_pid)
-  echo "Shutting down Topbeat"
+  pid=$(metricbeat_pid)
+  echo "Shutting down Metricbeat"
   kill -9 $pid
   return 0
 }
@@ -52,12 +52,12 @@ case $1 in
         start
         ;;
     status)
-       pid=$(topbeat_pid)
+       pid=$(metricbeat_pid)
         if [ -n "$pid" ]
         then
-           echo "Topbeat is running with pid: $pid"
+           echo "Metricbeat is running with pid: $pid"
         else
-           echo "Topbeat is not running"
+           echo "Metricbeat is not running"
         fi
         ;;
     *)
