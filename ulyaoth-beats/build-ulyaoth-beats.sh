@@ -2,7 +2,7 @@
 ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-beatsversion=1.3.1
+beatsversion=5.0.0
 
 if [ "$ulyaothos" == "fedora" ]
 then

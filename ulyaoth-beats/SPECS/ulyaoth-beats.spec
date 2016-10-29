@@ -37,7 +37,7 @@ BuildRequires: systemd
 
 Name:       ulyaoth
 Summary:    Beats is the platform for building lightweight, open source data shippers.
-Version:    1.3.1
+Version:    5.0.0
 Release:    1%{?dist}
 BuildArch:  x86_64
 License:    Apache License version 2
@@ -368,6 +368,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Oct 29 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-1
+- Updated Beats to 5.0.0.
+
 * Fri Sep 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.1-1
 - Updated Beats to 1.3.1.
 
