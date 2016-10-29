@@ -39,7 +39,7 @@ Group:      System Environment/Daemons
 URL:        https://www.elastic.co/products/logstash
 Vendor:     Elasticsearch
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    logstash-%{version}.tar.gz
+Source0:    logstash-%{version}-SNAPSHOT.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash/SOURCES/logstash.conf
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash/SOURCES/logstash.sysconfig
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash/SOURCES/logstash.service
@@ -53,7 +53,7 @@ provides: ulyaoth-logstash
 Logstash is an open source tool for collecting, parsing, and storing logs for future use.
 
 %prep
-%setup -q -n logstash-%{version}-SNAPSHOT
+%setup -q -n logstash-%{version}
 
 %build
 
