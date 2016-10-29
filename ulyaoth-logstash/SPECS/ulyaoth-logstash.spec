@@ -53,7 +53,7 @@ provides: ulyaoth-logstash
 Logstash is an open source tool for collecting, parsing, and storing logs for future use.
 
 %prep
-%setup -q -n logstash-%{version}
+%setup -q -n logstash-%{version}-SNAPSHOT
 
 %build
 
