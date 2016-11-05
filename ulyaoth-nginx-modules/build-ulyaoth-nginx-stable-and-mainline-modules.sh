@@ -8,7 +8,7 @@ fi
 # headers-more
 if [ "$1" = "headers-more" ]; then
 module="headers-more-module"
-moduleversion=0.31
+moduleversion=0.32
 # echo
 elif [ "$1" = "echo" ]; then
 module="echo-module"
