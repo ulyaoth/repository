@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8.5-docs
-Version:    8.5.6
+Version:    8.5.8
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -77,6 +77,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sun Nov 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.5.8-1
+- Updating to Tomcat 8.5.8.
+
 * Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.5.6-1
 - Updating to Tomcat 8.5.6.
 
