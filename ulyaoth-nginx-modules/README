@@ -7,6 +7,9 @@ The below command would build both the stable and mainline module.
 So you can build a module rpm as following:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh headers-more
 
+Passenger 5 (nginx):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-passenger5-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./bbuild-ulyaoth-nginx-passenger5-modules.sh
+
 Supported modules:
 headers-more (https://github.com/openresty/headers-more-nginx-module)
 echo (https://github.com/openresty/echo-nginx-module)
