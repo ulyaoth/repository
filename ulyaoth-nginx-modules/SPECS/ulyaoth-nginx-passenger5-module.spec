@@ -247,6 +247,7 @@ Version: %{module_passenger5_version}
 Release: %{module_passenger5_release}
 Group: %{_group}
 Requires: ulyaoth-nginx
+Requires: ruby
 Summary: nginx passenger 5 module
 %description module-passenger5
 Dynamic passenger 5 module for nginx.
