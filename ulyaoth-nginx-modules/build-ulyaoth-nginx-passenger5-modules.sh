@@ -17,6 +17,7 @@ useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 mkdir -p /usr/local/ulyaoth/passenger/5
+chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
 wget https://github.com/phusion/passenger/archive/release-$passengerversion.tar.gz
 tar xvf release-$passengerversion.tar.gz
 cp -rf passenger-release-$passengerversion/* /usr/local/ulyaoth/passenger/5/"
