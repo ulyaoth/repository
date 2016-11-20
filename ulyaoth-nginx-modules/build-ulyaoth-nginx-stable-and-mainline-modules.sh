@@ -83,7 +83,7 @@ su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
 elif [ "$module" = "passenger5-module" ]; then
 su ulyaoth -c "wget https://github.com/phusion/passenger/archive/release-$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf release-$moduleversion.tar.gz"
-su ulyaoth -c "mv passenger-release-$moduleversion/* /usr/local/ulyaoth/passenger/5/"
+su ulyaoth -c "cp -rf passenger-release-$moduleversion/* /usr/local/ulyaoth/passenger/5/"
 su ulyaoth -c "rm -rf passenger-release-$moduleversion release-$moduleversion.tar.gz"
 chown -R ulyaoth:ulyaoth /usr/local/ulyaoth/passenger
 rm -rf /usr/local/ulyaoth/passenger/5/packaging
