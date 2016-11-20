@@ -81,6 +81,8 @@ su ulyaoth -c "mv headers-more-nginx-module-$moduleversion /home/ulyaoth/$module
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
 # passenger5
 elif [ "$module" = "passenger5-module" ]; then
+mkdir -p /usr/local/ulyaoth/passenger/5
+chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
 su ulyaoth -c "wget https://github.com/phusion/passenger/archive/release-$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf release-$moduleversion.tar.gz"
 su ulyaoth -c "cp -rf passenger-release-$moduleversion/* /usr/local/ulyaoth/passenger/5/"
