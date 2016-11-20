@@ -10,6 +10,9 @@ if [ "$1" = "headers-more" ]; then
 module="headers-more-module"
 moduleversion=0.32
 # echo
+elif [ "$1" = "passenger5" ]; then
+module="passenger5-module"
+moduleversion=5.0.30
 elif [ "$1" = "echo" ]; then
 module="echo-module"
 moduleversion=0.60
@@ -76,6 +79,14 @@ su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archi
 su ulyaoth -c "tar xvf v$moduleversion.tar.gz"
 su ulyaoth -c "mv headers-more-nginx-module-$moduleversion /home/ulyaoth/$module"
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
+# passenger5
+elif [ "$module" = "passenger5-module" ]; then
+su ulyaoth -c "wget https://github.com/phusion/passenger/archive/release-$moduleversion.tar.gz"
+su ulyaoth -c "tar xvf release-$moduleversion.tar.gz"
+su ulyaoth -c "mv passenger-release-$moduleversion/* /usr/local/ulyaoth/passenger/5/"
+su ulyaoth -c "rm -rf passenger-release-$moduleversion release-$moduleversion.tar.gz"
+chown -R ulyaoth:ulyaoth /usr/local/ulyaoth/passenger
+rm -rf /usr/local/ulyaoth/passenger/5/packaging
 # echo
 elif [ "$module" = "echo-module" ]; then
 su ulyaoth -c "wget https://github.com/openresty/echo-nginx-module/archive/v$moduleversion.tar.gz"
@@ -176,3 +187,4 @@ rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/$module
 rm -rf /home/ulyaoth/rpmbuild
 rm -rf /home/ulyaoth/devel-kit-module
+rm -rf /usr/local/ulyaoth
