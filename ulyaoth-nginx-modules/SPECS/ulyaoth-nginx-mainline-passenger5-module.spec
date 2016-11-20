@@ -78,8 +78,9 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.10.2
+%define main_version                 1.11.6
 %define main_release                 1%{?dist}.ngx
+%define njs_version                  0.1.3
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -88,8 +89,7 @@ BuildRequires: libGeoIP-devel
 %define module_image_filter_release  1%{?dist}.ngx
 %define module_perl_version          %{main_version}
 %define module_perl_release          1%{?dist}.ngx
-%define module_njs_shaid             1c50334fbea6
-%define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
+%define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 %define module_passenger5_version    5.0.30
 %define module_passenger5_release    1%{?dist}
@@ -131,20 +131,21 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
+        --add-dynamic-module=njs-%{njs_version}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
+        --with-stream_geoip_module=dynamic \
+		--with-stream_ssl_preread_module \
         --with-http_slice_module \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --with-ipv6 \
         --add-dynamic-module=/usr/local/ulyaoth/passenger/5/src/nginx_module \
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
-Name: ulyaoth-nginx
+Name: ulyaoth-nginx-mainline
 Version: %{main_version}
 Release: %{main_release}
 Vendor: Nginx, Inc.
@@ -164,7 +165,7 @@ Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ngi
 Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.logrotate
 Source11: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx-debug.service
 Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/COPYRIGHT
-Source13: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/njs-%{module_njs_shaid}.tar.gz
+Source13: https://github.com/nginx/njs/archive/%{njs_version}.tar.gz
 
 License: 2-clause BSD-like license
 
@@ -183,9 +184,10 @@ BuildRequires: rubygem-rake
 
 Provides: webserver
 Provides: nginx
-Provides: ulyaoth-nginx
+Provides: ulyaoth-nginx-mainline
 
-Conflicts: ulyaoth-nginx-mainline
+Conflicts: ulyaoth-nginx
+Obsoletes: ulyaoth-nginx-mainline-naxsi
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
@@ -245,7 +247,7 @@ Dynamic nJScript module for nginx.
 Version: %{module_passenger5_version}
 Release: %{module_passenger5_release}
 Group: %{_group}
-Requires: ulyaoth-nginx-mainline
+Requires: ulyaoth-nginx
 Requires: ruby
 Summary: nginx passenger 5 module
 %description module-passenger5
@@ -280,6 +282,10 @@ make %{?_smp_mflags}
     %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_passenger_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ngx_http_passenger_module-debug.so
 ./configure %{COMMON_CONFIGURE_ARGS} \
@@ -373,12 +379,15 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{perl_vendorarch}/auto/nginx/nginx-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_stream_geoip_module-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_passenger_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_passenger_module-debug.so
-
+    
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/local/ulyaoth
 cp -rf /usr/local/ulyaoth/passenger $RPM_BUILD_ROOT/usr/local/ulyaoth/
-
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -441,6 +450,8 @@ cp -rf /usr/local/ulyaoth/passenger $RPM_BUILD_ROOT/usr/local/ulyaoth/
 %files module-geoip
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_geoip_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_geoip_module-debug.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_geoip_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_geoip_module-debug.so
 
 %files module-perl
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_perl_module.so
@@ -454,6 +465,8 @@ cp -rf /usr/local/ulyaoth/passenger $RPM_BUILD_ROOT/usr/local/ulyaoth/
 %files module-njs
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
 
 %files module-passenger5
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_passenger_module.so
@@ -485,7 +498,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-nginx!
+Thank you for using ulyaoth-nginx-mainline!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -547,6 +560,7 @@ To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
     load_module modules/ngx_http_geoip_module.so;
+    load_module modules/ngx_stream_geoip_module.so;
 
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_geoip_module.html
@@ -610,6 +624,7 @@ To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
     load_module modules/ngx_http_js_module.so;
+    load_module modules/ngx_stream_js_module.so;
 
 Please refer to the module documentation for further details:
 https://www.nginx.com/resources/wiki/nginScript/

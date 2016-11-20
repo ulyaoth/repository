@@ -78,7 +78,7 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.10.1
+%define main_version                 1.10.2
 %define main_release                 1%{?dist}.ngx
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
@@ -176,7 +176,6 @@ BuildRequires: gd-devel
 BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
-BuildRequires: GeoIP-devel
 BuildRequires: GeoIP-devel
 BuildRequires: ruby-devel
 BuildRequires: curl-devel
