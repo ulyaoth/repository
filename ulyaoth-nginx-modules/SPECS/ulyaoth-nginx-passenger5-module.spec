@@ -378,6 +378,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/local/ulyaoth
 cp -rf /usr/local/ulyaoth/passenger $RPM_BUILD_ROOT/usr/local/ulyaoth/
+ln -s /usr/bin/python $RPM_BUILD_ROOT%{_sbindir}/my_init_python
+ln -s /usr/bin/python $RPM_BUILD_ROOT%{_bindir}/my_init_python
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -461,6 +463,8 @@ cp -rf /usr/local/ulyaoth/passenger $RPM_BUILD_ROOT/usr/local/ulyaoth/
 %dir /usr/local/ulyaoth/passenger
 %dir /usr/local/ulyaoth/passenger/5
 /usr/local/ulyaoth/passenger/5/*
+%{_sbindir}/my_init_python
+%{_bindir}/my_init_python
 
 %pre
 # Add the "nginx" user
