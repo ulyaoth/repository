@@ -14,15 +14,17 @@ echo yeah Fedora!
 fi
 
 useradd ulyaoth
-cd /home/ulyaoth/
-su ulyaoth -c "rpmdev-setuptree"
+
 mkdir -p /usr/local/ulyaoth/passenger/5
+cd /usr/local/ulyaoth/passenger/5
+su ulyaoth -c "git clone -b stable-5.0 git://github.com/phusion/passenger.git"
+cd /usr/local/ulyaoth/passenger/5/passenger
+su ulyaoth -c "git checkout release-$passengerversion"
+su ulyaoth -c "git submodule update --init --recursive"
+mv /usr/local/ulyaoth/passenger/5/passenger/* /usr/local/ulyaoth/passenger/5/
+rm -rf /usr/local/ulyaoth/passenger/5/passenger
 chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
-wget https://github.com/phusion/passenger/archive/release-$passengerversion.tar.gz
-tar xvf release-$passengerversion.tar.gz
-cp -rf /home/ulyaoth/passenger-release-$passengerversion/* /usr/local/ulyaoth/passenger/5/
-rm -rf passenger-release-$passengerversion release-$passengerversion.tar.gz
-chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
+su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/repository/master/ulyaoth-nginx-modules/SPECS/ulyaoth-nginx-passenger5-module.spec"
 
