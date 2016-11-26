@@ -16,10 +16,10 @@ fi
 useradd ulyaoth
 mkdir -p /usr/local/ulyaoth/passenger/5
 cd /usr/local/ulyaoth/passenger/5
-su ulyaoth -c "git clone -b stable-5.0 git://github.com/phusion/passenger.git"
+git clone -b stable-5.0 git://github.com/phusion/passenger.git
 cd /usr/local/ulyaoth/passenger/5/passenger
-su ulyaoth -c "git checkout release-$passengerversion"
-su ulyaoth -c "git submodule update --init --recursive"
+git checkout release-$passengerversion
+git submodule update --init --recursive
 mv /usr/local/ulyaoth/passenger/5/passenger/* /usr/local/ulyaoth/passenger/5/
 rm -rf /usr/local/ulyaoth/passenger/5/passenger
 chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
