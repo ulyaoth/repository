@@ -244,6 +244,7 @@ Summary: nginx nJScript module
 Dynamic nJScript module for nginx.
 
 %package module-passenger5
+AutoReqProv: no
 Version: %{module_passenger5_version}
 Release: %{module_passenger5_release}
 Group: %{_group}
