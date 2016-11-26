@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat6-docs
-Version:    6.0.47
+Version:    6.0.48
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -77,6 +77,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Nov 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.48-1
+- Update Tomcat 6 to 6.0.48.
+
 * Sat Oct 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.47-1
 - Update Tomcat 6 to 6.0.47.
 
