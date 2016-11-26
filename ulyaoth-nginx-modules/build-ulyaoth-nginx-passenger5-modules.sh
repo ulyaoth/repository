@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ulyaothos=`cat /etc/ulyaoth`
-passengerversion=5.0.30
+passengerversion="5.0.30"
 
 if grep -q -i "release 6" /etc/redhat-release
 then
@@ -14,7 +14,6 @@ echo yeah Fedora!
 fi
 
 useradd ulyaoth
-
 mkdir -p /usr/local/ulyaoth/passenger/5
 cd /usr/local/ulyaoth/passenger/5
 su ulyaoth -c "git clone -b stable-5.0 git://github.com/phusion/passenger.git"
