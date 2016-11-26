@@ -379,6 +379,7 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/local/ulyaoth
 cp -rf /usr/local/ulyaoth/passenger $RPM_BUILD_ROOT/usr/local/ulyaoth/
 ln -s /usr/bin/python $RPM_BUILD_ROOT%{_sbindir}/my_init_python
+%{__mkdir} -p $RPM_BUILD_ROOT%{_bindir}
 ln -s /usr/bin/python $RPM_BUILD_ROOT%{_bindir}/my_init_python
 
 %clean
