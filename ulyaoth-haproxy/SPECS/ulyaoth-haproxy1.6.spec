@@ -28,8 +28,8 @@ BuildRequires: systemd-devel
 
 Summary:    The Reliable, High Performance TCP/HTTP Load Balancer
 Name:       ulyaoth-haproxy1.6
-Version:    1.6.9
-Release:    2%{?dist}
+Version:    1.6.10
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPL/LGPL
 Group:      System Environment/Daemons
@@ -188,6 +188,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Nov 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.10-1
+- Updated to HAProxy 1.6.10.
+
 * Thu Oct 20 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.9-2
 - Added Lua support.
 
