@@ -80,7 +80,7 @@ BuildRequires: libGeoIP-devel
 
 %define main_version                 1.11.6
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.1.3
+%define njs_version                  0.1.5
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
