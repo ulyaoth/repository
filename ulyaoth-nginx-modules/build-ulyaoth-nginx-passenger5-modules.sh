@@ -20,9 +20,8 @@ mkdir -p /usr/local/ulyaoth/passenger/5
 chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
 wget https://github.com/phusion/passenger/archive/release-$passengerversion.tar.gz
 tar xvf release-$passengerversion.tar.gz
-cp -rf passenger-release-$passengerversion/* /usr/local/ulyaoth/passenger/5/"
-rm -rf passenger-release-$passengerversion release-$passengerversion.tar.gz"
-rm -rf /usr/local/ulyaoth/passenger/5/packaging
+cp -rf /home/ulyaoth/passenger-release-$passengerversion/* /usr/local/ulyaoth/passenger/5/
+rm -rf passenger-release-$passengerversion release-$passengerversion.tar.gz
 chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/repository/master/ulyaoth-nginx-modules/SPECS/ulyaoth-nginx-passenger5-module.spec"

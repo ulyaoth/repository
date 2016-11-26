@@ -85,10 +85,9 @@ mkdir -p /usr/local/ulyaoth/passenger/5
 chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
 su ulyaoth -c "wget https://github.com/phusion/passenger/archive/release-$moduleversion.tar.gz"
 su ulyaoth -c "tar xvf release-$moduleversion.tar.gz"
-su ulyaoth -c "cp -rf passenger-release-$moduleversion/* /usr/local/ulyaoth/passenger/5/"
-su ulyaoth -c "rm -rf passenger-release-$moduleversion release-$moduleversion.tar.gz"
-chown -R ulyaoth:ulyaoth /usr/local/ulyaoth/passenger
-rm -rf /usr/local/ulyaoth/passenger/5/packaging
+su ulyaoth -c "cp -rf /home/ulyaoth/passenger-release-$moduleversion/* /usr/local/ulyaoth/passenger/5/"
+su ulyaoth -c "rm -rf /home/ulyaoth/passenger-release-$moduleversion /home/ulyaoth/release-$moduleversion.tar.gz"
+chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
 # echo
 elif [ "$module" = "echo-module" ]; then
 su ulyaoth -c "wget https://github.com/openresty/echo-nginx-module/archive/v$moduleversion.tar.gz"
