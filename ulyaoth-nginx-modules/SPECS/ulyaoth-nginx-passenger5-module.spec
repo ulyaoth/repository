@@ -664,5 +664,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Nov 20 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.30-1
+* Sat Nov 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.30-1
 - Initial release with Passenger 5.0.30.
