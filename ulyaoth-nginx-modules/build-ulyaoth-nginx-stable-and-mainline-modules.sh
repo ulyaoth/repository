@@ -59,7 +59,7 @@ mkdir -p /usr/local/ulyaoth/passenger/5
 cd /usr/local/ulyaoth/passenger/5
 git clone -b stable-5.0 git://github.com/phusion/passenger.git
 cd /usr/local/ulyaoth/passenger/5/passenger
-git checkout release-$passengerversion
+git checkout release-$moduleversion
 git submodule update --init --recursive
 mv /usr/local/ulyaoth/passenger/5/passenger/* /usr/local/ulyaoth/passenger/5/
 rm -rf /usr/local/ulyaoth/passenger/5/passenger
