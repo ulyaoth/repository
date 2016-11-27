@@ -5,6 +5,10 @@ if [ $# -lt 1 ]; then
   exit 1
 fi
 
+ulyaothos=`cat /etc/ulyaoth`
+arch="$(uname -m)"
+buildarch="$(uname -m)"
+
 # headers-more
 if [ "$1" = "headers-more" ]; then
 module="headers-more-module"
@@ -48,14 +52,19 @@ echo "We only support limited modules please see the Github readme for more info
 exit 1
 fi
 
-ulyaothos=`cat /etc/ulyaoth`
-arch="$(uname -m)"
-buildarch="$(uname -m)"
-
-if [ "$arch" == "i686" ]
-then
-arch="i386"
-fi
+passenger5()
+{
+rm -rf  /usr/local/ulyaoth/passenger/5
+mkdir -p /usr/local/ulyaoth/passenger/5
+cd /usr/local/ulyaoth/passenger/5
+git clone -b stable-5.0 git://github.com/phusion/passenger.git
+cd /usr/local/ulyaoth/passenger/5/passenger
+git checkout release-$passengerversion
+git submodule update --init --recursive
+mv /usr/local/ulyaoth/passenger/5/passenger/* /usr/local/ulyaoth/passenger/5/
+rm -rf /usr/local/ulyaoth/passenger/5/passenger
+chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
+}
 
 if grep -q -i "release 6" /etc/redhat-release
 then
@@ -81,13 +90,7 @@ su ulyaoth -c "mv headers-more-nginx-module-$moduleversion /home/ulyaoth/$module
 su ulyaoth -c "rm -rf v$moduleversion.tar.gz"
 # passenger5
 elif [ "$module" = "passenger5-module" ]; then
-mkdir -p /usr/local/ulyaoth/passenger/5
-chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
-su ulyaoth -c "wget https://github.com/phusion/passenger/archive/release-$moduleversion.tar.gz"
-su ulyaoth -c "tar xvf release-$moduleversion.tar.gz"
-su ulyaoth -c "cp -rf /home/ulyaoth/passenger-release-$moduleversion/* /usr/local/ulyaoth/passenger/5/"
-su ulyaoth -c "rm -rf /home/ulyaoth/passenger-release-$moduleversion /home/ulyaoth/release-$moduleversion.tar.gz"
-chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
+passenger5
 # echo
 elif [ "$module" = "echo-module" ]; then
 su ulyaoth -c "wget https://github.com/openresty/echo-nginx-module/archive/v$moduleversion.tar.gz"
@@ -168,8 +171,16 @@ fi
 
 su ulyaoth -c "spectool ulyaoth-nginx-$module.spec -g -R"
 su ulyaoth -c "spectool ulyaoth-nginx-mainline-$module.spec -g -R"
-su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-$module.spec"
-su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-$module.spec"
+
+if [ "$1" == "passenger5" ]
+then
+  su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-$module.spec"
+  passenger5
+  su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-$module.spec"
+else
+  su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-$module.spec"
+  su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-$module.spec"
+fi
 
 if [ "$ulyaothos" == "amazonlinux" ]
 then
