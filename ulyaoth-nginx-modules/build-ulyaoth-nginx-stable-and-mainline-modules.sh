@@ -176,6 +176,7 @@ if [ "$1" == "passenger5" ]
 then
   su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-$module.spec"
   passenger5
+  cd /home/ulyaoth/rpmbuild/SPECS
   su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-$module.spec"
 else
   su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-$module.spec"
