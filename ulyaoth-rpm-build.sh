@@ -544,6 +544,11 @@ ulyaoth-nginx-stable-and-mainline-module-naxsi()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh naxsi
 }
 
+ulyaoth-nginx-stable-and-mainline-module-passenger5()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh passenger5
+}
+
 # Move package to repository server
 scppackage()
 {
