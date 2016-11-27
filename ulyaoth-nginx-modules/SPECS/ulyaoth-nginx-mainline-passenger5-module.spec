@@ -246,6 +246,7 @@ Summary: nginx nJScript module
 Dynamic nJScript module for nginx.
 
 %package module-passenger5
+AutoReqProv: no
 Version: %{module_passenger5_version}
 Release: %{module_passenger5_release}
 Group: %{_group}
@@ -471,7 +472,6 @@ cp -rf /usr/local/ulyaoth/passenger $RPM_BUILD_ROOT/usr/local/ulyaoth/
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
 
 %files module-passenger5
-AutoReqProv: no
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_passenger_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_passenger_module-debug.so
 %dir /usr/local/ulyaoth
