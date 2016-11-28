@@ -31,7 +31,7 @@ BuildRequires: systemd
 
 Summary:    Logstash
 Name:       ulyaoth-logstash
-Version:    5.0.0
+Version:    2.4.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    ASL 2.0
@@ -39,7 +39,7 @@ Group:      System Environment/Daemons
 URL:        https://www.elastic.co/products/logstash
 Vendor:     Elasticsearch
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    logstash-%{version}-SNAPSHOT.tar.gz
+Source0:    logstash-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash/SOURCES/logstash.conf
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash/SOURCES/logstash.sysconfig
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash/SOURCES/logstash.service
@@ -53,7 +53,7 @@ provides: ulyaoth-logstash
 Logstash is an open source tool for collecting, parsing, and storing logs for future use.
 
 %prep
-%setup -q -n logstash-%{version}-SNAPSHOT
+%setup -q -n logstash-%{version}
 
 %build
 
@@ -160,9 +160,6 @@ fi
 %endif
 
 %changelog
-* Sat Oct 29 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-1
-- Updating to Logstash 5.0.0.
-
 * Sun Sep 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.4.0-1
 - Updating to Logstash 2.4.0.
 
