@@ -4,7 +4,7 @@
 %define monkey_user monkey
 %define monkey_group monkey
 %define monkey_loggroup adm
-%define mbedtls_version 2.3.0
+%define mbedtls_version 2.2.1
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -12,7 +12,7 @@
 Summary: Monkey is a lightweight and powerful web server and development stack for GNU/Linux.
 Name: ulyaoth-monkey
 Version: 1.6.9
-Release: 2%{?dist}
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Monkey HTTP Daemon development group.
 URL: http://monkey-project.com/
@@ -26,15 +26,14 @@ Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mon
 
 License: GPLv2+
 
-Requires: ulyaoth-mbedtls2.3 = %{mbedtls_version}
+Requires: ulyaoth-mbedtls2.2 = %{mbedtls_version}
 
 BuildRoot: %{_tmppath}/monkey-%{version}-%{release}-root
-BuildRequires: ulyaoth-mbedtls2.3 = %{mbedtls_version}
+BuildRequires: ulyaoth-mbedtls2.2 = %{mbedtls_version}
 BuildRequires: cmake
 
 Obsoletes: ulyaoth-mbedtls
 Obsoletes: ulyaoth-mbedtls2.1
-Obsoletes: ulyaoth-mbedtls2.2
 
 Provides: webserver
 Provides: monkey
@@ -169,15 +168,11 @@ if [ $1 -eq 1 ]; then
     # print site info
     cat <<BANNER
 ----------------------------------------------------------------------
-
 Thank you for using ulyaoth-monkey!
-
 Please find the official documentation for monkey here:
 * http://monkey-project.com/
-
 For any additional help please visit my forum at:
 * https://www.ulyaoth.net
-
 ----------------------------------------------------------------------
 BANNER
 
@@ -215,9 +210,6 @@ fi
 %endif
 
 %changelog
-* Sat Jul 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.9-2
-- Updating to use mbedTLS 2.3.0.
-
 * Mon Jun 6 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.9-1
 - Updated to Monkey 1.6.9.
 
