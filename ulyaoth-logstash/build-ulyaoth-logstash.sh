@@ -1,6 +1,6 @@
 ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
-version=5.0.0
+version=2.4.0
 
 if type dnf 2>/dev/null
 then
@@ -29,7 +29,7 @@ else
 su ulyaoth -c "cd logstash-$version && rake artifact:tar"
 fi
 
-su ulyaoth -c "cp /home/ulyaoth/logstash-$version/build/logstash-$version-SNAPSHOT.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
+su ulyaoth -c "cp /home/ulyaoth/logstash-$version/build/logstash-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 rm -rf /home/ulyaoth/logstash-$version
 rm -rf /home/ulyaoth/v$version.tar.gz
 
