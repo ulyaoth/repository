@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-geoipupdate()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-geoipupdate/build-ulyaoth-geoipupdate.sh ; chmod +x build-ulyaoth-geoipupdate.sh ; ./build-ulyaoth-geoipupdate.sh
+}
+
 ulyaoth-lua5.3()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-lua/build-ulyaoth-lua5.3.sh ; chmod +x build-ulyaoth-lua5.3.sh ; ./build-ulyaoth-lua5.3.sh
