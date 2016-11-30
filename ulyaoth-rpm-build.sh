@@ -39,6 +39,11 @@ ulyaoth-varnish5()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish5.sh ; chmod +x build-ulyaoth-varnish5.sh ; ./build-ulyaoth-varnish5.sh
 }
 
+ulyaoth-haproxy1.7()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.7.sh ; chmod +x build-ulyaoth-haproxy1.7.sh ; ./build-ulyaoth-haproxy1.7.sh
+}
+
 ulyaoth-haproxy1.6()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.6.sh ; chmod +x build-ulyaoth-haproxy1.6.sh ; ./build-ulyaoth-haproxy1.6.sh
