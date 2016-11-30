@@ -121,8 +121,8 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.7/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 %dir  /usr/local/ulyaoth/haproxy/1.7/man/man1
 /usr/local/ulyaoth/haproxy/1.7/man/man1/haproxy.1
 
-%dir /usr/local/ulyaoth/haproxy/haproxy1.7/doc
-%dir /usr/local/ulyaoth/haproxy/haproxy1.7/doc/haproxy/
+%dir /usr/local/ulyaoth/haproxy/1.7/doc
+%dir /usr/local/ulyaoth/haproxy/1.7/doc/haproxy/
 /usr/local/ulyaoth/haproxy/1.7/doc/haproxy/architecture.txt
 /usr/local/ulyaoth/haproxy/1.7/doc/haproxy/close-options.txt
 /usr/local/ulyaoth/haproxy/1.7/doc/haproxy/configuration.txt
