@@ -133,6 +133,12 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.7/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 /usr/local/ulyaoth/haproxy/1.7/doc/haproxy/management.txt
 /usr/local/ulyaoth/haproxy/1.7/doc/haproxy/network-namespaces.txt
 /usr/local/ulyaoth/haproxy/1.7/doc/haproxy/proxy-protocol.txt
+/usr/local/ulyaoth/haproxy/1.7/doc/haproxy/51Degrees-device-detection.txt
+/usr/local/ulyaoth/haproxy/1.7/doc/haproxy/DeviceAtlas-device-detection.txt
+/usr/local/ulyaoth/haproxy/1.7/doc/haproxy/SPOE.txt
+/usr/local/ulyaoth/haproxy/1.7/doc/haproxy/WURFL-device-detection.txt
+/usr/local/ulyaoth/haproxy/1.7/doc/haproxy/netscaler-client-ip-insertion-protocol.txt
+
 
 %if %{use_systemd}
 %{_unitdir}/haproxy1.7.service
