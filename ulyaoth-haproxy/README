@@ -1,5 +1,8 @@
 You can build the rpm by running the build script:
 
+ulyaoth-haproxy1.7:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.7.sh ; chmod +x build-ulyaoth-haproxy1.7.sh ; ./build-ulyaoth-haproxy1.7.sh
+
 ulyaoth-haproxy1.6:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/build-ulyaoth-haproxy1.6.sh ; chmod +x build-ulyaoth-haproxy1.6.sh ; ./build-ulyaoth-haproxy1.6.sh
 
