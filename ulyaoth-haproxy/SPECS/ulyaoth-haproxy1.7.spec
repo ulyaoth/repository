@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/1.7/share
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/haproxy1.7
 	
-ln -s /usr/local/ulyaoth/haproxy/haproxy1.7/sbin/haproxy $RPM_BUILD_ROOT/usr/sbin/haproxy1.7
+ln -s /usr/local/ulyaoth/haproxy/1.7/sbin/haproxy $RPM_BUILD_ROOT/usr/sbin/haproxy1.7
 	
 %if %{use_systemd}
 # install systemd-specific files
