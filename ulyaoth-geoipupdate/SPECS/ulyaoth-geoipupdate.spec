@@ -28,17 +28,22 @@ The GeoIP Update program performs automatic updates of GeoIP2 and GeoIP Legacy b
 
 %build
 ./bootstrap
-./configure --prefix=/usr
+%configure
 make %{?_smp_mflags}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT
 
-%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/geoipupdate
-cp -rf $RPM_BUILD_ROOT/conf/GeoIP.conf.default $RPM_BUILD_ROOT%{_datadir}/geoipupdate/GeoIP.conf
-   
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/geoipupdate
+%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate
+%{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/GeoIP.conf $RPM_BUILD_ROOT%{_sysconfdir}/geoipupdate/
+%{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/GeoIP.conf.default $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
+%{__mv} %{_builddir}/geoipupdate-%{version}/ChangeLog.md $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
+%{__mv} %{_builddir}/geoipupdate-%{version}/LICENSE $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
+%{__mv} %{_builddir}/geoipupdate-%{version}/README.md $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
+  
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
@@ -48,12 +53,12 @@ cp -rf $RPM_BUILD_ROOT/conf/GeoIP.conf.default $RPM_BUILD_ROOT%{_datadir}/geoipu
 %defattr(-,root,root)
 %docdir /usr/share/doc/geoipupdate
 
-%dir %{_datadir}/geoipupdate
+%{_sysconfdir}/geoipupdate
 
 %{_bindir}/geoipupdate
-%{_mandir}/man1/geoipupdate.1
-%{_mandir}/man5/GeoIP.conf.5
-%{_datadir}/geoipupdate/GeoIP.conf
+%{_mandir}/man1/geoipupdate.1.gz
+%{_mandir}/man5/GeoIP.conf.5.gz
+%{_sysconfdir}/geoipupdate/GeoIP.conf
 
 %doc %{_datadir}/doc/geoipupdate/ChangeLog.md
 %doc %{_datadir}/doc/geoipupdate/GeoIP.conf.default
