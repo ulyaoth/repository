@@ -63,7 +63,7 @@ HAProxy is a free, very fast and reliable solution offering high availability, l
 
 %build
 
-make PREFIX=/usr/local/ulyaoth/haproxy/1.7 TARGET=linux2628 USE_51DEGREES USE_WURFL=1 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua/5.3/lib/ LUA_INC=/usr/local/ulyaoth/lua/5.3/include/ USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/ssl/openssl1.1.0/include SSL_LIB=/usr/local/ulyaoth/ssl/openssl1.1.0/lib ADDLIB=-ldl
+make PREFIX=/usr/local/ulyaoth/haproxy/1.7 TARGET=linux2628 USE_WURFL=1 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua/5.3/lib/ LUA_INC=/usr/local/ulyaoth/lua/5.3/include/ USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/ssl/openssl1.1.0/include SSL_LIB=/usr/local/ulyaoth/ssl/openssl1.1.0/lib ADDLIB=-ldl
 
 %install
 rm -rf $RPM_BUILD_ROOT
