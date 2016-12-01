@@ -1,7 +1,7 @@
 Summary:    The GeoIP Update program performs automatic updates of GeoIP2 and GeoIP Legacy binary databases.
 Name:       ulyaoth-geoipupdate
 Version:    2.2.2
-Release:    2%{?dist}
+Release:    3%{?dist}
 BuildArch: x86_64
 License:    GNUv2
 Group:      Applications/System
@@ -37,6 +37,7 @@ rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate
+%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/GeoIP
 %{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/GeoIP.conf.default $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
 %{__mv} %{_builddir}/geoipupdate-%{version}/ChangeLog.md $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
 %{__mv} %{_builddir}/geoipupdate-%{version}/LICENSE $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
@@ -50,6 +51,8 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %docdir /usr/share/doc/geoipupdate
+
+%dir %{_datadir}/GeoIP
 
 %{_bindir}/geoipupdate
 %{_mandir}/man1/geoipupdate.1.gz
@@ -81,6 +84,9 @@ BANNER
 %postun
 
 %changelog
+* Thu Dec 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.2-3
+- Missed creating required dir "/usr/share/GeoIP".
+
 * Thu Dec 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.2-2
 - Fixed mistake with config directory.
 
