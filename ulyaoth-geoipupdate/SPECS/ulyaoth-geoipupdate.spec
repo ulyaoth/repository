@@ -1,7 +1,7 @@
 Summary:    The GeoIP Update program performs automatic updates of GeoIP2 and GeoIP Legacy binary databases.
 Name:       ulyaoth-geoipupdate
 Version:    2.2.2
-Release:    1%{?dist}
+Release:    2%{?dist}
 BuildArch: x86_64
 License:    GNUv2
 Group:      Applications/System
@@ -36,9 +36,7 @@ rm -rf $RPM_BUILD_ROOT
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/geoipupdate
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate
-%{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/GeoIP.conf $RPM_BUILD_ROOT%{_sysconfdir}/geoipupdate/
 %{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/GeoIP.conf.default $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
 %{__mv} %{_builddir}/geoipupdate-%{version}/ChangeLog.md $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
 %{__mv} %{_builddir}/geoipupdate-%{version}/LICENSE $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
@@ -53,12 +51,10 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %defattr(-,root,root)
 %docdir /usr/share/doc/geoipupdate
 
-%{_sysconfdir}/geoipupdate
-
 %{_bindir}/geoipupdate
 %{_mandir}/man1/geoipupdate.1.gz
 %{_mandir}/man5/GeoIP.conf.5.gz
-%{_sysconfdir}/geoipupdate/GeoIP.conf
+%{_sysconfdir}/GeoIP.conf
 
 %doc %{_datadir}/doc/geoipupdate/ChangeLog.md
 %doc %{_datadir}/doc/geoipupdate/GeoIP.conf.default
@@ -85,5 +81,8 @@ BANNER
 %postun
 
 %changelog
+* Thu Dec 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.2-2
+- Fixed mistake with config directory.
+
 * Wed Nov 30 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.2-1
 - Initial release.
