@@ -2,10 +2,6 @@ ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
 
-if [ "$arch" == "i686" ]
-then
-arch="i386"
-fi
 
 if grep -q -i "release 6" /etc/redhat-release
 then
@@ -17,7 +13,7 @@ elif grep -q -i "release 7" /etc/oracle-release
 then
 yum install -y http://mirror.centos.org/centos/7/os/x86_64/Packages/GeoIP-devel-1.5.0-9.el7.x86_64.rpm
 else
-echo yeah Fedora!
+echo No extra installation required for this OS!
 fi
 
 useradd ulyaoth
@@ -26,11 +22,6 @@ cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SPECS/ulyaoth-tengine.spec"
-
-if [ "$arch" != "x86_64" ]
-then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-tengine.spec
-fi
 
 if type dnf 2>/dev/null
 then

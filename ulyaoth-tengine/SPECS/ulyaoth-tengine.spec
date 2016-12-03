@@ -1,8 +1,8 @@
 #
-%define nginx_home %{_localstatedir}/cache/nginx
-%define nginx_user tengine
-%define nginx_group tengine
-%define nginx_loggroup adm
+%define tengine_home %{_localstatedir}/cache/tengine
+%define tengine_user tengine
+%define tengine_group tengine
+%define tengine_loggroup adm
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-tengine
-Version: 2.1.2
+Version: 2.2.0
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Taobao
@@ -49,14 +49,14 @@ Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0: https://github.com/ulyaoth/repository/raw/master/ulyaoth-tengine/SOURCES/tengine-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/logrotate
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.init
-Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.sysconf
-Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.conf
-Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.vh.default.conf
-Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.vh.example_ssl.conf
-Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.suse.init
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.sysconf
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.conf
+Source5: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.vh.default.conf
+Source6: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.vh.example_ssl.conf
+Source7: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.suse.init
 Source8: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.service
-Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.upgrade.sh
-Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/nginx.suse.logrotate
+Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.upgrade.sh
+Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.suse.logrotate
 
 License: 2-clause BSD-like license
 
@@ -73,11 +73,8 @@ BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
 
-Provides: webserver
 Provides: tengine
-Provides: nginx
 Provides: ulyaoth-tengine
-Provides: ulyaoth-nginx
 
 %description
 Tengine is a web server originated by Taobao, the largest e-commerce website in Asia.
@@ -94,20 +91,20 @@ Not stripped version of tengine built with the debugging log support.
 
 %build
 ./configure \
-        --prefix=%{_sysconfdir}/nginx \
-        --sbin-path=%{_sbindir}/nginx \
-        --conf-path=%{_sysconfdir}/nginx/nginx.conf \
-        --error-log-path=%{_localstatedir}/log/nginx/error.log \
-        --http-log-path=%{_localstatedir}/log/nginx/access.log \
-        --pid-path=%{_localstatedir}/run/nginx.pid \
-        --lock-path=%{_localstatedir}/run/nginx.lock \
-        --http-client-body-temp-path=%{_localstatedir}/cache/nginx/client_temp \
-        --http-proxy-temp-path=%{_localstatedir}/cache/nginx/proxy_temp \
-        --http-fastcgi-temp-path=%{_localstatedir}/cache/nginx/fastcgi_temp \
-        --http-uwsgi-temp-path=%{_localstatedir}/cache/nginx/uwsgi_temp \
-        --http-scgi-temp-path=%{_localstatedir}/cache/nginx/scgi_temp \
-        --user=%{nginx_user} \
-        --group=%{nginx_group} \
+        --prefix=%{_sysconfdir}/tengine \
+        --sbin-path=%{_sbindir}/tengine \
+        --conf-path=%{_sysconfdir}/tengine/tengine.conf \
+        --error-log-path=%{_localstatedir}/log/tengine/error.log \
+        --http-log-path=%{_localstatedir}/log/tengine/access.log \
+        --pid-path=%{_localstatedir}/run/tengine.pid \
+        --lock-path=%{_localstatedir}/run/tengine.lock \
+        --http-client-body-temp-path=%{_localstatedir}/cache/tengine/client_temp \
+        --http-proxy-temp-path=%{_localstatedir}/cache/tengine/proxy_temp \
+        --http-fastcgi-temp-path=%{_localstatedir}/cache/tengine/fastcgi_temp \
+        --http-uwsgi-temp-path=%{_localstatedir}/cache/tengine/uwsgi_temp \
+        --http-scgi-temp-path=%{_localstatedir}/cache/tengine/scgi_temp \
+        --user=%{tengine_user} \
+        --group=%{tengine_group} \
         --with-http_ssl_module \
         --with-http_realip_module \
         --with-http_dav_module \
@@ -146,28 +143,28 @@ Not stripped version of tengine built with the debugging log support.
         --with-ipv6 \
         --with-debug \
 		--with-http_v2_module \
-		--dso-path=%{_sysconfdir}/nginx/modules \
+		--dso-path=%{_sysconfdir}/tengine/modules \
 		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/tengine-%{version}/objs/nginx \
-        %{_builddir}/tengine-%{version}/objs/nginx.debug
+%{__mv} %{_builddir}/tengine-%{version}/objs/tengine \
+        %{_builddir}/tengine-%{version}/objs/tengine.debug
 ./configure \
-        --prefix=%{_sysconfdir}/nginx \
-        --sbin-path=%{_sbindir}/nginx \
-        --conf-path=%{_sysconfdir}/nginx/nginx.conf \
-        --error-log-path=%{_localstatedir}/log/nginx/error.log \
-        --http-log-path=%{_localstatedir}/log/nginx/access.log \
-        --pid-path=%{_localstatedir}/run/nginx.pid \
-        --lock-path=%{_localstatedir}/run/nginx.lock \
-        --http-client-body-temp-path=%{_localstatedir}/cache/nginx/client_temp \
-        --http-proxy-temp-path=%{_localstatedir}/cache/nginx/proxy_temp \
-        --http-fastcgi-temp-path=%{_localstatedir}/cache/nginx/fastcgi_temp \
-        --http-uwsgi-temp-path=%{_localstatedir}/cache/nginx/uwsgi_temp \
-        --http-scgi-temp-path=%{_localstatedir}/cache/nginx/scgi_temp \
-        --user=%{nginx_user} \
-        --group=%{nginx_group} \
+        --prefix=%{_sysconfdir}/tengine \
+        --sbin-path=%{_sbindir}/tengine \
+        --conf-path=%{_sysconfdir}/tengine/tengine.conf \
+        --error-log-path=%{_localstatedir}/log/tengine/error.log \
+        --http-log-path=%{_localstatedir}/log/tengine/access.log \
+        --pid-path=%{_localstatedir}/run/tengine.pid \
+        --lock-path=%{_localstatedir}/run/tengine.lock \
+        --http-client-body-temp-path=%{_localstatedir}/cache/tengine/client_temp \
+        --http-proxy-temp-path=%{_localstatedir}/cache/tengine/proxy_temp \
+        --http-fastcgi-temp-path=%{_localstatedir}/cache/tengine/fastcgi_temp \
+        --http-uwsgi-temp-path=%{_localstatedir}/cache/tengine/uwsgi_temp \
+        --http-scgi-temp-path=%{_localstatedir}/cache/tengine/scgi_temp \
+        --user=%{tengine_user} \
+        --group=%{tengine_group} \
         --with-http_ssl_module \
         --with-http_realip_module \
         --with-http_dav_module \
@@ -206,7 +203,7 @@ make %{?_smp_mflags}
         --with-file-aio \
         --with-ipv6 \
 		--with-http_v2_module \
-		--dso-path=%{_sysconfdir}/nginx/modules \
+		--dso-path=%{_sysconfdir}/tengine/modules \
 		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
@@ -216,46 +213,46 @@ make %{?_smp_mflags}
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/nginx
-%{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/html $RPM_BUILD_ROOT%{_datadir}/nginx/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/tengine
+%{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/tengine/html $RPM_BUILD_ROOT%{_datadir}/tengine/
 
-%{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/nginx/*.default
-%{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/nginx/fastcgi.conf
+%{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/tengine/*.default
+%{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/tengine/fastcgi.conf
 
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/nginx
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/tengine
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/tengine
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/tengine
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/tengine/conf.d
 
-%{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
+%{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/tengine/tengine.conf
 %{__install} -m 644 -p %{SOURCE4} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
+   $RPM_BUILD_ROOT%{_sysconfdir}/tengine/tengine.conf
 %{__install} -m 644 -p %{SOURCE5} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
+   $RPM_BUILD_ROOT%{_sysconfdir}/tengine/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
+   $RPM_BUILD_ROOT%{_sysconfdir}/tengine/conf.d/example_ssl.conf
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
+   $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/tengine
 
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/tengine/sites-available
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/tengine/sites-enabled
    
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m644 %SOURCE8 \
         $RPM_BUILD_ROOT%{_unitdir}/tengine.service
-%{__mkdir} -p $RPM_BUILD_ROOT%{_libexecdir}/initscripts/legacy-actions/nginx
+%{__mkdir} -p $RPM_BUILD_ROOT%{_libexecdir}/initscripts/legacy-actions/tengine
 %{__install} -m755 %SOURCE9 \
-        $RPM_BUILD_ROOT%{_libexecdir}/initscripts/legacy-actions/nginx/upgrade
+        $RPM_BUILD_ROOT%{_libexecdir}/initscripts/legacy-actions/tengine/upgrade
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
 %if 0%{?suse_version}
 %{__install} -m755 %{SOURCE7} \
-   $RPM_BUILD_ROOT%{_initrddir}/nginx
+   $RPM_BUILD_ROOT%{_initrddir}/tengine
 %else
 %{__install} -m755 %{SOURCE2} \
    $RPM_BUILD_ROOT%{_initrddir}/tengine
@@ -265,9 +262,9 @@ make %{?_smp_mflags}
 # install log rotation stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
 %{__install} -m 644 -p %{SOURCE1} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
-%{__install} -m644 %{_builddir}/tengine-%{version}/objs/nginx.debug \
-   $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
+   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/tengine
+%{__install} -m644 %{_builddir}/tengine-%{version}/objs/tengine.debug \
+   $RPM_BUILD_ROOT%{_sbindir}/tengine.debug
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -275,58 +272,58 @@ make %{?_smp_mflags}
 %files
 %defattr(-,root,root)
 
-%{_sbindir}/nginx
+%{_sbindir}/tengine
 %{_sbindir}/dso_tool
 
-%dir %{_sysconfdir}/nginx
-%dir %{_sysconfdir}/nginx/modules
-%dir %{_sysconfdir}/nginx/include
-%dir %{_sysconfdir}/nginx/conf.d
-%dir %{_sysconfdir}/nginx/sites-available
-%dir %{_sysconfdir}/nginx/sites-enabled
+%dir %{_sysconfdir}/tengine
+%dir %{_sysconfdir}/tengine/modules
+%dir %{_sysconfdir}/tengine/include
+%dir %{_sysconfdir}/tengine/conf.d
+%dir %{_sysconfdir}/tengine/sites-available
+%dir %{_sysconfdir}/tengine/sites-enabled
 
-%{_sysconfdir}/nginx/modules/*
-%{_sysconfdir}/nginx/include/*
+%{_sysconfdir}/tengine/modules/*
+%{_sysconfdir}/tengine/include/*
 
-%config(noreplace) %{_sysconfdir}/nginx/nginx.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%config(noreplace) %{_sysconfdir}/nginx/mime.types
-%config(noreplace) %{_sysconfdir}/nginx/fastcgi_params
-%config(noreplace) %{_sysconfdir}/nginx/scgi_params
-%config(noreplace) %{_sysconfdir}/nginx/uwsgi_params
-%config(noreplace) %{_sysconfdir}/nginx/koi-utf
-%config(noreplace) %{_sysconfdir}/nginx/koi-win
-%config(noreplace) %{_sysconfdir}/nginx/win-utf
-%config %{_sysconfdir}/nginx/browsers
-%config %{_sysconfdir}/nginx/module_stubs
+%config(noreplace) %{_sysconfdir}/tengine/tengine.conf
+%config(noreplace) %{_sysconfdir}/tengine/conf.d/default.conf
+%config(noreplace) %{_sysconfdir}/tengine/conf.d/example_ssl.conf
+%config(noreplace) %{_sysconfdir}/tengine/mime.types
+%config(noreplace) %{_sysconfdir}/tengine/fastcgi_params
+%config(noreplace) %{_sysconfdir}/tengine/scgi_params
+%config(noreplace) %{_sysconfdir}/tengine/uwsgi_params
+%config(noreplace) %{_sysconfdir}/tengine/koi-utf
+%config(noreplace) %{_sysconfdir}/tengine/koi-win
+%config(noreplace) %{_sysconfdir}/tengine/win-utf
+%config %{_sysconfdir}/tengine/browsers
+%config %{_sysconfdir}/tengine/module_stubs
 
-%config(noreplace) %{_sysconfdir}/logrotate.d/nginx
-%config(noreplace) %{_sysconfdir}/sysconfig/nginx
+%config(noreplace) %{_sysconfdir}/logrotate.d/tengine
+%config(noreplace) %{_sysconfdir}/sysconfig/tengine
 %if %{use_systemd}
 %{_unitdir}/tengine.service
-%dir %{_libexecdir}/initscripts/legacy-actions/nginx
-%{_libexecdir}/initscripts/legacy-actions/nginx/*
+%dir %{_libexecdir}/initscripts/legacy-actions/tengine
+%{_libexecdir}/initscripts/legacy-actions/tengine/*
 %else
 %{_initrddir}/tengine
 %endif
 
-%dir %{_datadir}/nginx
-%dir %{_datadir}/nginx/html
-%{_datadir}/nginx/html/*
+%dir %{_datadir}/tengine
+%dir %{_datadir}/tengine/html
+%{_datadir}/tengine/html/*
 
-%attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
-%attr(0755,root,root) %dir %{_localstatedir}/log/nginx
+%attr(0755,root,root) %dir %{_localstatedir}/cache/tengine
+%attr(0755,root,root) %dir %{_localstatedir}/log/tengine
 
 %files debug
-%attr(0755,root,root) %{_sbindir}/nginx.debug
+%attr(0755,root,root) %{_sbindir}/tengine.debug
 
 %pre
 # Add the "Tengine" user
-getent group %{nginx_group} >/dev/null || groupadd -r %{nginx_group}
-getent passwd %{nginx_user} >/dev/null || \
-    useradd -r -g %{nginx_group} -s /sbin/nologin \
-    -d %{nginx_home} -c "Tengine user"  %{nginx_user}
+getent group %{tengine_group} >/dev/null || groupadd -r %{tengine_group}
+getent passwd %{tengine_user} >/dev/null || \
+    useradd -r -g %{tengine_group} -s /sbin/nologin \
+    -d %{tengine_home} -c "Tengine user"  %{tengine_user}
 exit 0
 
 %post
@@ -357,17 +354,17 @@ BANNER
 
     # Touch and set permissions on default log files on installation
 
-    if [ -d %{_localstatedir}/log/nginx ]; then
-        if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
-            touch %{_localstatedir}/log/nginx/access.log
-            %{__chmod} 640 %{_localstatedir}/log/nginx/access.log
-            %{__chown} %{nginx_user}:%{nginx_loggroup} %{_localstatedir}/log/nginx/access.log
+    if [ -d %{_localstatedir}/log/tengine ]; then
+        if [ ! -e %{_localstatedir}/log/tengine/access.log ]; then
+            touch %{_localstatedir}/log/tengine/access.log
+            %{__chmod} 640 %{_localstatedir}/log/tengine/access.log
+            %{__chown} %{tengine_user}:%{tengine_loggroup} %{_localstatedir}/log/tengine/access.log
         fi
 
-        if [ ! -e %{_localstatedir}/log/nginx/error.log ]; then
-            touch %{_localstatedir}/log/nginx/error.log
-            %{__chmod} 640 %{_localstatedir}/log/nginx/error.log
-            %{__chown} %{nginx_user}:%{nginx_loggroup} %{_localstatedir}/log/nginx/error.log
+        if [ ! -e %{_localstatedir}/log/tengine/error.log ]; then
+            touch %{_localstatedir}/log/tengine/error.log
+            %{__chmod} 640 %{_localstatedir}/log/tengine/error.log
+            %{__chown} %{tengine_user}:%{tengine_loggroup} %{_localstatedir}/log/tengine/error.log
         fi
     fi
 fi
@@ -394,6 +391,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Dec 3 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.0-1
+- Updated to Tengine 2.2.0.
+
 * Fri Jan 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.2-1
 - Updated to Tengine 2.1.2.
 - Added http/2.
