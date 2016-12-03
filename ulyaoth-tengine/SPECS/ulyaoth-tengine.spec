@@ -46,7 +46,7 @@ Vendor: Taobao
 URL: http://tengine.taobao.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: https://github.com/ulyaoth/repository/raw/master/ulyaoth-tengine/SOURCES/tengine-%{version}.tar.gz
+Source0: https://github.com/alibaba/tengine/archive/tengine-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/logrotate
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.init
 Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/tengine.sysconf
