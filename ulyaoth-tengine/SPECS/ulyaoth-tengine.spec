@@ -263,7 +263,7 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/tengine
-%{__install} -m644 %{_builddir}/tengine-tengine-%{version}/objs/nginx.debug \
+%{__install} -m644 %{_builddir}/tengine-tengine-%{version}/objs/tengine.debug \
    $RPM_BUILD_ROOT%{_sbindir}/tengine.debug
 
 %clean
