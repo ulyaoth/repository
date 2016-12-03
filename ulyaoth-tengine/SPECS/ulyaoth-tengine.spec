@@ -87,7 +87,7 @@ Requires: ulyaoth-tengine
 Not stripped version of tengine built with the debugging log support.
 
 %prep
-%setup -q -n tengine-%{version}
+%setup -q -n tengine-tengine-%{version}
 
 %build
 ./configure \
