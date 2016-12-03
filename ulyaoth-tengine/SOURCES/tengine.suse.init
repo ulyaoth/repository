@@ -18,30 +18,30 @@
 #     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA     
 #
 ### BEGIN INIT INFO
-# Provides: nginx
+# Provides: tengine
 # Required-Start: $local_fs $remote_fs $network
 # Required-Stop: $local_fs $remote_fs $network
 # Default-Start: 2 3 4 5
 # Default-Stop: 0 1 6
-# Short-Description: start and stop nginx
+# Short-Description: start and stop tengine
 ### END INIT INFO
 
 # Check for existence of needed config file and read it
-NGINX_CONFIG=/etc/sysconfig/nginx
-test -r $NGINX_CONFIG || { echo "$NGINX_CONFIG not existing";
+TENGINE_CONFIG=/etc/sysconfig/tengine
+test -r $TENGINE_CONFIG || { echo "$TENGINE_CONFIG not existing";
 	if [ "$1" = "stop" ]; then exit 0;
 	else exit 6; fi; }
 
 # Read config	
-. $NGINX_CONFIG
+. $TENGINE_CONFIG
 
-test -x $nginx || { echo "$nginx not installed"; 
+test -x $tengine || { echo "$tengine not installed"; 
 	if [ "$1" = "stop" ]; then exit 0;
 	else exit 5; fi; }
 
-nginx=${NGINX-/usr/sbin/nginx}
-conffile=${CONFFILE-/etc/nginx/nginx.conf}
-pidfile=${PIDFILE-/var/run/nginx.pid}
+tengine=${TENGINE-/usr/sbin/tengine}
+conffile=${CONFFILE-/etc/tengine/tengine.conf}
+pidfile=${PIDFILE-/var/run/tengine.pid}
 SLEEPMSEC=100000
 
 . /etc/rc.status
@@ -53,11 +53,11 @@ upgrade() {
 
     configtest -q || return 6
     echo -n $"Starting new master: "
-    /sbin/killproc -p ${pidfile} -USR2 $nginx
+    /sbin/killproc -p ${pidfile} -USR2 $tengine
     /bin/usleep $SLEEPMSEC
     if [ -f ${oldbinpidfile} -a -f ${pidfile} ]; then
-        echo -n $"Graceful shutdown of old nginx: "
-        killproc -p ${oldbinpidfile} -QUIT $nginx
+        echo -n $"Graceful shutdown of old tengine: "
+        killproc -p ${oldbinpidfile} -QUIT $tengine
     else
         echo $"Upgrade failed!"
         return 1
@@ -75,25 +75,25 @@ configtest() {
         esac
         shift
     fi
-    ${nginx} -t -c ${conffile} $FLAG
+    ${tengine} -t -c ${conffile} $FLAG
 }
 
 
 case "$1" in
     start)
-	echo -n "Starting nginx "
+	echo -n "Starting tengine "
         $0 status
         if test $? -ne 0; then
-	    /sbin/startproc $nginx -c $conffile
+	    /sbin/startproc $tengine -c $conffile
         else
             rc_reset
         fi
 	rc_status -v
 	;;
     stop)
-	echo -n "Shutting down nginx "
+	echo -n "Shutting down tengine "
 
-	/sbin/killproc -p $pidfile $nginx
+	/sbin/killproc -p $pidfile $tengine
 	rc_status -v
 	;;
     try-restart|condrestart)
@@ -112,14 +112,14 @@ case "$1" in
 	rc_status
 	;;
     reload|force-reload)
-	echo -n "Reload service nginx "
-	/sbin/killproc -p $pidfile -HUP $nginx
+	echo -n "Reload service tengine "
+	/sbin/killproc -p $pidfile -HUP $tengine
 	rc_status -v
 	;;
     status)
-	echo -n "Checking for service nginx "
+	echo -n "Checking for service tengine "
 	
-	/sbin/checkproc $nginx
+	/sbin/checkproc $tengine
 	rc_status -v
 	;;
     upgrade)

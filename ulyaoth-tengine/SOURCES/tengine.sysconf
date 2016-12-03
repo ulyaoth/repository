@@ -1,4 +1,4 @@
-# Configuration file for the nginx service.
+# Configuration file for the tengine service.
 
-NGINX=/usr/sbin/nginx
-CONFFILE=/etc/nginx/nginx.conf
+TENGINE=/usr/sbin/tengine
+CONFFILE=/etc/tengine/tengine.conf

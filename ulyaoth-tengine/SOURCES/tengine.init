@@ -4,9 +4,9 @@
 #
 # chkconfig: - 85 15
 # processname: tengine
-# config: /etc/nginx/nginx.conf
-# config: /etc/sysconfig/nginx
-# pidfile: /var/run/nginx.pid
+# config: /etc/tengine/tengine.conf
+# config: /etc/sysconfig/tengine
+# pidfile: /var/run/tengine.pid
 # description: tengine is an HTTP and reverse proxy server
 #
 ### BEGIN INIT INFO
@@ -33,11 +33,11 @@ if [ -f /etc/sysconfig/$sysconfig ]; then
     . /etc/sysconfig/$sysconfig
 fi
 
-nginx=${NGINX-/usr/sbin/nginx}
-prog=`/bin/basename $nginx`
-conffile=${CONFFILE-/etc/nginx/nginx.conf}
-lockfile=${LOCKFILE-/var/lock/subsys/nginx}
-pidfile=${PIDFILE-/var/run/nginx.pid}
+tengine=${TENGINE-/usr/sbin/tengine}
+prog=`/bin/basename $tengine`
+conffile=${CONFFILE-/etc/tengine/tengine.conf}
+lockfile=${LOCKFILE-/var/lock/subsys/tengine}
+pidfile=${PIDFILE-/var/run/tengine.pid}
 SLEEPMSEC=${SLEEPMSEC-200000}
 UPGRADEWAITLOOPS=${UPGRADEWAITLOOPS-5}
 RETVAL=0
@@ -45,7 +45,7 @@ RETVAL=0
 start() {
     echo -n $"Starting $prog: "
 
-    daemon --pidfile=${pidfile} ${nginx} -c ${conffile}
+    daemon --pidfile=${pidfile} ${tengine} -c ${conffile}
     RETVAL=$?
     echo
     [ $RETVAL = 0 ] && touch ${lockfile}
@@ -101,7 +101,7 @@ configtest() {
         esac
         shift
     fi
-    ${nginx} -t -c ${conffile} $FLAG
+    ${tengine} -t -c ${conffile} $FLAG
     RETVAL=$?
     return $RETVAL
 }
