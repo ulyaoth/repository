@@ -4,18 +4,17 @@ AutoReqProv: no
 
 Summary: The Go Programming Language
 Name: ulyaoth-go
-Version: 1.7.3
+Version: 1.7.4
 Release: 1%{?dist}
 BuildArch: x86_64
 URL: https://golang.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz
+Source0: https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
 BuildRoot:  %{_tmppath}/ulyaoth-golang-1.7-%{release}-root-%(%{__id_u} -n)
 
 License: BSD
 
-Provides: go
 Provides: ulyaoth-go
 
 %description
@@ -25,16 +24,16 @@ Go is an open source programming language that makes it easy to build simple, re
 %setup -q -n go
 
 %install
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/local
-cp -rf %{_builddir}/go $RPM_BUILD_ROOT/usr/local/
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/local/ulyaoth
+cp -rf %{_builddir}/go $RPM_BUILD_ROOT/usr/local/ulyaoth
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%dir /usr/local/go
-/usr/local/go/*
+%dir /usr/local/ulyaoth/go
+/usr/local/ulyaoth/go/*
 
 %post
     cat <<BANNER
@@ -52,6 +51,9 @@ For any additional information or help please visit my forum at:
 BANNER
 
 %changelog
+* Sat Dec 3 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.7.4-1
+- Updated to Go 1.7.4.
+
 * Sat Oct 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.7.3-1
 - Updated to Go 1.7.3.
 
