@@ -148,7 +148,7 @@ Not stripped version of tengine built with the debugging log support.
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/tengine-%{version}/objs/tengine \
+%{__mv} %{_builddir}/tengine-%{version}/objs/nginx \
         %{_builddir}/tengine-%{version}/objs/tengine.debug
 ./configure \
         --prefix=%{_sysconfdir}/tengine \
