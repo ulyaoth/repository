@@ -87,6 +87,8 @@ rm -rf $RPM_BUILD_ROOT
 
 make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 
+mkdir -p $RPM_BUILD_ROOT/var/lib/varnish
+
 %{__install} -m 755 -p %{SOURCE9} \
     $RPM_BUILD_ROOT/usr/sbin/varnish_reload_vcl
 
@@ -166,29 +168,9 @@ exit 0
 %dir /usr/share/varnish
 %dir /usr/share/varnish/vcl
 /usr/share/varnish/vmodtool.py
+/usr/share/varnish/vmodtool.pyc
+/usr/share/varnish/vmodtool.pyo
 /usr/share/varnish/vcl/devicedetect.vcl
-
-%dir /usr/share/doc/varnish
-/usr/share/doc/varnish/builtin.vcl
-/usr/share/doc/varnish/example.vcl
-
-%{_mandir}/man1/varnishadm.1
-%{_mandir}/man1/varnishd.1
-%{_mandir}/man1/varnishhist.1
-%{_mandir}/man1/varnishlog.1
-%{_mandir}/man1/varnishncsa.1
-%{_mandir}/man1/varnishstat.1
-%{_mandir}/man1/varnishtest.1
-%{_mandir}/man1/varnishtop.1
-
-%{_mandir}/man3/vmod_directors.3
-%{_mandir}/man3/vmod_std.3
-%{_mandir}/man7/varnish-cli.7
-%{_mandir}/man7/varnish-counters.7
-%{_mandir}/man7/vcl.7
-%{_mandir}/man7/vsl.7
-%{_mandir}/man7/vsl-query.7
-%{_mandir}/man7/vtc.7
 
 /usr/include/varnish/*
 
@@ -209,6 +191,26 @@ exit 0
 %{_libdir}/varnish/vmods/libvmod_directors.so
 %{_libdir}/varnish/vmods/libvmod_std.la
 %{_libdir}/varnish/vmods/libvmod_std.so
+
+/usr/share/doc/builtin.vcl
+/usr/share/doc/example.vcl
+%{_mandir}/man1/varnishadm.1.gz
+%{_mandir}/man1/varnishd.1.gz
+%{_mandir}/man1/varnishhist.1.gz
+%{_mandir}/man1/varnishlog.1.gz
+%{_mandir}/man1/varnishncsa.1.gz
+%{_mandir}/man1/varnishstat.1.gz
+%{_mandir}/man1/varnishtest.1.gz
+%{_mandir}/man1/varnishtop.1.gz
+%{_mandir}/man3/vmod_directors.3.gz
+%{_mandir}/man3/vmod_std.3.gz
+%{_mandir}/man7/varnish-cli.7.gz
+%{_mandir}/man7/varnish-counters.7.gz
+%{_mandir}/man7/vcl.7.gz
+%{_mandir}/man7/vsl-query.7.gz
+%{_mandir}/man7/vsl.7.gz
+%{_mandir}/man7/vtc.7.gz
+
 
 %if %{use_systemd}
 %{_unitdir}/varnish.service
