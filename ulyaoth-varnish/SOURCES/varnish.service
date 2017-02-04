@@ -23,22 +23,22 @@ LimitMEMLOCK=82000
 # Maximum size of the corefile.
 LimitCORE=infinity
 
-EnvironmentFile=/etc/sysconfig/varnish5
+EnvironmentFile=/etc/sysconfig/varnish
 
 Type=forking
-PIDFile=/var/run/varnish5.pid
+PIDFile=/var/run/varnish.pid
 PrivateTmp=true
-ExecStart=/usr/sbin/varnish5d \
-        -P /var/run/varnish5.pid \
+ExecStart=/usr/sbin/varnishd \
+        -P /var/run/varnish.pid \
         -f $VARNISH_VCL_CONF \
         -a ${VARNISH_LISTEN_ADDRESS}:${VARNISH_LISTEN_PORT} \
         -T ${VARNISH_ADMIN_LISTEN_ADDRESS}:${VARNISH_ADMIN_LISTEN_PORT} \
         -S $VARNISH_SECRET_FILE \
         -s $VARNISH_STORAGE \
-        -n /var/lib/varnish5 \
+        -n /var/lib/varnish \
         $DAEMON_OPTS
 
-ExecReload=/usr/sbin/varnish5_reload_vcl
+ExecReload=/usr/sbin/varnish_reload_vcl
 
 [Install]
 WantedBy=multi-user.target

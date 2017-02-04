@@ -9,10 +9,6 @@ elif grep --quiet "release 7" /etc/redhat-release || grep --quiet "release 7" /e
   yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 fi
 
-# fix ldd
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/ulyaoth-varnish5.conf -O /etc/ld.so.conf.d/ulyaoth-varnish5.conf
-/sbin/ldconfig
-
 # Create build user and go to it's home directory, and create the rpmbuild directory.
 useradd ulyaoth
 usermod -Gulyaoth ulyaoth
@@ -53,5 +49,3 @@ fi
 # Clean
 rm -rf /root/build-ulyaoth-*
 rm -rf /home/ulyaoth/rpmbuild
-rm -rf /etc/ld.so.conf.d/ulyaoth-varnish5.conf
-/sbin/ldconfig
