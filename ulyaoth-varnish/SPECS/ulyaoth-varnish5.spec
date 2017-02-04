@@ -1,7 +1,7 @@
-%define varnish5_home /var/lib/varnish5
-%define varnish5_user varnish
-%define varnish5_group varnish
-%define varnish5_loggroup adm
+%define varnish_home /var/lib/varnish
+%define varnish_user varnish
+%define varnish_group varnish
+%define varnish_loggroup adm
 %define debug_package %{nil}
 
 # distribution specific definitions
@@ -32,7 +32,7 @@ BuildRequires: systemd-devel
 Summary:    Varnish HTTP Cache
 Name:       ulyaoth-varnish5
 Version:    5.0.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 BuildArch: x86_64
 License:    BSD
 Group:      System Environment/Daemons
@@ -41,17 +41,16 @@ Vendor:     Varnish Software AS
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://github.com/varnishcache/varnish-cache/archive/varnish-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/default.vcl
-Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5.service
-Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5log.service
-Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5ncsa.service
-Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5.initrc
-Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5log.initrc
-Source7:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5ncsa.initrc
-Source8:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5-initrc.sysconfig
-Source9:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/ulyaoth-varnish5.conf
-Source10:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish_reload_vcl
-Source11:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5-systemd.sysconfig
-Source12:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish5-limits.conf
+Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish.service
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnishlog.service
+Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnishncsa.service
+Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish.initrc
+Source6:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnishlog.initrc
+Source7:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnishncsa.initrc
+Source8:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish-initrc.sysconfig
+Source9:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish_reload_vcl
+Source10:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish-systemd.sysconfig
+Source11:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish-limits.conf
 BuildRoot:  %{_tmppath}/varnish5-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: autoconf
@@ -80,86 +79,57 @@ Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as w
 
 %build
 ./autogen.sh
-./configure --prefix=/usr/local/ulyaoth/varnish/varnish5
+./configure --prefix=/usr
 make %{?_smp_mflags}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5
-mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/examples
-mkdir -p $RPM_BUILD_ROOT/var/lib/varnish5
-mkdir -p $RPM_BUILD_ROOT/usr/sbin
-mkdir -p $RPM_BUILD_ROOT/usr/bin
+make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 
-make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr/local/ulyaoth/varnish/varnish5 install
-
-%{__install} -m 755 -p %{SOURCE10} \
-    $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/sbin/varnish_reload_vcl
-
-mv $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/share/man $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/
-mv $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/share/doc $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/
-mv $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/share/aclocal $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/
-mv $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/share/varnish/* $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/examples/
-mv $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/doc/varnish/* $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/examples/vcl/
-rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/share
-rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/var
-rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/varnish/varnish5/doc
-
-%{__mkdir} -p $RPM_BUILD_ROOT/etc/ld.so.conf.d/
-%{__install} -m 644 -p %{SOURCE9} \
-    $RPM_BUILD_ROOT/etc/ld.so.conf.d/ulyaoth-varnish5.conf
+%{__install} -m 755 -p %{SOURCE9} \
+    $RPM_BUILD_ROOT/usr/sbin/varnish_reload_vcl
 
 mkdir -p $RPM_BUILD_ROOT/etc/security/limits.d/
-%{__install} -m 644 -p %{SOURCE12} \
-    $RPM_BUILD_ROOT/etc/security/limits.d/varnish5.conf
+%{__install} -m 644 -p %{SOURCE11} \
+    $RPM_BUILD_ROOT/etc/security/limits.d/varnish.conf
 	
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/varnish5
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/varnish
 %{__install} -m 644 -p %{SOURCE1} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/varnish5/default.vcl
+    $RPM_BUILD_ROOT%{_sysconfdir}/varnish/default.vcl
 
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
-%{__install} -m 644 -p %{SOURCE11} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/varnish5
+%{__install} -m 644 -p %{SOURCE10} \
+    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/varnish
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE8} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/varnish5
+    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/varnish
 %endif
 	
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/varnish5
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/varnish
 	
-ln -s /usr/local/ulyaoth/varnish/varnish5/sbin/varnishd $RPM_BUILD_ROOT/usr/sbin/varnish5d
-ln -s /usr/local/ulyaoth/varnish/varnish5/sbin/varnish_reload_vcl $RPM_BUILD_ROOT/usr/sbin/varnish5_reload_vcl
-ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishadm $RPM_BUILD_ROOT/usr/bin/varnish5adm
-ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishhist $RPM_BUILD_ROOT/usr/bin/varnish5hist
-ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishlog $RPM_BUILD_ROOT/usr/bin/varnish5log
-ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishncsa $RPM_BUILD_ROOT/usr/bin/varnish5ncsa
-ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishstat $RPM_BUILD_ROOT/usr/bin/varnish5stat
-ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishtest $RPM_BUILD_ROOT/usr/bin/varnish5test
-ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishtop $RPM_BUILD_ROOT/usr/bin/varnish5top
-
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m644 %SOURCE2 \
-    $RPM_BUILD_ROOT%{_unitdir}/varnish5.service
+    $RPM_BUILD_ROOT%{_unitdir}/varnish.service
 %{__install} -m644 %SOURCE3 \
-    $RPM_BUILD_ROOT%{_unitdir}/varnish5log.service
+    $RPM_BUILD_ROOT%{_unitdir}/varnishlog.service
 %{__install} -m644 %SOURCE4 \
-    $RPM_BUILD_ROOT%{_unitdir}/varnish5ncsa.service
+    $RPM_BUILD_ROOT%{_unitdir}/varnishncsa.service
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
 %{__install} -m755 %SOURCE5 \
-    $RPM_BUILD_ROOT%{_initrddir}/varnish5
+    $RPM_BUILD_ROOT%{_initrddir}/varnish
 %{__install} -m755 %SOURCE6 \
-    $RPM_BUILD_ROOT%{_initrddir}/varnish5log
+    $RPM_BUILD_ROOT%{_initrddir}/varnishlog
 %{__install} -m755 %SOURCE7 \
-    $RPM_BUILD_ROOT%{_initrddir}/varnish5ncsa
+    $RPM_BUILD_ROOT%{_initrddir}/varnishncsa
 %endif
 
 %clean
@@ -167,138 +137,104 @@ ln -s /usr/local/ulyaoth/varnish/varnish5/bin/varnishtop $RPM_BUILD_ROOT/usr/bin
 
 %pre
 # Add the "varnish" user
-getent group %{varnish5_group} >/dev/null || groupadd -r %{varnish5_group}
-getent passwd %{varnish5_user} >/dev/null || \
-    useradd -r -g %{varnish5_group} -s /sbin/nologin \
-    -d %{varnish5_home} -c "varnish user"  %{varnish5_user}
+getent group %{varnish_group} >/dev/null || groupadd -r %{varnish_group}
+getent passwd %{varnish_user} >/dev/null || \
+    useradd -r -g %{varnish_group} -s /sbin/nologin \
+    -d %{varnish_home} -c "varnish user"  %{varnish_user}
 exit 0
 
 %files
 %defattr(-,root,root,-)
-/usr/sbin/varnish5d
-/usr/sbin/varnish5_reload_vcl
-/usr/bin/varnish5adm
-/usr/bin/varnish5hist
-/usr/bin/varnish5log
-/usr/bin/varnish5ncsa
-/usr/bin/varnish5stat
-/usr/bin/varnish5test
-/usr/bin/varnish5top
-/etc/sysconfig/varnish5
-/etc/security/limits.d/varnish5.conf
-%config(noreplace) %{_sysconfdir}/ld.so.conf.d/ulyaoth-varnish5.conf
+/usr/sbin/varnishd
+/usr/sbin/varnish_reload_vcl
+/usr/bin/varnishadm
+/usr/bin/varnishhist
+/usr/bin/varnishlog
+/usr/bin/varnishncsa
+/usr/bin/varnishstat
+/usr/bin/varnishtest
+/usr/bin/varnishtop
+/etc/sysconfig/varnish
+/etc/security/limits.d/varnish.conf
 
-%dir /usr/local/ulyaoth
-%dir /usr/local/ulyaoth/varnish
-%dir /usr/local/ulyaoth/varnish/varnish5
+%dir %{_sysconfdir}/varnish
+%config(noreplace) %{_sysconfdir}/varnish/default.vcl
 
-%dir %{_sysconfdir}/varnish5
-%config(noreplace) %{_sysconfdir}/varnish5/default.vcl
+/usr/share/aclocal/varnish-legacy.m4
+/usr/share/aclocal/varnish.m4
 
-%dir /usr/local/ulyaoth/varnish/varnish5/sbin
-/usr/local/ulyaoth/varnish/varnish5/sbin/varnishd
-/usr/local/ulyaoth/varnish/varnish5/sbin/varnish_reload_vcl
+%dir /usr/share/varnish
+%dir /usr/share/varnish/vcl
+/usr/share/varnish/vmodtool.py
+/usr/share/varnish/vcl/devicedetect.vcl
 
-%dir /usr/local/ulyaoth/varnish/varnish5/bin
-/usr/local/ulyaoth/varnish/varnish5/bin/varnishadm
-/usr/local/ulyaoth/varnish/varnish5/bin/varnishhist
-/usr/local/ulyaoth/varnish/varnish5/bin/varnishlog
-/usr/local/ulyaoth/varnish/varnish5/bin/varnishncsa
-/usr/local/ulyaoth/varnish/varnish5/bin/varnishstat
-/usr/local/ulyaoth/varnish/varnish5/bin/varnishtest
-/usr/local/ulyaoth/varnish/varnish5/bin/varnishtop
+%dir /usr/share/doc/varnish
+/usr/share/doc/varnish/builtin.vcl
+/usr/share/doc/varnish/example.vcl
 
-%dir /usr/local/ulyaoth/varnish/varnish5/aclocal
-/usr/local/ulyaoth/varnish/varnish5/aclocal/varnish-legacy.m4
-/usr/local/ulyaoth/varnish/varnish5/aclocal/varnish.m4
+%{_mandir}/man1/varnishadm.1
+%{_mandir}/man1/varnishd.1
+%{_mandir}/man1/varnishhist.1
+%{_mandir}/man1/varnishlog.1
+%{_mandir}/man1/varnishncsa.1
+%{_mandir}/man1/varnishstat.1
+%{_mandir}/man1/varnishtest.1
+%{_mandir}/man1/varnishtop.1
 
-%dir /usr/local/ulyaoth/varnish/varnish5/examples
-/usr/local/ulyaoth/varnish/varnish5/examples/vmodtool.py
-/usr/local/ulyaoth/varnish/varnish5/examples/vmodtool.pyc
-/usr/local/ulyaoth/varnish/varnish5/examples/vmodtool.pyo
+%{_mandir}/man3/vmod_directors.3
+%{_mandir}/man3/vmod_std.3
+%{_mandir}/man7/varnish-cli.7
+%{_mandir}/man7/varnish-counters.7
+%{_mandir}/man7/vcl.7
+%{_mandir}/man7/vsl.7
+%{_mandir}/man7/vsl-query.7
+%{_mandir}/man7/vtc.7
 
-%dir /usr/local/ulyaoth/varnish/varnish5/examples/vcl
-/usr/local/ulyaoth/varnish/varnish5/examples/vcl/builtin.vcl
-/usr/local/ulyaoth/varnish/varnish5/examples/vcl/example.vcl
-/usr/local/ulyaoth/varnish/varnish5/examples/vcl/devicedetect.vcl
+/usr/include/varnish/*
 
-%dir /usr/local/ulyaoth/varnish/varnish5/man
-%dir /usr/local/ulyaoth/varnish/varnish5/man/man1
-/usr/local/ulyaoth/varnish/varnish5/man/man1/varnishadm.1
-/usr/local/ulyaoth/varnish/varnish5/man/man1/varnishd.1
-/usr/local/ulyaoth/varnish/varnish5/man/man1/varnishhist.1
-/usr/local/ulyaoth/varnish/varnish5/man/man1/varnishlog.1
-/usr/local/ulyaoth/varnish/varnish5/man/man1/varnishncsa.1
-/usr/local/ulyaoth/varnish/varnish5/man/man1/varnishstat.1
-/usr/local/ulyaoth/varnish/varnish5/man/man1/varnishtest.1
-/usr/local/ulyaoth/varnish/varnish5/man/man1/varnishtop.1
-
-%dir /usr/local/ulyaoth/varnish/varnish5/man/man3
-/usr/local/ulyaoth/varnish/varnish5/man/man3/vmod_directors.3
-/usr/local/ulyaoth/varnish/varnish5/man/man3/vmod_std.3
-
-%dir /usr/local/ulyaoth/varnish/varnish5/man/man7
-/usr/local/ulyaoth/varnish/varnish5/man/man7/varnish-cli.7
-/usr/local/ulyaoth/varnish/varnish5/man/man7/varnish-counters.7
-/usr/local/ulyaoth/varnish/varnish5/man/man7/vcl.7
-/usr/local/ulyaoth/varnish/varnish5/man/man7/vsl.7
-/usr/local/ulyaoth/varnish/varnish5/man/man7/vsl-query.7
-/usr/local/ulyaoth/varnish/varnish5/man/man7/vtc.7
-
-%dir /usr/local/ulyaoth/varnish/varnish5/include
-%dir /usr/local/ulyaoth/varnish/varnish5/include/varnish
-/usr/local/ulyaoth/varnish/varnish5/include/varnish/*
-
-%dir /usr/local/ulyaoth/varnish/varnish5/lib
-/usr/local/ulyaoth/varnish/varnish5/lib/libvarnishapi.la
-/usr/local/ulyaoth/varnish/varnish5/lib/libvarnishapi.so
-/usr/local/ulyaoth/varnish/varnish5/lib/libvarnishapi.so.1
-/usr/local/ulyaoth/varnish/varnish5/lib/libvarnishapi.so.1.0.4
-
-%dir /usr/local/ulyaoth/varnish/varnish5/lib/pkgconfig
-/usr/local/ulyaoth/varnish/varnish5/lib/pkgconfig/varnishapi.pc
-
-%dir /usr/local/ulyaoth/varnish/varnish5/lib/varnish
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/libvarnishcompat.la
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/libvarnishcompat.so
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/libvarnish.la
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/libvarnish.so
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/libvcc.la
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/libvcc.so
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/libvgz.la
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/libvgz.so
-
-%dir /usr/local/ulyaoth/varnish/varnish5/lib/varnish/vmods
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/vmods/libvmod_directors.la
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/vmods/libvmod_directors.so
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/vmods/libvmod_std.la
-/usr/local/ulyaoth/varnish/varnish5/lib/varnish/vmods/libvmod_std.so
+%{_libdir}/libvarnishapi.la
+%{_libdir}/libvarnishapi.so
+%{_libdir}/libvarnishapi.so.1
+%{_libdir}/libvarnishapi.so.1.0.4
+%{_libdir}/pkgconfig/varnishapi.pc
+%{_libdir}/varnish/libvarnishcompat.la
+%{_libdir}/varnish/libvarnishcompat.so
+%{_libdir}/varnish/libvarnish.la
+%{_libdir}/varnish/libvarnish.so
+%{_libdir}/varnish/libvcc.la
+%{_libdir}/varnish/libvcc.so
+%{_libdir}/varnish/libvgz.la
+%{_libdir}/varnish/libvgz.so
+%{_libdir}/varnish/vmods/libvmod_directors.la
+%{_libdir}/varnish/vmods/libvmod_directors.so
+%{_libdir}/varnish/vmods/libvmod_std.la
+%{_libdir}/varnish/vmods/libvmod_std.so
 
 %if %{use_systemd}
-%{_unitdir}/varnish5.service
-%{_unitdir}/varnish5ncsa.service
-%{_unitdir}/varnish5log.service
+%{_unitdir}/varnish.service
+%{_unitdir}/varnishncsa.service
+%{_unitdir}/varnishlog.service
 %else
-%{_initrddir}/varnish5
-%{_initrddir}/varnish5ncsa
-%{_initrddir}/varnish5log
+%{_initrddir}/varnish
+%{_initrddir}/varnishncsa
+%{_initrddir}/varnishlog
 %endif
 
 %defattr(-,varnish,varnish,-)
-%dir /var/lib/varnish5
-%dir /var/log/varnish5
+%dir /var/lib/varnish
+%dir /var/log/varnish
 
-%attr(0755,varnish,varnish) /var/log/varnish5
+%attr(0755,varnish,varnish) /var/log/varnish
 
 %post
 /sbin/ldconfig
-dd if=/dev/random of=/etc/varnish5/secret count=1
+dd if=/dev/random of=/etc/varnish/secret count=1
 # Register the varnish5 service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
-    /usr/bin/systemctl preset varnish5.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl preset varnish.service >/dev/null 2>&1 ||:
 %else
-    /sbin/chkconfig --add varnish5
+    /sbin/chkconfig --add varnish
 %endif
 
 cat <<BANNER
@@ -316,17 +252,17 @@ For any additional help please visit my forum at:
 BANNER
     # Touch and set permisions on default log files on installation
 
-    if [ -d %{_localstatedir}/log/varnish5 ]; then
-        if [ ! -e %{_localstatedir}/log/varnish5/varnish.log ]; then
-            touch %{_localstatedir}/log/varnish5/varnish.log
-            %{__chmod} 640 %{_localstatedir}/log/varnish5/varnish.log
-            %{__chown} varnish:%{varnish5_loggroup} %{_localstatedir}/log/varnish5/varnish.log
+    if [ -d %{_localstatedir}/log/varnish ]; then
+        if [ ! -e %{_localstatedir}/log/varnish/varnish.log ]; then
+            touch %{_localstatedir}/log/varnish/varnish.log
+            %{__chmod} 640 %{_localstatedir}/log/varnish/varnish.log
+            %{__chown} varnish:%{varnish_loggroup} %{_localstatedir}/log/varnish/varnish.log
         fi
 
-        if [ ! -e %{_localstatedir}/log/varnish5/varnishncsa.log ]; then
-            touch %{_localstatedir}/log/varnish5/varnishncsa.log
-            %{__chmod} 640 %{_localstatedir}/log/varnish5/varnishncsa.log
-            %{__chown} varnish:%{varnish5_loggroup} %{_localstatedir}/log/varnish5/varnishncsa.log
+        if [ ! -e %{_localstatedir}/log/varnish/varnishncsa.log ]; then
+            touch %{_localstatedir}/log/varnish/varnishncsa.log
+            %{__chmod} 640 %{_localstatedir}/log/varnish/varnishncsa.log
+            %{__chown} varnish:%{varnish_loggroup} %{_localstatedir}/log/varnish/varnishncsa.log
         fi
     fi
 fi
@@ -334,26 +270,29 @@ fi
 %preun
 if [ $1 -eq 0 ]; then
 %if %use_systemd
-    /usr/bin/systemctl --no-reload disable varnish5.service >/dev/null 2>&1 ||:
-    /usr/bin/systemctl stop varnish5.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl --no-reload disable varnish.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl stop varnish.service >/dev/null 2>&1 ||:
 %else
-    /sbin/service varnish5 stop > /dev/null 2>&1
-    /sbin/chkconfig --del varnish5
+    /sbin/service varnish stop > /dev/null 2>&1
+    /sbin/chkconfig --del varnish
 %endif
 fi
 
 %postun
 /sbin/ldconfig
-rm -rf /etc/varnish5/secret
+rm -rf /etc/varnish/secret
 %if %use_systemd
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 %endif
 if [ $1 -ge 1 ]; then
-    /sbin/service varnish5 status  >/dev/null 2>&1 || exit 0
-    /sbin/service varnish5 upgrade >/dev/null 2>&1 || echo \
+    /sbin/service varnish status  >/dev/null 2>&1 || exit 0
+    /sbin/service varnish upgrade >/dev/null 2>&1 || echo \
         "Binary upgrade failed."
 fi
 
 %changelog
+* Sat Feb 2 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-2
+- Changed the rpm to default Varnish locations.
+
 * Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-1
 - Initial release for Varnish 5 version 5.0.0.
