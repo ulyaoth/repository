@@ -79,7 +79,7 @@ Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as w
 
 %build
 ./autogen.sh
-./configure --prefix=/usr
+./configure --prefix=/usr --bindir=%{_bindir} --sbindir=%{_sbindir} --libexecdir=%{_libexecdir} --sysconfdir=%{_sysconfdir} --sharedstatedir=%{_sharedstatedir} --libdir=%{_libdir} --includedir=%{_includedir} --datarootdir=%{_datarootdir} --datadir=%{_datadir} --infodir=%{_infodir} --mandir=%{_mandir} --docdir=/usr/share/doc  
 make %{?_smp_mflags}
 
 %install
