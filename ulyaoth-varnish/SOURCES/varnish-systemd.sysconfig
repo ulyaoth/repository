@@ -5,7 +5,7 @@
 RELOAD_VCL=1
 
 # Main configuration file. You probably want to change it.
-VARNISH_VCL_CONF=/etc/varnish5/default.vcl
+VARNISH_VCL_CONF=/etc/varnish/default.vcl
 
 # Default address and port to bind to. Blank address means all IPv4
 # and IPv6 interfaces, otherwise specify a host name, an IPv4 dotted
@@ -18,7 +18,7 @@ VARNISH_ADMIN_LISTEN_ADDRESS=127.0.0.1
 VARNISH_ADMIN_LISTEN_PORT=6082
 
 # Shared secret file for admin interface
-VARNISH_SECRET_FILE=/etc/varnish5/secret
+VARNISH_SECRET_FILE=/etc/varnish/secret
 
 # Backend storage specification, see Storage Types in the varnishd(5)
 # man page for details.
