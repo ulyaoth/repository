@@ -79,7 +79,7 @@ Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as w
 
 %build
 ./autogen.sh
-./configure --prefix=/usr
+./configure --prefix=/usr --bindir=%{_bindir} --sbindir=%{_sbindir} --libexecdir=%{_libexecdir} --sysconfdir=%{_sysconfdir} --sharedstatedir=%{_sharedstatedir} --libdir=%{_libdir} --includedir=%{_includedir} --datarootdir=%{_datarootdir} --datadir=%{_datadir} --infodir=%{_infodir} --mandir=%{_mandir} --docdir=/usr/share/doc  
 make %{?_smp_mflags}
 
 %install
@@ -291,7 +291,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Feb 2 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-2
+* Sat Feb 4 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-2
 - Changed the rpm to default Varnish locations.
 
 * Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-1

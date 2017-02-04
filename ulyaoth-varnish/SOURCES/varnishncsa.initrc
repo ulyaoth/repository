@@ -1,12 +1,12 @@
 #! /bin/sh
 #
-# Control the Varnish 5 Cache NCSA logging daemon
+# Control the Varnish Cache NCSA logging daemon
 #
 # chkconfig: - 90 10
-# description: Varnish 5 Cache logging daemon
-# processname: varnish5ncsa
+# description: Varnish Cache logging daemon
+# processname: varnishncsa
 # config: 
-# pidfile: /var/run/varnish5ncsa.pid
+# pidfile: /var/run/varnishncsa.pid
 
 ### BEGIN INIT INFO
 # Provides: varnish5ncsa
@@ -22,17 +22,17 @@
 . /etc/init.d/functions
 
 retval=0
-pidfile="/var/run/varnish5ncsa.pid"
-lockfile="/var/lock/subsys/varnish5ncsa"
-logfile="/var/log/varnish5/varnishncsa.log"
+pidfile="/var/run/varnishncsa.pid"
+lockfile="/var/lock/subsys/varnishncsa"
+logfile="/var/log/varnish/varnishncsa.log"
 
-exec="/usr/bin/varnish5ncsa"
-prog="varnish5ncsa"
+exec="/usr/bin/varnishncsa"
+prog="varnishncsa"
 
 DAEMON_OPTS="-a -w $logfile -D -P $pidfile"
 
-# Include varnish5ncsa defaults
-[ -e /etc/sysconfig/varnish5ncsa ] && . /etc/sysconfig/varnish5ncsa
+# Include varnishncsa defaults
+[ -e /etc/sysconfig/varnishncsa ] && . /etc/sysconfig/varnishncsa
 
 start() {
 
@@ -42,15 +42,15 @@ start() {
 		exit 5
 	fi
 
-	echo -n "Starting varnish5 ncsa logging daemon: "
+	echo -n "Starting varnish ncsa logging daemon: "
 
-	daemon --pidfile $pidfile $exec -n /var/lib/varnish5 "$DAEMON_OPTS" 
+	daemon --pidfile $pidfile $exec -n /var/lib/varnish "$DAEMON_OPTS" 
 	echo
 	return $retval
 }
 
 stop() {
-	echo -n "Stopping varnish5 ncsa logging daemon: "
+	echo -n "Stopping varnish ncsa logging daemon: "
 	killproc -p $pidfile $prog
 	retval=$?
 	echo

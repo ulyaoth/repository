@@ -1,38 +1,38 @@
 #!/bin/sh
 #
-# Init script for Varnish 5 Cache.
+# Init script for Varnish Cache.
 #
 # chkconfig: - 90 10
-# description: Varnish 5 is a high-performance HTTP accelerator
-# processname: varnish5d
-# config: /etc/sysconfig/varnish5
-# pidfile: /var/run/varnish5.pid
+# description: Varnish is a high-performance HTTP accelerator
+# processname: varnishd
+# config: /etc/sysconfig/varnish
+# pidfile: /var/run/varnish.pid
 
 ### BEGIN INIT INFO
-# Provides: varnish5
+# Provides: varnish
 # Required-Start: $network $local_fs $remote_fs
 # Required-Stop: $network $local_fs $remote_fs
 # Default-Start:
 # Default-Stop:
 # Should-Start: $syslog
 # Short-Description: start and stop varnish5d
-# Description: Varnish 5 is a high-performance HTTP accelerator
+# Description: Varnish is a high-performance HTTP accelerator
 ### END INIT INFO
 
 # Source function library.
 . /etc/init.d/functions
 
 retval=0
-pidfile=/var/run/varnish5.pid
+pidfile=/var/run/varnish.pid
 
-exec="/usr/sbin/varnish5d"
-reload_exec="/usr/sbin/varnish5_reload_vcl"
-prog="varnish5d"
-config="/etc/sysconfig/varnish5"
-lockfile="/var/lock/subsys/varnish5"
+exec="/usr/sbin/varnishd"
+reload_exec="/usr/sbin/varnish_reload_vcl"
+prog="varnishd"
+config="/etc/sysconfig/varnish"
+lockfile="/var/lock/subsys/varnish"
 
 # Include varnish defaults
-[ -e /etc/sysconfig/varnish5 ] && . /etc/sysconfig/varnish5
+[ -e /etc/sysconfig/varnish ] && . /etc/sysconfig/varnish
 
 
 start() {
@@ -48,7 +48,7 @@ start() {
 		echo $config not found
 		exit 6
 	fi
-	echo -n "Starting Varnish 5 Cache: "
+	echo -n "Starting Varnish Cache: "
 
 	# Open files (usually 1024, which is way too small for varnish)
 	ulimit -n ${NFILES:-131072}
@@ -66,7 +66,7 @@ start() {
 		ulimit -c ${DAEMON_COREFILE_LIMIT}
 	fi
 
-        # $DAEMON_OPTS is set in /etc/sysconfig/varnish5.
+        # $DAEMON_OPTS is set in /etc/sysconfig/varnish.
 	if [ "$DAEMON_OPTS" = "" ]; then
 		echo "\$DAEMON_OPTS is empty."
 		echo -n "Please put configuration options in $config"
@@ -88,7 +88,7 @@ start() {
 }
 
 stop() {
-	echo -n "Stopping Varnish 5 Cache: "
+	echo -n "Stopping Varnish Cache: "
 	killproc -p $pidfile $prog
 	retval=$?
 	echo
