@@ -37,9 +37,9 @@ URL:        https://www.haproxy.org/
 Vendor:     HAProxy
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    http://www.haproxy.org/download/1.5/src/haproxy-%{version}.tar.gz
-Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy1.5.cfg
-Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy1.5.init
-Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy1.5.service
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.cfg
+Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.init
+Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.service
 BuildRoot:  %{_tmppath}/haproxy-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: zlib-devel
@@ -50,8 +50,14 @@ Requires: ulyaoth-openssl1.0.2
 Requires: pcre
 Requires: zlib
 
-Provides: haproxy1.5
+Provides: haproxy
+Provides: ulyaoth-haproxy
 Provides: ulyaoth-haproxy1.5
+
+Conflicts: ulyaoth-haproxy1.7
+Conflicts: ulyaoth-haproxy1.6
+Conflicts: ulyaoth-haproxy1.4
+Conflicts: ulyaoth-haproxy1.3
 
 %description
 HAProxy is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications. It is particularly suited for very high traffic web sites and powers quite a number of the world's most visited ones. Over the years it has become the de-facto standard opensource load balancer, is now shipped with most mainstream Linux distributions, and is often deployed by default in cloud platforms. Since it does not advertise itself, we only know it's used when the admins report it :-)
@@ -61,37 +67,32 @@ HAProxy is a free, very fast and reliable solution offering high availability, l
 
 %build
 
-make PREFIX=/usr/local/ulyaoth/haproxy/haproxy1.5 TARGET=linux2628 USE_LINUX_TPROXY=1 USE_GETADDRINFO=1 USE_PCRE=1 USE_ZLIB=1 USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/ssl/openssl1.0.2/include SSL_LIB=/usr/local/ulyaoth/ssl/openssl1.0.2/lib ADDLIB=-ldl
+make PREFIX=/usr TARGET=linux2628 USE_LINUX_TPROXY=1 USE_GETADDRINFO=1 USE_PCRE=1 USE_ZLIB=1 USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/ssl/openssl1.0.2/include SSL_LIB=/usr/local/ulyaoth/ssl/openssl1.0.2/lib ADDLIB=-ldl
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.5
-mkdir -p $RPM_BUILD_ROOT/usr/sbin
+make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 
-make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr/local/ulyaoth/haproxy/haproxy1.5 install
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/share
+mv $RPM_BUILD_ROOT/usr/doc $RPM_BUILD_ROOT/usr/share/
 
-mv $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.5/share/man $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.5/
-rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/haproxy/haproxy1.5/share
-
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/haproxy1.5
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/haproxy
 %{__install} -m 644 -p %{SOURCE1} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/haproxy1.5/haproxy.cfg
-	
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/haproxy1.5
+    $RPM_BUILD_ROOT%{_sysconfdir}/haproxy/haproxy.cfg
 
-ln -s /usr/local/ulyaoth/haproxy/haproxy1.5/sbin/haproxy $RPM_BUILD_ROOT/usr/sbin/haproxy1.5
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/haproxy
 	
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m644 %SOURCE3 \
-    $RPM_BUILD_ROOT%{_unitdir}/haproxy1.5.service
+    $RPM_BUILD_ROOT%{_unitdir}/haproxy.service
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
 %{__install} -m755 %SOURCE2 \
-    $RPM_BUILD_ROOT%{_initrddir}/haproxy1.5
+    $RPM_BUILD_ROOT%{_initrddir}/haproxy
 %endif
 
 %clean
@@ -101,45 +102,35 @@ ln -s /usr/local/ulyaoth/haproxy/haproxy1.5/sbin/haproxy $RPM_BUILD_ROOT/usr/sbi
 
 %files
 %defattr(-,root,root,-)
-/usr/sbin/haproxy1.5
+/usr/sbin/haproxy
 
-%attr(0755,root,root) %dir %{_localstatedir}/log/haproxy1.5
+%attr(0755,root,root) %dir %{_localstatedir}/log/haproxy
 
-%dir /usr/local/ulyaoth
-%dir /usr/local/ulyaoth/haproxy
-%dir /usr/local/ulyaoth/haproxy/haproxy1.5
+%dir %{_sysconfdir}/haproxy
+%config(noreplace) %{_sysconfdir}/haproxy/haproxy.cfg
 
-%dir %{_sysconfdir}/haproxy1.5
-%config(noreplace) %{_sysconfdir}/haproxy1.5/haproxy.cfg
+%dir %{_docdir}/haproxy
+%{_docdir}/haproxy/architecture.txt
+%{_docdir}/haproxy/configuration.txt
+%{_docdir}/haproxy/haproxy-en.txt
+%{_docdir}/haproxy/haproxy-fr.txt
 
-%dir /usr/local/ulyaoth/haproxy/haproxy1.5/sbin
-/usr/local/ulyaoth/haproxy/haproxy1.5/sbin/haproxy
-
-%dir  /usr/local/ulyaoth/haproxy/haproxy1.5/man
-%dir  /usr/local/ulyaoth/haproxy/haproxy1.5/man/man1
-/usr/local/ulyaoth/haproxy/haproxy1.5/man/man1/haproxy.1
-
-%dir /usr/local/ulyaoth/haproxy/haproxy1.5/doc
-%dir /usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/architecture.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/configuration.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/haproxy-en.txt
-/usr/local/ulyaoth/haproxy/haproxy1.5/doc/haproxy/haproxy-fr.txt
+%{_mandir}/man1/haproxy.1.gz
 
 %if %{use_systemd}
-%{_unitdir}/haproxy1.5.service
+%{_unitdir}/haproxy.service
 %else
-%{_initrddir}/haproxy1.5
+%{_initrddir}/haproxy
 %endif
 
 %post
 /sbin/ldconfig
-# Register the haproxy1.5 service
+# Register the haproxy service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
-    /usr/bin/systemctl preset haproxy1.5.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl preset haproxy.service >/dev/null 2>&1 ||:
 %else
-    /sbin/chkconfig --add haproxy1.5
+    /sbin/chkconfig --add haproxy
 %endif
 
 cat <<BANNER
@@ -160,11 +151,11 @@ fi
 %preun
 if [ $1 -eq 0 ]; then
 %if %use_systemd
-    /usr/bin/systemctl --no-reload disable haproxy1.5.service >/dev/null 2>&1 ||:
-    /usr/bin/systemctl stop haproxy1.5.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl --no-reload disable haproxy.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl stop haproxy.service >/dev/null 2>&1 ||:
 %else
-    /sbin/service haproxy1.5 stop > /dev/null 2>&1
-    /sbin/chkconfig --del haproxy1.5
+    /sbin/service haproxy stop > /dev/null 2>&1
+    /sbin/chkconfig --del haproxy
 %endif
 fi
 
@@ -174,11 +165,15 @@ fi
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 %endif
 if [ $1 -ge 1 ]; then
-    /sbin/service haproxy1.5 status  >/dev/null 2>&1 || exit 0
-    /sbin/service haproxy1.5 upgrade >/dev/null 2>&1 || echo \
+    /sbin/service haproxy status  >/dev/null 2>&1 || exit 0
+    /sbin/service haproxy upgrade >/dev/null 2>&1 || echo \
         "Binary upgrade failed."
 fi
 
 %changelog
+* Sun Feb 5 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.5.19-1
+- Updated to HAProxy 1.5.19.
+- Changed locations to be stock.
+
 * Tue Oct 11 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.5.18-1
 - Initial release for HAProxy 1.5.
