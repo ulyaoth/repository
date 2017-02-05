@@ -2,7 +2,7 @@
 
 Summary:    the programming language Lua
 Name:       ulyaoth-lua5.3
-Version:    5.3.3
+Version:    5.3.4
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    MIT
@@ -104,5 +104,8 @@ BANNER
 /sbin/ldconfig
 
 %changelog
+* Sun Feb 5 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.4-1
+- Initial release for Lua 5.3 version 5.3.4.
+
 * Wed Oct 19 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.3-1
 - Initial release for Lua 5.3 version 5.3.3.
