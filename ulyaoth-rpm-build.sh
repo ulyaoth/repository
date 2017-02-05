@@ -139,6 +139,11 @@ ulyaoth-fuse()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-fuse/build-ulyaoth-fuse.sh ; chmod +x build-ulyaoth-fuse.sh ; ./build-ulyaoth-fuse.sh
 }
 
+ulyaoth-fuse3()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-fuse/build-ulyaoth-fuse3.sh ; chmod +x build-ulyaoth-fuse3.sh ; ./build-ulyaoth-fuse3.sh
+}
+
 ulyaoth-vegeta()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-vegeta/build-ulyaoth-vegeta.sh ; chmod +x build-ulyaoth-vegeta.sh ; ./build-ulyaoth-vegeta.sh
