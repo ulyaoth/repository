@@ -28,7 +28,7 @@ BuildRequires: systemd-devel
 
 Summary:    The Reliable, High Performance TCP/HTTP Load Balancer
 Name:       ulyaoth-haproxy1.5
-Version:    1.5.18
+Version:    1.5.19
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPL/LGPL
