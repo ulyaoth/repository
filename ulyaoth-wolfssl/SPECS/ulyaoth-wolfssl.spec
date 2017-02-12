@@ -67,7 +67,7 @@ BANNER
 %postun
 
 %changelog
-* Sun Feb 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.10.0a-1
+* Sun Feb 12 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.10.0a-1
 - Updated to wolfSSL version 3.10.0a.
 
 * Sat Nov 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.9.10b-1
