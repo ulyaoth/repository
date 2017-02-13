@@ -77,7 +77,7 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
-* Mon Feb 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.5.11-1
+* Mon Feb 13 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.5.11-1
 - Updating to Tomcat 8.5.11.
 
 * Sun Nov 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.5.8-1
