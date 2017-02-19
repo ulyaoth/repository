@@ -1,10 +1,10 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
 # Argument = -l (lists all supported versions)
-# Argument = -b (branch .i.e 3.15)
-# Argument = -v (version .i.e 3.15.5)
+# Argument = -b (branch .i.e 3.17)
+# Argument = -v (version .i.e 3.17.3)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2017/02/16
+# Last Edit By: Sjir Bagmeijer - 2017/02/19
 # https://www.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
