@@ -4,14 +4,14 @@ AutoReqProv: no
 
 Summary: The Go Programming Language
 Name: ulyaoth-go
-Version: 1.7.5
+Version: 1.8.0
 Release: 1%{?dist}
 BuildArch: x86_64
 URL: https://golang.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: https://storage.googleapis.com/golang/go1.7.5.linux-amd64.tar.gz
-BuildRoot:  %{_tmppath}/ulyaoth-golang-1.7-%{release}-root-%(%{__id_u} -n)
+Source0: https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz
+BuildRoot:  %{_tmppath}/ulyaoth-golang-1.8-%{release}-root-%(%{__id_u} -n)
 
 License: BSD
 
@@ -51,6 +51,9 @@ For any additional information or help please visit my forum at:
 BANNER
 
 %changelog
+* Sun Feb 19 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.8.0-1
+- Updated to Go 1.8.0.
+
 * Sun Feb 5 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.7.5-1
 - Updated to Go 1.7.5.
 
