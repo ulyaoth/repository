@@ -151,6 +151,7 @@ make -j3
 /usr/bin/hphpize
 /usr/bin/hhvm-repo-mode
 /usr/bin/hhvm-gdb
+/usr/bin/hackfmt
 %dir /etc/hhvm
 %dir /etc/tmpfiles.d
 %config(noreplace) /etc/hhvm/php.ini
