@@ -7,7 +7,7 @@
 * -v (version .i.e 3.18.0)
 
 ### Supported operating systems:
-* Fedora 19, 20, 21, 22, 23, 24, 25 (Only later versions support latest Fedora version)
+* Fedora 19, 20, 21, 22, 23, 24, 25 (Not all versions are supported for every HHVM version)
 * RHEL 7
 * Scientific Linux 7
 * Oracle Linux 7
