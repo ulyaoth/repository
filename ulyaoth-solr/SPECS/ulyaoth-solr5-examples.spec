@@ -7,7 +7,7 @@
 
 Summary:    Apache Solr Examples
 Name:       ulyaoth-solr5-examples
-Version:    5.5.3
+Version:    5.5.4
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -68,6 +68,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Wed Feb 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.4-1
+- Updated to Solr 5.5.4.
+
 * Sat Oct 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.5.3-1
 - Updated to Solr 5.5.3.
 
