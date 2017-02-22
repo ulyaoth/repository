@@ -61,15 +61,16 @@ BuildRequires: glibc-devel
 BuildRequires: libxml2-devel
 BuildRequires: libxslt-devel
 BuildRequires: zlib-devel
-BuildRequires: ulyaoth-mbedtls2.3 = %{mbedtls_version}
+BuildRequires: ulyaoth-mbedtls2.4 = %{mbedtls_version}
 
 Requires: libxml2
 Requires: libxslt
-Requires: ulyaoth-mbedtls2.3 = %{mbedtls_version}
+Requires: ulyaoth-mbedtls2.4 = %{mbedtls_version}
 
 Conflicts: ulyaoth-mbedtls
 Conflicts: ulyaoth-mbedtls2.1
 Conflicts: ulyaoth-mbedtls2.2
+Conflicts: ulyaoth-mbedtls2.3
 
 Provides: hiawatha
 Provides: ulyaoth-hiawatha
