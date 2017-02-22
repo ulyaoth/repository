@@ -9,11 +9,7 @@ Vendor: Hiawatha.
 URL: https://www.hiawatha-webserver.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-%if 0%{?fedora}  == 19
-Source0: http://www.hiawatha-webserver.org/files/hiawatha-%{version}.tar.gz
-%else
 Source0: https://www.hiawatha-webserver.org/files/hiawatha-%{version}.tar.gz
-%endif
 
 License: GPLv2
 
