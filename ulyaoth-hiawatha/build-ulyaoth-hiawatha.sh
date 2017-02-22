@@ -1,5 +1,6 @@
 ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
+fedoraos=`cat /etc/ulyaoth`
 
 useradd ulyaoth
 usermod -Gulyaoth ulyaoth
@@ -33,6 +34,10 @@ then
 elif [ "$ulyaothos" == "scientificlinux" ]
 then
   yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
+fi
+
+if grep --quiet 19 /etc/fedora-release; then
+  wget http://www.hiawatha-webserver.org/files/hiawatha-10.5.tar.gz -P /home/ulyaoth/rpmbuild/SOURCES
 fi
 
 if [ "$buildarch" != "x86_64" ]
