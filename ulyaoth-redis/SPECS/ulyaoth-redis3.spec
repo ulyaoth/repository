@@ -27,7 +27,7 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary:    Tomcat native library
+Summary:    Redis is an in-memory data structure store, used as a database, cache and message broker.
 Name:       ulyaoth-redis3
 Version:    3.2.8
 Release:    1%{?dist}
@@ -144,7 +144,7 @@ Thank you for using ulyaoth-redis3!
 Please find the official documentation for redis here:
 * http://redis.io
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
