@@ -5,7 +5,7 @@
 
 Summary:    Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells.
 Name:       ulyaoth-screen
-Version:    4.4.0
+Version:    4.5.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License: GPLv2+
@@ -164,5 +164,8 @@ BANNER
 %postun
 
 %changelog
+* Thu Feb 23 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.5.0-1
+- Updated to Screen 4.5.0.
+
 * Mon Jun 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.4.0-1
 - Initial release based on Fedora spec file.
