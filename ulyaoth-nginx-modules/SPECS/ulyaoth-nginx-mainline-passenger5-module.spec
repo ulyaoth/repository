@@ -80,9 +80,9 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.11.6
+%define main_version                 1.11.10
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.1.5
+%define njs_version                  0.1.9
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -93,7 +93,7 @@ BuildRequires: libGeoIP-devel
 %define module_perl_release          1%{?dist}.ngx
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
-%define module_passenger5_version    5.0.30
+%define module_passenger5_version    5.1.2
 %define module_passenger5_release    1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
@@ -683,5 +683,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Feb 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.1.2-1
+- Updated to Passenger 5.1.2.
+- Compiled with Nginx Mainline 1.11.10.
+- Updated nsj to 0.1.9.
+
 * Sat Nov 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.30-1
 - Initial release with Passenger 5.0.30.

@@ -78,7 +78,7 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.10.2
+%define main_version                 1.10.3
 %define main_release                 1%{?dist}.ngx
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
@@ -613,6 +613,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Feb 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.3-1
+- Updated to Nginx 1.10.3.
+
 * Sun Oct 23 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.10.2-1
 - Updated to Nginx 1.10.2.
 

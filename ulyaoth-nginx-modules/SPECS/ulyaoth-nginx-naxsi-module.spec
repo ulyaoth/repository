@@ -78,7 +78,7 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.10.2
+%define main_version                 1.10.3
 %define main_release                 1%{?dist}.ngx
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
@@ -91,8 +91,8 @@ BuildRequires: libGeoIP-devel
 %define module_njs_shaid             1c50334fbea6
 %define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
 %define module_njs_release           1%{?dist}.ngx
-%define module_naxsi_version  0.55.1
-%define module_naxsi_release  2%{?dist}
+%define module_naxsi_version  0.55.3
+%define module_naxsi_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -669,6 +669,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Feb 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.55.3-3
+- Updated to Naxsi 0.55.3.
+- Compiled with Nginx 1.10.3.
+
 * Sun Oct 23 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.55.1-2
 - Recompiled with Nginx 1.10.2.
 
