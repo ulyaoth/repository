@@ -2,7 +2,7 @@
 ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-vegetaversion=6.1.1
+vegetaversion=6.2.0
 
 # Check if we are using a 32-bit system.
 if [ "$arch" == "i686" ]
