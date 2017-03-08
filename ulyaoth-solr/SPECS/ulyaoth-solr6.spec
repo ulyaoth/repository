@@ -28,7 +28,7 @@ BuildRequires: systemd
 
 Summary:    Apache Solr
 Name:       ulyaoth-solr6
-Version:    6.4.1
+Version:    6.4.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -180,6 +180,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Mar 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.4.2-1
+- Updated to Solr 6 version 6.4.2.
+
 * Fri Feb 24 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.4.1-1
 - Updated to Solr 6 version 6.4.1.
 
