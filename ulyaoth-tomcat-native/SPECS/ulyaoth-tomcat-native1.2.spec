@@ -8,12 +8,12 @@ AutoReqProv: no
 %define tomcat_home /opt/tomcat
 %define tomcat_group tomcat
 %define tomcat_user tomcat
-%define ulyaoth_openssl_version 1.0.2
+%define ulyaoth_openssl_version 1.1.0
 %define java_version 1.8.0
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native1.2
-Version:    1.2.10
+Version:    1.2.12
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -127,6 +127,10 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Wed Mar 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.12-1
+- Updated to Tomcat Native 1.2.12.
+- Updated to use OpenSSL 1.1.0.
+
 * Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.2.10-1
 - Updated to Tomcat Native 1.2.10.
 
