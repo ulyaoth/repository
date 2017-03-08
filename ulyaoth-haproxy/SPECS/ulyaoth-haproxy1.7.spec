@@ -28,7 +28,7 @@ BuildRequires: systemd-devel
 
 Summary:    The Reliable, High Performance TCP/HTTP Load Balancer
 Name:       ulyaoth-haproxy1.7
-Version:    1.7.2
+Version:    1.7.3
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPL/LGPL
@@ -184,6 +184,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Mar 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.7.3-1
+- Updated to HAProxy 1.7.3.
+
 * Sun Feb 5 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.7.2-1
 - Updated to HAProxy 1.7.2.
 - Changed locations to be stock like.
