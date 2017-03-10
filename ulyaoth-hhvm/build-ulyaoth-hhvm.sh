@@ -25,7 +25,12 @@ exit 1
 # Build the rpm for your specifiec HHVM version.
 buildrpm()
 {
+git config --global user.email "sjir.bagmeijer@ulyaoth.net"
+git config --global user.name "Sjir Bagmeijer"
+
 cd /home/ulyaoth
+su ulyaoth -c "git config --global user.email 'sjir.bagmeijer@ulyaoth.net'"
+su ulyaoth -c "git config --global user.name 'Sjir Bagmeijer'"
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS/
 
