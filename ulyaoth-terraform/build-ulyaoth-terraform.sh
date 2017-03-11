@@ -36,11 +36,6 @@ then
   yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
 fi
 
-# Create build user and go to it's home directory, and create the rpmbuild directory.
-useradd ulyaoth
-cd /home/ulyaoth/
-su ulyaoth -c "rpmdev-setuptree"
-
 if type dnf 2>/dev/null
 then
   dnf install ulyaoth-go -y
@@ -49,6 +44,22 @@ then
   yum install ulyaoth-go -y
 fi
 
+# Install Gox
+cd /root
+echo 'export GOROOT=/usr/local/ulyaoth/go' >> /root/.bashrc
+echo 'export PATH=$PATH:$GOROOT/bin' >> /root/.bashrc
+echo 'export GOPATH=/home/ulyaoth/' >> /root/.bashrc
+echo 'export PATH=$GOPATH/bin:$PATH' >> /root/.bashrc
+echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /root/.bashrc
+source ~/.bashrc
+go get github.com/mitchellh/gox
+
+
+# Create build user and go to it's home directory, and create the rpmbuild directory.
+useradd ulyaoth
+cd /home/ulyaoth/
+su ulyaoth -c "rpmdev-setuptree"
+
 # Add where to find go into bashrc
 echo 'export GOROOT=/usr/local/ulyaoth/go' >> /home/ulyaoth/.bashrc
 echo 'export PATH=$PATH:$GOROOT/bin' >> /home/ulyaoth/.bashrc
@@ -56,26 +67,19 @@ echo 'export GOPATH=/home/ulyaoth/' >> /home/ulyaoth/.bashrc
 echo 'export PATH=$GOPATH/bin:$PATH' >> /home/ulyaoth/.bashrc
 echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /home/ulyaoth/.bashrc
 
-source ~/.bashrc
+su ulyaoth -c "source ~/.bashrc"
 
-#Create and build terraform
-mkdir -p /root/src/github.com/hashicorp
+# Download vegeta and build it.
+su - ulyaoth -c "wget https://github.com/hashicorp/terraform/archive/v'"$terraformversion"'.tar.gz"
+su - ulyaoth -c "tar xvzf v'"$terraformversion"'.tar.gz"
+su - ulyaoth -c "mkdir -p /home/ulyaoth/src/github.com/hashicorp"
+su - ulyaoth -c "mkdir -p /home/ulyaoth/bin"
+su - ulyaoth -c "mkdir -p /home/ulyaoth/pkg"
+su - ulyaoth -c "mv terraform-'"$terraformversion"' /home/ulyaoth/src/github.com/hashicorp/terraform"
+su - ulyaoth -c "cd /home/ulyaoth/src/github.com/hashicorp/terraform/ && XC_OS=linux XC_ARCH=amd64 make bin"
+su - ulyaoth -c "mv /home/ulyaoth/src/github.com/hashicorp/terraform/bin/terraform /home/ulyaoth/rpmbuild/SOURCES/"
+su - ulyaoth -c "rm -rf src v'"$terraformversion"'.tar.gz pkg"
 
-wget https://github.com/hashicorp/terraform/archive/v$terraformversion.tar.gz
-tar xvzf v$terraformversion.tar.gz
-mv terraform-$terraformversion /root/src/github.com/hashicorp/terraform
-cd /root/src/github.com/hashicorp/terraform 
-
-# If we use 32-bit build for 32-bit.
-if [ "$arch" != "x86_64" ]
-then
-XC_OS=linux XC_ARCH=386 make bin
-else
-XC_OS=linux XC_ARCH=amd64 make bin
-fi
-
-mv /root/src/github.com/hashicorp/terraform/bin/terraform /home/ulyaoth/rpmbuild/SOURCES/
-chown ulyaoth:ulyaoth /home/ulyaoth/rpmbuild/SOURCES/terraform
 
 # Go to spec file directory and download the spec file.
 cd /home/ulyaoth/rpmbuild/SPECS
