@@ -36,11 +36,7 @@ then
   yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.noarch.rpm -y
 fi
 
-# Create build user and go to it's home directory, and create the rpmbuild directory.
-useradd ulyaoth
-cd /home/ulyaoth/
-su ulyaoth -c "rpmdev-setuptree"
-
+# Install Go
 if type dnf 2>/dev/null
 then
   dnf install ulyaoth-go -y
@@ -48,6 +44,23 @@ elif type yum 2>/dev/null
 then
   yum install ulyaoth-go -y
 fi
+
+# Install quantile and http2
+cd /root
+echo 'export GOROOT=/usr/local/ulyaoth/go' >> /root/.bashrc
+echo 'export PATH=$PATH:$GOROOT/bin' >> /root/.bashrc
+echo 'export GOPATH=/home/ulyaoth/' >> /root/.bashrc
+echo 'export PATH=$GOPATH/bin:$PATH' >> /root/.bashrc
+echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /root/.bashrc
+source ~/.bashrc
+go get github.com/streadway/quantile
+go get golang.org/x/net/http2
+chown -R ulyaoth:ulyaoth /home/ulyaoth
+
+# Create build user and go to it's home directory, and create the rpmbuild directory.
+useradd ulyaoth
+cd /home/ulyaoth/
+su ulyaoth -c "rpmdev-setuptree"
 
 # Add where to find go into bashrc
 echo 'export GOROOT=/usr/local/ulyaoth/go' >> /home/ulyaoth/.bashrc
@@ -64,11 +77,10 @@ su - ulyaoth -c "tar xvzf v'"$vegetaversion"'.tar.gz"
 su - ulyaoth -c "mkdir -p /home/ulyaoth/src/github.com/tsenart"
 su - ulyaoth -c "mkdir -p /home/ulyaoth/bin"
 su - ulyaoth -c "mkdir -p /home/ulyaoth/pkg"
-su - ulyaoth -c "go get -u github.com/tsenart/vegeta"
 su - ulyaoth -c "mv vegeta-'"$vegetaversion"' /home/ulyaoth/src/github.com/tsenart/vegeta"
 su - ulyaoth -c "cd /home/ulyaoth/src/github.com/tsenart/vegeta/ && go build"
 su - ulyaoth -c "mv /home/ulyaoth/src/github.com/tsenart/vegeta/vegeta /home/ulyaoth/rpmbuild/SOURCES/"
-su - ulyaoth -c "rm -rf src v'"$vegetaversion"'.tar.gz pkg"
+su - ulyaoth -c "rm -rf src v'"$vegetaversion"'.tar.gz pkg bin"
 
 # Go to spec file directory and download the spec file.
 cd /home/ulyaoth/rpmbuild/SPECS

@@ -53,6 +53,7 @@ echo 'export PATH=$GOPATH/bin:$PATH' >> /root/.bashrc
 echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /root/.bashrc
 source ~/.bashrc
 go get github.com/mitchellh/gox
+chown -R ulyaoth:ulyaoth /home/ulyaoth
 
 
 # Create build user and go to it's home directory, and create the rpmbuild directory.
@@ -78,7 +79,7 @@ su - ulyaoth -c "mkdir -p /home/ulyaoth/pkg"
 su - ulyaoth -c "mv terraform-'"$terraformversion"' /home/ulyaoth/src/github.com/hashicorp/terraform"
 su - ulyaoth -c "cd /home/ulyaoth/src/github.com/hashicorp/terraform/ && XC_OS=linux XC_ARCH=amd64 make bin"
 su - ulyaoth -c "mv /home/ulyaoth/src/github.com/hashicorp/terraform/bin/terraform /home/ulyaoth/rpmbuild/SOURCES/"
-su - ulyaoth -c "rm -rf src v'"$terraformversion"'.tar.gz pkg"
+su - ulyaoth -c "rm -rf src v'"$terraformversion"'.tar.gz pkg bin"
 
 
 # Go to spec file directory and download the spec file.
