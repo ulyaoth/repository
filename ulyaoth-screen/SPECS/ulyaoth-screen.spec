@@ -101,7 +101,6 @@ EOF
 %files
 %defattr(-,root,root)
 /usr/bin/screen
-%{_infodir}/screen.info.gz
 %{_mandir}/man1/screen.1.gz
 %dir /usr/share/licenses/screen
 %dir /usr/share/screen
