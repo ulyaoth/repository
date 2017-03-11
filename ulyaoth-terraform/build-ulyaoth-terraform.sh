@@ -50,11 +50,11 @@ then
 fi
 
 # Add where to find go into bashrc
-echo 'export GOROOT=/usr/local/go' >> /root/.bashrc
-echo 'export PATH=$PATH:$GOROOT/bin' >> /root/.bashrc
-echo 'export GOPATH=/root' >> /root/.bashrc
-echo 'export PATH=$GOPATH/bin:$PATH' >> /root/.bashrc
-echo 'export GOBIN=/usr/local/go/bin' >> /root/.bashrc
+echo 'export GOROOT=/usr/local/ulyaoth/go' >> /home/ulyaoth/.bashrc
+echo 'export PATH=$PATH:$GOROOT/bin' >> /home/ulyaoth/.bashrc
+echo 'export GOPATH=/home/ulyaoth/' >> /home/ulyaoth/.bashrc
+echo 'export PATH=$GOPATH/bin:$PATH' >> /home/ulyaoth/.bashrc
+echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /home/ulyaoth/.bashrc
 
 source ~/.bashrc
 
