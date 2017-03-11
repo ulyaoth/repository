@@ -53,6 +53,7 @@ echo 'export PATH=$GOPATH/bin:$PATH' >> /root/.bashrc
 echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /root/.bashrc
 source ~/.bashrc
 go get github.com/mitchellh/gox
+go get golang.org/x/tools/cmd/stringer
 chown -R ulyaoth:ulyaoth /home/ulyaoth
 
 
