@@ -1,0 +1,4 @@
+How to create a package:
+
+ulyaoth-keepalived:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-keepalived/build-ulyaoth-keepalived.sh ; chmod +x build-ulyaoth-keepalived.sh ; ./build-ulyaoth-keepalived.sh
