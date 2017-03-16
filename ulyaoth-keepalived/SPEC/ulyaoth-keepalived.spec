@@ -1,3 +1,6 @@
+# distribution specific definitions
+%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
+
 Summary:    Keepalived a LVS driving daemon.
 Name:       ulyaoth-keepalived
 Version:    1.3.4
@@ -34,11 +37,16 @@ All the events process use this I/O multiplexer.
 
 %build
 %{__rm} -rf $RPM_BUILD_ROOT
-./configure --prefix=/usr/ --enable-sha1 --enable-snmp --enable-dbus
+./configure --enable-sha1 --enable-snmp --enable-dbus --prefix=%{_prefix} --sysconfdir=%{_sysconfdir}
 make %{?_smp_mflags}
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} DESTDIR=$RPM_BUILD_ROOT INSTALLDIRS=vendor install
+
+%if %{use_systemd}
+%else
+sed -i 's|/usr/local/sbin/keepalived|/usr/sbin/keepalived|' $RPM_BUILD_ROOT/etc/init/keepalived.conf
+%endif
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -47,6 +55,52 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
+%dir /etc/keepalived
+%dir /etc/keepalived/samples
+
+/etc/dbus-1/system.d/org.keepalived.Vrrp1.conf
+/etc/keepalived/keepalived.conf
+/etc/keepalived/samples/client.pem
+/etc/keepalived/samples/dh1024.pem
+/etc/keepalived/samples/keepalived.conf.HTTP_GET.port
+/etc/keepalived/samples/keepalived.conf.IPv6
+/etc/keepalived/samples/keepalived.conf.SMTP_CHECK
+/etc/keepalived/samples/keepalived.conf.SSL_GET
+/etc/keepalived/samples/keepalived.conf.fwmark
+/etc/keepalived/samples/keepalived.conf.inhibit
+/etc/keepalived/samples/keepalived.conf.misc_check
+/etc/keepalived/samples/keepalived.conf.misc_check_arg
+/etc/keepalived/samples/keepalived.conf.quorum
+/etc/keepalived/samples/keepalived.conf.sample
+/etc/keepalived/samples/keepalived.conf.status_code
+/etc/keepalived/samples/keepalived.conf.track_interface
+/etc/keepalived/samples/keepalived.conf.virtual_server_group
+/etc/keepalived/samples/keepalived.conf.virtualhost
+/etc/keepalived/samples/keepalived.conf.vrrp
+/etc/keepalived/samples/keepalived.conf.vrrp.localcheck
+/etc/keepalived/samples/keepalived.conf.vrrp.lvs_syncd
+/etc/keepalived/samples/keepalived.conf.vrrp.routes
+/etc/keepalived/samples/keepalived.conf.vrrp.rules
+/etc/keepalived/samples/keepalived.conf.vrrp.scripts
+/etc/keepalived/samples/keepalived.conf.vrrp.static_ipaddress
+/etc/keepalived/samples/keepalived.conf.vrrp.sync
+/etc/keepalived/samples/root.pem
+/etc/keepalived/samples/sample.misccheck.smbcheck.sh
+/etc/sysconfig/keepalived
+/usr/bin/genhash
+/usr/sbin/keepalived
+/usr/share/dbus-1/interfaces/org.keepalived.Vrrp1.Instance.xml
+/usr/share/dbus-1/interfaces/org.keepalived.Vrrp1.Vrrp.xml
+/usr/share/man/man1/genhash.1.gz
+/usr/share/man/man5/keepalived.conf.5.gz
+/usr/share/man/man8/keepalived.8.gz
+/usr/share/snmp/mibs/KEEPALIVED-MIB.txt
+
+%if %{use_systemd}
+%{_unitdir}/keepalived.service
+%else
+/etc/init/keepalived.conf
+%endif
 
 %post
 cat <<BANNER
