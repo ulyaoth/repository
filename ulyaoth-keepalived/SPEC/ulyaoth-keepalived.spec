@@ -118,5 +118,5 @@ For any additional help please visit our website at:
 BANNER
 
 %changelog
-* Thu Mar 16 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.14-1
+* Fri Mar 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.4-1
 - Initial release.
