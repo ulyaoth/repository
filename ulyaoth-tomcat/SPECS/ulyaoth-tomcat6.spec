@@ -30,7 +30,7 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat6
-Version:    6.0.48
+Version:    6.0.51
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -140,7 +140,7 @@ Thanks for using ulyaoth-tomcat6!
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -167,6 +167,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Mar 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.51-1
+- Update Tomcat 6 to 6.0.51.
+
 * Sat Nov 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.48-1
 - Update Tomcat 6 to 6.0.48.
 

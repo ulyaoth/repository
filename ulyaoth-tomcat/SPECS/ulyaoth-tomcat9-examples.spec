@@ -8,15 +8,15 @@
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9-examples
 Version:    9.0.0
-Release:    10%{?dist}
+Release:    11%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}.M17/bin/apache-tomcat-%{version}.M17.tar.gz
-BuildRoot:  %{_tmppath}/tomcat-%{version}.M17-%{release}-root-%(%{__id_u} -n)
+Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}.M18/bin/apache-tomcat-%{version}.M18.tar.gz
+BuildRoot:  %{_tmppath}/tomcat-%{version}.M18-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat9
 
@@ -29,7 +29,7 @@ Provides: ulyaoth-tomcat9-examples
 The package contains the official Apache Tomcat "webapps/examples" and "webapps/ROOT" directories.
 
 %prep
-%setup -q -n apache-tomcat-%{version}.M17
+%setup -q -n apache-tomcat-%{version}.M18
 
 %build
 
@@ -71,13 +71,16 @@ Thank you for using ulyaoth-tomcat9-examples!
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
 
 %changelog
+* Fri Mar 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-11
+- Updating to Tomcat 9.0.0.M18.
+
 * Mon Feb 13 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-10
 - Updating to Tomcat 9.0.0.M17.
 
