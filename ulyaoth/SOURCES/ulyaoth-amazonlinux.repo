@@ -1,23 +1,23 @@
 [ulyaoth]
 name=Ulyaoth Repository
-baseurl=https://repos.ulyaoth.net/amazonlinux/latest/$basearch/os/
-		http://repos.ulyaoth.net/amazonlinux/latest/$basearch/os/
+baseurl=https://repos.ulyaoth.io/amazonlinux/latest/$basearch/os/
+		http://repos.ulyaoth.io/amazonlinux/latest/$basearch/os/
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
 
 [ulyaoth-debug]
 name=Ulyaoth Repository (Debug)
-baseurl=https://repos.ulyaoth.net/amazonlinux/latest/$basearch/debug/
-		http://repos.ulyaoth.net/amazonlinux/latest/$basearch/debug/
+baseurl=https://repos.ulyaoth.io/amazonlinux/latest/$basearch/debug/
+		http://repos.ulyaoth.io/amazonlinux/latest/$basearch/debug/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
 
 [ulyaoth-source]
 name=Ulyaoth Repository (Source)
-baseurl=https://repos.ulyaoth.net/amazonlinux/latest/$basearch/source/
-		http://repos.ulyaoth.net/amazonlinux/latest/$basearch/source/
+baseurl=https://repos.ulyaoth.io/amazonlinux/latest/$basearch/source/
+		http://repos.ulyaoth.io/amazonlinux/latest/$basearch/source/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
