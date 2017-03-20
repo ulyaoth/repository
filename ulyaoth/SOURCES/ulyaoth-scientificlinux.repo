@@ -1,23 +1,23 @@
 [ulyaoth]
 name=Ulyaoth Repository
-baseurl=https://repos.ulyaoth.net/scientificlinux/$releasever/$basearch/os/
-		http://repos.ulyaoth.net/scientificlinux/$releasever/$basearch/os/
+baseurl=https://repos.ulyaoth.io/scientificlinux/$releasever/$basearch/os/
+		http://repos.ulyaoth.io/scientificlinux/$releasever/$basearch/os/
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
 
 [ulyaoth-debug]
 name=Ulyaoth Repository (Debug)
-baseurl=https://repos.ulyaoth.net/scientificlinux/$releasever/$basearch/debug/
-		http://repos.ulyaoth.net/scientificlinux/$releasever/$basearch/debug/
+baseurl=https://repos.ulyaoth.io/scientificlinux/$releasever/$basearch/debug/
+		http://repos.ulyaoth.io/scientificlinux/$releasever/$basearch/debug/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
 
 [ulyaoth-source]
 name=Ulyaoth Repository (Source)
-baseurl=https://repos.ulyaoth.net/scientificlinux/$releasever/$basearch/source/
-		http://repos.ulyaoth.net/scientificlinux/$releasever/$basearch/source/
+baseurl=https://repos.ulyaoth.io/scientificlinux/$releasever/$basearch/source/
+		http://repos.ulyaoth.io/scientificlinux/$releasever/$basearch/source/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
