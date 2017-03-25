@@ -1,100 +1,127 @@
 #! /bin/sh
+#
+# hitch Control the Hitch daemon
+#
+# chkconfig: - 90 10
+# description: Hitch proxy daemon
+# processname: hitch
+# config: /etc/hitch/hitch.conf
+# pidfile: /var/run/hitch/hitch.pid
 
 ### BEGIN INIT INFO
-# Provides:          hitch
-# Required-Start:    $local_fs $remote_fs $network
-# Required-Stop:     $local_fs $remote_fs $network
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: The Scalable TLS Unwrapping Daemon
-# Description:       The Scalable TLS Unwrapping Daemon
+# Provides: hitch
+# Required-Start: $network $local_fs $remote_fs
+# Required-Stop: $network $local_fs $remote_fs
+# Default-Start:
+# Default-Stop:
+# Short-Description: start and stop hitch
+# Description: Hitch proxy daemon
 ### END INIT INFO
 
-# Source function library
-. /lib/lsb/init-functions
+# Source function library.
+. /etc/init.d/functions
 
-NAME=hitch
-DESC="hitch"
-PATH=/usr/local/sbin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/local/sbin/hitch-openssl
-PIDFILE=/var/run/hitch/$NAME.pid
+retval=0
+pidfile="/var/run/hitch/hitch.pid"
+lockfile="/var/lock/subsys/hitch"
+config="/etc/hitch/hitch.conf"
+exec="/usr/sbin/hitch"
+prog="hitch"
 
-test -x $DAEMON || exit 0
 
-# Include hitch defaults if available
-if [ -f /etc/default/hitch ] ; then
-        . /etc/default/hitch
-fi
+start() {
 
-ulimit -n ${NFILES:-131072}
+	if [ ! -x $exec ]
+	then
+		echo $exec not found
+		exit 5
+	fi
 
-# Ensure we have a PATH
-export PATH="${PATH:+$PATH:}/usr/sbin:/usr/bin:/sbin:/bin"
+	if [ ! -f $config ]
+	then
+		echo $config not found
+		exit 6
+	fi
 
-start_hitch() {
-    log_daemon_msg "Starting $DESC" "$NAME"
-    output=$(/bin/tempfile -s.hitch)
-    mkdir -p `dirname $PIDFILE`
-    chown nobody `dirname $PIDFILE`
-    if start-stop-daemon \
-        --start --quiet --exec ${DAEMON} -- \
-        --pidfile=${PIDFILE} --daemon ${HITCH_OPTIONS} > ${output} 2>&1; then
-        log_end_msg 0
-    else
-        log_end_msg 1
-        cat $output
-        exit 1
-    fi
-    rm $output
+	echo -n "Starting hitch ssl proxy: "
+
+	daemon $exec "--pidfile=$pidfile --config $config" > /dev/null
+	retval=$?
+	if [ $retval -eq 0 ]
+	then
+		touch $lockfile
+		echo_success
+		echo
+	else
+		echo_failure
+		echo
+	fi
+	return $retval
 }
 
-disabled_hitch() {
-    log_daemon_msg "Not starting $DESC" "$NAME"
-    log_progress_msg "disabled in /etc/default/hitch"
-    log_end_msg 0
+stop() {
+	echo -n "Stopping Hitch proxy daemon: "
+	killproc -p $pidfile $prog
+	retval=$?
+	echo
+	[ $retval -eq 0 ] && rm -f $lockfile
+	return $retval
 }
 
-stop_hitch() {
-    log_daemon_msg "Stopping $DESC" "$NAME"
-    if start-stop-daemon \
-        --stop --quiet --pidfile $PIDFILE --retry 10 \
-        --exec $DAEMON; then
-        log_end_msg 0
-    else
-        log_end_msg 1
-    fi
+restart() {
+	$exec --test --config $config || exit 1
+	stop
+	start
 }
 
-status_hitch() {
-    status_of_proc -p "${PIDFILE}" "${DAEMON}" "${NAME}"
-    exit $?
+reload() {
+	$exec --test --config $config || exit 1
+	killproc -p $pidfile $prog -HUP
 }
 
+force_reload() {
+	restart
+}
+
+rh_status() {
+	status -p $pidfile $prog
+}
+
+rh_status_q() {
+	rh_status >/dev/null 2>&1
+}
+
+# See how we were called.
 case "$1" in
-    start)
-        case "${START:-}" in
-            [Yy]es|[Yy]|1|[Tt]|[Tt]rue)
-                start_hitch
-                ;;
-            *)
-                disabled_hitch
-                ;;
-        esac
-        ;;
-    stop)
-        stop_hitch
-        ;;
-    status)
-        status_hitch
-        ;;
-    restart|force-reload)
-        $0 stop
-        $0 start
-        ;;
-    *)
-        log_success_msg "Usage: $0 {start|stop|restart|force-reload}"
-        exit 1
-        ;;
+	start)
+		rh_status_q && exit 0
+		$1
+		;;
+	stop)
+		rh_status_q || exit 0
+		$1
+		;;
+	restart)
+		$1
+		;;
+	reload)
+		rh_status_q || exit 7
+		$1
+		;;
+	force-reload)
+		force_reload
+		;;
+	status)
+		rh_status
+		;;
+	condrestart|try-restart)
+		rh_status_q || exit 0
+		restart
+		;;
+	*)
+	echo "Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload}"
+
+	exit 2
 esac
 
-exit 0
+exit $?
