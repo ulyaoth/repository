@@ -56,7 +56,7 @@ Provides: ulyaoth-hitch
 hitch is a network proxy that terminates TLS/SSL connections and forwards the unencrypted traffic to some backend. It's designed to handle 10s of thousands of connections efficiently on multicore machines.
 
 %prep
-%setup -q -n hitch-%{version}
+%setup -q -n hitch-hitch-%{version}
 
 %build
 export SSL_CFLAGS="-I/usr/local/ulyaoth/ssl/openssl1.1.0/include -L/usr/local/ulyaoth/ssl/openssl1.1.0/lib"
