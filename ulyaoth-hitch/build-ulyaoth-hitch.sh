@@ -50,7 +50,7 @@ fi
 su ulyaoth -c "spectool ulyaoth-hitch.spec -g -R"
 
 # Build the actual rpm and source rpm.
-su ulyaoth -c "rpmbuild -ba ulyaoth-hitch.spec"
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -ba ulyaoth-hitch.spec"
 
 # Copy the rpms to root directory.
 if [ "$ulyaothos" == "amazonlinux" ]
