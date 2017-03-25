@@ -69,6 +69,7 @@ export CRYPTO_CFLAGS="-I/usr/local/ulyaoth/ssl/openssl1.1.0/include -L/usr/local
 export CRYPTO_LIBS=-lcrypto
 export C_INCLUDE_PATH=/usr/local/ulyaoth/ssl/openssl1.1.0/include
 export LIBRARY_PATH=/usr/local/ulyaoth/ssl/openssl1.1.0/lib
+export LD_RUN_PATH=/usr/local/ulyaoth/ssl/openssl1.1.0/lib
 ./bootstrap
 ./configure --prefix=/usr --bindir=%{_bindir} --sbindir=%{_sbindir} --libexecdir=%{_libexecdir} --sysconfdir=%{_sysconfdir} --sharedstatedir=%{_sharedstatedir} --libdir=%{_libdir} --includedir=%{_includedir} --datarootdir=%{_datarootdir} --datadir=%{_datadir} --infodir=%{_infodir} --mandir=%{_mandir} --docdir=/usr/share/doc 
 make %{?_smp_mflags}
