@@ -69,6 +69,7 @@ export CRYPTO_CFLAGS="-I/usr/local/ulyaoth/ssl/openssl1.1.0/include -L/usr/local
 export CRYPTO_LIBS=-lcrypto
 export C_INCLUDE_PATH=/usr/local/ulyaoth/ssl/openssl1.1.0/include
 export LIBRARY_PATH=/usr/local/ulyaoth/ssl/openssl1.1.0/lib
+./bootstrap
 ./configure --prefix=/usr --bindir=%{_bindir} --sbindir=%{_sbindir} --libexecdir=%{_libexecdir} --sysconfdir=%{_sysconfdir} --sharedstatedir=%{_sharedstatedir} --libdir=%{_libdir} --includedir=%{_includedir} --datarootdir=%{_datarootdir} --datadir=%{_datadir} --infodir=%{_infodir} --mandir=%{_mandir} --docdir=/usr/share/doc 
 make %{?_smp_mflags}
 
@@ -79,7 +80,7 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 
 mkdir -p $RPM_BUILD_ROOT/var/lib/hitch
 
-	%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hitch
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hitch
 %{__install} -m 644 -p %{SOURCE1} \
     $RPM_BUILD_ROOT%{_sysconfdir}/hitch/hitch.conf
 
