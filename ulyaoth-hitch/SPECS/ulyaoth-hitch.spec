@@ -107,7 +107,13 @@ useradd -r -g %{hitch_group} -s /sbin/nologin -d %{hitch_homedir} %{hitch_user} 
 
 %files
 %defattr(-,root,root,-)
-
+%config(noreplace) %{_sysconfdir}/hitch/hitch.conf
+/usr/sbin/hitch
+/usr/share/doc/CHANGES.rst
+/usr/share/doc/README.md
+/usr/share/doc/hitch.conf.example
+/usr/share/man/man5/hitch.conf.5.gz
+/usr/share/man/man8/hitch.8.gz
 
 %if %{use_systemd}
 %{_unitdir}/hitch.service
