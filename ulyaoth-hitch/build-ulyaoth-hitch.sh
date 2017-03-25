@@ -50,7 +50,7 @@ fi
 su ulyaoth -c "spectool ulyaoth-hitch.spec -g -R"
 
 # Build the actual rpm and source rpm.
-su ulyaoth -c "QA_RPATHS=$(( 0x0001|0x0010 )) rpmbuild -ba ulyaoth-hitch.spec"
+su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-hitch.spec"
 
 # Copy the rpms to root directory.
 if [ "$ulyaothos" == "amazonlinux" ]
