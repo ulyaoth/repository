@@ -1,5 +1,9 @@
 %define debug_package %{nil}
 
+%define hitch_user hitch
+%define hitch_group hitch
+%define hitch_loggroup adm
+
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
@@ -30,10 +34,10 @@ Name:       ulyaoth-hitch
 Version:    1.4.4
 Release:    1%{?dist}
 BuildArch: x86_64
-License:    GPL/LGPL
+License:    BSD
 Group:      System Environment/Daemons
 URL:        https://hitch-tls.org/
-Vendor:     Hitch
+Vendor:     Varnish
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://github.com/varnish/hitch/archive/hitch-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hitch/SOURCES/hitch.conf
@@ -97,6 +101,8 @@ mkdir -p $RPM_BUILD_ROOT/var/lib/hitch
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %pre
+groupadd -r %{hitch_group} &>/dev/null ||:
+useradd -r -g %{hitch_group} -s /sbin/nologin -d %{hitch_homedir} %{hitch_user} &>/dev/null ||:
 
 %files
 %defattr(-,root,root,-)

@@ -1,19 +1,28 @@
 [Unit]
-Description=hitch
+Description=Network proxy that terminates TLS/SSL connections
 After=syslog.target network.target
 
-
 [Service]
-Type=forking
-#Restart=on-failure
-LimitNOFILE=131072
-Environment="HITCH_OPTIONS=--config /etc/hitch/hitch.conf"
-EnvironmentFile=-/etc/hitch/hitch.params
-EnvironmentFile=-/etc/default/hitch
-EnvironmentFile=-/etc/sysconfig/hitch
-ExecStartPre=/usr/local/sbin/hitch -t $HITCH_OPTIONS
-ExecStart=/usr/local/sbin/hitch --daemon $HITCH_OPTIONS
-ExecReload=/bin/kill -HUP $MAINPID
+
+#
+# If you want to make changes to this file, please copy it to 
+# /etc/systemd/system/hitch.service and make your changes there.
+# This will override the file kept at /lib/systemd/system/hitch.service
+#
+# Configuration may be done in /etc/hitch/hitch.params
+#
+
+PIDFile=/run/hitch/hitch.pid
+
+# Maximum size of the corefile. 
+LimitCORE=infinity
+
+RuntimeDirectory=hitch
+Type=simple
+PrivateTmp=true
+ExecStart=/usr/sbin/hitch --pidfile=/run/hitch/hitch.pid --config=/etc/hitch/hitch.conf
+ExecReload=/usr/bin/kill -HUP $MAINPID
 
 [Install]
 WantedBy=multi-user.target
+
