@@ -1,0 +1,100 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:          hitch
+# Required-Start:    $local_fs $remote_fs $network
+# Required-Stop:     $local_fs $remote_fs $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: The Scalable TLS Unwrapping Daemon
+# Description:       The Scalable TLS Unwrapping Daemon
+### END INIT INFO
+
+# Source function library
+. /lib/lsb/init-functions
+
+NAME=hitch
+DESC="hitch"
+PATH=/usr/local/sbin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/local/sbin/hitch-openssl
+PIDFILE=/var/run/hitch/$NAME.pid
+
+test -x $DAEMON || exit 0
+
+# Include hitch defaults if available
+if [ -f /etc/default/hitch ] ; then
+        . /etc/default/hitch
+fi
+
+ulimit -n ${NFILES:-131072}
+
+# Ensure we have a PATH
+export PATH="${PATH:+$PATH:}/usr/sbin:/usr/bin:/sbin:/bin"
+
+start_hitch() {
+    log_daemon_msg "Starting $DESC" "$NAME"
+    output=$(/bin/tempfile -s.hitch)
+    mkdir -p `dirname $PIDFILE`
+    chown nobody `dirname $PIDFILE`
+    if start-stop-daemon \
+        --start --quiet --exec ${DAEMON} -- \
+        --pidfile=${PIDFILE} --daemon ${HITCH_OPTIONS} > ${output} 2>&1; then
+        log_end_msg 0
+    else
+        log_end_msg 1
+        cat $output
+        exit 1
+    fi
+    rm $output
+}
+
+disabled_hitch() {
+    log_daemon_msg "Not starting $DESC" "$NAME"
+    log_progress_msg "disabled in /etc/default/hitch"
+    log_end_msg 0
+}
+
+stop_hitch() {
+    log_daemon_msg "Stopping $DESC" "$NAME"
+    if start-stop-daemon \
+        --stop --quiet --pidfile $PIDFILE --retry 10 \
+        --exec $DAEMON; then
+        log_end_msg 0
+    else
+        log_end_msg 1
+    fi
+}
+
+status_hitch() {
+    status_of_proc -p "${PIDFILE}" "${DAEMON}" "${NAME}"
+    exit $?
+}
+
+case "$1" in
+    start)
+        case "${START:-}" in
+            [Yy]es|[Yy]|1|[Tt]|[Tt]rue)
+                start_hitch
+                ;;
+            *)
+                disabled_hitch
+                ;;
+        esac
+        ;;
+    stop)
+        stop_hitch
+        ;;
+    status)
+        status_hitch
+        ;;
+    restart|force-reload)
+        $0 stop
+        $0 start
+        ;;
+    *)
+        log_success_msg "Usage: $0 {start|stop|restart|force-reload}"
+        exit 1
+        ;;
+esac
+
+exit 0
