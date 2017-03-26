@@ -103,12 +103,7 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 /usr/local/ulyaoth/openssl0.9.8/man/man1*/*
 /usr/local/ulyaoth/openssl0.9.8/man/man5*/*
 /usr/local/ulyaoth/openssl0.9.8/man/man7*/*
-/usr/local/ulyaoth/openssl0.9.8/doc/*
-/usr/local/ulyaoth/openssl0.9.8/man/*
 %exclude /usr/local/ulyaoth/openssl0.9.8/man/man1*/*.pl*
-%exclude /usr/local/ulyaoth/openssl0.9.8/man/man1*/c_rehash*
-%exclude /usr/local/ulyaoth/openssl0.9.8/man/man1*/tsget*
-
 
 %files libs
 %dir /usr/local/ulyaoth
@@ -137,8 +132,6 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 /usr/local/ulyaoth/openssl0.9.8/bin/CA.pl
 /usr/local/ulyaoth/openssl0.9.8/bin/tsget
 /usr/local/ulyaoth/openssl0.9.8/man/man1*/*.pl*
-/usr/local/ulyaoth/openssl0.9.8/man/man1*/c_rehash*
-/usr/local/ulyaoth/openssl0.9.8/man/man1*/tsget*
 
 %post
 /sbin/ldconfig
