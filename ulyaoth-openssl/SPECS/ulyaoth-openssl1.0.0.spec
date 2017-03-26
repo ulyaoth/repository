@@ -110,11 +110,10 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 %files libs
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/openssl1.0.0
-/usr/local/ulyaoth/openssl1.0.0/openssl.cnf.dist
 %config(noreplace) /usr/local/ulyaoth/openssl1.0.0/openssl.cnf
-%attr(0755,root,root) /usr/local/ulyaoth/openssl1.0.0/lib/libcrypto.so.1.1
-%attr(0755,root,root) /usr/local/ulyaoth/openssl1.0.0/lib/libssl.so.1.1
-%attr(0755,root,root) /usr/local/ulyaoth/openssl1.0.0/lib/engines-1.1/*
+%attr(0755,root,root) /usr/local/ulyaoth/openssl1.0.0/lib/libcrypto.so.1.0.0
+%attr(0755,root,root) /usr/local/ulyaoth/openssl1.0.0/lib/libssl.so.1.0.0
+%attr(0755,root,root) /usr/local/ulyaoth/openssl1.0.0/lib/engines/*
 /etc/ld.so.conf.d/ulyaoth-openssl1.0.0.conf
 
 %files devel
