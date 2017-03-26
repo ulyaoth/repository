@@ -204,7 +204,7 @@ For any additional help please visit our website at:
 ----------------------------------------------------------------------
 BANNER
 
-%post libs
+%post static
 /sbin/ldconfig
 cat <<BANNER
 ----------------------------------------------------------------------
@@ -242,6 +242,7 @@ BANNER
 * Sun Mar 26 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0e-2
 - Changed directory structure.
 - ld fixes.
+- split into sub packages, perl, static, libs, devel.
 
 * Wed Feb 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0e-1
 - Updated to OpenSSL 1.1.0e.
