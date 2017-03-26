@@ -128,8 +128,6 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 
 %files perl
 /usr/local/ulyaoth/openssl0.9.8/bin/c_rehash
-/usr/local/ulyaoth/openssl0.9.8/bin/CA.pl
-/usr/local/ulyaoth/openssl0.9.8/bin/tsget
 /usr/local/ulyaoth/openssl0.9.8/man/man1*/*.pl*
 
 %post
