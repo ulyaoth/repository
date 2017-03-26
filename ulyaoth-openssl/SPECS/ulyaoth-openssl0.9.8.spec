@@ -5,7 +5,7 @@
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl0.9.8
 Version:    0.9.8zh
-Release:    3%{?dist}
+Release:    4%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
