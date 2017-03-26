@@ -86,6 +86,11 @@ install -d $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.0
 
 make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 
+mv $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.0/misc/* $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.0/bin/
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.0/certs
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.0/private
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.0/misc
+
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/ld.so.conf.d/
 %{__install} -m 644 -p %{SOURCE1} \
     $RPM_BUILD_ROOT/etc/ld.so.conf.d/ulyaoth-openssl1.0.0.conf
@@ -132,6 +137,11 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 /usr/local/ulyaoth/openssl1.0.0/bin/c_rehash
 /usr/local/ulyaoth/openssl1.0.0/bin/CA.pl
 /usr/local/ulyaoth/openssl1.0.0/bin/tsget
+/usr/local/ulyaoth/openssl1.0.0/bin/CA.sh
+/usr/local/ulyaoth/openssl1.0.0/bin/c_hash
+/usr/local/ulyaoth/openssl1.0.0/bin/c_info
+/usr/local/ulyaoth/openssl1.0.0/bin/c_issuer
+/usr/local/ulyaoth/openssl1.0.0/bin/c_name
 /usr/local/ulyaoth/openssl1.0.0/man/man1*/*.pl*
 /usr/local/ulyaoth/openssl1.0.0/man/man1*/tsget*
 

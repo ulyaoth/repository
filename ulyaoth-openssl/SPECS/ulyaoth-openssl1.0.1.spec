@@ -86,6 +86,11 @@ install -d $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.1
 
 make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 
+mv $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.1/misc/* $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.1/bin/
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.1/certs
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.1/private
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.1/misc
+
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/ld.so.conf.d/
 %{__install} -m 644 -p %{SOURCE1} \
     $RPM_BUILD_ROOT/etc/ld.so.conf.d/ulyaoth-openssl1.0.1.conf
@@ -111,7 +116,6 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 %files libs
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/openssl1.0.1
-/usr/local/ulyaoth/openssl1.0.1/openssl.cnf.dist
 %config(noreplace) /usr/local/ulyaoth/openssl1.0.1/openssl.cnf
 %attr(0755,root,root) /usr/local/ulyaoth/openssl1.0.1/lib/libcrypto.so.1.0.0
 %attr(0755,root,root) /usr/local/ulyaoth/openssl1.0.1/lib/libssl.so.1.0.0
@@ -134,6 +138,11 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 /usr/local/ulyaoth/openssl1.0.1/bin/c_rehash
 /usr/local/ulyaoth/openssl1.0.1/bin/CA.pl
 /usr/local/ulyaoth/openssl1.0.1/bin/tsget
+/usr/local/ulyaoth/openssl1.0.1/bin/CA.sh
+/usr/local/ulyaoth/openssl1.0.1/bin/c_hash
+/usr/local/ulyaoth/openssl1.0.1/bin/c_info
+/usr/local/ulyaoth/openssl1.0.1/bin/c_issuer
+/usr/local/ulyaoth/openssl1.0.1/bin/c_name
 /usr/local/ulyaoth/openssl1.0.1/man/man1*/*.pl*
 /usr/local/ulyaoth/openssl1.0.1/man/man1*/c_rehash*
 /usr/local/ulyaoth/openssl1.0.1/man/man1*/tsget*
