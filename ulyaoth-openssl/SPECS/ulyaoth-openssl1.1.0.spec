@@ -24,6 +24,8 @@ BuildRoot:  %{_tmppath}/openssl-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: perl-Pod-MinimumVersion
 %endif
 
+Requires: ulyaoth-openssl1.1.0-libs
+
 Provides: ulyaoth-openssl1.1.0
 Provides: ulyaoth-openssl1.1.0e
 
@@ -57,6 +59,14 @@ Provides: ulyaoth-openssl1.1.0-static
 The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library.
 The openssl-static package contains static libraries needed for static linking of applications which support various cryptographic algorithms and protocols.
 
+%package perl
+Summary: Perl scripts provided with OpenSSL
+Group: Applications/Internet
+Requires: perl
+Requires: ulyaoth-openssl1.1.0
+%description perl
+The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library.
+The openssl-perl package provides Perl scripts for converting certificates and keys from other formats to the formats used by the OpenSSL toolkit.
 
 %prep
 %setup -q -n openssl-%{version}
@@ -86,7 +96,11 @@ mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/man
 make MANDIR=/usr/local/ulyaoth/openssl1.1.0/man MANSUFFIX=ssl DESTDIR="$RPM_BUILD_ROOT" install
 
 mv $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/share/doc $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/
+mv $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/misc/* $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/bin/
 rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/share
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/certs
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/private
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/misc
 
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/ld.so.conf.d/
 %{__install} -m 644 -p %{SOURCE1} \
@@ -101,19 +115,26 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/share
 %defattr(-,root,root,-)
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/openssl1.1.0
-/usr/local/ulyaoth/openssl1.1.0/bin/*
+/usr/local/ulyaoth/openssl1.1.0/bin/openssl
 /usr/local/ulyaoth/openssl1.1.0/man/man1*/*
 /usr/local/ulyaoth/openssl1.1.0/man/man5*/*
 /usr/local/ulyaoth/openssl1.1.0/man/man7*/*
-/usr/local/ulyaoth/openssl1.1.0/certs/*
 /usr/local/ulyaoth/openssl1.1.0/doc/*
 /usr/local/ulyaoth/openssl1.1.0/man/*
-/usr/local/ulyaoth/openssl1.1.0/misc/*
-/usr/local/ulyaoth/openssl1.1.0/openssl.cnf
+%exclude /usr/local/ulyaoth/openssl1.1.0/man/man1*/*.pl*
+%exclude /usr/local/ulyaoth/openssl1.1.0/man/man1*/c_rehash*
+%exclude /usr/local/ulyaoth/openssl1.1.0/man/man1*/tsget*
+
+
+%files libs
+%dir /usr/local/ulyaoth
+%dir /usr/local/ulyaoth/openssl1.1.0
 /usr/local/ulyaoth/openssl1.1.0/openssl.cnf.dist
-/usr/local/ulyaoth/openssl1.1.0/private/*
+%config(noreplace) /usr/local/ulyaoth/openssl1.1.0/openssl.cnf
+%attr(0755,root,root) /usr/local/ulyaoth/openssl1.1.0/lib/libcrypto.so.1.1
+%attr(0755,root,root) /usr/local/ulyaoth/openssl1.1.0/lib/libssl.so.1.1
+%attr(0755,root,root) /usr/local/ulyaoth/openssl1.1.0/lib/engines-1.1/*
 /etc/ld.so.conf.d/ulyaoth-openssl1.1.0.conf
-%exclude /usr/local/ulyaoth/openssl1.1.0/lib/*.so*
 
 %files devel
 %dir /usr/local/ulyaoth
@@ -127,12 +148,84 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/share
 %files static
 /usr/local/ulyaoth/openssl1.1.0/lib/*.a
 
+%files perl
+/usr/local/ulyaoth/openssl1.1.0/bin/c_rehash
+/usr/local/ulyaoth/openssl1.1.0/bin/CA.pl
+/usr/local/ulyaoth/openssl1.1.0/bin/tsget
+/usr/local/ulyaoth/openssl1.1.0/man/man1*/*.pl*
+/usr/local/ulyaoth/openssl1.1.0/man/man1*/c_rehash*
+/usr/local/ulyaoth/openssl1.1.0/man/man1*/tsget*
+
 %post
 /sbin/ldconfig
 cat <<BANNER
 ----------------------------------------------------------------------
 
 Thank you for using ulyaoth-openssl1.1.0!
+
+Please find the official documentation for OpenSSL here:
+* https://www.openssl.org
+
+For any additional help please visit our website at:
+* https://www.ulyaoth.net
+
+----------------------------------------------------------------------
+BANNER
+
+%post libs
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thank you for using ulyaoth-openssl1.1.0-libs!
+
+Please find the official documentation for OpenSSL here:
+* https://www.openssl.org
+
+For any additional help please visit our website at:
+* https://www.ulyaoth.net
+
+----------------------------------------------------------------------
+BANNER
+
+%post devel
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thank you for using ulyaoth-openssl1.1.0-devel!
+
+Please find the official documentation for OpenSSL here:
+* https://www.openssl.org
+
+For any additional help please visit our website at:
+* https://www.ulyaoth.net
+
+----------------------------------------------------------------------
+BANNER
+
+%post libs
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thank you for using ulyaoth-openssl1.1.0-static!
+
+Please find the official documentation for OpenSSL here:
+* https://www.openssl.org
+
+For any additional help please visit our website at:
+* https://www.ulyaoth.net
+
+----------------------------------------------------------------------
+BANNER
+
+%post perl
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thank you for using ulyaoth-openssl1.1.0-perl!
 
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
