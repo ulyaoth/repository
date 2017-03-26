@@ -5,7 +5,7 @@
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.0.1
 Version:    1.0.1u
-Release:    2%{?dist}
+Release:    3%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
