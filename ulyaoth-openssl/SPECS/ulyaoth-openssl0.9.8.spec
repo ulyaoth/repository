@@ -1,4 +1,3 @@
-AutoReqProv: no
 %define debug_package %{nil}
 
 # end of distribution specific definitions
@@ -32,7 +31,11 @@ OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim
 %setup -q -n openssl-%{version}
 
 %build
-./config -Wl,-rpath=/usr/local/ulyaoth/ssl/openssl0.9.8/lib --openssldir=/usr/local/ulyaoth/ssl/openssl0.9.8 no-ssl2 no-ssl3 shared
+export C_INCLUDE_PATH=/usr/local/ulyaoth/openssl1.1.0/include
+export LIBRARY_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
+export LD_RUN_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
+
+./config -Wl,-rpath=/usr/local/ulyaoth/openssl0.9.8/lib --openssldir=/usr/local/ulyaoth/openssl0.9.8 no-ssl2 no-ssl3 shared
 make depend
 make all
 make rehash
@@ -41,7 +44,7 @@ make %{?_smp_mflags}
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl0.9.8
+install -d $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8
 
 make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 
@@ -57,9 +60,8 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 %files
 %defattr(-,root,root,-)
 %dir /usr/local/ulyaoth
-%dir /usr/local/ulyaoth/ssl
-%dir /usr/local/ulyaoth/ssl/openssl0.9.8
-/usr/local/ulyaoth/ssl/openssl0.9.8/*
+%dir /usr/local/ulyaoth/openssl0.9.8
+/usr/local/ulyaoth/openssl0.9.8/*
 /etc/ld.so.conf.d/ulyaoth-openssl0.9.8.conf
 
 %post
@@ -72,7 +74,7 @@ Thanks for using ulyaoth-openssl0.9.8!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -81,6 +83,10 @@ BANNER
 %postun -p /sbin/ldconfig
 
 %changelog
+* Sun Mar 26 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.8zh-4
+- Changed directory structure.
+- ld fixes.
+
 * Mon Oct 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.8zh-3
 - Added ldd fixes.
 

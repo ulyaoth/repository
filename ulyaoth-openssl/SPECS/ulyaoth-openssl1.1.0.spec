@@ -1,4 +1,3 @@
-AutoReqProv: no
 %define debug_package %{nil}
 
 # end of distribution specific definitions
@@ -32,16 +31,46 @@ Provides: ulyaoth-openssl1.1.0e
 The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan, and develop the OpenSSL toolkit and its related documentation.
 OpenSSL is based on the excellent SSLeay library developed by Eric Young and Tim Hudson. The OpenSSL toolkit is licensed under an Apache-style license, which basically means that you are free to get and use it for commercial and non-commercial purposes subject to some simple license conditions.
 
+%package libs
+Summary: A general purpose cryptography library with TLS implementation
+Group: System Environment/Libraries
+Provides: ulyaoth-openssl1.1.0-libs
+%description libs
+The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library.
+The openssl-libs package contains the libraries that are used by various applications which support cryptographic algorithms and protocols.
+
+%package devel
+Summary: Files for development of applications which will use OpenSSL
+Group: Development/Libraries
+Requires: ulyaoth-openssl1.1.0-libs
+Provides: ulyaoth-openssl1.1.0-devel
+%description devel
+The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library.
+The openssl-devel package contains include files needed to develop applications which support various cryptographic algorithms and protocols.
+
+%package static
+Summary: Libraries for static linking of applications which will use OpenSSL
+Group: Development/Libraries
+Requires: ulyaoth-openssl1.1.0-devel
+Provides: ulyaoth-openssl1.1.0-static
+%description static
+The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library.
+The openssl-static package contains static libraries needed for static linking of applications which support various cryptographic algorithms and protocols.
+
+
 %prep
 %setup -q -n openssl-%{version}
 
 %build
+export C_INCLUDE_PATH=/usr/local/ulyaoth/openssl1.1.0/include
+export LIBRARY_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
+export LD_RUN_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
 
 %ifarch i386 i486 i586 i686
-./Configure -Wl,-rpath=/usr/local/ulyaoth/ssl/openssl1.1.0/lib --prefix=/usr/local/ulyaoth/ssl/openssl1.1.0 --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 linux-elf shared
+./Configure -Wl,-rpath=/usr/local/ulyaoth/openssl1.1.0/lib --prefix=/usr/local/ulyaoth/openssl1.1.0 --openssldir=/usr/local/ulyaoth/openssl1.1.0 linux-elf shared
 %endif
 %ifarch x86_64
-./Configure -Wl,-rpath=/usr/local/ulyaoth/ssl/openssl1.1.0/lib --prefix=/usr/local/ulyaoth/ssl/openssl1.1.0 --openssldir=/usr/local/ulyaoth/ssl/openssl1.1.0 linux-x86_64 shared
+./Configure -Wl,-rpath=/usr/local/ulyaoth/openssl1.1.0/lib --prefix=/usr/local/ulyaoth/openssl1.1.0 --openssldir=/usr/local/ulyaoth//openssl1.1.0 linux-x86_64 shared
 %endif
 
 make depend
@@ -51,13 +80,13 @@ make %{?_smp_mflags}
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0
-mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/man
+install -d $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0
+mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/man
 
-make MANDIR=/usr/local/ulyaoth/ssl/openssl1.1.0/man MANSUFFIX=ssl DESTDIR="$RPM_BUILD_ROOT" install
+make MANDIR=/usr/local/ulyaoth/openssl1.1.0/man MANSUFFIX=ssl DESTDIR="$RPM_BUILD_ROOT" install
 
-mv $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share/doc $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/
-rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share
+mv $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/share/doc $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.1.0/share
 
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/ld.so.conf.d/
 %{__install} -m 644 -p %{SOURCE1} \
@@ -71,10 +100,32 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/ssl/openssl1.1.0/share
 %files
 %defattr(-,root,root,-)
 %dir /usr/local/ulyaoth
-%dir /usr/local/ulyaoth/ssl
-%dir /usr/local/ulyaoth/ssl/openssl1.1.0
-/usr/local/ulyaoth/ssl/openssl1.1.0/*
+%dir /usr/local/ulyaoth/openssl1.1.0
+/usr/local/ulyaoth/openssl1.1.0/bin/*
+/usr/local/ulyaoth/openssl1.1.0/man/man1*/*
+/usr/local/ulyaoth/openssl1.1.0/man/man5*/*
+/usr/local/ulyaoth/openssl1.1.0/man/man7*/*
+/usr/local/ulyaoth/openssl1.1.0/certs/*
+/usr/local/ulyaoth/openssl1.1.0/doc/*
+/usr/local/ulyaoth/openssl1.1.0/man/*
+/usr/local/ulyaoth/openssl1.1.0/misc/*
+/usr/local/ulyaoth/openssl1.1.0/openssl.cnf
+/usr/local/ulyaoth/openssl1.1.0/openssl.cnf.dist
+/usr/local/ulyaoth/openssl1.1.0/private/*
 /etc/ld.so.conf.d/ulyaoth-openssl1.1.0.conf
+%exclude /usr/local/ulyaoth/openssl1.1.0/lib/*.so*
+
+%files devel
+%dir /usr/local/ulyaoth
+%dir /usr/local/ulyaoth/openssl1.1.0
+%dir /usr/local/ulyaoth/openssl1.1.0/lib/pkgconfig
+/usr/local/ulyaoth/openssl1.1.0/lib/*.so
+/usr/local/ulyaoth/openssl1.1.0/include/*
+/usr/local/ulyaoth/openssl1.1.0/man/man3*/*
+/usr/local/ulyaoth/openssl1.1.0/lib/pkgconfig/*.pc
+
+%files static
+/usr/local/ulyaoth/openssl1.1.0/lib/*.a
 
 %post
 /sbin/ldconfig
@@ -86,7 +137,7 @@ Thank you for using ulyaoth-openssl1.1.0!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -95,6 +146,10 @@ BANNER
 %postun -p /sbin/ldconfig
 
 %changelog
+* Sun Mar 26 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0e-2
+- Changed directory structure.
+- ld fixes.
+
 * Wed Feb 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.0e-1
 - Updated to OpenSSL 1.1.0e.
 
