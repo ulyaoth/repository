@@ -86,6 +86,12 @@ install -d $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8
 
 make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 
+mv $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8/misc/* $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8/bin/
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8/certs
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8/private
+rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8/misc
+
+
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/ld.so.conf.d/
 %{__install} -m 644 -p %{SOURCE1} \
     $RPM_BUILD_ROOT/etc/ld.so.conf.d/ulyaoth-openssl0.9.8.conf
@@ -128,6 +134,12 @@ make INSTALL_PREFIX=$RPM_BUILD_ROOT install
 
 %files perl
 /usr/local/ulyaoth/openssl0.9.8/bin/c_rehash
+/usr/local/ulyaoth/openssl0.9.8/bin/CA.pl
+/usr/local/ulyaoth/openssl0.9.8/bin/CA.sh
+/usr/local/ulyaoth/openssl0.9.8/bin/c_hash
+/usr/local/ulyaoth/openssl0.9.8/bin/c_info
+/usr/local/ulyaoth/openssl0.9.8/bin/c_issuer
+/usr/local/ulyaoth/openssl0.9.8/bin/c_name
 /usr/local/ulyaoth/openssl0.9.8/man/man1*/*.pl*
 
 %post
