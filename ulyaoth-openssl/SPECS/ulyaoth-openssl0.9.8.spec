@@ -106,9 +106,9 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8/misc
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/openssl0.9.8
 /usr/local/ulyaoth/openssl0.9.8/bin/openssl
-/usr/local/ulyaoth/openssl0.9.8/man/man1*/*
-/usr/local/ulyaoth/openssl0.9.8/man/man5*/*
-/usr/local/ulyaoth/openssl0.9.8/man/man7*/*
+%doc /usr/local/ulyaoth/openssl0.9.8/man/man1*/*
+%doc /usr/local/ulyaoth/openssl0.9.8/man/man5*/*
+%doc /usr/local/ulyaoth/openssl0.9.8/man/man7*/*
 %exclude /usr/local/ulyaoth/openssl0.9.8/man/man1*/*.pl*
 
 %files libs
@@ -126,7 +126,7 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8/misc
 %dir /usr/local/ulyaoth/openssl0.9.8/lib/pkgconfig
 /usr/local/ulyaoth/openssl0.9.8/lib/*.so
 /usr/local/ulyaoth/openssl0.9.8/include/*
-/usr/local/ulyaoth/openssl0.9.8/man/man3*/*
+%doc /usr/local/ulyaoth/openssl0.9.8/man/man3*/*
 /usr/local/ulyaoth/openssl0.9.8/lib/pkgconfig/*.pc
 
 %files static
@@ -140,7 +140,7 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl0.9.8/misc
 /usr/local/ulyaoth/openssl0.9.8/bin/c_info
 /usr/local/ulyaoth/openssl0.9.8/bin/c_issuer
 /usr/local/ulyaoth/openssl0.9.8/bin/c_name
-/usr/local/ulyaoth/openssl0.9.8/man/man1*/*.pl*
+%doc /usr/local/ulyaoth/openssl0.9.8/man/man1*/*.pl*
 
 %post
 /sbin/ldconfig
