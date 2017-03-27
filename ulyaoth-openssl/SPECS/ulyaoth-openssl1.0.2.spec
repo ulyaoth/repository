@@ -105,9 +105,9 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.2/misc
 %dir /usr/local/ulyaoth
 %dir /usr/local/ulyaoth/openssl1.0.2
 /usr/local/ulyaoth/openssl1.0.2/bin/openssl
-/usr/local/ulyaoth/openssl1.0.2/man/man1*/*
-/usr/local/ulyaoth/openssl1.0.2/man/man5*/*
-/usr/local/ulyaoth/openssl1.0.2/man/man7*/*
+%doc /usr/local/ulyaoth/openssl1.0.2/man/man1*/*
+%doc /usr/local/ulyaoth/openssl1.0.2/man/man5*/*
+%doc /usr/local/ulyaoth/openssl1.0.2/man/man7*/*
 %exclude /usr/local/ulyaoth/openssl1.0.2/man/man1*/*.pl*
 %exclude /usr/local/ulyaoth/openssl1.0.2/man/man1*/c_rehash*
 %exclude /usr/local/ulyaoth/openssl1.0.2/man/man1*/tsget*
@@ -128,7 +128,7 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.2/misc
 %dir /usr/local/ulyaoth/openssl1.0.2/lib/pkgconfig
 /usr/local/ulyaoth/openssl1.0.2/lib/*.so
 /usr/local/ulyaoth/openssl1.0.2/include/*
-/usr/local/ulyaoth/openssl1.0.2/man/man3*/*
+%doc /usr/local/ulyaoth/openssl1.0.2/man/man3*/*
 /usr/local/ulyaoth/openssl1.0.2/lib/pkgconfig/*.pc
 
 %files static
@@ -143,9 +143,9 @@ rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/openssl1.0.2/misc
 /usr/local/ulyaoth/openssl1.0.2/bin/c_info
 /usr/local/ulyaoth/openssl1.0.2/bin/c_issuer
 /usr/local/ulyaoth/openssl1.0.2/bin/c_name
-/usr/local/ulyaoth/openssl1.0.2/man/man1*/*.pl*
-/usr/local/ulyaoth/openssl1.0.2/man/man1*/c_rehash*
-/usr/local/ulyaoth/openssl1.0.2/man/man1*/tsget*
+%doc /usr/local/ulyaoth/openssl1.0.2/man/man1*/*.pl*
+%doc /usr/local/ulyaoth/openssl1.0.2/man/man1*/c_rehash*
+%doc /usr/local/ulyaoth/openssl1.0.2/man/man1*/tsget*
 
 %post
 /sbin/ldconfig
