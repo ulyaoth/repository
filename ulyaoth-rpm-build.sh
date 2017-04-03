@@ -44,6 +44,11 @@ ulyaoth-lua5.3()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-lua/build-ulyaoth-lua5.3.sh ; chmod +x build-ulyaoth-lua5.3.sh ; ./build-ulyaoth-lua5.3.sh
 }
 
+ulyaoth-hitch()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hitch/build-ulyaoth-hitch.sh ; chmod +x build-ulyaoth-hitch.sh ; ./build-ulyaoth-hitch.sh
+}
+
 ulyaoth-varnish5()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish5.sh ; chmod +x build-ulyaoth-varnish5.sh ; ./build-ulyaoth-varnish5.sh
