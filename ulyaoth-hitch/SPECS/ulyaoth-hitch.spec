@@ -3,6 +3,7 @@
 %define hitch_user hitch
 %define hitch_group hitch
 %define hitch_loggroup adm
+%define hitch_home %{_localstatedir}/lib/hitch
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -90,7 +91,7 @@ mkdir -p $RPM_BUILD_ROOT/var/lib/hitch
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
-%{__install} -m644 %SOURCE1 \
+%{__install} -m644 %SOURCE3 \
     $RPM_BUILD_ROOT%{_unitdir}/hitch.service
 %else
 # install SYSV init stuff
@@ -103,8 +104,11 @@ mkdir -p $RPM_BUILD_ROOT/var/lib/hitch
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %pre
-groupadd -r %{hitch_group} &>/dev/null ||:
-useradd -r -g %{hitch_group} -s /sbin/nologin -d %{hitch_homedir} %{hitch_user} &>/dev/null ||:
+getent group %{hitch_group} >/dev/null || groupadd -r %{hitch_group}
+getent passwd %{hitch_user} >/dev/null || \
+    useradd -r -g %{hitch_group} -s /sbin/nologin \
+    -d %{hitch_home} -c "hitch user"  %{hitch_user}
+exit 0
 
 %files
 %defattr(-,root,root,-)
@@ -115,6 +119,9 @@ useradd -r -g %{hitch_group} -s /sbin/nologin -d %{hitch_homedir} %{hitch_user} 
 /usr/share/doc/hitch.conf.example
 /usr/share/man/man5/hitch.conf.5.gz
 /usr/share/man/man8/hitch.8.gz
+
+%defattr(-,hitch,hitch,-)
+/var/lib/hitch
 
 %if %{use_systemd}
 %{_unitdir}/hitch.service
