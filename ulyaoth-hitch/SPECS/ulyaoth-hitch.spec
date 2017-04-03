@@ -48,8 +48,8 @@ BuildRoot:  %{_tmppath}/hitch-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: flex
 BuildRequires: bison
-BuildRequires: python-docutils
 BuildRequires: libev-devel
+BuildRequires: python-docutils
 BuildRequires: ulyaoth-openssl1.1.0-devel
 
 Requires: ulyaoth-openssl1.1.0-libs
