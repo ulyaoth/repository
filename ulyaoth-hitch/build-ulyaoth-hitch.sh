@@ -7,6 +7,11 @@ if grep --quiet "release 6" /etc/redhat-release || grep --quiet "release 6" /etc
   yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 fi
 
+if [ "$ulyaothos" == "amazonlinux" ]
+then
+  yum-config-manager --enable epel
+fi
+
 # Install ulyaoth repository for dependencies.
 if [ "$ulyaothos" == "fedora" ]
 then
