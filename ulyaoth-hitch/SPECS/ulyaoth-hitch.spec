@@ -49,9 +49,9 @@ BuildRequires: flex
 BuildRequires: bison
 BuildRequires: python-docutils
 BuildRequires: libev-devel
-BuildRequires: ulyaoth-openssl1.1.0
+BuildRequires: ulyaoth-openssl1.1.0-devel
 
-Requires: ulyaoth-openssl1.1.0
+Requires: ulyaoth-openssl1.1.0-libs
 
 Provides: hitch
 Provides: ulyaoth-hitch
@@ -63,13 +63,13 @@ hitch is a network proxy that terminates TLS/SSL connections and forwards the un
 %setup -q -n hitch-hitch-%{version}
 
 %build
-export SSL_CFLAGS="-I/usr/local/ulyaoth/ssl/openssl1.1.0/include -L/usr/local/ulyaoth/ssl/openssl1.1.0/lib"
+export SSL_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
 export SSL_LIBS=-lssl
-export CRYPTO_CFLAGS="-I/usr/local/ulyaoth/ssl/openssl1.1.0/include -L/usr/local/ulyaoth/ssl/openssl1.1.0/lib"
+export CRYPTO_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
 export CRYPTO_LIBS=-lcrypto
-export C_INCLUDE_PATH=/usr/local/ulyaoth/ssl/openssl1.1.0/include
-export LIBRARY_PATH=/usr/local/ulyaoth/ssl/openssl1.1.0/lib
-export LD_RUN_PATH=/usr/local/ulyaoth/ssl/openssl1.1.0/lib
+export C_INCLUDE_PATH=/usr/local/ulyaoth/openssl1.1.0/include
+export LIBRARY_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
+export LD_RUN_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
 ./bootstrap
 ./configure --prefix=/usr --bindir=%{_bindir} --sbindir=%{_sbindir} --libexecdir=%{_libexecdir} --sysconfdir=%{_sysconfdir} --sharedstatedir=%{_sharedstatedir} --libdir=%{_libdir} --includedir=%{_includedir} --datarootdir=%{_datarootdir} --datadir=%{_datadir} --infodir=%{_infodir} --mandir=%{_mandir} --docdir=/usr/share/doc 
 make %{?_smp_mflags}
@@ -170,5 +170,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Mar 26 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.4.4-1
+* Mon Apr 3 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.4.4-1
 - Initial release for Hitch.
