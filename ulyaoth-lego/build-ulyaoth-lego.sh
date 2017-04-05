@@ -54,6 +54,20 @@ echo 'export PATH=$GOPATH/bin:$PATH' >> /root/.bashrc
 echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /root/.bashrc
 source ~/.bashrc
 go get github.com/codegangsta/cli
+go get github.com/JamesClonk/vultr/lib
+go get github.com/aws/aws-sdk-go/aws
+go get github.com/aws/aws-sdk-go/aws/client
+go get github.com/aws/aws-sdk-go/aws/request
+go get github.com/aws/aws-sdk-go/aws/session
+go get github.com/aws/aws-sdk-go/service/route53
+go get github.com/miekg/dns
+go get github.com/weppos/dnsimple-go/dnsimple
+go get golang.org/x/crypto/ocsp
+go get golang.org/x/net/context
+go get golang.org/x/net/publicsuffi
+go get golang.org/x/oauth2/google
+go get google.golang.org/api/dns/v1
+go get gopkg.in/square/go-jose.v1
 chown -R ulyaoth:ulyaoth /home/ulyaoth
 
 # Create build user and go to it's home directory, and create the rpmbuild directory.
