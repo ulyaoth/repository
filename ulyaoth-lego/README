@@ -1,0 +1,4 @@
+How to create a package:
+
+ulyaoth-lego:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-lego/build-ulyaoth-lego.sh ; chmod +x build-ulyaoth-lego.sh ; ./build-ulyaoth-lego.sh
