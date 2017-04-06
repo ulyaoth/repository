@@ -45,55 +45,24 @@ then
   yum install ulyaoth-go -y
 fi
 
-# Install cli
+# Create the rpmbuild directory.
+su ulyaoth -c "rpmdev-setuptree"
+
+# Build
 cd /root
 echo 'export GOROOT=/usr/local/ulyaoth/go' >> /root/.bashrc
 echo 'export PATH=$PATH:$GOROOT/bin' >> /root/.bashrc
-echo 'export GOPATH=/home/ulyaoth/' >> /root/.bashrc
+echo 'export GOPATH=/root/' >> /root/.bashrc
 echo 'export PATH=$GOPATH/bin:$PATH' >> /root/.bashrc
 echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /root/.bashrc
 source ~/.bashrc
-go get github.com/codegangsta/cli
-go get github.com/JamesClonk/vultr/lib
-go get github.com/aws/aws-sdk-go/aws
-go get github.com/aws/aws-sdk-go/aws/client
-go get github.com/aws/aws-sdk-go/aws/request
-go get github.com/aws/aws-sdk-go/aws/session
-go get github.com/aws/aws-sdk-go/service/route53
-go get github.com/miekg/dns
-go get github.com/weppos/dnsimple-go/dnsimple
-go get golang.org/x/crypto/ocsp
-go get golang.org/x/net/context
-go get golang.org/x/net/publicsuffix
-go get golang.org/x/oauth2/google
-go get google.golang.org/api/dns/v1
-go get gopkg.in/square/go-jose.v1
-chown -R ulyaoth:ulyaoth /home/ulyaoth
+go get -u github.com/xenolf/lego
+cd /root/src/github.com/xenolf/lego/ && go build
+mv /usr/local/ulyaoth/go/bin/lego /home/ulyaoth/rpmbuild/SOURCES/
+chown ulyaoth:ulyaoth /home/ulyaoth/rpmbuild/SOURCES/lego
 
-# Create build user and go to it's home directory, and create the rpmbuild directory.
+# Create build user and go to it's home directory.
 useradd ulyaoth
-cd /home/ulyaoth/
-su ulyaoth -c "rpmdev-setuptree"
-
-# Add where to find go into bashrc
-echo 'export GOROOT=/usr/local/ulyaoth/go' >> /home/ulyaoth/.bashrc
-echo 'export PATH=$PATH:$GOROOT/bin' >> /home/ulyaoth/.bashrc
-echo 'export GOPATH=/home/ulyaoth/' >> /home/ulyaoth/.bashrc
-echo 'export PATH=$GOPATH/bin:$PATH' >> /home/ulyaoth/.bashrc
-echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /home/ulyaoth/.bashrc
-
-su ulyaoth -c "source ~/.bashrc"
-
-# Download lego and build it.
-su - ulyaoth -c "wget https://github.com/xenolf/lego/archive/v'"$legoversion"'.tar.gz"
-su - ulyaoth -c "tar xvzf v'"$legoversion"'.tar.gz"
-su - ulyaoth -c "mkdir -p /home/ulyaoth/src/github.com/xenolf"
-su - ulyaoth -c "mkdir -p /home/ulyaoth/bin"
-su - ulyaoth -c "mkdir -p /home/ulyaoth/pkg"
-su - ulyaoth -c "mv lego-'"$legoversion"' /home/ulyaoth/src/github.com/xenolf/lego"
-su - ulyaoth -c "cd /home/ulyaoth/src/github.com/xenolf/lego/ && go build"
-su - ulyaoth -c "mv /home/ulyaoth/src/github.com/xenolf/lego/lego /home/ulyaoth/rpmbuild/SOURCES/"
-su - ulyaoth -c "rm -rf src v'"$legoversion"'.tar.gz pkg bin"
 
 # Go to spec file directory and download the spec file.
 cd /home/ulyaoth/rpmbuild/SPECS
