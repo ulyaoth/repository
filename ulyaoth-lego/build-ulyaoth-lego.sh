@@ -56,9 +56,9 @@ echo 'export GOPATH=/root/' >> /root/.bashrc
 echo 'export PATH=$GOPATH/bin:$PATH' >> /root/.bashrc
 echo 'export GOBIN=/usr/local/ulyaoth/go/bin/' >> /root/.bashrc
 source ~/.bashrc
-go get -u github.com/xenolf/lego
+/usr/local/ulyaoth/go/bin/go get -u github.com/xenolf/lego
 cd /root/src/github.com/xenolf/lego/ && go build
-mv /usr/local/ulyaoth/go/bin/lego /home/ulyaoth/rpmbuild/SOURCES/
+mv /root/src/github.com/xenolf/lego/lego /home/ulyaoth/rpmbuild/SOURCES/
 chown ulyaoth:ulyaoth /home/ulyaoth/rpmbuild/SOURCES/lego
 
 # Create build user and go to it's home directory.
