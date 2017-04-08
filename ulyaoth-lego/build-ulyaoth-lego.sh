@@ -21,7 +21,7 @@ then
 fi
 elif [ "$ulyaothos" == "redhat" ]
 then
-  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.x86_64rpm -y
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.x86_64.rpm -y
 elif [ "$ulyaothos" == "amazonlinux" ]
 then
   yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.amazonlinux.x86_64.rpm -y
