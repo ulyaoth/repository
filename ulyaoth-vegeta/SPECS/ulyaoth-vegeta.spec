@@ -1,7 +1,7 @@
 
 Summary:    Vegeta is a versatile HTTP load testing tool built out of a need to drill HTTP services with a constant request rate.
 Name:       ulyaoth-vegeta
-Version:    6.2.0
+Version:    6.3.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    The MIT License (MIT)
@@ -47,7 +47,7 @@ Thank you for using ulyaoth-vegeta!
 Please find the official documentation for vegeta here:
 * https://github.com/tsenart/vegeta
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -58,6 +58,9 @@ BANNER
 %postun
 
 %changelog
+* Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.3.0-1
+- Updated to Vegeta 6.3.0.
+
 * Wed Mar 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.2.0-1
 - Updated to Vegeta 6.2.0.
 
