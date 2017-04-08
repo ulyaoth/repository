@@ -6,7 +6,7 @@
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm-lts-3.18
-Version: 3.18.1
+Version: 3.18.2
 Release: 1%{?dist}
 BuildArch: x86_64
 Group: Applications/Internet
@@ -213,6 +213,9 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+* Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.18.2-1
+- Initial release for HHVM 3.18.2 (LTS).
+
 * Wed Mar 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.18.1-1
 - Initial release for HHVM 3.18.1 (LTS).
 
