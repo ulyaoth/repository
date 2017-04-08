@@ -3,7 +3,7 @@
 
 Summary:    Keepalived a LVS driving daemon.
 Name:       ulyaoth-keepalived
-Version:    1.3.4
+Version:    1.3.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPLv2
@@ -118,5 +118,8 @@ For any additional help please visit our website at:
 BANNER
 
 %changelog
+* Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.5-1
+- Updated Keepalived to 1.3.5.
+
 * Fri Mar 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.4-1
 - Initial release.
