@@ -69,7 +69,7 @@ Thank you for using ulyaoth-fuse-s3fs!
 Please find the official documentation for fuse-s3fs here:
 * https://github.com/s3fs-fuse/s3fs-fuse
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

@@ -58,7 +58,7 @@ Thank you for using ulyaoth-banana!
 Please find the official documentation for Banana here:
 * https://github.com/LucidWorks/banana/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

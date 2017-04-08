@@ -171,7 +171,7 @@ if [ $1 -eq 1 ]; then
 Thank you for using ulyaoth-monkey!
 Please find the official documentation for monkey here:
 * http://monkey-project.com/
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 ----------------------------------------------------------------------
 BANNER

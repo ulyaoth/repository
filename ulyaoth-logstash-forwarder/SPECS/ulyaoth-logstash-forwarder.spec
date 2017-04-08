@@ -123,7 +123,7 @@ Thanks for using ulyaoth-logstash-forwarder!
 Please find the official documentation for logstash-forwarder here:
 * https://github.com/elasticsearch/logstash-forwarder
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

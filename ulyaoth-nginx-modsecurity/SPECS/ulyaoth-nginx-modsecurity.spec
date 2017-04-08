@@ -317,7 +317,7 @@ Commercial subscriptions for nginx are available on:
 Please find the official MoDSecurity documentation here:
 * https://www.modsecurity.org
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

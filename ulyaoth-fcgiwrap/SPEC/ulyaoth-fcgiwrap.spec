@@ -75,7 +75,7 @@ Thanks for using ulyaoth-fcgiwrap!
 Please find the official documentation for fcgiwrap here:
 * https://nginx.localdomain.pl/wiki/FcgiWrap
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

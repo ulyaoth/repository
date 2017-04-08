@@ -149,7 +149,7 @@ Thank you for using ulyaoth-haproxy1.6!
 Please find the official documentation for HAProxy here:
 * https://www.haproxy.org/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

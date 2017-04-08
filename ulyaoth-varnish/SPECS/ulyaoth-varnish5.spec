@@ -247,7 +247,7 @@ Thank you for using ulyaoth-varnish5!
 Please find the official documentation for Varnish here:
 * https://www.varnish-cache.org
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

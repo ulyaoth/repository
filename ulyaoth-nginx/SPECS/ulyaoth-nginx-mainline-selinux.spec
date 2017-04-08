@@ -54,7 +54,7 @@ semodule -i %{_datadir}/selinux/packages/%{package_name}/ulyaoth-nginx-pmainline
 
 Thanks for using ulyaoth-nginx-mainline-selinux!
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

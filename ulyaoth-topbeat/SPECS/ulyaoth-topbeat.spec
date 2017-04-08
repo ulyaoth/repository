@@ -125,7 +125,7 @@ Thank you for using ulyaoth-topbeat!
 Please find the official documentation for topbeat here:
 * https://www.elastic.co/guide/en/beats/topbeat/current/index.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

@@ -77,7 +77,7 @@ Thanks for using ulyaoth-mbedtls2.2!
 Please find the official documentation for mbedtls here:
 * https://tls.mbed.org
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

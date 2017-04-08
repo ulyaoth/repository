@@ -50,7 +50,7 @@ Thank you for using ulyaoth-smtpping!
 Please find the official documentation for smtpping here:
 * https://github.com/halonsecurity/smtpping
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

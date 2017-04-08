@@ -325,7 +325,7 @@ Commercial subscriptions for nginx are available on:
 Please find the official Ironbee documentation here:
 * https://www.ironbee.com/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

@@ -329,7 +329,7 @@ Please find the official documentation for pagespeed here:
 * https://developers.google.com/speed/pagespeed/
 * https://github.com/pagespeed/ngx_pagespeed
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

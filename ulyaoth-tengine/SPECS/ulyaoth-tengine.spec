@@ -346,7 +346,7 @@ Please find the official documentation for tengine here:
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

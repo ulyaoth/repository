@@ -52,7 +52,7 @@ Thanks for using ulyaoth-jsvc
 Please find the official documentation for jsvc here:
 * http://commons.apache.org/proper/commons-daemon/jsvc.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

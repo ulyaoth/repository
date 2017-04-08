@@ -127,7 +127,7 @@ Thank you for using ulyaoth-packetbeat!
 Please find the official documentation for packetbeat here:
 * https://www.elastic.co/guide/en/beats/packetbeat/current/index.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

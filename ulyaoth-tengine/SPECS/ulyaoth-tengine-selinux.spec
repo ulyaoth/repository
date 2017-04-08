@@ -54,7 +54,7 @@ semodule -i /usr/share/selinux/packages/ulyaoth-tengine/ulyaoth-tengine.pp 2>/de
 
 Thanks for using ulyaoth-tengine-selinux!
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

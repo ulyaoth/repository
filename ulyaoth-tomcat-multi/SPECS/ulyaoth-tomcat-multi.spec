@@ -106,7 +106,7 @@ Please find the official documentation for tomcat here:
 Please find the documentation for using tomcat multiple instances here:
 * https://www.ulyaoth.net/threads/how-to-configure-multiple-tomcat-instances.82312/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

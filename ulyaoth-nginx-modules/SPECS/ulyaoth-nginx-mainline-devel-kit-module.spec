@@ -495,7 +495,7 @@ Please find the official documentation for nginx here:
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -532,7 +532,7 @@ and reload nginx:
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_xslt_module.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -554,7 +554,7 @@ and reload nginx:
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_geoip_module.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -575,7 +575,7 @@ and reload nginx:
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_image_filter_module.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -596,7 +596,7 @@ and reload nginx:
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_perl_module.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -618,7 +618,7 @@ and reload nginx:
 Please refer to the module documentation for further details:
 https://www.nginx.com/resources/wiki/nginScript/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -639,7 +639,7 @@ and reload nginx:
 Please refer to the module documentation for further details:
 https://github.com/simpl/ngx_devel_kit
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

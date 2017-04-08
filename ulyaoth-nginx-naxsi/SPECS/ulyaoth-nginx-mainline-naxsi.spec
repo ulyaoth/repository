@@ -337,7 +337,7 @@ Commercial subscriptions for nginx are available on:
 Please find the official Naxsi documentation here:
 * https://github.com/nbs-system/naxsi
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

@@ -57,7 +57,7 @@ Thank you for using ulyaoth-httpdiff!
 Please find the official documentation for httpdiff here:
 * https://github.com/jgrahamc/httpdiff
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

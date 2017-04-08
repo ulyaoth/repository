@@ -164,7 +164,7 @@ Thanks for using ulyaoth-clamav!
 Please find the official documentation for clamav here:
 * https://www.clamav.net
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

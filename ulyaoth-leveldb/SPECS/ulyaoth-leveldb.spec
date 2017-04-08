@@ -87,7 +87,7 @@ Thank you for using ulyaoth-leveldb!
 Please find the official documentation for leveldb here:
 * https://github.com/google/leveldb
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
