@@ -28,7 +28,7 @@ BuildRequires: systemd-devel
 
 Summary:    The Reliable, High Performance TCP/HTTP Load Balancer
 Name:       ulyaoth-haproxy1.7
-Version:    1.7.3
+Version:    1.7.4
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPL/LGPL
@@ -44,10 +44,10 @@ BuildRoot:  %{_tmppath}/haproxy-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: ulyaoth-openssl1.1.0
+BuildRequires: ulyaoth-openssl1.1.0-devel
 BuildRequires: ulyaoth-lua5.3
 
-Requires: ulyaoth-openssl1.1.0
+Requires: ulyaoth-openssl1.1.0-libs
 Requires: ulyaoth-lua5.3
 Requires: pcre
 Requires: zlib
@@ -69,7 +69,7 @@ HAProxy is a free, very fast and reliable solution offering high availability, l
 
 %build
 
-make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua/5.3/lib/ LUA_INC=/usr/local/ulyaoth/lua/5.3/include/ USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/ssl/openssl1.1.0/include SSL_LIB=/usr/local/ulyaoth/ssl/openssl1.1.0/lib ADDLIB=-ldl
+make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua/5.3/lib/ LUA_INC=/usr/local/ulyaoth/lua/5.3/include/ USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/openssl1.1.0/include SSL_LIB=/usr/local/ulyaoth/openssl1.1.0/lib ADDLIB=-ldl
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -154,7 +154,7 @@ Thank you for using ulyaoth-haproxy1.7!
 Please find the official documentation for HAProxy here:
 * https://www.haproxy.org/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -184,6 +184,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.7.4-1
+- Updated to HAProxy 1.7.4.
+
 * Wed Mar 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.7.3-1
 - Updated to HAProxy 1.7.3.
 
