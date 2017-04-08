@@ -260,7 +260,7 @@ Thanks for using ulyaoth-kafka9 with Scale 2.10!
 Please find the official documentation for kafka here:
 * https://kafka.apache.org
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

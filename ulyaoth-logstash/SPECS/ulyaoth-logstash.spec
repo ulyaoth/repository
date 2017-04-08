@@ -126,7 +126,7 @@ Thank you for using ulyaoth-logstash!
 Please find the official documentation for logstash here:
 * https://www.elastic.co/products/logstash
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

@@ -58,7 +58,7 @@ Thank you for using ulyaoth-wolfssl!
 Please find the official documentation for OpenSSL here:
 * https://www.wolfssl.com
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

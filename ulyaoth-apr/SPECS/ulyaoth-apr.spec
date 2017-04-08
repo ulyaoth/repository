@@ -88,7 +88,7 @@ Thanks for using ulyaoth-apr!
 Please find the official documentation for apr here:
 * https://apr.apache.org/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -104,7 +104,7 @@ Thanks for using ulyaoth-apr-devel!
 Please find the official documentation for apr here:
 * https://apr.apache.org/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

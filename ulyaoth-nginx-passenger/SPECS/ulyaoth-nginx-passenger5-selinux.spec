@@ -61,7 +61,7 @@ semodule -i /usr/share/selinux/packages/ulyaoth-nginx-passenger5/ulyaoth-nginx-p
 
 Thanks for using ulyaoth-nginx-passenger5-selinux!
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

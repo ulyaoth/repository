@@ -44,7 +44,7 @@ Thank you for using ulyaoth-go!
 Please find the official documentation for go here:
 * https://golang.org/
 
-For any additional information or help please visit my forum at:
+For any additional information or help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

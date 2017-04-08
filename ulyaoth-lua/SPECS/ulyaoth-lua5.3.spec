@@ -92,7 +92,7 @@ Thank you for using ulyaoth-lua5.3!
 Please find the official documentation for Lua here:
 * https://www.lua.org/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

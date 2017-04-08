@@ -255,7 +255,7 @@ Thank you for using ulyaoth-filebeat!
 Please find the official documentation for filebeat here:
 * https://www.elastic.co/guide/en/beats/filebeat/current/index.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -278,7 +278,7 @@ Thank you for using ulyaoth-packetbeat!
 Please find the official documentation for packetbeat here:
 * https://www.elastic.co/guide/en/beats/packetbeat/current/index.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
@@ -301,7 +301,7 @@ Thank you for using ulyaoth-metricbeat!
 Please find the official documentation for metricbeat here:
 * https://www.elastic.co/guide/en/beats/metricbeat/current/index.html
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

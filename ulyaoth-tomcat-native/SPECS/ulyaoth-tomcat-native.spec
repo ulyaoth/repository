@@ -91,7 +91,7 @@ Thanks for using ulyaoth-tomcat-native!
 Please find the official documentation for Tomcat Native here:
 * https://tomcat.apache.org/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

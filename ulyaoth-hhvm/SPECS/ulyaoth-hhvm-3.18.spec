@@ -203,7 +203,7 @@ Thank you for using ulyaoth-hhvm-lts-3.18!
 Please find the official documentation for HHVM here:
 * http://www.hhvm.com/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

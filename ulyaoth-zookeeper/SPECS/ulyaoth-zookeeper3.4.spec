@@ -178,7 +178,7 @@ Thank you for using ulyaoth-zookeeper3.4!
 Please find the official documentation for zookeeper here:
 * https://zookeeper.apache.org/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

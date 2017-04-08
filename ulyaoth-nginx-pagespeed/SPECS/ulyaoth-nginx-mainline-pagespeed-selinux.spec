@@ -54,7 +54,7 @@ semodule -i %{_datadir}/selinux/packages/ulyaoth-nginx-mainline-pagespeed/ulyaot
 
 Thanks for using ulyaoth-nginx-mainline-pagespeed-selinux!
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

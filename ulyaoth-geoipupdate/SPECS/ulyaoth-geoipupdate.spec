@@ -73,7 +73,7 @@ Thank you for using ulyaoth-geoipupdate!
 Please find the official documentation for geoipupdate here:
 * http://dev.maxmind.com/geoip/geoipupdate/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

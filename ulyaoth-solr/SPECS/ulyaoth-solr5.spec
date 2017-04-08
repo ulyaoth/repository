@@ -154,7 +154,7 @@ Thank you for using ulyaoth-solr5!
 Please find the official documentation for solr here:
 * https://lucene.apache.org/solr/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------

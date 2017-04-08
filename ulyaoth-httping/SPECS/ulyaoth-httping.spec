@@ -72,7 +72,7 @@ Thank you for using ulyaoth-httping!
 Please find the official documentation for httping here:
 * https://www.vanheusden.com/httping/
 
-For any additional help please visit my forum at:
+For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
