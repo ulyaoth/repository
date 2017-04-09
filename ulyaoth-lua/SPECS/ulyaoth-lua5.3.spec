@@ -3,7 +3,7 @@
 Summary:    the programming language Lua
 Name:       ulyaoth-lua5.3
 Version:    5.3.4
-Release:    1%{?dist}
+Release:    2%{?dist}
 BuildArch: x86_64
 License:    MIT
 Group:      Development/Languages
