@@ -17,6 +17,15 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/
 # Install all required dependencies from spec file.
 if type dnf 2>/dev/null
 then
+  dnf remove lua -y
+elif type yum 2>/dev/null
+then
+  yum remove lua -y
+fi
+
+# Install all required dependencies from spec file.
+if type dnf 2>/dev/null
+then
   dnf builddep -y ulyaoth-lua5.3.spec
 elif type yum 2>/dev/null
 then
