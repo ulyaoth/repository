@@ -17,15 +17,6 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/
 # Install all required dependencies from spec file.
 if type dnf 2>/dev/null
 then
-  dnf remove lua -y
-elif type yum 2>/dev/null
-then
-  yum remove lua -y
-fi
-
-# Install all required dependencies from spec file.
-if type dnf 2>/dev/null
-then
   dnf builddep -y ulyaoth-lua5.3.spec
 elif type yum 2>/dev/null
 then
@@ -36,7 +27,7 @@ fi
 su ulyaoth -c "spectool ulyaoth-lua5.3.spec -g -R"
 
 # Build the actual rpm and source rpm.
-su ulyaoth -c "rpmbuild -ba ulyaoth-lua5.3.spec"
+su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-lua5.3.spec"
 
 # Copy the rpms to root directory.
 if [ "$ulyaothos" == "amazonlinux" ]
