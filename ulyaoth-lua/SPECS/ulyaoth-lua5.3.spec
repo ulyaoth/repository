@@ -126,7 +126,7 @@ BANNER
 %changelog
 * Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.4-2
 - Installing Lua to default locations.
-- Splitting to devel, libs and static packages.
+- Splitting to create a devel and static package.
 
 * Sun Feb 5 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.4-1
 - Initial release for Lua 5.3 version 5.3.4.
