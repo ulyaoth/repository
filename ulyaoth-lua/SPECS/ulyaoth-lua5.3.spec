@@ -11,18 +11,30 @@ URL:        https://www.lua.org
 Vendor:     PUC-Rio
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://www.lua.org/ftp/lua-%{version}.tar.gz
-Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-lua/SOURCES/ulyaoth-lua5.3.conf
 BuildRoot:  %{_tmppath}/lua5.3-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: readline-devel
 
-Requires: readline
-
+Provides: lua
 Provides: lua5.3
 Provides: ulyaoth-lua5.3
 
 %description
 Lua is a powerful, fast, lightweight, embeddable scripting language developed by a team at PUC-Rio, the Pontifical Catholic University of Rio de Janeiro in Brazil. Lua is free software used in many products and projects around the world.
+
+%package devel
+Summary:        Development files for %{name}
+Group:          System Environment/Libraries
+Requires:       ulyaoth-lua5.3
+%description devel
+This package contains development files for %{name}.
+
+%package static
+Summary:        Static library for %{name}
+Group:          System Environment/Libraries
+Requires:       ulyaoth-lua5.3
+%description static
+This package contains the static version of liblua for %{name}.
 
 %prep
 %setup -q -n lua-%{version}
@@ -33,20 +45,9 @@ make linux %{?_smp_mflags}
 %install
 rm -rf $RPM_BUILD_ROOT
 
-mkdir -p $RPM_BUILD_ROOT/usr/local/ulyaoth/lua/5.3
-mkdir -p $RPM_BUILD_ROOT/usr/bin
+make install DESTDIR=$RPM_BUILD_ROOT INSTALL_TOP=$RPM_BUILD_ROOT%{_prefix} INSTALL_BIN=$RPM_BUILD_ROOT%{_bindir} INSTALL_INC=$RPM_BUILD_ROOT%{_includedir} INSTALL_LIB=$RPM_BUILD_ROOT%{_libdir} INSTALL_MAN=$RPM_BUILD_ROOT%{_mandir}/man1  
 
-make DESTDIR=$RPM_BUILD_ROOT INSTALL_TOP=$RPM_BUILD_ROOT/usr/local/ulyaoth/lua/5.3 install
-
-rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/lua/5.3/lib/lua
-rm -rf $RPM_BUILD_ROOT/usr/local/ulyaoth/lua/5.3/share
-
-%{__mkdir} -p $RPM_BUILD_ROOT/etc/ld.so.conf.d/
-%{__install} -m 644 -p %{SOURCE1} \
-    $RPM_BUILD_ROOT/etc/ld.so.conf.d/ulyaoth-lua5.3.conf
-	
-ln -s /usr/local/ulyaoth/lua/5.3/bin/lua $RPM_BUILD_ROOT/usr/bin/lua5.3
-ln -s /usr/local/ulyaoth/lua/5.3/bin/luac $RPM_BUILD_ROOT/usr/bin/luac5.3
+mv $RPM_BUILD_ROOT/usr/lib/lua $RPM_BUILD_ROOT/usr/lib64/
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -54,33 +55,20 @@ ln -s /usr/local/ulyaoth/lua/5.3/bin/luac $RPM_BUILD_ROOT/usr/bin/luac5.3
 %pre
 
 %files
-%defattr(-,root,root,-)
-/usr/bin/lua5.3
-/usr/bin/luac5.3
-%config(noreplace) %{_sysconfdir}/ld.so.conf.d/ulyaoth-lua5.3.conf
+%{_bindir}/lua
+%{_bindir}/luac
+%{_mandir}/man1/lua*.1*
+%dir %{_libdir}/lua
+%dir %{_libdir}/lua/5.3
+%dir %{_datadir}/lua
+%dir %{_datadir}/lua/5.3
 
-%dir /usr/local/ulyaoth
-%dir /usr/local/ulyaoth/lua
-%dir /usr/local/ulyaoth/lua/5.3
+%files devel
+%{_includedir}/l*.h
+%{_includedir}/l*.hpp
 
-%dir /usr/local/ulyaoth/lua/5.3/bin
-/usr/local/ulyaoth/lua/5.3/bin/lua
-/usr/local/ulyaoth/lua/5.3/bin/luac
-
-%dir /usr/local/ulyaoth/lua/5.3/lib
-/usr/local/ulyaoth/lua/5.3/lib/liblua.a
-
-%dir /usr/local/ulyaoth/lua/5.3/include
-/usr/local/ulyaoth/lua/5.3/include/lauxlib.h
-/usr/local/ulyaoth/lua/5.3/include/luaconf.h
-/usr/local/ulyaoth/lua/5.3/include/lua.h
-/usr/local/ulyaoth/lua/5.3/include/lua.hpp
-/usr/local/ulyaoth/lua/5.3/include/lualib.h
-
-%dir /usr/local/ulyaoth/lua/5.3/man
-%dir /usr/local/ulyaoth/lua/5.3/man/man1
-/usr/local/ulyaoth/lua/5.3/man/man1/lua.1
-/usr/local/ulyaoth/lua/5.3/man/man1/luac.1
+%files static
+%{_libdir}/*.a
 
 %post
 /sbin/ldconfig
@@ -98,12 +86,48 @@ For any additional help please visit our website at:
 ----------------------------------------------------------------------
 BANNER
 
+%post devel
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thank you for using ulyaoth-lua5.3-devel!
+
+Please find the official documentation for Lua here:
+* https://www.lua.org/
+
+For any additional help please visit our website at:
+* https://www.ulyaoth.net
+
+----------------------------------------------------------------------
+BANNER
+
+%post static
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thank you for using ulyaoth-lua5.3-static!
+
+Please find the official documentation for Lua here:
+* https://www.lua.org/
+
+For any additional help please visit our website at:
+* https://www.ulyaoth.net
+
+----------------------------------------------------------------------
+BANNER
+
 %preun
 
 %postun
 /sbin/ldconfig
 
 %changelog
+* Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.4-2
+- Installing Lua to default locations.
+- Splitting to devel, libs and static packages.
+
 * Sun Feb 5 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.4-1
 - Initial release for Lua 5.3 version 5.3.4.
 

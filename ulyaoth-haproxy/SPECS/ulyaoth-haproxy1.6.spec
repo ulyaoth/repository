@@ -45,10 +45,10 @@ BuildRoot:  %{_tmppath}/haproxy-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: ulyaoth-openssl1.0.2-devel
-BuildRequires: ulyaoth-lua5.3
+BuildRequires: ulyaoth-lua5.3-devel
+BuildRequires: ulyaoth-lua5.3-static
 
 Requires: ulyaoth-openssl1.0.2-libs
-Requires: ulyaoth-lua5.3
 Requires: pcre
 Requires: zlib
 
@@ -69,7 +69,7 @@ HAProxy is a free, very fast and reliable solution offering high availability, l
 
 %build
 
-make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib/ LUA_INC=/usr/local/ulyaoth/lua5.3/include/ USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/openssl1.0.2/include SSL_LIB=/usr/local/ulyaoth/openssl1.0.2/lib ADDLIB=-ldl
+make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/lib64/ LUA_INC=/usr/include/ USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/openssl1.0.2/include SSL_LIB=/usr/local/ulyaoth/openssl1.0.2/lib ADDLIB=-ldl
 
 %install
 rm -rf $RPM_BUILD_ROOT
