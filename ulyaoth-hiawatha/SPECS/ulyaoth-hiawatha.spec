@@ -55,7 +55,7 @@ License: GPLv2
 
 BuildRoot: %{_tmppath}/hiawatha-%{version}-%{release}-root
 BuildRequires: make
-BuildRequires: cmake
+BuildRequires: ulyaoth-cmake
 BuildRequires: gcc
 BuildRequires: glibc-devel
 BuildRequires: libxml2-devel
