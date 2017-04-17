@@ -41,6 +41,7 @@ cp -rf %{_builddir}/hiawatha-%{version}/extra/letsencrypt $RPM_BUILD_ROOT%{_sysc
 %dir %{_sysconfdir}/hiawatha/extra
 %dir %{_sysconfdir}/hiawatha/extra/letsencrypt
 %dir %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries
+%dir %{_sysconfdir}/hiawatha/extra/scripts
 
 %attr(0755,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/letsencrypt
 %attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/letsencrypt.conf
@@ -54,6 +55,8 @@ cp -rf %{_builddir}/hiawatha-%{version}/extra/letsencrypt $RPM_BUILD_ROOT%{_sysc
 %attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/letsencrypt.php
 %attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/openssl.conf
 %attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries/rsa.php
+
+%attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/scripts/mail.example.org
 
 %pre
 
