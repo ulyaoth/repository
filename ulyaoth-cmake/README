@@ -1,0 +1,4 @@
+How to create a package:
+
+ulyaoth-cmake:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-cmake/build-ulyaoth-cmake.sh ; chmod +x build-ulyaoth-cmake.sh ; ./build-ulyaoth-cmake.sh
