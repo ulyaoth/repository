@@ -41,7 +41,7 @@ cp -rf %{_builddir}/hiawatha-%{version}/extra/letsencrypt $RPM_BUILD_ROOT%{_sysc
 %dir %{_sysconfdir}/hiawatha/extra
 %dir %{_sysconfdir}/hiawatha/extra/letsencrypt
 %dir %{_sysconfdir}/hiawatha/extra/letsencrypt/libraries
-%dir %{_sysconfdir}/hiawatha/extra/scripts
+%dir %{_sysconfdir}/hiawatha/extra/letsencrypt/scripts
 
 %attr(0755,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/letsencrypt
 %attr(0644,root,root) %{_sysconfdir}/hiawatha/extra/letsencrypt/letsencrypt.conf
