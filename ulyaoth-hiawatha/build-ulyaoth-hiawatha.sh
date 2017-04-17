@@ -1,5 +1,4 @@
 ulyaothos=`cat /etc/ulyaoth`
-buildarch="$(uname -m)"
 fedoraos=`cat /etc/ulyaoth`
 
 useradd ulyaoth
@@ -40,10 +39,12 @@ if grep --quiet 19 /etc/fedora-release; then
   wget http://www.hiawatha-webserver.org/files/hiawatha-10.6.tar.gz -P /home/ulyaoth/rpmbuild/SOURCES
 fi
 
-if [ "$buildarch" != "x86_64" ]
+if type dnf 2>/dev/null
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-hiawatha.spec
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-hiawatha-letsencrypt.spec
+  dnf remove -y cmake
+elif type yum 2>/dev/null
+then
+  yum remove -y cmake
 fi
 
 if type dnf 2>/dev/null
