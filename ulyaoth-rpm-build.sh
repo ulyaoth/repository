@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-cmake()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-cmake/build-ulyaoth-cmake.sh ; chmod +x build-ulyaoth-cmake.sh ; ./build-ulyaoth-cmake.sh
+}
+
 ulyaoth-lego()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-lego/build-ulyaoth-lego.sh ; chmod +x build-ulyaoth-lego.sh ; ./build-ulyaoth-lego.sh
