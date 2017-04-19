@@ -41,10 +41,10 @@ fi
 
 if type dnf 2>/dev/null
 then
-  dnf remove -y cmake
+  dnf remove -y cmake*
 elif type yum 2>/dev/null
 then
-  yum remove -y cmake
+  yum remove -y cmake*
 fi
 
 if type dnf 2>/dev/null
