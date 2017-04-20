@@ -38,7 +38,6 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate
 %{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/GeoIP
-%{__mv} $RPM_BUILD_ROOT%{_sysconfdir}/GeoIP.conf.default $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
 %{__mv} %{_builddir}/geoipupdate-%{version}/ChangeLog.md $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
 %{__mv} %{_builddir}/geoipupdate-%{version}/LICENSE $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
 %{__mv} %{_builddir}/geoipupdate-%{version}/README.md $RPM_BUILD_ROOT%{_datadir}/doc/geoipupdate/
