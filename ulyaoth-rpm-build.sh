@@ -59,9 +59,29 @@ ulyaoth-hitch()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hitch/build-ulyaoth-hitch.sh ; chmod +x build-ulyaoth-hitch.sh ; ./build-ulyaoth-hitch.sh
 }
 
+ulyaoth-varnish5.1()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish5.1.sh ; chmod +x build-ulyaoth-varnish5.1.sh ; ./build-ulyaoth-varnish5.1.sh
+}
+
 ulyaoth-varnish5()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish5.sh ; chmod +x build-ulyaoth-varnish5.sh ; ./build-ulyaoth-varnish5.sh
+}
+
+ulyaoth-varnish4.1()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish4.1.sh ; chmod +x build-ulyaoth-varnish4.1.sh ; ./build-ulyaoth-varnish4.1.sh
+}
+
+ulyaoth-varnish4()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish4.sh ; chmod +x build-ulyaoth-varnish4.sh ; ./build-ulyaoth-varnish4.sh
+}
+
+ulyaoth-varnish3()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish3.sh ; chmod +x build-ulyaoth-varnish3.sh ; ./build-ulyaoth-varnish3.sh
 }
 
 ulyaoth-haproxy1.7()
