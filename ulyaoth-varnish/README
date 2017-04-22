@@ -1,4 +1,7 @@
 You can build the rpm by running the build script:
 
+ulyaoth-varnish5.1:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish5.1.sh ; chmod +x build-ulyaoth-varnish5.1.sh ; ./build-ulyaoth-varnish5.1.sh
+
 ulyaoth-varnish5:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish5.sh ; chmod +x build-ulyaoth-varnish5.sh ; ./build-ulyaoth-varnish5.sh

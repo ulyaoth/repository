@@ -30,9 +30,9 @@ BuildRequires: systemd-devel
 # end of distribution specific definitions
 
 Summary:    Varnish HTTP Cache
-Name:       ulyaoth-varnish5
-Version:    5.0.0
-Release:    3%{?dist}
+Name:       ulyaoth-varnish5.1
+Version:    5.1.0
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
 Group:      System Environment/Daemons
@@ -69,8 +69,8 @@ Requires: pcre
 Requires: libedit
 
 Provides: varnish
-Provides: varnish5
-Provides: ulyaoth-varnish5
+Provides: varnish5.1
+Provides: ulyaoth-varnish5.1
 
 %description
 Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as heavily consumed APIs.
@@ -243,7 +243,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-varnish5!
+Thank you for using ulyaoth-varnish5.1!
 
 Please find the official documentation for Varnish here:
 * https://www.varnish-cache.org
@@ -297,11 +297,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-3
-- Fixed the provides.
-
-* Sat Feb 4 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-2
-- Changed the rpm to default Varnish locations.
-
-* Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-1
-- Initial release for Varnish 5 version 5.0.0.
+* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.1.0-1
+- Initial release for Varnish 5 version 5.1.0.
