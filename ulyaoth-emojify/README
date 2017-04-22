@@ -1,0 +1,4 @@
+How to build the rpm:
+
+ulyaoth-emojify:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-emojify/build-ulyaoth-emojify.sh ; chmod +x build-ulyaoth-emojify.sh ; ./build-ulyaoth-emojify.sh
