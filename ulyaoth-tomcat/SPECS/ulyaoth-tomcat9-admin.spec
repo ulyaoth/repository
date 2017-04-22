@@ -8,15 +8,15 @@
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9-admin
 Version:    9.0.0
-Release:    12%{?dist}
+Release:    13%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}.M19/bin/apache-tomcat-%{version}.M19.tar.gz
-BuildRoot:  %{_tmppath}/tomcat-%{version}.M19-%{release}-root-%(%{__id_u} -n)
+Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}.M20/bin/apache-tomcat-%{version}.M20.tar.gz
+BuildRoot:  %{_tmppath}/tomcat-%{version}.M20-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat9
 
@@ -29,7 +29,7 @@ Provides: ulyaoth-tomcat9-admin
 The package contains the official Apache Tomcat "webapps/manager" and "webapps/host-manager" directories.
 
 %prep
-%setup -q -n apache-tomcat-%{version}.M19
+%setup -q -n apache-tomcat-%{version}.M20
 
 %build
 
@@ -74,10 +74,16 @@ Please find the official documentation for tomcat here:
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 
 %changelog
+* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-13
+- Updating to Tomcat 9.0.0.M20.
+
 * Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-12
 - Updating to Tomcat 9.0.0.M19.
 
