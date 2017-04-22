@@ -155,6 +155,8 @@ exit 0
 %defattr(-,root,root,-)
 /usr/sbin/varnishd
 /usr/sbin/varnish_reload_vcl
+/usr/bin/varnishreplay
+/usr/bin/varnishsizes
 /usr/bin/varnishadm
 /usr/bin/varnishhist
 /usr/bin/varnishlog
@@ -168,15 +170,9 @@ exit 0
 %dir %{_sysconfdir}/varnish
 %config(noreplace) %{_sysconfdir}/varnish/default.vcl
 
-/usr/share/aclocal/varnish.m4
-
-%dir /usr/share/varnish
-/usr/share/varnish/vmodtool.py
-/usr/share/varnish/vmodtool.pyc
-/usr/share/varnish/vmodtool.pyo
-
 /usr/include/varnish/*
 
+%{_libdir}/libvarnishapi.a
 %{_libdir}/libvarnishapi.la
 %{_libdir}/libvarnishapi.so
 %{_libdir}/libvarnishapi.so.1
@@ -188,17 +184,20 @@ exit 0
 %{_libdir}/varnish/libvarnish.so
 %{_libdir}/varnish/libvarnishcompat.la
 %{_libdir}/varnish/libvarnishcompat.so
-%{_libdir}/varnish/libvcc.la
-%{_libdir}/varnish/libvcc.so
 %{_libdir}/varnish/libvgz.la
 %{_libdir}/varnish/libvgz.so
-%{_libdir}/varnish/vmods/libvmod_directors.la
-%{_libdir}/varnish/vmods/libvmod_directors.so
 %{_libdir}/varnish/vmods/libvmod_std.la
 %{_libdir}/varnish/vmods/libvmod_std.so
+%{_libdir}/varnish/libvarnish.a
+%{_libdir}/varnish/libvarnishcompat.a
+%{_libdir}/varnish/libvcl.a
+%{_libdir}/varnish/libvcl.la
+%{_libdir}/varnish/libvcl.so
+%{_libdir}/varnish/libvgz.a
+%{_libdir}/varnish/vmods/libvmod_std.a
 
-/usr/share/doc/builtin.vcl
-/usr/share/doc/example.vcl
+%{_mandir}/man1/varnishreplay.1.gz
+%{_mandir}/man1/varnishsizes.1.gz
 %{_mandir}/man1/varnishadm.1.gz
 %{_mandir}/man1/varnishd.1.gz
 %{_mandir}/man1/varnishhist.1.gz
@@ -207,13 +206,10 @@ exit 0
 %{_mandir}/man1/varnishstat.1.gz
 %{_mandir}/man1/varnishtest.1.gz
 %{_mandir}/man1/varnishtop.1.gz
-%{_mandir}/man3/vmod_directors.3.gz
 %{_mandir}/man3/vmod_std.3.gz
 %{_mandir}/man7/varnish-cli.7.gz
 %{_mandir}/man7/varnish-counters.7.gz
 %{_mandir}/man7/vcl.7.gz
-%{_mandir}/man7/vsl-query.7.gz
-%{_mandir}/man7/vsl.7.gz
 
 %if %{use_systemd}
 %{_unitdir}/varnish.service
