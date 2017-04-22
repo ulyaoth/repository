@@ -30,8 +30,8 @@ BuildRequires: systemd-devel
 # end of distribution specific definitions
 
 Summary:    Varnish HTTP Cache
-Name:       ulyaoth-varnish4
-Version:    4.0.4
+Name:       ulyaoth-varnish3
+Version:    3.0.7
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
@@ -40,7 +40,7 @@ URL:        https://varnish-cache.org
 Vendor:     Varnish Software AS
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://github.com/varnishcache/varnish-cache/archive/varnish-%{version}.tar.gz
-Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/default.vcl
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/default.vcl-varnish3
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish.service
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnishlog.service
 Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnishncsa.service
@@ -69,10 +69,10 @@ Requires: pcre
 Requires: libedit
 
 Provides: varnish
-Provides: varnish4
-Provides: ulyaoth-varnish4
+Provides: varnish3
+Provides: ulyaoth-varnish3
 
-Conflicts: ulyaoth-varnish3
+Conflicts: ulyaoth-varnish4
 Conflicts: ulyaoth-varnish4.1
 Conflicts: ulyaoth-varnish5
 Conflicts: ulyaoth-varnish5.1
@@ -245,7 +245,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-varnish4!
+Thank you for using ulyaoth-varnish3!
 
 Please find the official documentation for Varnish here:
 * https://www.varnish-cache.org
@@ -299,5 +299,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.0.4-1
-- Initial release for Varnish 4 version 4.0.4.
+* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.0.7-1
+- Initial release for Varnish 3 version 3.0.7.
