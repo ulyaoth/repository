@@ -73,7 +73,7 @@ BANNER
 %postun
 
 %changelog
-* Sat Oct 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.4-1
+* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.4-1
 - Updated tmux to 2.4.
 
 * Sat Oct 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.3-1
