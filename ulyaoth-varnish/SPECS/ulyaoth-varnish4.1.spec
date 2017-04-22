@@ -30,9 +30,9 @@ BuildRequires: systemd-devel
 # end of distribution specific definitions
 
 Summary:    Varnish HTTP Cache
-Name:       ulyaoth-varnish5
-Version:    5.0.0
-Release:    3%{?dist}
+Name:       ulyaoth-varnish4.1
+Version:    4.1.5
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
 Group:      System Environment/Daemons
@@ -69,12 +69,12 @@ Requires: pcre
 Requires: libedit
 
 Provides: varnish
-Provides: varnish5
-Provides: ulyaoth-varnish5
+Provides: varnish4.1
+Provides: ulyaoth-varnish4.1
 
 Conflicts: ulyaoth-varnish3
 Conflicts: ulyaoth-varnish4
-Conflicts: ulyaoth-varnish4.1
+Conflicts: ulyaoth-varnish5
 Conflicts: ulyaoth-varnish5.1
 
 %description
@@ -183,16 +183,10 @@ exit 0
 %{_libdir}/libvarnishapi.la
 %{_libdir}/libvarnishapi.so
 %{_libdir}/libvarnishapi.so.1
-%{_libdir}/libvarnishapi.so.1.0.4
 %{_libdir}/pkgconfig/varnishapi.pc
-%{_libdir}/varnish/libvarnishcompat.la
-%{_libdir}/varnish/libvarnishcompat.so
-%{_libdir}/varnish/libvarnish.la
-%{_libdir}/varnish/libvarnish.so
-%{_libdir}/varnish/libvcc.la
-%{_libdir}/varnish/libvcc.so
-%{_libdir}/varnish/libvgz.la
-%{_libdir}/varnish/libvgz.so
+%{_libdir}/libvarnishapi.la
+%{_libdir}/libvarnishapi.so
+%{_libdir}/libvarnishapi.so.1.0.6
 %{_libdir}/varnish/vmods/libvmod_directors.la
 %{_libdir}/varnish/vmods/libvmod_directors.so
 %{_libdir}/varnish/vmods/libvmod_std.la
@@ -248,7 +242,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-varnish5!
+Thank you for using ulyaoth-varnish5.1!
 
 Please find the official documentation for Varnish here:
 * https://www.varnish-cache.org
@@ -302,11 +296,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-3
-- Fixed the provides.
-
-* Sat Feb 4 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-2
-- Changed the rpm to default Varnish locations.
-
-* Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.0.0-1
-- Initial release for Varnish 5 version 5.0.0.
+* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.1.0-1
+- Initial release for Varnish 5 version 5.1.0.

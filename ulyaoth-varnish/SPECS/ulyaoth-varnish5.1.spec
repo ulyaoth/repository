@@ -72,6 +72,11 @@ Provides: varnish
 Provides: varnish5.1
 Provides: ulyaoth-varnish5.1
 
+Conflicts: ulyaoth-varnish3
+Conflicts: ulyaoth-varnish4
+Conflicts: ulyaoth-varnish4.1
+Conflicts: ulyaoth-varnish5
+
 %description
 Varnish is an HTTP accelerator designed for content-heavy dynamic web sites as well as heavily consumed APIs.
 
