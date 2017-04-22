@@ -30,8 +30,8 @@ BuildRequires: systemd-devel
 # end of distribution specific definitions
 
 Summary:    Varnish HTTP Cache
-Name:       ulyaoth-varnish4.1
-Version:    4.1.5
+Name:       ulyaoth-varnish4
+Version:    4.0.4
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
@@ -69,11 +69,11 @@ Requires: pcre
 Requires: libedit
 
 Provides: varnish
-Provides: varnish4.1
-Provides: ulyaoth-varnish4.1
+Provides: varnish4
+Provides: ulyaoth-varnish4
 
 Conflicts: ulyaoth-varnish3
-Conflicts: ulyaoth-varnish4
+Conflicts: ulyaoth-varnish4.1
 Conflicts: ulyaoth-varnish5
 Conflicts: ulyaoth-varnish5.1
 
@@ -246,7 +246,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-varnish4.1!
+Thank you for using ulyaoth-varnish4!
 
 Please find the official documentation for Varnish here:
 * https://www.varnish-cache.org
@@ -300,5 +300,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.1.5-1
-- Initial release for Varnish 4.1 version 4.1.5.
+* Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.0.4-1
+- Initial release for Varnish 4 version 4.0.4.
