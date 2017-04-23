@@ -1,0 +1,4 @@
+How to build the rpm:
+
+ulyaoth-msktutil:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-msktutil/build-ulyaoth-msktutil.sh ; chmod +x build-ulyaoth-msktutil.sh ; ./build-ulyaoth-msktutil.sh
