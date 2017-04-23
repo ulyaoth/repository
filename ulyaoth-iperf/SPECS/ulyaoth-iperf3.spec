@@ -21,19 +21,36 @@ iperf is a tool for active measurements of the maximum achievable bandwidth on I
 
 This version, sometimes referred to as iperf3, is a redesign of an original version developed at NLANR/DAST. iperf3 is a new implementation from scratch, with the goal of a smaller, simpler code base, and a library version of the functionality that can be used in other programs. iperf3 also has a number of features found in other tools such as nuttcp and netperf, but were missing from the original iperf. These include, for example, a zero-copy mode and optional JSON output. Note that iperf3 is not backwards compatible with the original iperf.
 
-%package        devel
-Summary:        Development files for %{name}
-Group:          Development/Libraries
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+%package libs
+Summary: FLibrary files for applications which will use iperf3
+Group: System Environment/Libraries
+Provides: ulyaoth-iperf3-libs
+%description libs
+The iperf3-libs package contains the libraries that are used by various applications which support iperf3.
 
-%description    devel
+%package devel
+Summary: Files for development of applications which will use iperf3
+Group: Development/Libraries
+Requires: ulyaoth-iperf3-libs
+Provides: ulyaoth-iperf3-devel
+%description devel
 The %{name}-devel package contains libraries and header files for developing applications that use %{name}.
+
+%package static
+Summary: Libraries for static linking of applications which will use iperf3
+Group: Development/Libraries
+Requires: ulyaoth-iperf3-devel
+Provides: ulyaoth-iperf3-static
+%description static
+The openssl-iperf3 package contains static libraries needed for static linking of applications which support iperf3.
 
 %prep
 %setup -q -n iperf-%{version}
 
 %build
-%configure
+./configure --prefix=/usr --bindir=%{_bindir} --sbindir=%{_sbindir} --libexecdir=%{_libexecdir} --sysconfdir=%{_sysconfdir} --sharedstatedir=%{_sharedstatedir} --libdir=%{_libdir} --includedir=%{_includedir} --datarootdir=%{_datarootdir} --datadir=%{_datadir} --infodir=%{_infodir} --mandir=%{_mandir} --docdir=/usr/share/doc
+sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 make %{?_smp_mflags}
 
 %install
@@ -45,6 +62,25 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 %pre
 
 %files
+%defattr(-,root,root,-)
+/usr/bin/iperf3
+%doc /usr/share/man/man1/iperf3.1.gz
+%doc /usr/share/man/man3/libiperf.3.gz
+
+%files libs
+/usr/lib64/libiperf.so
+/usr/lib64/libiperf.so.0
+/usr/lib64/libiperf.so.0.0.0
+
+%files devel
+/usr/include/iperf_api.h
+/usr/lib64/libiperf.so
+/usr/lib64/libiperf.so.0
+/usr/lib64/libiperf.so.0.0.0
+
+%files static
+/usr/lib64/libiperf.a
+/usr/lib64/libiperf.la
 
 %post
 cat <<BANNER
