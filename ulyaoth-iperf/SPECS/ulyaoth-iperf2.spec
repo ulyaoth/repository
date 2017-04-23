@@ -21,29 +21,6 @@ iperf is a tool for active measurements of the maximum achievable bandwidth on I
 
 Iperf 2 vs iperf 3 major differences: Iperf 3 is a rewrite which does not support interoperability with iperf 2. The iperf 2 code base supports threaded operation where iperf 3 is single threaded.
 
-%package libs
-Summary: FLibrary files for applications which will use iperf2
-Group: System Environment/Libraries
-Provides: ulyaoth-iperf2-libs
-%description libs
-The iperf2-libs package contains the libraries that are used by various applications which support iperf2.
-
-%package devel
-Summary: Files for development of applications which will use iperf2
-Group: Development/Libraries
-Requires: ulyaoth-iperf2-libs
-Provides: ulyaoth-iperf2-devel
-%description devel
-The %{name}-devel package contains libraries and header files for developing applications that use %{name}.
-
-%package static
-Summary: Libraries for static linking of applications which will use iperf2
-Group: Development/Libraries
-Requires: ulyaoth-iperf2-devel
-Provides: ulyaoth-iperf2-static
-%description static
-The openssl-iperf2 package contains static libraries needed for static linking of applications which support iperf2.
-
 %prep
 %setup -q -n iperf-%{version}
 
@@ -61,12 +38,8 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 
 %files
 %defattr(-,root,root,-)
-
-%files libs
-
-%files devel
-
-%files static
+/usr/bin/iperf
+/usr/share/man/man1/iperf.1.gz
 
 %post
 cat <<BANNER
