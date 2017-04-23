@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 
 Summary:    GNU parallel is a shell tool for executing jobs in parallel using one or more computers.
 Name:       ulyaoth-parallel
@@ -35,6 +36,61 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 
 %files
 %defattr(-,root,root,-)
+/usr/bin/env_parallel
+/usr/bin/env_parallel.ash
+/usr/bin/env_parallel.bash
+/usr/bin/env_parallel.csh
+/usr/bin/env_parallel.dash
+/usr/bin/env_parallel.fish
+/usr/bin/env_parallel.ksh
+/usr/bin/env_parallel.pdksh
+/usr/bin/env_parallel.sh
+/usr/bin/env_parallel.tcsh
+/usr/bin/env_parallel.zsh
+/usr/bin/niceload
+/usr/bin/parallel
+/usr/bin/parcat
+/usr/bin/sem
+/usr/bin/sql
+%doc /usr/share/doc/env_parallel.html
+%doc /usr/share/doc/env_parallel.pdf
+%doc /usr/share/doc/env_parallel.texi
+%doc /usr/share/doc/niceload.html
+%doc /usr/share/doc/niceload.pdf
+%doc /usr/share/doc/niceload.texi
+%doc /usr/share/doc/parallel.html
+%doc /usr/share/doc/parallel.pdf
+%doc /usr/share/doc/parallel.texi
+%doc /usr/share/doc/parallel_alternatives.html
+%doc /usr/share/doc/parallel_alternatives.pdf
+%doc /usr/share/doc/parallel_alternatives.texi
+%doc /usr/share/doc/parallel_design.html
+%doc /usr/share/doc/parallel_design.pdf
+%doc /usr/share/doc/parallel_design.texi
+%doc /usr/share/doc/parallel_tutorial.html
+%doc /usr/share/doc/parallel_tutorial.pdf
+%doc /usr/share/doc/parallel_tutorial.texi
+%doc /usr/share/doc/parcat.html
+%doc /usr/share/doc/parcat.pdf
+%doc /usr/share/doc/parcat.texi
+%doc /usr/share/doc/parset.pdf
+%doc /usr/share/doc/parset.texi
+%doc /usr/share/doc/sem.html
+%doc /usr/share/doc/sem.pdf
+%doc /usr/share/doc/sem.texi
+%doc /usr/share/doc/sql.html
+%doc /usr/share/doc/sql.pdf
+%doc /usr/share/doc/sql.texi
+%doc /usr/share/man/man1/env_parallel.1.gz
+%doc /usr/share/man/man1/niceload.1.gz
+%doc /usr/share/man/man1/parallel.1.gz
+%doc /usr/share/man/man1/parcat.1.gz
+%doc /usr/share/man/man1/parset.1.gz
+%doc /usr/share/man/man1/sem.1.gz
+%doc /usr/share/man/man1/sql.1.gz
+%doc /usr/share/man/man7/parallel_alternatives.7.gz
+%doc /usr/share/man/man7/parallel_design.7.gz
+%doc /usr/share/man/man7/parallel_tutorial.7.gz
 
 %post
 /sbin/ldconfig
