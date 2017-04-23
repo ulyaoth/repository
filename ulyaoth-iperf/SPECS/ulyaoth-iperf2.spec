@@ -12,7 +12,6 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    http://sourceforge.net/projects/iperf2/files/iperf-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/iperf2-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Provides: iperf
 Provides: iperf2
 Provides: ulyaoth-iperf2
 
