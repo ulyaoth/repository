@@ -83,10 +83,68 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 /usr/lib64/libiperf.la
 
 %post
+/sbin/ldconfig
 cat <<BANNER
 ----------------------------------------------------------------------
 
 Thank you for using ulyaoth-iperf3!
+
+Please find the official documentation for iperf3 here:
+* https://github.com/esnet/iperf
+
+For any additional help please visit our website at:
+* https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
+----------------------------------------------------------------------
+BANNER
+
+%post libs
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thank you for using ulyaoth-iperf3-libs!
+
+Please find the official documentation for iperf3 here:
+* https://github.com/esnet/iperf
+
+For any additional help please visit our website at:
+* https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
+----------------------------------------------------------------------
+BANNER
+
+%post devel
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thank you for using ulyaoth-iperf3-devel!
+
+Please find the official documentation for iperf3 here:
+* https://github.com/esnet/iperf
+
+For any additional help please visit our website at:
+* https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
+----------------------------------------------------------------------
+BANNER
+
+%post static
+/sbin/ldconfig
+cat <<BANNER
+----------------------------------------------------------------------
+
+Thank you for using ulyaoth-iperf3-static!
 
 Please find the official documentation for iperf3 here:
 * https://github.com/esnet/iperf
