@@ -42,7 +42,7 @@ Provides: ulyaoth-luajit-static
 The openssl-luajit package contains static libraries needed for static linking of applications which support luajit.
 
 %prep
-%setup -q -n luajit-%{version}
+%setup -q -n LuaJIT-%{version}
 
 %build
 make %{?_smp_mflags}
