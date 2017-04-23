@@ -1,0 +1,4 @@
+How to build the rpm:
+
+ulyaoth-parallel:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-parallel/build-ulyaoth-parallel.sh ; chmod +x build-ulyaoth-parallel.sh ; ./build-ulyaoth-parallel.sh
