@@ -31,7 +31,7 @@ BuildRequires: systemd
 
 Summary:    Apache ZooKeeper is an effort to develop and maintain an open-source server which enables highly reliable distributed coordination.
 Name:       ulyaoth-zookeeper3.5
-Version:    3.5.2
+Version:    3.5.3
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -39,7 +39,7 @@ Group:      Applications/Internet
 URL:        https://zookeeper.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/zookeeper/zookeeper-%{version}-alpha/zookeeper-%{version}-alpha.tar.gz
+Source0:    http://apache.mirrors.spacedump.net/zookeeper/zookeeper-%{version}-beta/zookeeper-%{version}-beta.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/log4j.properties
@@ -64,15 +64,15 @@ Provides: ulyaoth-zookeeper3.5
 ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. All of these kinds of services are used in some form or another by distributed applications. Each time they are implemented there is a lot of work that goes into fixing the bugs and race conditions that are inevitable. Because of the difficulty of implementing these kinds of services, applications initially usually skimp on them ,which make them brittle in the presence of change and difficult to manage. Even when done correctly, different implementations of these services lead to management complexity when the applications are deployed.
 
 %prep
-%setup -q -n zookeeper-%{version}-alpha
+%setup -q -n zookeeper-%{version}-beta
 
 %build
-cd %_builddir/zookeeper-%{version}-alpha/src/c
+cd %_builddir/zookeeper-%{version}-beta/src/c
 %configure
 make %{?_smp_mflags}
 
 %install
-cd %_builddir/zookeeper-%{version}-alpha/src/c
+cd %_builddir/zookeeper-%{version}-beta/src/c
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} -rf $RPM_BUILD_ROOT%{_libdir}/*.la
@@ -86,11 +86,11 @@ cd %_builddir/zookeeper-%{version}-alpha/src/c
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/libexec
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/zookeeper
 
-cp -rf %_builddir/zookeeper-%{version}-alpha/bin/*.sh $RPM_BUILD_ROOT/usr/bin/
+cp -rf %_builddir/zookeeper-%{version}-beta/bin/*.sh $RPM_BUILD_ROOT/usr/bin/
 mv $RPM_BUILD_ROOT/usr/bin/zkEnv.sh $RPM_BUILD_ROOT/usr/libexec/zkEnv.sh
-cp -rf %_builddir/zookeeper-%{version}-alpha/docs/*  $RPM_BUILD_ROOT/usr/share/doc/zookeeper/
-cp -rf %_builddir/zookeeper-%{version}-alpha/zookeeper-%{version}-alpha.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
-cp -rf %_builddir/zookeeper-%{version}-alpha/lib/*.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
+cp -rf %_builddir/zookeeper-%{version}-beta/docs/*  $RPM_BUILD_ROOT/usr/share/doc/zookeeper/
+cp -rf %_builddir/zookeeper-%{version}-beta/zookeeper-%{version}-beta.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
+cp -rf %_builddir/zookeeper-%{version}-beta/lib/*.jar $RPM_BUILD_ROOT/usr/share/zookeeper/
 
 %{__install} -m644 %SOURCE3 \
         $RPM_BUILD_ROOT/etc/zookeeper/log4j.properties
@@ -182,6 +182,9 @@ Please find the official documentation for zookeeper here:
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 fi
@@ -206,6 +209,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Apr 23 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.5.3-1
+- Updated to Zookeeper 3.5.3.
+
 * Sun Jul 24 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.5.2-1
 - Updated to Zookeeper 3.5.2.
 
