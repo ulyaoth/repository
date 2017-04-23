@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 
 Summary:    Emoji on the command line
 Name:       ulyaoth-emojify
@@ -19,6 +20,7 @@ Provides: ulyaoth-emojify
 THIS IS A VERY USEFUL SCRIPT. IT WILL ABSOLUTELY BOOST YOUR PRODUCTIVITY AND HELP YOU IN YOUR DAILY WORK.
 
 %prep
+%setup -q -n emojify-%{version}
 
 %build
 
@@ -34,7 +36,6 @@ THIS IS A VERY USEFUL SCRIPT. IT WILL ABSOLUTELY BOOST YOUR PRODUCTIVITY AND HEL
 %pre
 
 %files
-%defattr(-,root,root)
 %attr(755, root, root) /usr/bin/emojify
 
 %post
@@ -60,5 +61,5 @@ BANNER
 %postun
 
 %changelog
-* Sun Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.2-1
+* Sun Apr 23 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.2-1
 - Initial release.
