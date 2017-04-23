@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-emojify()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-emojify/build-ulyaoth-emojify.sh ; chmod +x build-ulyaoth-emojify.sh ; ./build-ulyaoth-emojify.sh
+}
+
 ulyaoth-cmake()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-cmake/build-ulyaoth-cmake.sh ; chmod +x build-ulyaoth-cmake.sh ; ./build-ulyaoth-cmake.sh
