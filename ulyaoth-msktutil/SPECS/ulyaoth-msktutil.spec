@@ -12,6 +12,14 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://sourceforge.net/projects/msktutil/files/msktutil-1.0.tar.bz2
 BuildRoot:  %{_tmppath}/msktutil-%{version}-%{release}-root-%(%{__id_u} -n)
 
+BuildRequires: openldap-devel
+BuildRequires: cyrus-sasl-devel
+BuildRequires: krb5-devel
+
+Requires: openldap
+Requires: krb5-libs
+Requires: cyrus-sasl-lib
+
 Provides: msktutil
 Provides: ulyaoth-msktutil
 
@@ -19,7 +27,7 @@ Provides: ulyaoth-msktutil
 Msktutil creates user or computer accounts in Active Directory, creates Kerberos keytabs on Unix/Linux systems, adds and removes principals to and from keytabs and changes the user or computer account's password.
 
 %prep
-%setup -q -n msktutil-%{version}
+%setup -q -n msktutil-1.0
 
 %build
 ./configure --prefix=/usr --bindir=%{_bindir} --sbindir=%{_sbindir} --libexecdir=%{_libexecdir} --sysconfdir=%{_sysconfdir} --sharedstatedir=%{_sharedstatedir} --libdir=%{_libdir} --includedir=%{_includedir} --datarootdir=%{_datarootdir} --datadir=%{_datadir} --infodir=%{_infodir} --mandir=%{_mandir} --docdir=/usr/share/doc
@@ -36,7 +44,7 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 %files
 %defattr(-,root,root,-)
 /usr/sbin/msktutil
-%doc /usr/share/man/man1/msktutil.1
+%doc /usr/share/man/man1/msktutil.1.gz
 
 %post
 /sbin/ldconfig

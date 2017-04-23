@@ -6,6 +6,14 @@ cd /home/ulyaoth/rpmbuild/SPECS/
 
 su ulyaoth -c "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-msktutil/SPECS/ulyaoth-msktutil.spec -O /home/ulyaoth/rpmbuild/SPECS/ulyaoth-msktutil.spec"
 
+if type dnf 2>/dev/null
+then
+  dnf builddep -y ulyaoth-msktutil.spec
+elif type yum 2>/dev/null
+then
+  yum-builddep -y ulyaoth-msktutil.spec
+fi
+
 su ulyaoth -c "spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-msktutil.spec -g -R"
 su ulyaoth -c "rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-msktutil.spec"
 
