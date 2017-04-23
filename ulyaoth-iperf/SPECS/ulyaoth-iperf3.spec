@@ -4,7 +4,7 @@ Name:       ulyaoth-iperf3
 Version:    3.1.7
 Release:    1%{?dist}
 BuildArch: x86_64
-License:    BSD style license
+License:    BSD
 Group:      Applications/Internet
 URL:        https://github.com/esnet/iperf
 Vendor:     University of California
