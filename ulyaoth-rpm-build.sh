@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-luajit()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-luajit/build-ulyaoth-luajit.sh ; chmod +x build-ulyaoth-luajit.sh ; ./build-ulyaoth-luajit.sh
+}
+
 ulyaoth-iperf2()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-iperf/build-ulyaoth-iperf2.sh ; chmod +x build-ulyaoth-iperf2.sh ; ./build-ulyaoth-iperf2.sh
