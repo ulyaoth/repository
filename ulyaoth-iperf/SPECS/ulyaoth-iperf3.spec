@@ -12,7 +12,6 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    https://github.com/esnet/iperf/archive/%{version}.tar.gz
 BuildRoot:  %{_tmppath}/iperf3-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Provides: iperf
 Provides: iperf3
 Provides: ulyaoth-iperf3
 
