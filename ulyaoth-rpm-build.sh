@@ -29,6 +29,12 @@ ulyaoth()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-parallel()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-parallel/build-ulyaoth-parallel.sh ; chmod +x build-ulyaoth-parallel.sh ; ./build-ulyaoth-parallel.sh
+}
+
+
 ulyaoth-luajit()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-luajit/build-ulyaoth-luajit.sh ; chmod +x build-ulyaoth-luajit.sh ; ./build-ulyaoth-luajit.sh
