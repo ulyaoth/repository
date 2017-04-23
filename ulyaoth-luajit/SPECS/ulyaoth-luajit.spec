@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 
 Summary:    a Just-In-Time Compiler for Lua.
 Name:       ulyaoth-luajit
