@@ -79,6 +79,33 @@ else
 echo No extra installation required for this OS!
 fi
 
+# Install ulyaoth repository for dependencies.
+if [ "$ulyaothos" == "fedora" ]
+then
+if type dnf 2>/dev/null
+then
+  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.x86_64.rpm -y
+elif type yum 2>/dev/null
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.x86_64.rpm -y
+fi
+elif [ "$ulyaothos" == "redhat" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.x86_64.rpm -y
+elif [ "$ulyaothos" == "amazonlinux" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.amazonlinux.x86_64.rpm -y
+elif [ "$ulyaothos" == "centos" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.centos.x86_64.rpm -y
+elif [ "$ulyaothos" == "oraclelinux" ]
+then 
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.oraclelinux.x86_64.rpm -y
+elif [ "$ulyaothos" == "scientificlinux" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.x86_64.rpm -y
+fi
+
 useradd ulyaoth
 cd /home/ulyaoth/
 
@@ -174,13 +201,13 @@ su ulyaoth -c "spectool ulyaoth-nginx-mainline-$module.spec -g -R"
 
 if [ "$1" == "passenger5" ]
 then
-  su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-$module.spec"
+  su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-nginx-$module.spec"
   passenger5
   cd /home/ulyaoth/rpmbuild/SPECS
-  su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-$module.spec"
+  su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-nginx-mainline-$module.spec"
 else
-  su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-$module.spec"
-  su ulyaoth -c "rpmbuild -ba ulyaoth-nginx-mainline-$module.spec"
+  su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-nginx-$module.spec"
+  su ulyaoth -c "QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba ulyaoth-nginx-mainline-$module.spec"
 fi
 
 if [ "$ulyaothos" == "amazonlinux" ]

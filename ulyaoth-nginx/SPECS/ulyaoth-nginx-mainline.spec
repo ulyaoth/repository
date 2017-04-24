@@ -13,8 +13,6 @@
 Requires(pre): shadow-utils
 Requires: initscripts >= 8.36
 Requires(post): chkconfig
-Requires: openssl
-BuildRequires: openssl-devel
 BuildRequires: perl
 BuildRequires: GeoIP-devel
 %endif
@@ -25,8 +23,6 @@ BuildRequires: GeoIP-devel
 Requires(pre): shadow-utils
 Requires: initscripts >= 8.36
 Requires(post): chkconfig
-Requires: openssl >= 1.0.1
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
@@ -40,9 +36,7 @@ BuildRequires: GeoIP-devel
 Epoch: %{epoch}
 Requires(pre): shadow-utils
 Requires: systemd
-Requires: openssl >= 1.0.1
 BuildRequires: systemd
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
@@ -56,9 +50,7 @@ BuildRequires: GeoIP-devel
 Epoch: %{epoch}
 Requires(pre): shadow-utils
 Requires: systemd
-Requires: openssl >= 1.0.1
 BuildRequires: systemd
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
