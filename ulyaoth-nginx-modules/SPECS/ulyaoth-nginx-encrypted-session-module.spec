@@ -13,8 +13,6 @@
 Requires(pre): shadow-utils
 Requires: initscripts >= 8.36
 Requires(post): chkconfig
-Requires: openssl
-BuildRequires: openssl-devel
 BuildRequires: perl
 BuildRequires: GeoIP-devel
 %endif
@@ -25,8 +23,6 @@ BuildRequires: GeoIP-devel
 Requires(pre): shadow-utils
 Requires: initscripts >= 8.36
 Requires(post): chkconfig
-Requires: openssl >= 1.0.1
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
@@ -40,9 +36,7 @@ BuildRequires: GeoIP-devel
 Epoch: %{epoch}
 Requires(pre): shadow-utils
 Requires: systemd
-Requires: openssl >= 1.0.1
 BuildRequires: systemd
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
@@ -56,9 +50,7 @@ BuildRequires: GeoIP-devel
 Epoch: %{epoch}
 Requires(pre): shadow-utils
 Requires: systemd
-Requires: openssl >= 1.0.1
 BuildRequires: systemd
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
@@ -78,8 +70,9 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.10.3
+%define main_version                 1.12.0
 %define main_release                 1%{?dist}.ngx
+%define njs_version                  0.1.10
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -88,13 +81,12 @@ BuildRequires: libGeoIP-devel
 %define module_image_filter_release  1%{?dist}.ngx
 %define module_perl_version          %{main_version}
 %define module_perl_release          1%{?dist}.ngx
-%define module_njs_shaid             1c50334fbea6
-%define module_njs_version           %{main_version}.0.0.20160414.%{module_njs_shaid}
+%define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 %define module_devel_kit_version  0.3.0
 %define module_devel_kit_release  1%{?dist}
 %define module_encrypted_session_version  0.06
-%define module_encrypted_session_release  3%{?dist}
+%define module_encrypted_session_release  4%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -133,17 +125,19 @@ BuildRequires: libGeoIP-devel
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        --add-dynamic-module=njs-%{module_njs_shaid}/nginx \
+        --add-dynamic-module=njs-%{njs_version}/nginx \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
+        --with-stream_geoip_module=dynamic \
+		--with-stream_ssl_preread_module \
         --with-http_slice_module \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --with-ipv6 \
         --add-dynamic-module=/home/ulyaoth/devel-kit-module \
         --add-dynamic-module=/home/ulyaoth/encrypted-session-module \
+        --with-openssl=/usr/local/ulyaoth/openssl1.1.0 \
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
@@ -155,7 +149,7 @@ URL: http://nginx.org/
 Group: %{_group}
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: http://nginx.org/download/nginx-%{version}.tar.gz
+Source0: https://downloads.ulyaoth.net/nginx-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.init.in
 Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.sysconf
@@ -167,7 +161,7 @@ Source9: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-ngi
 Source10: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.suse.logrotate
 Source11: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx-debug.service
 Source12: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/COPYRIGHT
-Source13: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/njs-%{module_njs_shaid}.tar.gz
+Source13: https://github.com/nginx/njs/archive/%{njs_version}.tar.gz
 
 License: 2-clause BSD-like license
 
@@ -176,16 +170,20 @@ BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: libxslt-devel
 BuildRequires: gd-devel
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
+BuildRequires: ulyaoth-openssl1.1.0-devel
+BuildRequires: ulyaoth-openssl1.1.0-static
+
+Requires: ulyaoth-openssl1.1.0-libs
 
 Provides: webserver
 Provides: nginx
 Provides: ulyaoth-nginx
 
 Conflicts: ulyaoth-nginx-mainline
+Obsoletes: ulyaoth-nginx-naxsi
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
@@ -256,7 +254,7 @@ Release: %{module_encrypted_session_release}
 Group: %{_group}
 Requires: ulyaoth-nginx
 Requires: ulyaoth-nginx-module-devel-kit
-Summary: nginx form input module
+Summary: nginx encrypted session module
 %description module-encrypted-session
 Dynamic encrypted session module for nginx.
 
@@ -270,6 +268,13 @@ sed -e 's|%%DEFAULTSTART%%||g' -e 's|%%DEFAULTSTOP%%|0 1 2 3 4 5 6|g' \
     -e 's|%%PROVIDES%%|nginx-debug|g' < %{SOURCE2} > nginx-debug.init
 
 %build
+export SSL_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
+export SSL_LIBS=-lssl
+export CRYPTO_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
+export CRYPTO_LIBS=-lcrypto
+export C_INCLUDE_PATH=/usr/local/ulyaoth/openssl1.1.0/include
+export LIBRARY_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
+export LD_RUN_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
 ./configure %{COMMON_CONFIGURE_ARGS} \
     --with-cc-opt="%{WITH_CC_OPT}" \
     %{?perlldopts} \
@@ -289,6 +294,10 @@ make %{?_smp_mflags}
     %{_builddir}/nginx-%{main_version}/objs/src/http/modules/perl/blib/arch/auto/nginx/nginx-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ndk_http_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ndk_http_module-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_encrypted_session_module.so \
@@ -384,6 +393,10 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{perl_vendorarch}/auto/nginx/nginx-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_js_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_stream_js_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module-debug.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_stream_geoip_module-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ndk_http_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ndk_http_module-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_encrypted_session_module.so \
@@ -439,6 +452,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %dir %{_datadir}/doc/%{name}-%{main_version}
 %doc %{_datadir}/doc/%{name}-%{main_version}/COPYRIGHT
 
+%attr(0644,root,root) %{_libdir}/nginx/modules/ndk_http_module.so
+
 %files module-xslt
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_xslt_filter_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_xslt_filter_module-debug.so
@@ -450,6 +465,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %files module-geoip
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_geoip_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_geoip_module-debug.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_geoip_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_geoip_module-debug.so
 
 %files module-perl
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_perl_module.so
@@ -463,6 +480,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %files module-njs
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_js_module-debug.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_stream_js_module-debug.so
 
 %files module-devel-kit
 %attr(0644,root,root) %{_libdir}/nginx/modules/ndk_http_module.so
@@ -494,7 +513,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx!
+Thank you for using ulyaoth-nginx!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -504,6 +523,9 @@ Commercial subscriptions for nginx are available on:
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
 
 ----------------------------------------------------------------------
 BANNER
@@ -542,6 +564,9 @@ http://nginx.org/en/docs/http/ngx_http_xslt_module.html
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 fi
@@ -556,12 +581,16 @@ To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
     load_module modules/ngx_http_geoip_module.so;
+    load_module modules/ngx_stream_geoip_module.so;
 
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_geoip_module.html
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
 
 ----------------------------------------------------------------------
 BANNER
@@ -584,6 +613,9 @@ http://nginx.org/en/docs/http/ngx_http_image_filter_module.html
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 fi
@@ -605,6 +637,9 @@ http://nginx.org/en/docs/http/ngx_http_perl_module.html
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 fi
@@ -619,12 +654,16 @@ To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
     load_module modules/ngx_http_js_module.so;
+    load_module modules/ngx_stream_js_module.so;
 
 Please refer to the module documentation for further details:
 https://www.nginx.com/resources/wiki/nginScript/
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
 
 ----------------------------------------------------------------------
 BANNER
@@ -647,6 +686,9 @@ https://github.com/simpl/ngx_devel_kit
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 fi
@@ -668,6 +710,9 @@ https://github.com/openresty/encrypted-session-nginx-module
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
 
 ----------------------------------------------------------------------
 BANNER
@@ -696,6 +741,11 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Apr 24 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.06-4
+- Updated to Nginx 1.12.0.
+- Updated nsj to 0.1.10.
+- Compiling with OpenSSL 1.1.0.
+
 * Sat Feb 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.06-3
 - Recompiled with Nginx 1.10.3.
 
