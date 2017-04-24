@@ -13,8 +13,6 @@
 Requires(pre): shadow-utils
 Requires: initscripts >= 8.36
 Requires(post): chkconfig
-Requires: openssl
-BuildRequires: openssl-devel
 BuildRequires: perl
 BuildRequires: GeoIP-devel
 %endif
@@ -25,8 +23,6 @@ BuildRequires: GeoIP-devel
 Requires(pre): shadow-utils
 Requires: initscripts >= 8.36
 Requires(post): chkconfig
-Requires: openssl >= 1.0.1
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
@@ -40,9 +36,7 @@ BuildRequires: GeoIP-devel
 Epoch: %{epoch}
 Requires(pre): shadow-utils
 Requires: systemd
-Requires: openssl >= 1.0.1
 BuildRequires: systemd
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
@@ -56,9 +50,7 @@ BuildRequires: GeoIP-devel
 Epoch: %{epoch}
 Requires(pre): shadow-utils
 Requires: systemd
-Requires: openssl >= 1.0.1
 BuildRequires: systemd
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
@@ -145,6 +137,7 @@ BuildRequires: libGeoIP-devel
         --with-file-aio \
         --add-dynamic-module=/home/ulyaoth/devel-kit-module \
         --add-dynamic-module=/home/ulyaoth/form-input-module \
+        --with-openssl=/usr/local/ulyaoth/openssl1.1.0 \
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
@@ -156,7 +149,7 @@ URL: http://nginx.org/
 Group: %{_group}
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: http://nginx.org/download/nginx-%{version}.tar.gz
+Source0: https://downloads.ulyaoth.net/nginx-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.init.in
 Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/nginx.sysconf
@@ -177,10 +170,13 @@ BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: libxslt-devel
 BuildRequires: gd-devel
-BuildRequires: openssl-devel >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
+BuildRequires: ulyaoth-openssl1.1.0-devel
+BuildRequires: ulyaoth-openssl1.1.0-static
+
+Requires: ulyaoth-openssl1.1.0-libs
 
 Provides: webserver
 Provides: nginx
@@ -272,6 +268,13 @@ sed -e 's|%%DEFAULTSTART%%||g' -e 's|%%DEFAULTSTOP%%|0 1 2 3 4 5 6|g' \
     -e 's|%%PROVIDES%%|nginx-debug|g' < %{SOURCE2} > nginx-debug.init
 
 %build
+export SSL_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
+export SSL_LIBS=-lssl
+export CRYPTO_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
+export CRYPTO_LIBS=-lcrypto
+export C_INCLUDE_PATH=/usr/local/ulyaoth/openssl1.1.0/include
+export LIBRARY_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
+export LD_RUN_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
 ./configure %{COMMON_CONFIGURE_ARGS} \
     --with-cc-opt="%{WITH_CC_OPT}" \
     %{?perlldopts} \
@@ -521,6 +524,9 @@ Commercial subscriptions for nginx are available on:
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 
@@ -558,6 +564,9 @@ http://nginx.org/en/docs/http/ngx_http_xslt_module.html
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 fi
@@ -580,6 +589,9 @@ http://nginx.org/en/docs/http/ngx_http_geoip_module.html
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 fi
@@ -601,6 +613,9 @@ http://nginx.org/en/docs/http/ngx_http_image_filter_module.html
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 fi
@@ -621,6 +636,9 @@ http://nginx.org/en/docs/http/ngx_http_perl_module.html
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
 
 ----------------------------------------------------------------------
 BANNER
@@ -644,6 +662,9 @@ https://www.nginx.com/resources/wiki/nginScript/
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 fi
@@ -664,6 +685,9 @@ https://github.com/simpl/ngx_devel_kit
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
 
 ----------------------------------------------------------------------
 BANNER
@@ -686,6 +710,9 @@ https://github.com/calio/form-input-nginx-module
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
 
 ----------------------------------------------------------------------
 BANNER
@@ -717,6 +744,7 @@ fi
 * Mon Apr 24 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.12-7
 - Updated to Nginx Mainline 1.11.13.
 - Updated nsj to 0.1.10.
+- Compiling with OpenSSL 1.1.0.
 
 * Sat Feb 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.12-6
 - Recompiled with Nginx Mainline 1.11.10.
