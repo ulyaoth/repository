@@ -70,7 +70,7 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.11.13
+%define main_version                 1.13.0
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.1.10
 %define module_xslt_version          %{main_version}
@@ -693,8 +693,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Mon Apr 24 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.60-6
-- Updated to Nginx Mainline 1.11.13.
+* Wed Apr 29 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.60-6
+- Updated to Nginx Mainline 1.13.0.
 - Updated nsj to 0.1.10.
 - Compiling with OpenSSL 1.1.0.
 

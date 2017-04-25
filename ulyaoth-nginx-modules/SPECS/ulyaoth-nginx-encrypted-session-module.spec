@@ -741,7 +741,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Mon Apr 24 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.06-4
+* Wed Apr 26 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.06-4
 - Updated to Nginx 1.12.0.
 - Updated nsj to 0.1.10.
 - Compiling with OpenSSL 1.1.0.
