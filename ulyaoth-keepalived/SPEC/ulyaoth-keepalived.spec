@@ -128,7 +128,7 @@ make %{?_smp_mflags}
 %if %{use_systemd}
 %{_unitdir}/keepalived.service
 %else
-/etc/init/keepalived
+%{_initrddir}/keepalived
 %endif
 
 %post
