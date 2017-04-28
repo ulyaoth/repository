@@ -77,7 +77,7 @@ make %{?_smp_mflags}
     $RPM_BUILD_ROOT%{_initrddir}/keepalived
 %endif
 
-{__rm} -rf $RPM_BUILD_ROOT/etc/init/keepalived.conf
+%{__rm} -rf $RPM_BUILD_ROOT/etc/init/keepalived.conf
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
