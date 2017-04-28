@@ -144,6 +144,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
+Thank you for using ulyaoth-keepalived!
 
 Please find the official documentation for keepalived here:
 * https://github.com/acassen/keepalived
