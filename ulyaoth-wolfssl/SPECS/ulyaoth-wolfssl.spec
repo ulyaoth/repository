@@ -55,11 +55,14 @@ cat <<BANNER
 
 Thank you for using ulyaoth-wolfssl!
 
-Please find the official documentation for OpenSSL here:
+Please find the official documentation for wolfSSL here:
 * https://www.wolfssl.com
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
+
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
 
 ----------------------------------------------------------------------
 BANNER

@@ -51,6 +51,9 @@ Thank you for using Ulyaoth repository!
 For any additional information or help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 

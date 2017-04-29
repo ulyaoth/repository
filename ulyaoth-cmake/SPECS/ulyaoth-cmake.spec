@@ -64,6 +64,7 @@ gmake install DESTDIR=$RPM_BUILD_ROOT
 %post
 cat <<BANNER
 ----------------------------------------------------------------------
+
 Thanks for using ulyaoth-cmake!
 
 Please find the official documentation for cmake here:
@@ -74,6 +75,7 @@ For any additional help please visit our website at:
 
 Ulyaoth repository could use your help! Please consider a donation:
 * https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 
