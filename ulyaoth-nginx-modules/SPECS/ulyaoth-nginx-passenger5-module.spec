@@ -262,6 +262,7 @@ sed -e 's|%%DEFAULTSTART%%||g' -e 's|%%DEFAULTSTOP%%|0 1 2 3 4 5 6|g' \
     -e 's|%%PROVIDES%%|nginx-debug|g' < %{SOURCE2} > nginx-debug.init
 
 %build
+export EXTRA_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
 export SSL_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
 export SSL_LIBS=-lssl
 export CRYPTO_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
