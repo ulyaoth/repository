@@ -2,7 +2,7 @@
 
 Summary:    a Just-In-Time Compiler for Lua.
 Name:       ulyaoth-luajit
-Version:    2.0.4
+Version:    2.0.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    mit
@@ -59,31 +59,31 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 %files
 %defattr(-,root,root,-)
 /usr/bin/luajit
-/usr/bin/luajit-2.0.4
-%dir /usr/share/luajit-2.0.4
-%dir /usr/share/luajit-2.0.4/jit
-/usr/share/luajit-2.0.4/jit/bc.lua
-/usr/share/luajit-2.0.4/jit/bcsave.lua
-/usr/share/luajit-2.0.4/jit/dis_arm.lua
-/usr/share/luajit-2.0.4/jit/dis_mips.lua
-/usr/share/luajit-2.0.4/jit/dis_mipsel.lua
-/usr/share/luajit-2.0.4/jit/dis_ppc.lua
-/usr/share/luajit-2.0.4/jit/dis_x64.lua
-/usr/share/luajit-2.0.4/jit/dis_x86.lua
-/usr/share/luajit-2.0.4/jit/dump.lua
-/usr/share/luajit-2.0.4/jit/v.lua
-/usr/share/luajit-2.0.4/jit/vmdef.lua
+/usr/bin/luajit-2.0.5
+%dir /usr/share/luajit-2.0.5
+%dir /usr/share/luajit-2.0.5/jit
+/usr/share/luajit-2.0.5/jit/bc.lua
+/usr/share/luajit-2.0.5/jit/bcsave.lua
+/usr/share/luajit-2.0.5/jit/dis_arm.lua
+/usr/share/luajit-2.0.5/jit/dis_mips.lua
+/usr/share/luajit-2.0.5/jit/dis_mipsel.lua
+/usr/share/luajit-2.0.5/jit/dis_ppc.lua
+/usr/share/luajit-2.0.5/jit/dis_x64.lua
+/usr/share/luajit-2.0.5/jit/dis_x86.lua
+/usr/share/luajit-2.0.5/jit/dump.lua
+/usr/share/luajit-2.0.5/jit/v.lua
+/usr/share/luajit-2.0.5/jit/vmdef.lua
 %doc /usr/share/man/man1/luajit.1.gz
 
 %files libs
 /usr/lib/libluajit-5.1.so
 /usr/lib/libluajit-5.1.so.2
-/usr/lib/libluajit-5.1.so.2.0.4
+/usr/lib/libluajit-5.1.so.2.0.5
 
 %files devel
 /usr/lib/libluajit-5.1.so
 /usr/lib/libluajit-5.1.so.2
-/usr/lib/libluajit-5.1.so.2.0.4
+/usr/lib/libluajit-5.1.so.2.0.5
 /usr/include/luajit-2.0/lauxlib.h
 /usr/include/luajit-2.0/lua.h
 /usr/include/luajit-2.0/lua.hpp
@@ -176,5 +176,8 @@ BANNER
 %postun
 
 %changelog
+* Sat May 6 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.0.5-1
+- Updated LuaJIT to 2.0.5.
+
 * Sun Apr 23 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.0.4-1
 - Initial release.
