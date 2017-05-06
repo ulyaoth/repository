@@ -2,7 +2,7 @@
 
 Summary:    Emoji on the command line
 Name:       ulyaoth-emojify
-Version:    1.0.2
+Version:    2.0.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    The MIT License (MIT)
@@ -61,5 +61,8 @@ BANNER
 %postun
 
 %changelog
+* Sat May 6 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.0.0-1
+- Updated Emojify to 2.0.0.
+
 * Sun Apr 23 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.2-1
 - Initial release.
