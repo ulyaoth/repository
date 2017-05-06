@@ -10,7 +10,7 @@ Group:      Applications/Internet
 URL:        https://github.com/mrowa44/emojify
 Vendor:     mrowa44
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    https://github.com/mrowa44/emojify/archive/v%{version}.tar.gz
+Source0:    https://github.com/mrowa44/emojify/archive/%{version}.tar.gz
 BuildRoot:  %{_tmppath}/emojify-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: emojify
