@@ -8,15 +8,15 @@
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9-examples
 Version:    9.0.0
-Release:    13%{?dist}
+Release:    14%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}.M20/bin/apache-tomcat-%{version}.M20.tar.gz
-BuildRoot:  %{_tmppath}/tomcat-%{version}.M20-%{release}-root-%(%{__id_u} -n)
+Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}.M21/bin/apache-tomcat-%{version}.M21.tar.gz
+BuildRoot:  %{_tmppath}/tomcat-%{version}.M21-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat9
 
@@ -29,7 +29,7 @@ Provides: ulyaoth-tomcat9-examples
 The package contains the official Apache Tomcat "webapps/examples" and "webapps/ROOT" directories.
 
 %prep
-%setup -q -n apache-tomcat-%{version}.M20
+%setup -q -n apache-tomcat-%{version}.M21
 
 %build
 
@@ -81,6 +81,9 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-14
+- Updating to Tomcat 9.0.0.M21.
+
 * Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.0.0-13
 - Updating to Tomcat 9.0.0.M20.
 

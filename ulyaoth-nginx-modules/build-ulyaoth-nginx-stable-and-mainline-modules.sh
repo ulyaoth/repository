@@ -16,7 +16,7 @@ moduleversion=0.32
 # echo
 elif [ "$1" = "passenger5" ]; then
 module="passenger5-module"
-moduleversion=5.1.2
+moduleversion=5.1.4
 elif [ "$1" = "echo" ]; then
 module="echo-module"
 moduleversion=0.60
@@ -54,15 +54,15 @@ fi
 
 passenger5()
 {
-rm -rf  /usr/local/ulyaoth/passenger/5
-mkdir -p /usr/local/ulyaoth/passenger/5
-cd /usr/local/ulyaoth/passenger/5
+rm -rf  /usr/local/ulyaoth/passenger5
+mkdir -p /usr/local/ulyaoth/passenger5
+cd /usr/local/ulyaoth/passenger5
 git clone -b stable-5.0 git://github.com/phusion/passenger.git
-cd /usr/local/ulyaoth/passenger/5/passenger
+cd /usr/local/ulyaoth/passenger5/passenger
 git checkout release-$moduleversion
 git submodule update --init --recursive
-mv /usr/local/ulyaoth/passenger/5/passenger/* /usr/local/ulyaoth/passenger/5/
-rm -rf /usr/local/ulyaoth/passenger/5/passenger
+mv /usr/local/ulyaoth/passenger5/passenger/* /usr/local/ulyaoth/passenger5/
+rm -rf /usr/local/ulyaoth/passenger5/passenger
 chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
 }
 

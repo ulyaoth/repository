@@ -134,7 +134,6 @@ BuildRequires: libGeoIP-devel
         --with-mail_ssl_module \
         --with-file-aio \
         --add-dynamic-module=/home/ulyaoth/echo-module \
-        --with-openssl=/usr/local/ulyaoth/openssl1.1.0 \
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
@@ -170,10 +169,9 @@ BuildRequires: gd-devel
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
-BuildRequires: ulyaoth-openssl1.1.0-devel
-BuildRequires: ulyaoth-openssl1.1.0-static
+BuildRequires: openssl-devel
 
-Requires: ulyaoth-openssl1.1.0-libs
+Requires: openssl
 
 Provides: webserver
 Provides: nginx
@@ -255,13 +253,6 @@ sed -e 's|%%DEFAULTSTART%%||g' -e 's|%%DEFAULTSTOP%%|0 1 2 3 4 5 6|g' \
     -e 's|%%PROVIDES%%|nginx-debug|g' < %{SOURCE2} > nginx-debug.init
 
 %build
-export SSL_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
-export SSL_LIBS=-lssl
-export CRYPTO_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
-export CRYPTO_LIBS=-lcrypto
-export C_INCLUDE_PATH=/usr/local/ulyaoth/openssl1.1.0/include
-export LIBRARY_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
-export LD_RUN_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
 ./configure %{COMMON_CONFIGURE_ARGS} \
     --with-cc-opt="%{WITH_CC_OPT}" \
     %{?perlldopts} \
@@ -693,10 +684,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed Apr 26 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.60-6
-- Updated to Nginx Mainline 1.13.0.
+* Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.60-6
+- Updated nginx mainline to 1.13.0.
 - Updated nsj to 0.1.10.
-- Compiling with OpenSSL 1.1.0.
 
 * Sat Feb 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.60-5
 - Recompiled with Nginx Mainline 1.11.10.
