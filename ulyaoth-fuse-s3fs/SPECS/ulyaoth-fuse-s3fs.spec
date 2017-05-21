@@ -83,7 +83,7 @@ BANNER
 %postun
 
 %changelog
-* Sun May 21 2016 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.82-1
+* Sun May 21 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.82-1
 - Updated to fuse-s3fs 1.82.
 
 * Sun Jun 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.80-2
