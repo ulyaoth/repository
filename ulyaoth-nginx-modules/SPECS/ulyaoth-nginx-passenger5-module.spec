@@ -135,7 +135,7 @@ BuildRequires: libGeoIP-devel
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --add-dynamic-module=/usr/local/ulyaoth/passenger5/src/nginx_module
+        --add-dynamic-module=/usr/local/ulyaoth/passenger5/src/nginx_module \
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
