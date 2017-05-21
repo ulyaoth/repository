@@ -85,8 +85,8 @@ BuildRequires: libGeoIP-devel
 %define module_perl_release          1%{?dist}.ngx
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
-%define module_passenger5_version    5.1.2
-%define module_passenger5_release    2%{?dist}
+%define module_passenger5_version    5.1.4
+%define module_passenger5_release    1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -135,8 +135,7 @@ BuildRequires: libGeoIP-devel
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --add-dynamic-module=/usr/local/ulyaoth/passenger/5/src/nginx_module \
-        --with-openssl=/usr/local/ulyaoth/openssl1.1.0 \
+        --add-dynamic-module=/usr/local/ulyaoth/passenger5/src/nginx_module
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
@@ -175,10 +174,9 @@ BuildRequires: GeoIP-devel
 BuildRequires: ruby-devel
 BuildRequires: curl-devel
 BuildRequires: rubygem-rake
-BuildRequires: ulyaoth-openssl1.1.0-devel
-BuildRequires: ulyaoth-openssl1.1.0-static
+BuildRequires: openssl-devel
 
-Requires: ulyaoth-openssl1.1.0-libs
+Requires: openssl
 
 Provides: webserver
 Provides: nginx
@@ -262,14 +260,6 @@ sed -e 's|%%DEFAULTSTART%%||g' -e 's|%%DEFAULTSTOP%%|0 1 2 3 4 5 6|g' \
     -e 's|%%PROVIDES%%|nginx-debug|g' < %{SOURCE2} > nginx-debug.init
 
 %build
-export EXTRA_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
-export SSL_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
-export SSL_LIBS=-lssl
-export CRYPTO_CFLAGS="-I/usr/local/ulyaoth/openssl1.1.0/include -L/usr/local/ulyaoth/openssl1.1.0/lib"
-export CRYPTO_LIBS=-lcrypto
-export C_INCLUDE_PATH=/usr/local/ulyaoth/openssl1.1.0/include
-export LIBRARY_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
-export LD_RUN_PATH=/usr/local/ulyaoth/openssl1.1.0/lib
 ./configure %{COMMON_CONFIGURE_ARGS} \
     --with-cc-opt="%{WITH_CC_OPT}" \
     %{?perlldopts} \
@@ -394,7 +384,7 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_passenger_module-debug.so
     
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/local/ulyaoth
-cp -rf /usr/local/ulyaoth/passenger $RPM_BUILD_ROOT/usr/local/ulyaoth/
+cp -rf /usr/local/ulyaoth/passenger5 $RPM_BUILD_ROOT/usr/local/ulyaoth/
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -479,9 +469,8 @@ cp -rf /usr/local/ulyaoth/passenger $RPM_BUILD_ROOT/usr/local/ulyaoth/
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_passenger_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_passenger_module-debug.so
 %dir /usr/local/ulyaoth
-%dir /usr/local/ulyaoth/passenger
-%dir /usr/local/ulyaoth/passenger/5
-/usr/local/ulyaoth/passenger/5/*
+%dir /usr/local/ulyaoth/passenger5
+/usr/local/ulyaoth/passenger5/*
 
 %pre
 # Add the "nginx" user
@@ -708,10 +697,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed Apr 26 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.1.2-2
-- Updated to Nginx 1.12.0.
+* Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.1.4-1
+- Updated Nginx to 1.12.0.
 - Updated nsj to 0.1.10.
-- Compiling with OpenSSL 1.1.0.
+- Updated Passenger 5 to 5.1.4.
 
 * Sat Feb 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.1.2-1
 - Recompiled with Nginx 1.10.3.

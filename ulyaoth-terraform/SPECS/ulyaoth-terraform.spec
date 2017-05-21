@@ -1,6 +1,6 @@
 Summary:    Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
 Name:       ulyaoth-terraform
-Version:    0.9.4
+Version:    0.9.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Mozilla Public License, version 2.0
@@ -61,6 +61,9 @@ BANNER
 %postun
 
 %changelog
+* Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.5-1
+- Updated to Terraform 0.9.5.
+
 * Sat Apr 29 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.4-1
 - Updated to Terraform 0.9.4.
 
