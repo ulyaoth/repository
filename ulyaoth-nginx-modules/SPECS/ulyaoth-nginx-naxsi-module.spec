@@ -699,7 +699,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat May 20 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.55.3-4
+* Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.55.3-4
 - Updated nginx to 1.12.0.
 - Updated nsj to 0.1.10.
 
