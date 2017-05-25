@@ -4,7 +4,7 @@ AutoReqProv: no
 
 Summary: The Go Programming Language
 Name: ulyaoth-go
-Version: 1.8.1
+Version: 1.8.3
 Release: 1%{?dist}
 BuildArch: x86_64
 URL: https://golang.org/
@@ -54,6 +54,9 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Thu May 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.8.3-1
+- Updated Go to 1.8.3.
+
 * Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.8.1-1
 - Updated to Go 1.8.1.
 
