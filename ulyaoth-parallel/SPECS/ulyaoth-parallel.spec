@@ -73,6 +73,7 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 %doc /usr/share/doc/parcat.html
 %doc /usr/share/doc/parcat.pdf
 %doc /usr/share/doc/parcat.texi
+%doc /usr/share/doc/parset.html
 %doc /usr/share/doc/parset.pdf
 %doc /usr/share/doc/parset.texi
 %doc /usr/share/doc/sem.html
