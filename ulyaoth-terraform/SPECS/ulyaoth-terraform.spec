@@ -1,13 +1,13 @@
 Summary:    Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
 Name:       ulyaoth-terraform
-Version:    0.9.5
+Version:    0.9.6
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Mozilla Public License, version 2.0
 Group:      Applications/Internet
 URL:        https://www.terraform.io/
 Vendor:     Hashicorp
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    terraform
 BuildRoot:  %{_tmppath}/terraform-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -61,6 +61,9 @@ BANNER
 %postun
 
 %changelog
+* Fri May 26 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 0.9.6-1
+- Updated to Terraform 0.9.6.
+
 * Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.5-1
 - Updated to Terraform 0.9.5.
 
