@@ -1,13 +1,13 @@
 Summary:    The GeoIP Update program performs automatic updates of GeoIP2 and GeoIP Legacy binary databases.
 Name:       ulyaoth-geoipupdate
-Version:    2.3.1
+Version:    2.4.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv2
 Group:      Applications/System
 URL:        http://dev.maxmind.com/geoip/geoipupdate/
 Vendor:     MaxMind, Inc
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    https://github.com/maxmind/geoipupdate/archive/v%{version}.tar.gz
 BuildRoot:  %{_tmppath}/geoipupdate-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -86,6 +86,9 @@ BANNER
 %postun
 
 %changelog
+* Fri May 26 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.4.0-1
+- Updated GeoIP Update to 2.4.0.
+
 * Mon Apr 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.3.1-1
 - Updated to GeoIP Update 2.3.1.
 
