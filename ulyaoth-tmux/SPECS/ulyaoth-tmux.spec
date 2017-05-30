@@ -1,14 +1,14 @@
 
 Summary:    tmux is a "terminal multiplexer"
 Name:       ulyaoth-tmux
-Version:    2.4
+Version:    2.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
 Group:      System Environment/Shells
 URL:        https://github.com/tmux/tmux
 Vendor:     tmux
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    https://github.com/tmux/tmux/releases/download/%{version}/tmux-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/tmux-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -73,6 +73,9 @@ BANNER
 %postun
 
 %changelog
+* Tue May 30 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 2.5-1
+- Updated tmux to 2.5.
+
 * Sat Apr 22 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.4-1
 - Updated tmux to 2.4.
 

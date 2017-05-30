@@ -70,7 +70,7 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.13.0
+%define main_version                 1.13.1
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.1.10
 %define module_xslt_version          %{main_version}
@@ -84,7 +84,7 @@ BuildRequires: libGeoIP-devel
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 %define module_echo_version  0.60
-%define module_echo_release  6%{?dist}
+%define module_echo_release  7%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -143,7 +143,7 @@ Release: %{main_release}
 Vendor: Nginx, Inc.
 URL: http://nginx.org/
 Group: %{_group}
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
@@ -684,6 +684,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue May 30 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.60-7
+- Updated nginx mainline to 1.13.1.
+
 * Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.60-6
 - Updated nginx mainline to 1.13.0.
 - Updated nsj to 0.1.10.
