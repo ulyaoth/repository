@@ -23,6 +23,7 @@ BuildRequires: GeoIP-devel
 Requires(pre): shadow-utils
 Requires: initscripts >= 8.36
 Requires(post): chkconfig
+Requires: openssl >= 1.0.1
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
