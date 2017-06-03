@@ -141,7 +141,7 @@ Release: %{main_release}
 Vendor: Nginx, Inc.
 URL: http://nginx.org/
 Group: %{_group}
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
