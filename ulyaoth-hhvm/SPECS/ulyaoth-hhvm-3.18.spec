@@ -87,6 +87,7 @@ BuildRequires: gmp-devel
 BuildRequires: fastlz-devel
 BuildRequires: gperf
 BuildRequires: libatomic
+BuildRequires: sqlite-devel
 
 Provides: hhvm-lts
 Provides: hhvm-lts-3.18
