@@ -14,3 +14,6 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls
 
 ulyaoth-mbedtls2.4:
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.4.sh ; chmod +x build-ulyaoth-mbedtls2.4.sh ; ./build-ulyaoth-mbedtls2.4.sh
+
+ulyaoth-mbedtls2.5:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.5.sh ; chmod +x build-ulyaoth-mbedtls2.5.sh ; ./build-ulyaoth-mbedtls2.5.sh
