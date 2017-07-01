@@ -74,7 +74,7 @@ BuildRequires: libGeoIP-devel
 
 %define main_version                 1.12.0
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.1.10
+%define njs_version                  0.1.11
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -85,7 +85,7 @@ BuildRequires: libGeoIP-devel
 %define module_perl_release          1%{?dist}.ngx
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
-%define module_passenger5_version    5.1.4
+%define module_passenger5_version    5.1.5
 %define module_passenger5_release    1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
@@ -145,7 +145,7 @@ Release: %{main_release}
 Vendor: Nginx, Inc.
 URL: http://nginx.org/
 Group: %{_group}
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
@@ -697,6 +697,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 5.1.5-1
+- Updated Passenger 5 to 5.1.5.
+
 * Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.1.4-1
 - Updated Nginx to 1.12.0.
 - Updated nsj to 0.1.10.

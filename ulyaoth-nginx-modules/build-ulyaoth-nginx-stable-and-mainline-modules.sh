@@ -16,7 +16,7 @@ moduleversion=0.32
 # echo
 elif [ "$1" = "passenger5" ]; then
 module="passenger5-module"
-moduleversion=5.1.4
+moduleversion=5.1.5
 elif [ "$1" = "echo" ]; then
 module="echo-module"
 moduleversion=0.60
