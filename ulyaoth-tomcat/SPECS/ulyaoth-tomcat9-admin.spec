@@ -15,7 +15,7 @@ Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}.M22/bin/apache-tomcat-%{version}.M22.tar.gz
+Source0:    http://www-eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M22/bin/apache-tomcat-%{version}.M22.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-%{version}.M22-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat9
