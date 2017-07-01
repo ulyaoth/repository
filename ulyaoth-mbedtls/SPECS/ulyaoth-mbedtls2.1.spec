@@ -101,7 +101,7 @@ BANNER
 * Fri Mar 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.7-1
 - Updated to mbed TLS 2.1.7.
 
-* Fri Oct 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.6-1
+* Sat Oct 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.6-1
 - Updated to mbed TLS 2.1.6.
 
 * Sat Jul 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.5-1
