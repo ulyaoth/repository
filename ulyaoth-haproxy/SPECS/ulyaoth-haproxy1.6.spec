@@ -28,14 +28,14 @@ BuildRequires: systemd-devel
 
 Summary:    The Reliable, High Performance TCP/HTTP Load Balancer
 Name:       ulyaoth-haproxy1.6
-Version:    1.6.12
+Version:    1.6.13
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPL/LGPL
 Group:      System Environment/Daemons
 URL:        https://www.haproxy.org/
 Vendor:     HAProxy
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    http://www.haproxy.org/download/1.6/src/haproxy-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.cfg
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.init
@@ -182,6 +182,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.13-1
+- Updated to HAProxy 1.6.13.
+
 * Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.12-1
 - Updated to HAProxy 1.6.12.
 
