@@ -22,7 +22,7 @@ Source0: https://github.com/ARMmbed/mbedtls/archive/mbedtls-%{version}.tar.gz
 License: GPLv2 or proprietary
 
 BuildRoot: %{_tmppath}/mbedtls-%{version}-%{release}-root
-BuildRequires: cmake
+BuildRequires: ulyaoth-cmake
 BuildRequires: zlib-devel
 BuildRequires: openssl-devel
 
@@ -45,9 +45,9 @@ sed -i 's|//\(#define MBEDTLS_THREADING_PTHREAD\)|\1|' include/mbedtls/config.h
 
 %build
 %if 0%{?fedora} >= 18
-%cmake -DCMAKE_BUILD_TYPE:String="Release" -DUSE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE -DUSE_PKCS11_HELPER_LIBRARY:BOOL=TRUE .
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE:String="Release" -DUSE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE -DUSE_PKCS11_HELPER_LIBRARY:BOOL=TRUE .
 %else
-%cmake -DCMAKE_BUILD_TYPE:String="Release" -DUSE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE .
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE:String="Release" -DUSE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE .
 %endif
 make %{?_smp_mflags}
 
@@ -65,7 +65,7 @@ mv $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libexecdir}/mbedtls
 
 %{_libexecdir}/mbedtls/*
 %{_includedir}/mbedtls/*
-%{_libdir}/*
+/usr/lib/*
 %dir %{_includedir}/mbedtls
 
 %pre
@@ -101,7 +101,7 @@ BANNER
 * Fri Mar 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.7-1
 - Updated to mbed TLS 2.1.7.
 
-* Fri Oct 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.6-1
+* Sat Oct 22 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.6-1
 - Updated to mbed TLS 2.1.6.
 
 * Sat Jul 2 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.5-1
