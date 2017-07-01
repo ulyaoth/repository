@@ -102,6 +102,7 @@ EOF
 %defattr(-,root,root)
 /usr/bin/screen
 %{_mandir}/man1/screen.1.gz
+/usr/share/info/screen.info.gz
 %dir /usr/share/licenses/screen
 %dir /usr/share/screen
 /usr/share/screen/utf8encodings/01
