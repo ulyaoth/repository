@@ -5,12 +5,12 @@ AutoReqProv: no
 Summary: The Go Programming Language
 Name: ulyaoth-go
 Version: 1.8.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 URL: https://golang.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 
-Source0: https://storage.googleapis.com/golang/go1.8.1.linux-amd64.tar.gz
+Source0: https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
 BuildRoot:  %{_tmppath}/ulyaoth-golang-1.8-%{release}-root-%(%{__id_u} -n)
 
 License: BSD
@@ -54,6 +54,10 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.8.3-2
+- The previous 1.8.3 rpm we released was actually Go 1.8.1 due to wrong ssource url.
+- Re-released with correct Go 1.8.3 binaries.
+
 * Thu May 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.8.3-1
 - Updated Go to 1.8.3.
 
