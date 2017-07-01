@@ -7,15 +7,15 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8.5-docs
-Version:    8.5.15
+Version:    8.5.16
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
-URL:        http://tomcat.apache.org/
+URL:        https://tomcat.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-8/v%{version}/bin/apache-tomcat-%{version}.tar.gz
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Source0:    http://www-eu.apache.org/dist/tomcat/tomcat-8/v%{version}/bin/apache-tomcat-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat8.5
@@ -68,7 +68,7 @@ cat <<BANNER
 Thank you for using ulyaoth-tomcat8.5-docs!
 
 Please find the official documentation for tomcat here:
-* http://tomcat.apache.org/
+* https://tomcat.apache.org/
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
@@ -80,6 +80,9 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 8.5.16-1
+- Updating to Tomcat 8.5.16.
+
 * Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 8.5.15-1
 - Updating to Tomcat 8.5.15.
 
