@@ -5,14 +5,14 @@
 
 Summary:    Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells.
 Name:       ulyaoth-screen
-Version:    4.5.1
+Version:    4.6.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License: GPLv2+
 Group:      Applications/System
 URL:        https://www.gnu.org/software/screen/
 Vendor:     gnu
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    ftp://ftp.gnu.org/gnu/screen/screen-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-screen/SOURCES/screen.pam
 BuildRoot:  %{_tmppath}/screen-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -166,6 +166,9 @@ BANNER
 %postun
 
 %changelog
+* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 4.6.0-1
+- Updated to Screen 4.6.0.
+
 * Wed Mar 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.5.1-1
 - Updated to Screen 4.5.1.
 
