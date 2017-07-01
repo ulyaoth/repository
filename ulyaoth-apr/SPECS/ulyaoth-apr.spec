@@ -5,15 +5,15 @@
 
 Summary:    Apache Portable Runtime (APR)
 Name:       ulyaoth-apr
-Version:    1.5.2
+Version:    1.6.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      System Environment/Libraries
 URL:        https://apr.apache.org/
-Vendor:     Elasticsearch BV
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net//apr/apr-1.5.2.tar.gz
+Vendor:     The Apache Software Foundation
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Source0:    http://www-eu.apache.org/dist//apr/apr-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/apr-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: apr
@@ -110,6 +110,9 @@ Please find the official documentation for apr here:
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
 
+Ulyaoth repository could use your help! Please consider a donation:
+* https://www.ulyaoth.net/donate.html
+
 ----------------------------------------------------------------------
 BANNER
 
@@ -117,6 +120,9 @@ BANNER
 /sbin/ldconfig
 
 %changelog
+* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.2-1
+- Initial release with apr 1.6.2.
+
 * Sun Jan 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.5.2-1
 - Initial release with apr 1.5.2.
 - Based on Fedora 23 spec file.
