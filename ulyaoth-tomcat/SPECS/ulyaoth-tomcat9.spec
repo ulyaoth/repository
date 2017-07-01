@@ -38,7 +38,7 @@ Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}.M22/bin/apache-tomcat-%{version}.M22.tar.gz
+Source0:    http://www-eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M22/bin/apache-tomcat-%{version}.M22.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.logrotate
