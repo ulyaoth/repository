@@ -7,14 +7,14 @@
 
 Summary:    Banana UI
 Name:       ulyaoth-banana
-Version:    1.6.12
+Version:    1.6.17
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/LucidWorks/banana/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    banana.war
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-banana/SOURCES/banana-context.xml
 BuildRoot:  %{_tmppath}/banana-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -68,8 +68,11 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.17-1
+- Updated to Banana version 1.6.17.
+
 * Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.12-1
-- Updated to Banana version 1.6.1.
+- Updated to Banana version 1.6.12.
 
 * Sat May 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.8-1
 - Updated to Banana version 1.6.8.

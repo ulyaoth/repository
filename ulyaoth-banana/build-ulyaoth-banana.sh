@@ -1,6 +1,6 @@
 ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
-bananaversion=1.6.12
+bananaversion=1.6.17
 
 useradd ulyaoth
 cd /home/ulyaoth
