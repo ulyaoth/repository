@@ -1,13 +1,13 @@
 Summary:    CMake is an open-source, cross-platform family of tools designed to build, test and package software.
 Name:       ulyaoth-cmake
-Version:    3.8.0
+Version:    3.8.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    OSI-approved BSD 3-clause License
 Group:      System Environment/Libraries
 URL:        https://cmake.org/
 Vendor:     Kitware, Inc. and Contributors
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    https://github.com/Kitware/CMake/archive/v%{version}.tar.gz
 BuildRoot:  %{_tmppath}/cmake-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -82,5 +82,8 @@ BANNER
 %postun
 
 %changelog
+* Sat Jul 1 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.8.2-1
+- Updated cmake to 3.8.2.
+
 * Mon Apr 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.8.0-1
 - Initial release with cmake 3.8.0.
