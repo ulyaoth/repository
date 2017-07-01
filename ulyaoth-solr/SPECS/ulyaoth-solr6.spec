@@ -28,14 +28,14 @@ BuildRequires: systemd
 
 Summary:    Apache Solr
 Name:       ulyaoth-solr6
-Version:    6.5.1
+Version:    6.6.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://lucene.apache.org/solr/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    solr-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr-log4j.properties
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SOURCES/solr-solr.init
@@ -183,6 +183,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 6.6.0-1
+- Updated to Solr 6 version 6.6.0.
+
 * Sat Apr 29 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.5.1-1
 - Updated to Solr 6 version 6.5.1.
 
