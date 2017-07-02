@@ -1,6 +1,32 @@
 ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 
+if [ "$ulyaothos" == "fedora" ]
+then
+if type dnf 2>/dev/null
+then
+  dnf install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.x86_64.rpm -y
+elif type yum 2>/dev/null
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.fedora.x86_64.rpm -y
+fi
+elif [ "$ulyaothos" == "redhat" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.redhat.x86_64.rpm -y
+elif [ "$ulyaothos" == "amazonlinux" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.amazonlinux.x86_64.rpm -y
+elif [ "$ulyaothos" == "centos" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.centos.x86_64.rpm -y
+elif [ "$ulyaothos" == "oraclelinux" ]
+then 
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.oraclelinux.x86_64.rpm -y
+elif [ "$ulyaothos" == "scientificlinux" ]
+then
+  yum install https://downloads.ulyaoth.net/rpm/ulyaoth-latest.scientificlinux.x86_64.rpm -y
+fi
+
 useradd ulyaoth
 usermod -Gulyaoth ulyaoth
 cd /home/ulyaoth/
