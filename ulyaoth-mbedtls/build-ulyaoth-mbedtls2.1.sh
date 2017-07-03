@@ -1,6 +1,14 @@
 ulyaothos=`cat /etc/ulyaoth`
 buildarch="$(uname -m)"
 
+if type dnf 2>/dev/null
+then
+  dnf remove cmake -y
+elif type yum 2>/dev/null
+then
+  yum remove cmake -y
+fi
+
 if [ "$ulyaothos" == "fedora" ]
 then
 if type dnf 2>/dev/null
