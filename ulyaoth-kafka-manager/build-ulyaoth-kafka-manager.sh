@@ -1,7 +1,7 @@
 ulyaothos=`cat /etc/ulyaoth`
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-kafkamanagerversion=1.3.3.4
+kafkamanagerversion=1.3.3.7
 
 if [ "$arch" == "i686" ]
 then

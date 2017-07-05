@@ -30,14 +30,14 @@ BuildRequires: systemd
 
 Summary:    A tool for managing Apache Kafka.
 Name:       ulyaoth-kafka-manager
-Version:    1.3.3.4
+Version:    1.3.3.7
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/yahoo/kafka-manager
 Vendor:     Yahoo
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    kafka-manager-%{version}.zip
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/SOURCES/kafka-manager.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/SOURCES/kafka-manager.init
@@ -176,6 +176,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Jul 5 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.3.3.7-1
+- Updated to 1.3.3.7.
+
 * Sat Mar 11 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.3.4-1
 - Updated to 1.3.3.4.
 
