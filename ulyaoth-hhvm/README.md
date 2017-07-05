@@ -3,20 +3,25 @@
 ### Options Available:
 * -h (shows the help information)
 * -l (lists all supported versions)
-* -b (branch .i.e 3.18)
-* -v (version .i.e 3.18.2)
+* -b (branch .i.e 3.20)
+* -v (version .i.e 3.20.2)
 
 ### Supported operating systems:
-* Fedora 19, 20, 21, 22, 23, 24, 25 (Not all versions are supported for every HHVM version)
+* Fedora 19, 20, 21, 22, 23, 24, 25, 26 (Not all versions are supported for every HHVM version)
 * RHEL 7
 * Scientific Linux 7
 * Oracle Linux 7
 * CentOS 7
 
 # Build commands:
+##### ulyaoth-hhvm 3.20.2:
+```bash
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.20 -v 3.20.2
+```
+
 ##### ulyaoth-hhvm 3.18.2:
 ```bash
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.18 -v 3.18.2
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.18 -v 3.18.3
 ```
 
 ##### ulyaoth-hhvm 3.17.3:
