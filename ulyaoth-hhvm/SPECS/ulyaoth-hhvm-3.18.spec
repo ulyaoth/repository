@@ -6,13 +6,13 @@
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm-lts-3.18
-Version: 3.18.2
+Version: 3.18.3
 Release: 1%{?dist}
 BuildArch: x86_64
 Group: Applications/Internet
 URL: http://www.hhvm.com/
 Vendor: Facebook.
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 
 Source0: hhvm-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hhvm/SOURCES/php.ini
@@ -217,6 +217,9 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+* Wed Jul 5 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.18.3-1
+- Initial release for HHVM 3.18.3 (LTS).
+
 * Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.18.2-1
 - Initial release for HHVM 3.18.2 (LTS).
 

@@ -5,8 +5,8 @@
 %define hhvm_group hhvm
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
-Name: ulyaoth-hhvm-lts-3.15
-Version: 3.15.8
+Name: ulyaoth-hhvm
+Version: 3.20.2
 Release: 1%{?dist}
 BuildArch: x86_64
 Group: Applications/Internet
@@ -87,11 +87,10 @@ BuildRequires: gmp-devel
 BuildRequires: fastlz-devel
 BuildRequires: gperf
 BuildRequires: libatomic
+BuildRequires: sqlite-devel
 
-Provides: hhvm-lts
-Provides: hhvm-lts-3.15
-Provides: ulyaoth-hhvm-lts
-Provides: ulyaoth-hhvm-lts-3.15
+Provides: hhvm
+Provides: ulyaoth-hhvm
 
 %description 
 HHVM is an open-source virtual machine designed for executing programs written in Hack and PHP. HHVM uses a just-in-time (JIT) compilation approach to achieve superior performance while maintaining the development flexibility that PHP provides.
@@ -151,6 +150,7 @@ make -j3
 /usr/bin/hphpize
 /usr/bin/hhvm-repo-mode
 /usr/bin/hhvm-gdb
+/usr/bin/hackfmt
 %dir /etc/hhvm
 %dir /etc/tmpfiles.d
 %config(noreplace) /etc/hhvm/php.ini
@@ -197,7 +197,7 @@ exit 0
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-hhvm-lts-3.15!
+Thank you for using ulyaoth-hhvm!
 
 Please find the official documentation for HHVM here:
 * http://www.hhvm.com/
@@ -215,20 +215,5 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
-* Wed Jul 5 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.15.8-1
-- Updated to HHVM 3.15.8.
-
-* Wed Mar 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.15.7-1
-- Updated to HHVM 3.15.7.
-
-* Thu Feb 16 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.15.6-1
-- Updated to HHVM 3.15.6.
-
-* Sat Nov 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.15.3-1
-- Updated to HHVM 3.15.3.
-
-* Sun Oct 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.15.2-1
-- Updated to HHVM 3.15.2.
-
-* Sat Sep 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.15.0-1
-- Initial release for HHVM 3.15.0 (LTS).
+* Wed Jul 5 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.20.2-1
+- Initial release for HHVM 3.20.2.

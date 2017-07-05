@@ -1,10 +1,10 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
 # Argument = -l (lists all supported versions)
-# Argument = -b (branch .i.e 3.18)
-# Argument = -v (version .i.e 3.18.2)
+# Argument = -b (branch .i.e 3.20)
+# Argument = -v (version .i.e 3.20.2)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2017/04/08
+# Last Edit By: Sjir Bagmeijer - 2017/07/05
 # https://www.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
@@ -41,7 +41,7 @@ then
 yum install -y  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 fi
 
-if [ "$hhvmbranchversion" == "3.9" ] || [ "$hhvmbranchversion" == "3.11" ] || [ "$hhvmbranchversion" == "3.12" ] || [ "$hhvmbranchversion" == "3.13" ] || [ "$hhvmbranchversion" == "3.14" ] || [ "$hhvmbranchversion" == "3.15" ] || [ "$hhvmbranchversion" == "3.17" ] || [ "$hhvmbranchversion" == "3.18" ]
+if [ "$hhvmbranchversion" == "3.9" ] || [ "$hhvmbranchversion" == "3.11" ] || [ "$hhvmbranchversion" == "3.12" ] || [ "$hhvmbranchversion" == "3.13" ] || [ "$hhvmbranchversion" == "3.14" ] || [ "$hhvmbranchversion" == "3.15" ] || [ "$hhvmbranchversion" == "3.17" ] || [ "$hhvmbranchversion" == "3.18" || [ "$hhvmbranchversion" == "3.19" || [ "$hhvmbranchversion" == "3.20" ]
 then
   if grep -q -i "release 19" /etc/fedora-release || grep -q -i "release 20" /etc/fedora-release
   then
@@ -101,7 +101,10 @@ cd /root
 availablehhvmversions()
 {
 cat <<EOF
+Branch 3.20 versions supported:
+* 3.20.2
 Branch 3.18 versions supported: (LTS build)
+* 3.18.3
 * 3.18.2
 * 3.18.1
 * 3.18.0
@@ -193,8 +196,8 @@ ulyaothos=`cat /etc/ulyaoth`
 hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
-supportedbranches=('3.3' '3.6' '3.9' '3.11' '3.12' '3.13' '3.14' '3.15' '3.17' '3.18')
-supportedversions=('3.18.2' '3.18.1' '3.18.0' '3.17.3' '3.15.8' '3.15.7' '3.15.6' '3.15.3' '3.15.2' '3.15.1' '3.15.0' '3.14.5' '3.14.4' '3.14.3' '3.14.2' '3.14.1' '3.14.0' '3.13.2' '3.13.1' '3.13.0' '3.12.14' '3.12.11' '3.12.10' '3.12.9' '3.12.8' '3.12.7' '3.12.5' '3.12.4' '3.12.3' '3.12.2' '3.12.1' '3.12.0' '3.11.1' '3.11.0' '3.8.1' '3.8.0' '3.9.10' '3.9.9' '3.9.8' '3.9.6' '3.9.5' '3.9.4' '3.9.3' '3.9.2' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+supportedbranches=('3.3' '3.6' '3.9' '3.11' '3.12' '3.13' '3.14' '3.15' '3.17' '3.18' '3.19' '3.20')
+supportedversions=('3.20.2' '3.18.3' '3.18.2' '3.18.1' '3.18.0' '3.17.3' '3.15.8' '3.15.7' '3.15.6' '3.15.3' '3.15.2' '3.15.1' '3.15.0' '3.14.5' '3.14.4' '3.14.3' '3.14.2' '3.14.1' '3.14.0' '3.13.2' '3.13.1' '3.13.0' '3.12.14' '3.12.11' '3.12.10' '3.12.9' '3.12.8' '3.12.7' '3.12.5' '3.12.4' '3.12.3' '3.12.2' '3.12.1' '3.12.0' '3.11.1' '3.11.0' '3.8.1' '3.8.0' '3.9.10' '3.9.9' '3.9.8' '3.9.6' '3.9.5' '3.9.4' '3.9.3' '3.9.2' '3.9.1' '3.9.0' '3.6.6' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
