@@ -29,7 +29,7 @@ BuildRequires: systemd
 
 Summary:    Redis is an in-memory data structure store, used as a database, cache and message broker.
 Name:       ulyaoth-redis3
-Version:    3.2.9
+Version:    3.2.10
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    three clause BSD license
@@ -181,6 +181,9 @@ fi
 %endif
 
 %changelog
+* Wed Aug 9 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.10-1
+- Updated to Redis 3.2.10.
+
 * Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.9-1
 - Updated to Redis 3.2.9.
 
