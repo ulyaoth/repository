@@ -16,10 +16,10 @@ moduleversion=0.32
 # echo
 elif [ "$1" = "passenger5" ]; then
 module="passenger5-module"
-moduleversion=5.1.5
+moduleversion=5.1.7
 elif [ "$1" = "echo" ]; then
 module="echo-module"
-moduleversion=0.60
+moduleversion=0.61
 # pam
 elif [ "$1" = "pam" ]; then
 module="pam-module"
