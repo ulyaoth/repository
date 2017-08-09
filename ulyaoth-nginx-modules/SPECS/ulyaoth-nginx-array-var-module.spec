@@ -70,9 +70,9 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.12.0
+%define main_version                 1.12.1
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.1.11
+%define njs_version                  0.1.12
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -86,7 +86,7 @@ BuildRequires: libGeoIP-devel
 %define module_devel_kit_version  0.3.0
 %define module_devel_kit_release  1%{?dist}
 %define module_array_var_version  0.05
-%define module_array_var_release  4%{?dist}
+%define module_array_var_release  5%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -732,6 +732,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Aug 9 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.05-5
+- Updated nginx to 1.12.1.
+
 * Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.05-4
 - Updated nginx to 1.12.0.
 - Updated nsj to 0.1.10.
