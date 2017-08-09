@@ -31,14 +31,14 @@ BuildRequires: systemd-devel
 
 Summary:    Varnish HTTP Cache
 Name:       ulyaoth-varnish5.1
-Version:    5.1.2
+Version:    5.1.3
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
 Group:      System Environment/Daemons
 URL:        https://varnish-cache.org
 Vendor:     Varnish Software AS
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    https://github.com/varnishcache/varnish-cache/archive/varnish-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/default.vcl
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish.service
@@ -296,6 +296,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Aug 9 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 5.1.3-1
+- Updated Varnish 5.1 to 5.1.3.
+
 * Sun Apr 23 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.1.2-1
 - Updated Varnish 5.1 to 5.1.2.
 
