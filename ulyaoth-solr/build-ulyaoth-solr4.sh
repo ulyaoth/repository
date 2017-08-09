@@ -7,8 +7,8 @@ cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 
 # Downloads solr 4 package and prepare for rpm build.
-#su ulyaoth -c "wget http://archive.apache.org/dist/lucene/solr/$version/solr-$version.tgz"
-su ulyaoth -c "wget https://repos.ulyaoth.net/random/solr-$version.tgz"
+su ulyaoth -c "wget https://archive.apache.org/dist/lucene/solr/$version/solr-$version.tgz"
+#su ulyaoth -c "wget https://repos.ulyaoth.net/random/solr-$version.tgz"
 su ulyaoth -c "tar xvf solr-$version.tgz"
 rm -rf /home/ulyaoth/solr-$version/bin/solr.in.sh
 su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
