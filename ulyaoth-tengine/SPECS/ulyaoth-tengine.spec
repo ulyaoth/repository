@@ -39,12 +39,12 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-tengine
-Version: 2.2.0
+Version: 2.2.1
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Taobao
 URL: http://tengine.taobao.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 
 Source0: https://github.com/alibaba/tengine/archive/tengine-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/SOURCES/logrotate
@@ -394,6 +394,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Sep 30 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 2.2.1-1
+- Updated to Tengine 2.2.1.
+
 * Sat Dec 3 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.0-1
 - Updated to Tengine 2.2.0.
 
