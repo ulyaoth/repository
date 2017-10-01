@@ -20,17 +20,17 @@ EOF
 # Build the Packages of the Ulyaoth repository.
 ulyaoth()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/build-ulyaoth-ec2.sh ; chmod +x build-ulyaoth-ec2.sh ; ./build-ulyaoth-ec2.sh
 }
 
 ulyaoth-msktutil()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-msktutil/build-ulyaoth-msktutil.sh ; chmod +x build-ulyaoth-msktutil.sh ; ./build-ulyaoth-msktutil.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-msktutil/build-ulyaoth-msktutil-ec2.sh ; chmod +x build-ulyaoth-msktutil-ec2.sh ; ./build-ulyaoth-msktutil-ec2.sh
 }
 
 ulyaoth-parallel()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-parallel/build-ulyaoth-parallel.sh ; chmod +x build-ulyaoth-parallel.sh ; ./build-ulyaoth-parallel.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-parallel/build-ulyaoth-parallel-ec2.sh ; chmod +x build-ulyaoth-parallel-ec2.sh ; ./build-ulyaoth-parallel-ec2.sh
 }
 
 
@@ -562,22 +562,12 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-httpdif
 
 ulyaoth-tengine()
 {
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-ulyaoth-tengine.sh ; chmod +x build-ulyaoth-tengine.sh ; ./build-ulyaoth-tengine.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-ulyaoth-tengine-ec2.sh ; chmod +x build-ulyaoth-tengine-ec2.sh ; ./build-ulyaoth-tengine-ec2.sh
 }
 
 ulyaoth-tengine-selinux()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-ulyaoth-tengine-selinux.sh ; chmod +x build-ulyaoth-tengine-selinux.sh ; ./build-ulyaoth-tengine-selinux.sh
-}
-
-ulyaoth-tengine-development()
-{
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-ulyaoth-tengine-development.sh ; chmod +x build-ulyaoth-tengine-development.sh ; ./build-ulyaoth-tengine-development.sh
-}
-
-ulyaoth-tengine-development-selinux()
-{
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-ulyaoth-tengine-development-selinux.sh ; chmod +x build-ulyaoth-tengine-development-selinux.sh ; ./build-ulyaoth-tengine-development-selinux.sh
 }
 
 ulyaoth-jsvc()
