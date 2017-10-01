@@ -394,7 +394,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Sep 30 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 2.2.1-1
+* Sun Oct 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 2.2.1-1
 - Updated to Tengine 2.2.1.
 
 * Sat Dec 3 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.2.0-1
