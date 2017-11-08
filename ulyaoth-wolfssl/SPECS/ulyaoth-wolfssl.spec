@@ -4,7 +4,7 @@
 
 Summary:    The wolfSSL embedded SSL library
 Name:       ulyaoth-wolfssl
-Version:    3.12.0
+Version:    3.12.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNU General Public License
@@ -70,6 +70,9 @@ BANNER
 %postun
 
 %changelog
+* Wed Nov 8 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.12.2-1
+- Updated to wolfSSL version 3.12.2.
+
 * Wed Aug 9 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.12.0-1
 - Updated to wolfSSL version 3.12.0.
 
