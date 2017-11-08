@@ -1,9 +1,6 @@
 # This script is supposed to run as the user "ulyaoth".
 
-ulyaothos=`cat /etc/ulyaoth`
-
 rpmdev-setuptree
-cd /home/ulyaoth/rpmbuild/SPECS/
 
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-parallel/SPECS/ulyaoth-parallel.spec -O /home/ulyaoth/rpmbuild/SPECS/ulyaoth-parallel.spec
 
