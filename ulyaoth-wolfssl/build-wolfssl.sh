@@ -9,6 +9,15 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-wolfssl
 # Download additional files specified in spec file.
 spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec -g -R
 
+# Install all requirements
+if type dnf 2>/dev/null
+then
+  dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec
+elif type yum 2>/dev/null
+then
+  yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec
+fi
+
 # Build the rpm.
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec
 
