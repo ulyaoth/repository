@@ -22,10 +22,10 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/SP
 # Install the solr requirements for building the rpm.
 if type dnf 2>/dev/null
 then
-  dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr5.spec
+  sudo dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr5.spec
 elif type yum 2>/dev/null
 then
-  yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr5.spec
+  sudo yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr5.spec
 fi
 
 # Download additional from spec file.
