@@ -4,7 +4,7 @@
 rpmdev-setuptree
 
 # Download spec file.
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-parallel/SPECS/ulyaoth-wolfssl.spec -O /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-wolfssl/SPECS/ulyaoth-wolfssl.spec -O /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec
 
 # Download additional files specified in spec file.
 spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec -g -R
