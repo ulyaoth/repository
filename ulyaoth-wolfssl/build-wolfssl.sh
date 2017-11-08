@@ -12,10 +12,10 @@ spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec -g -R
 # Install all requirements
 if type dnf 2>/dev/null
 then
-  dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec
+  sudo dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec
 elif type yum 2>/dev/null
 then
-  yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec
+  sudo yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-wolfssl.spec
 fi
 
 # Build the rpm.
