@@ -18,8 +18,11 @@ then
   sudo yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-openssl1.0.2.spec
 fi
 
+# export variables
+export QA_RPATHS=$[ 0x0001|0x0002 ]
+
 # Build the rpm.
-QA_RPATHS=\$[ 0x0001|0x0002 ] rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-openssl1.0.2.spec
+rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-openssl1.0.2.spec
 
 # Copy the file to Ulyaoth home folder.
 cp /home/ulyaoth/rpmbuild/SRPMS/* /home/ulyaoth/
