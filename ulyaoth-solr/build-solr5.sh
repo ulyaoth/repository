@@ -71,8 +71,3 @@ mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 
 # Build Solr 5 Documentation rpm.
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr5-docs.spec
-
-# Copy the file to Ulyaoth home folder.
-cp /home/ulyaoth/rpmbuild/SRPMS/* /home/ulyaoth/
-cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /home/ulyaoth/
-cp /home/ulyaoth/rpmbuild/RPMS/noarch/* /home/ulyaoth/
