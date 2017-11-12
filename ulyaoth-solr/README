@@ -1,10 +1,10 @@
 How to create a package:
 
 ulyaoth-solr6: (includes docs & examples rpm)
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr6.sh ; chmod +x build-ulyaoth-solr6.sh ; ./build-ulyaoth-solr6.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-solr6.sh ; chmod +x build-solr6.sh ; ./build-solr6.sh
 
 ulyaoth-solr5: (includes docs & examples rpm)
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr5.sh ; chmod +x build-ulyaoth-solr5.sh ; ./build-ulyaoth-solr5.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-solr5.sh ; chmod +x build-solr5.sh ; ./build-solr5.sh
 
 ulyaoth-solr4: (single rpm)
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-ulyaoth-solr4.sh ; chmod +x build-ulyaoth-solr4.sh ; ./build-ulyaoth-solr4.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-solr/build-solr4.sh ; chmod +x build-solr4.sh ; ./build-solr4.sh
