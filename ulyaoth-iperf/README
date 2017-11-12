@@ -1,7 +1,7 @@
 How to build the rpm:
 
 ulyaoth-iperf3:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-iperf/build-ulyaoth-iperf3.sh ; chmod +x build-ulyaoth-iperf3.sh ; ./build-ulyaoth-iperf3.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-iperf/build-iperf3.sh ; chmod +x build-iperf3.sh ; ./build-iperf3.sh
 
 ulyaoth-iperf2:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-iperf/build-ulyaoth-iperf2.sh ; chmod +x build-ulyaoth-iperf2.sh ; ./build-ulyaoth-iperf2.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-iperf/build-iperf2.sh ; chmod +x build-iperf2.sh ; ./build-iperf2.sh

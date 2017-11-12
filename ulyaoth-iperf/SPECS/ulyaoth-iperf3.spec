@@ -1,14 +1,14 @@
 
 Summary:    iperf is a tool for active measurements of the maximum achievable bandwidth on IP networks.
 Name:       ulyaoth-iperf3
-Version:    3.2
+Version:    3.3
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
 Group:      Applications/Internet
 URL:        https://github.com/esnet/iperf
 Vendor:     University of California
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    https://github.com/esnet/iperf/archive/%{version}.tar.gz
 BuildRoot:  %{_tmppath}/iperf3-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -162,6 +162,9 @@ BANNER
 %postun
 
 %changelog
+* Sun Nov 12 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.3-1
+- Updated to Iperf 3.3.
+
 * Sat Jul 1 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2-1
 - Updated to Iperf 3.2.
 
