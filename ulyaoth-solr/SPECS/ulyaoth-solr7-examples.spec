@@ -6,8 +6,8 @@
 %define solr_user solr
 
 Summary:    Apache Solr Examples
-Name:       ulyaoth-solr6-examples
-Version:    6.6.2
+Name:       ulyaoth-solr7-examples
+Version:    7.0.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -18,15 +18,16 @@ Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    solr-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires: ulyaoth-solr6
+Requires: ulyaoth-solr7
 
 Provides: solr-examples
-Provides: solr6-examples
+Provides: solr7-examples
 Provides: ulyaoth-solr-examples
-Provides: ulyaoth-solr6-examples
+Provides: ulyaoth-solr7-examples
 
 Conflicts: ulyaoth-solr4-examples
 Conflicts: ulyaoth-solr5-examples
+Conflicts: ulyaoth-solr6-examples
 
 %description
 Solr is highly reliable, scalable and fault tolerant, providing distributed indexing, replication and load-balanced querying, automated failover and recovery, centralized configuration and more.
@@ -56,7 +57,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-solr6-examples!
+Thank you for using ulyaoth-solr7-examples!
 
 Please find the official documentation for solr here:
 * https://lucene.apache.org/solr/
@@ -71,41 +72,5 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
-* Sun Nov 12 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 6.6.2-1
-- Updated to Solr 6 version 6.6.2.
-
-* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 6.6.0-1
-- Updated to Solr 6 version 6.6.0.
-
-* Sat Apr 29 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.5.1-1
-- Updated to Solr 6 version 6.5.1.
-
-* Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.5.0-1
-- Updated to Solr 6 version 6.5.0.
-
-* Wed Mar 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.4.2-1
-- Updated to Solr 6 version 6.4.2.
-
-* Fri Feb 24 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.4.1-1
-- Updated to Solr 6 version 6.4.1.
-
-* Sun Feb 19 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.4.0-1
-- Updated to Solr 6 version 6.4.0.
-
-* Sun Nov 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.3.0-1
-- Updated to Solr 6 version 6.3.0.
-
-* Sat Oct 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.2.1-1
-- Updated to Solr 6 version 6.2.1.
-
-* Sat Aug 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.2.0-1
-- Updated to Solr 6 version 6.2.0.
-
-* Sat Jun 18 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.1.0-1
-- Updated to Solr 6 version 6.1.0.
-
-* Tue May 31 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.1-1
-- Updated to Solr 6 version 6.0.1.
-
-* Wed Apr 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.0-1
+* Sun Nov 12 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 7.0.1-1
 - Initial release.
