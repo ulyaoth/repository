@@ -1,3 +1,5 @@
+#
+%define debug_package %{nil}
 
 Summary:    tmux is a "terminal multiplexer"
 Name:       ulyaoth-tmux
