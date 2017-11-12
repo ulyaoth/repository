@@ -1,5 +1,5 @@
 # Set variables.
-version=6.6.1
+version=6.6.2
 
 # create build environment.
 rpmdev-setuptree
@@ -51,7 +51,7 @@ mv /home/ulyaoth/solr/example /home/ulyaoth/solr-$version/
 tar cvf solr-$version.tar.gz solr-$version/
 mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 
-# Build solr 5 examples rpm.
+# Build solr 6 examples rpm.
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr6-examples.spec
 
 # Clean
