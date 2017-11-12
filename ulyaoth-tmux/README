@@ -1,4 +1,4 @@
 How to create a package:
 
 ulyaoth-tmux:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tmux/build-ulyaoth-tmux.sh ; chmod +x build-ulyaoth-tmux.sh ; ./build-ulyaoth-tmux.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tmux/build-tmux.sh ; chmod +x build-tmux.sh ; ./build-tmux.sh
