@@ -28,7 +28,7 @@ BuildRequires: systemd
 
 Summary:    Apache Solr
 Name:       ulyaoth-solr7
-Version:    7.0.1
+Version:    7.1.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -184,5 +184,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Nov 12 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 7.1.0-1
+- Updated Solr 7 to 7.1.0.
+
 * Sun Nov 12 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 7.0.1-1
 - Initial release.
