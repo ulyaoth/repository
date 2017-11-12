@@ -1,3 +1,5 @@
+#
+%define debug_package %{nil}
 
 Summary:    iperf is a tool for active measurements of the maximum achievable bandwidth on IP networks.
 Name:       ulyaoth-iperf2
