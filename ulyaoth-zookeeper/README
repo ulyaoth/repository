@@ -1,7 +1,7 @@
 How to create a package:
 
 ulyaoth-zookeeper3.4:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/build-ulyaoth-zookeeper3.4.sh ; chmod +x build-ulyaoth-zookeeper3.4.sh ; ./build-ulyaoth-zookeeper3.4.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/build-zookeeper3.4.sh ; chmod +x build-zookeeper3.4.sh ; ./build-zookeeper3.4.sh
 
 ulyaoth-zookeeper3.5:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/build-ulyaoth-zookeeper3.5.sh ; chmod +x build-ulyaoth-zookeeper3.5.sh ; ./build-ulyaoth-zookeeper3.5.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/build-zookeeper3.5.sh ; chmod +x build-zookeeper3.5.sh ; ./build-zookeeper3.5.sh
