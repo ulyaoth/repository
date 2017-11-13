@@ -7,7 +7,11 @@ BuildArch: x86_64
 URL: https://www.ulyaoth.net/
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Release: 1.%{ulyaothos}
+%if 0%{?fedora}  <= 20
+Source0: http://repos.ulyaoth.io/RPM-GPG-KEY-ulyaoth
+%else
 Source0: https://repos.ulyaoth.io/RPM-GPG-KEY-ulyaoth
+%endif
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-%{ulyaothos}.repo
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/COPYING
 BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
