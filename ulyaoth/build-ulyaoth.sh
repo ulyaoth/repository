@@ -1,7 +1,7 @@
 # This script is supposed to run as the user "ulyaoth".
 
 # Set required variables.
-ulyaothos=`cat /etc/ulyaoth`
+ulyaothos=`cat /etc/ulyaoth | sed 's/[0-9]*//g'`
 
 # Create build environment.
 rpmdev-setuptree
