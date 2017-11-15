@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7-examples
-Version:    7.0.79
+Version:    7.0.82
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -81,6 +81,9 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Wed Nov 15 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 7.0.82-1
+- Updated to Tomcat 7.0.82.
+
 * Tue Jul 4 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 7.0.79-1
 - Updated to Tomcat 7.0.79.
 
