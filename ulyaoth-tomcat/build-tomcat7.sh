@@ -12,10 +12,10 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/
 # Install all requirements
 if type dnf 2>/dev/null
 then
-  dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat7.spec
+  sudo dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat7.spec
 elif type yum 2>/dev/null
 then
-  yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat7.spec
+  sudo yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat7.spec
 fi
 
 # Download additional files specified in spec file.
