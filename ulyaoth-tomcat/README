@@ -1,19 +1,19 @@
 You can create the packages as following:
 
 ulyaoth-tomcat6:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-ulyaoth-tomcat6.sh ; chmod +x build-ulyaoth-tomcat6.sh ; ./build-ulyaoth-tomcat6.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-tomcat6.sh ; chmod +x build-tomcat6.sh ; ./build-tomcat6.sh
 
 ulyaoth-tomcat7:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-ulyaoth-tomcat7.sh ; chmod +x build-ulyaoth-tomcat7.sh ; ./build-ulyaoth-tomcat7.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-tomcat7.sh ; chmod +x build-tomcat7.sh ; ./build-tomcat7.sh
 
 ulyaoth-tomcat8:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-ulyaoth-tomcat8.sh ; chmod +x build-ulyaoth-tomcat8.sh ; ./build-ulyaoth-tomcat8.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-tomcat8.sh ; chmod +x build-tomcat8.sh ; ./build-tomcat8.sh
 
 ulyaoth-tomcat8.5:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-ulyaoth-tomcat8.5.sh ; chmod +x build-ulyaoth-tomcat8.5.sh ; ./build-ulyaoth-tomcat8.5.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-tomcat8.5.sh ; chmod +x build-tomcat8.5.sh ; ./build-tomcat8.5.sh
 
 ulyaoth-tomcat9:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-ulyaoth-tomcat9.sh ; chmod +x build-ulyaoth-tomcat9.sh ; ./build-ulyaoth-tomcat9.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/build-tomcat9.sh ; chmod +x build-tomcat9.sh ; ./build-tomcat9.sh
 
 This should give you the following packages:
 ulyaoth-tomcat
