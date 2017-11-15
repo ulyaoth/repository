@@ -37,8 +37,8 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-6/v%{version}/bin/apache-tomcat-%{version}.tar.gz
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Source0:    http://archive.apache.org/dist/tomcat/tomcat-6/v%{version}/bin/apache-tomcat-%{version}.tar.gz
 Source1:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.logrotate
