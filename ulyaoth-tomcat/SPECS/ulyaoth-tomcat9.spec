@@ -30,19 +30,19 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9
-Version:    9.0.0
-Release:    15%{?dist}
+Version:    9.0.1
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
-Source0:    http://www-eu.apache.org/dist/tomcat/tomcat-9/v%{version}.M22/bin/apache-tomcat-%{version}.M22.tar.gz
+Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}/bin/apache-tomcat-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.logrotate
-BuildRoot:  %{_tmppath}/tomcat-%{version}.M22-%{release}-root-%(%{__id_u} -n)
+BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: tomcat
 Provides: apache-tomcat
@@ -59,7 +59,7 @@ Apache Tomcat powers numerous large-scale, mission-critical web applications acr
 Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat project logo are trademarks of the Apache Software Foundation.
 
 %prep
-%setup -q -n apache-tomcat-%{version}.M22
+%setup -q -n apache-tomcat-%{version}
 
 %build
 
@@ -170,6 +170,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Nov 15 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 9.0.1-1
+- Updating to Tomcat 9.0.1.
+
 * Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 9.0.0-15
 - Updating to Tomcat 9.0.0.M22.
 
