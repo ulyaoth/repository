@@ -1,19 +1,22 @@
 You can build the rpm by running the build script:
 
 ulyaoth-mbedtls:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls.sh ; chmod +x build-ulyaoth-mbedtls.sh ; ./build-ulyaoth-mbedtls.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-mbedtls.sh ; chmod +x build-mbedtls.sh ; ./build-mbedtls.sh
 
 ulyaoth-mbedtls2.1:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.1.sh ; chmod +x build-ulyaoth-mbedtls2.1.sh ; ./build-ulyaoth-mbedtls2.1.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-mbedtls2.1.sh ; chmod +x build-mbedtls2.1.sh ; ./build-mbedtls2.1.sh
 
 ulyaoth-mbedtls2.2:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.2.sh ; chmod +x build-ulyaoth-mbedtls2.2.sh ; ./build-ulyaoth-mbedtls2.2.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-mbedtls2.2.sh ; chmod +x build-mbedtls2.2.sh ; ./build-mbedtls2.2.sh
 
 ulyaoth-mbedtls2.3:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.3.sh ; chmod +x build-ulyaoth-mbedtls2.3.sh ; ./build-ulyaoth-mbedtls2.3.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-mbedtls2.3.sh ; chmod +x build-mbedtls2.3.sh ; ./build-mbedtls2.3.sh
 
 ulyaoth-mbedtls2.4:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.4.sh ; chmod +x build-ulyaoth-mbedtls2.4.sh ; ./build-ulyaoth-mbedtls2.4.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-mbedtls2.4.sh ; chmod +x build-mbedtls2.4.sh ; ./build-mbedtls2.4.sh
 
 ulyaoth-mbedtls2.5:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-ulyaoth-mbedtls2.5.sh ; chmod +x build-ulyaoth-mbedtls2.5.sh ; ./build-ulyaoth-mbedtls2.5.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-mbedtls2.5.sh ; chmod +x build-mbedtls2.5.sh ; ./build-mbedtls2.5.sh
+
+ulyaoth-mbedtls2.6:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-mbedtls/build-mbedtls2.6.sh ; chmod +x build-mbedtls2.6.sh ; ./build-mbedtls2.6.sh
