@@ -4,7 +4,7 @@
 %define hiawatha_user hiawatha
 %define hiawatha_group hiawatha
 %define hiawatha_loggroup adm
-%define mbedtls_version 2.4.2
+%define mbedtls_version 2.6.0
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -39,14 +39,17 @@ BuildRequires: systemd-devel
 
 Summary: Hiawatha is an open source webserver with a focus on security.
 Name: ulyaoth-hiawatha
-Version: 10.6
+Version: 10.7
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Hiawatha.
 URL: https://www.hiawatha-webserver.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
-
-Source0: https://www.hiawatha-webserver.org/files/hiawatha-%{version}.tar.gz
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+%if 0%{?fedora}  == 19
+Source0:    http://www.hiawatha-webserver.org/files/hiawatha-%{version}.tar.gz
+%else
+Source0:    https://www.hiawatha-webserver.org/files/hiawatha-%{version}.tar.gz
+%endif
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SOURCES/hiawatha.service
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SOURCES/hiawatha.init
 Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SOURCES/hiawatha-logrotate
@@ -61,16 +64,18 @@ BuildRequires: glibc-devel
 BuildRequires: libxml2-devel
 BuildRequires: libxslt-devel
 BuildRequires: zlib-devel
-BuildRequires: ulyaoth-mbedtls2.4 = %{mbedtls_version}
+BuildRequires: ulyaoth-mbedtls2.6 = %{mbedtls_version}
 
 Requires: libxml2
 Requires: libxslt
-Requires: ulyaoth-mbedtls2.4 = %{mbedtls_version}
+Requires: ulyaoth-mbedtls2.6 = %{mbedtls_version}
 
 Conflicts: ulyaoth-mbedtls
 Conflicts: ulyaoth-mbedtls2.1
 Conflicts: ulyaoth-mbedtls2.2
 Conflicts: ulyaoth-mbedtls2.3
+Conflicts: ulyaoth-mbedtls2.4
+Conflicts: ulyaoth-mbedtls2.5
 
 Provides: hiawatha
 Provides: ulyaoth-hiawatha
@@ -255,6 +260,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Nov 16 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 10.7-1
+- Updated to Hiawatha 10.7.
+- Updated to mbedTLS 2.6.0.
+
 * Mon Apr 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 10.6-1
 - Updated to Hiawatha 10.5.
 - Updated to mbedTLS 2.4.2.
