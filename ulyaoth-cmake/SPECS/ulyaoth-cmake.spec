@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Summary:    CMake is an open-source, cross-platform family of tools designed to build, test and package software.
 Name:       ulyaoth-cmake
 Version:    3.9.6
