@@ -9,10 +9,10 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-cmake/S
 # Install additional requirements.
 if type dnf 2>/dev/null
 then
-  sudo dnf builddep -y ulyaoth-cmake.spec
+  sudo dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-cmake.spec
 elif type yum 2>/dev/null
 then
-  sudo yum-builddep -y ulyaoth-cmake.spec
+  sudo yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-cmake.spec
 fi
 
 # Install all requirements
