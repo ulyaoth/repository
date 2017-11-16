@@ -44,22 +44,13 @@ gmake install DESTDIR=$RPM_BUILD_ROOT
 /usr/bin/cpack
 /usr/bin/ctest
 
-%dir /usr/doc/cmake-3.8  
-%doc /usr/doc/cmake-3.8/Copyright.txt
-%doc /usr/doc/cmake-3.8/cmcompress/Copyright.txt
-%doc /usr/doc/cmake-3.8/cmcurl/COPYING
-%doc /usr/doc/cmake-3.8/cmlibarchive/COPYING
-%doc /usr/doc/cmake-3.8/cmliblzma/COPYING
-%doc /usr/doc/cmake-3.8/cmlibrhash/COPYING
-%doc /usr/doc/cmake-3.8/cmlibrhash/README
-%doc /usr/doc/cmake-3.8/cmlibuv/LICENSE
-%doc /usr/doc/cmake-3.8/cmsys/Copyright.txt
-%doc /usr/doc/cmake-3.8/cmzlib/Copyright.txt
+%dir /usr/doc/cmake-3.9  
+%doc /usr/doc/cmake-3.9/Copyright.txt
 
 /usr/share/aclocal/cmake.m4
 
-%dir /usr/share/cmake-3.8
-/usr/share/cmake-3.8/*
+%dir /usr/share/cmake-3.9
+/usr/share/cmake-3.9/*
 
 %post
 cat <<BANNER
