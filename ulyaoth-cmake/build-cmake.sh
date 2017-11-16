@@ -18,7 +18,7 @@ fi
 # Install all requirements
 if type dnf 2>/dev/null
 then
-  sudo dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-mcmake.spec
+  sudo dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-cmake.spec
 elif type yum 2>/dev/null
 then
   sudo yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-cmake.spec
