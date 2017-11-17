@@ -13,7 +13,7 @@ Group:      System Environment/Libraries
 URL:        https://apr.apache.org/
 Vendor:     The Apache Software Foundation
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
-Source0:    http://www-eu.apache.org/dist//apr/apr-%{version}.tar.gz
+Source0:    http://www-eu.apache.org/dist/apr/apr-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/apr-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: apr
@@ -121,10 +121,10 @@ BANNER
 
 %changelog
 * Fri Nov 17 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.3-1
-- Initial release with apr 1.6.2.
+- Updated to apr 1.6.3
 
 * Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.2-1
-- Initial release with apr 1.6.2.
+- Updated to apr 1.6.2.
 
 * Sun Jan 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.5.2-1
 - Initial release with apr 1.5.2.
