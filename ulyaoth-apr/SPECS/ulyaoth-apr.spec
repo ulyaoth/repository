@@ -5,7 +5,7 @@
 
 Summary:    Apache Portable Runtime (APR)
 Name:       ulyaoth-apr
-Version:    1.6.2
+Version:    1.6.3
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -120,6 +120,9 @@ BANNER
 /sbin/ldconfig
 
 %changelog
+* Fri Nov 17 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.3-1
+- Initial release with apr 1.6.2.
+
 * Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.2-1
 - Initial release with apr 1.6.2.
 
