@@ -23,14 +23,14 @@ BuildRequires: systemd-devel
 
 Summary:    Keepalived a LVS driving daemon.
 Name:       ulyaoth-keepalived
-Version:    1.3.5
-Release:    2%{?dist}
+Version:    1.3.9
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPLv2
 Group:      System Environment/Daemons
 URL:        https://github.com/acassen/keepalived
 Vendor:     Alexandre Cassen
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    https://github.com/acassen/keepalived/archive/v%{version}.tar.gz
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-keepalived/SOURCES/keepalived.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-keepalived/SOURCES/keepalived.service
@@ -184,6 +184,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 17 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.3.9-1
+- Updated Keepalived to 1.3.9.
+
 * Fri Apr 28 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.5-2
 - Fixed init and systemd scripts.
 
