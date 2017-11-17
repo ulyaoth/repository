@@ -16,6 +16,9 @@ Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    http://www-eu.apache.org/dist/apr/apr-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/apr-%{version}-%{release}-root-%(%{__id_u} -n)
 
+BuildRequires: autoconf
+BuildRequires: libtool
+
 Provides: apr
 Provides: ulyaoth-apr
 
