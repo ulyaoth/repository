@@ -55,7 +55,7 @@ All the events process use this I/O multiplexer.
 
 %build
 %{__rm} -rf $RPM_BUILD_ROOT
-./configure --enable-sha1 --enable-snmp --enable-dbus --prefix=%{_prefix} --sysconfdir=%{_sysconfdir}
+./configure --enable-sha1 --enable-snmp --enable-snmp-rfc --enable-dbus --prefix=%{_prefix} --sysconfdir=%{_sysconfdir}
 make %{?_smp_mflags}
 
 %install
@@ -98,6 +98,8 @@ make %{?_smp_mflags}
 /usr/share/man/man5/keepalived.conf.5.gz
 /usr/share/man/man8/keepalived.8.gz
 /usr/share/snmp/mibs/KEEPALIVED-MIB.txt
+/usr/share/snmp/mibs/VRRP-MIB.txt
+/usr/share/snmp/mibs/VRRPv3-MIB.txt
 
 %if %{use_systemd}
 %{_unitdir}/keepalived.service
