@@ -10,15 +10,11 @@ Requires(post): chkconfig
 %if 0%{?rhel}  == 7
 Requires(pre): shadow-utils
 Requires: systemd
-BuildRequires: systemd
-BuildRequires: systemd-devel
 %endif
 
 %if 0%{?fedora} >= 18
 Requires(pre): shadow-utils
 Requires: systemd
-BuildRequires: systemd
-BuildRequires: systemd-devel
 %endif
 
 Summary:    Keepalived a LVS driving daemon.
