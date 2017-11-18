@@ -10,15 +10,11 @@ Requires(post): chkconfig
 %if 0%{?rhel}  == 7
 Requires(pre): shadow-utils
 Requires: systemd
-BuildRequires: systemd
-BuildRequires: systemd-devel
 %endif
 
 %if 0%{?fedora} >= 18
 Requires(pre): shadow-utils
 Requires: systemd
-BuildRequires: systemd
-BuildRequires: systemd-devel
 %endif
 
 Summary:    Keepalived a LVS driving daemon.
@@ -31,7 +27,8 @@ Group:      System Environment/Daemons
 URL:        https://github.com/acassen/keepalived
 Vendor:     Alexandre Cassen
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
-Source0:    https://github.com/acassen/keepalived/archive/v%{version}.tar.gz
+Source0:    https://downloads.ulyaoth.net/v%{version}.tar.gz
+#Source0:    https://github.com/acassen/keepalived/archive/v%{version}.tar.gz
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-keepalived/SOURCES/keepalived.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-keepalived/SOURCES/keepalived.service
 BuildRoot:  %{_tmppath}/keepalived-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -59,11 +56,12 @@ All the events process use this I/O multiplexer.
 
 %build
 %{__rm} -rf $RPM_BUILD_ROOT
-./configure --enable-sha1 --enable-snmp --enable-dbus --prefix=%{_prefix} --sysconfdir=%{_sysconfdir}
+./configure --enable-sha1 --enable-snmp --enable-snmp-rfc --enable-dbus --prefix=%{_prefix} --sysconfdir=%{_sysconfdir}
 make %{?_smp_mflags}
 
 %install
 %{__make} DESTDIR=$RPM_BUILD_ROOT INSTALLDIRS=vendor install
+%{__rm} -rf %{buildroot}/%{_datarootdir}/doc/keepalived
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -91,32 +89,7 @@ make %{?_smp_mflags}
 
 /etc/dbus-1/system.d/org.keepalived.Vrrp1.conf
 /etc/keepalived/keepalived.conf
-/etc/keepalived/samples/client.pem
-/etc/keepalived/samples/dh1024.pem
-/etc/keepalived/samples/keepalived.conf.HTTP_GET.port
-/etc/keepalived/samples/keepalived.conf.IPv6
-/etc/keepalived/samples/keepalived.conf.SMTP_CHECK
-/etc/keepalived/samples/keepalived.conf.SSL_GET
-/etc/keepalived/samples/keepalived.conf.fwmark
-/etc/keepalived/samples/keepalived.conf.inhibit
-/etc/keepalived/samples/keepalived.conf.misc_check
-/etc/keepalived/samples/keepalived.conf.misc_check_arg
-/etc/keepalived/samples/keepalived.conf.quorum
-/etc/keepalived/samples/keepalived.conf.sample
-/etc/keepalived/samples/keepalived.conf.status_code
-/etc/keepalived/samples/keepalived.conf.track_interface
-/etc/keepalived/samples/keepalived.conf.virtual_server_group
-/etc/keepalived/samples/keepalived.conf.virtualhost
-/etc/keepalived/samples/keepalived.conf.vrrp
-/etc/keepalived/samples/keepalived.conf.vrrp.localcheck
-/etc/keepalived/samples/keepalived.conf.vrrp.lvs_syncd
-/etc/keepalived/samples/keepalived.conf.vrrp.routes
-/etc/keepalived/samples/keepalived.conf.vrrp.rules
-/etc/keepalived/samples/keepalived.conf.vrrp.scripts
-/etc/keepalived/samples/keepalived.conf.vrrp.static_ipaddress
-/etc/keepalived/samples/keepalived.conf.vrrp.sync
-/etc/keepalived/samples/root.pem
-/etc/keepalived/samples/sample.misccheck.smbcheck.sh
+/etc/keepalived/samples/*
 /etc/sysconfig/keepalived
 /usr/bin/genhash
 /usr/sbin/keepalived
@@ -126,6 +99,8 @@ make %{?_smp_mflags}
 /usr/share/man/man5/keepalived.conf.5.gz
 /usr/share/man/man8/keepalived.8.gz
 /usr/share/snmp/mibs/KEEPALIVED-MIB.txt
+/usr/share/snmp/mibs/VRRP-MIB.txt
+/usr/share/snmp/mibs/VRRPv3-MIB.txt
 
 %if %{use_systemd}
 %{_unitdir}/keepalived.service
