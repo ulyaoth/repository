@@ -64,6 +64,7 @@ make %{?_smp_mflags}
 
 %install
 %{__make} DESTDIR=$RPM_BUILD_ROOT INSTALLDIRS=vendor install
+%{__rm} -rf %{buildroot}/%{_datarootdir}/doc/keepalived
 
 %if %{use_systemd}
 # install systemd-specific files
