@@ -28,7 +28,6 @@ URL:        https://github.com/acassen/keepalived
 Vendor:     Alexandre Cassen
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    https://downloads.ulyaoth.net/v%{version}.tar.gz
-#Source0:    https://github.com/acassen/keepalived/archive/v%{version}.tar.gz
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-keepalived/SOURCES/keepalived.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-keepalived/SOURCES/keepalived.service
 BuildRoot:  %{_tmppath}/keepalived-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -39,6 +38,8 @@ BuildRequires: ipset-devel
 BuildRequires: iptables-devel
 BuildRequires: libnfnetlink-devel
 BuildRequires: glib2-devel
+BuildRequires: automake
+BuildRequires: autoconf
 
 Provides: ulyaoth-keepalived
 Provides: keepalived
