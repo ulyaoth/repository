@@ -1,5 +1,14 @@
 # This script is supposed to run as the user "ulyaoth".
 
+# Clean repository because AMI could have old data.
+if type dnf 2>/dev/null
+then
+  sudo dnf clean all
+elif type yum 2>/dev/null
+then
+  sudo yum clean all
+fi
+
 # Create build environment.
 rpmdev-setuptree
 
