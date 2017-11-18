@@ -45,11 +45,7 @@ BuildArch: x86_64
 Vendor: Hiawatha.
 URL: https://www.hiawatha-webserver.org/
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
-%if 0%{?fedora}  == 19
-Source0:    http://www.hiawatha-webserver.org/files/hiawatha-%{version}.tar.gz
-%else
-Source0:    https://www.hiawatha-webserver.org/files/hiawatha-%{version}.tar.gz
-%endif
+Source0: https://github.com/hsleisink/hiawatha/archive/v%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SOURCES/hiawatha.service
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SOURCES/hiawatha.init
 Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-hiawatha/SOURCES/hiawatha-logrotate
