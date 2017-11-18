@@ -14,6 +14,7 @@ https://www.ulyaoth.net/resources/categories/repository.1/
 * httpdiff
 * jsvc
 * kafka
+* keepalived
 * kibana
 * logstash
 * logstash-Forwarder
