@@ -1,7 +1,7 @@
 You can build the rpms by running the build script:
 
 ulyaoth-tengine:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-ulyaoth-tengine.sh ; chmod +x build-ulyaoth-tengine.sh ; ./build-ulyaoth-tengine.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-tengine.sh ; chmod +x build-tengine.sh ; ./build-tengine.sh
 
 ulyaoth-tengine-selinux:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-ulyaoth-tengine-selinux.sh ; chmod +x build-ulyaoth-tengine-selinux.sh ; ./build-ulyaoth-tengine-selinux.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tengine/build-tengine-selinux.sh ; chmod +x build-tengine-selinux.sh ; ./build-tengine-selinux.sh
