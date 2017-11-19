@@ -28,8 +28,8 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary:    Redis is an in-memory data structure store, used as a database, cache and message broker.
-Name:       ulyaoth-redis3
-Version:    3.2.11
+Name:       ulyaoth-redis4
+Version:    4.0.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    three clause BSD license
@@ -38,8 +38,8 @@ URL:        http://redis.io/
 Vendor:     Salvatore Sanfilippo
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    http://download.redis.io/releases/redis-%{version}.tar.gz
-Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/redis3.conf
-Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/sentinel3.conf
+Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/redis4.conf
+Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/sentinel4.conf
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/redis.service
 Source4:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/redis.init
 Source5:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/COPYING
@@ -49,8 +49,8 @@ BuildRequires:  gcc
 BuildRequires:  tcl
 
 Provides:  redis
-Provides:  redis3
-provides:  ulyaoth-redis3
+Provides:  redis4
+provides:  ulyaoth-redis4
 
 %description
 Redis is an open source (BSD licensed), in-memory data structure store, used as database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs and geospatial indexes with radius queries. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
@@ -139,7 +139,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-redis3!
+Thank you for using ulyaoth-redis4!
 
 Please find the official documentation for redis here:
 * http://redis.io
@@ -181,41 +181,5 @@ fi
 %endif
 
 %changelog
-* Sun Nov 19 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.2.11-1
-- Updated to Redis 3.2.11.
-
-* Wed Aug 9 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.10-1
-- Updated to Redis 3.2.10.
-
-* Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.9-1
-- Updated to Redis 3.2.9.
-
-* Wed Feb 15 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.8-1
-- Updated to Redis 3.2.8.
-
-* Wed Oct 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.5-1
-- Updated to Redis 3.2.5.
-
-* Sat Oct 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.4-1
-- Updated to Redis 3.2.4.
-
-* Sat Aug 6 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.3-1
-- Updated to Redis 3.2.3.
-
-* Sat Jul 30 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.2-1
-- Updated to Redis 3.2.2.
-
-* Sat Jun 18 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.1-1
-- Updated to Redis 3.2.1.
-
-* Fri May 13 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.0-1
-- Updated to Redis 3.2.0.
-
-* Thu Feb 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.0.7-1
-- Updated to Redis 3.0.7.
-
-* Tue Dec 29 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.0.6-1
-- Updated to Redis 3.0.6.
-
-* Mon Nov 2 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.0.5-1
+* Sun Nov 19 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 4.0.2-1
 - Initial Release.
