@@ -25,11 +25,19 @@ Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-connectors/native/
 BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: ulyaoth-apr-devel
+%if 0%{?fedora} >= 26
+BuildRequires: openssl-devel
+%else
 BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}-devel
+%endif
 BuildRequires: java-%{java_version}-openjdk-devel
 BuildRequires: jpackage-utils
 
+%if 0%{?fedora} >= 23
+BuildRequires: openssl-devel
+%else
 Requires: ulyaoth-openssl%{ulyaoth_openssl_version}
+%endif
 Requires: ulyaoth-apr
 
 Provides:  tcnative = %{version}-%{release}
