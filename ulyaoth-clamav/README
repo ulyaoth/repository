@@ -1,4 +1,4 @@
 You can build the rpm by running the build script:
 
 ulyaoth-clamav:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-clamav/build-ulyaoth-clamav.sh ; chmod +x build-ulyaoth-clamav.sh ; ./build-ulyaoth-clamav.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-clamav/build-clamav.sh ; chmod +x build-clamav.sh ; ./build-clamav.sh
