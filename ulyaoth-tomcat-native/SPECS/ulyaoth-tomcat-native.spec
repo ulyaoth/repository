@@ -7,7 +7,7 @@
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native
 Version:    1.1.34
-Release:    2%{?dist}
+Release:    3%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -19,8 +19,11 @@ BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  java-%{java_version}-openjdk-devel
 BuildRequires:  jpackage-utils
-BuildRequires:  apr-devel >= 1.2.1
-BuildRequires:  openssl-devel
+BuildRequires:  ulyaoth-apr-devel
+BuildRequires:  ulyaoth-openssl1.0.2-devel
+
+Requires: ulyaoth-apr
+Requires: ulyaoth-openssl1.0.2
 
 Provides:  tcnative = %{version}-%{release}
 Provides:  tomcat-native
@@ -49,7 +52,7 @@ f=CHANGELOG.txt ; iconv -f iso-8859-1 -t utf-8 $f > $f.utf8 ; mv $f.utf8 $f
 cd jni/native
 %configure \
     --with-apr=%{_bindir}/apr-1-config \
-	--with-ssl=yes \
+	--with-ssl=/usr/local/ulyaoth/openssl1.0.2 \
     --with-java-home=/usr/lib/jvm/java \
     --with-java-platform=2
 make %{?_smp_mflags}
@@ -101,6 +104,10 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Sun Nov 19 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.1.34-3
+- Using ulyaoth-apr.
+- Using ulyaoth-openssl1.0.2.
+
 * Tue Jan 12 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.1.34-2
 - Added conflict for new Tomcat Native 1.2 rpm.
 - Forced build with Java 8, sorry about time.

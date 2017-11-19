@@ -18,16 +18,21 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-
 # Install all requirements
 if type dnf 2>/dev/null
 then
+  sudo dnf remove -y apr-devel openssl-devel
   sudo dnf install -y java-1.8.0-openjdk-devel
   sudo dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat-native.spec
 elif type yum 2>/dev/null
 then
+  sudo yum remove -y apr-devel openssl-devel
   sudo yum install -y java-1.8.0-openjdk-devel
   sudo yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat-native.spec
 fi
 
 # Download additional files specified in spec file.
 spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat-native.spec -g -R
+
+# export variables
+export QA_RPATHS=$[ 0x0001|0x0002 ]
 
 # Build the rpm.
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat-native.spec
