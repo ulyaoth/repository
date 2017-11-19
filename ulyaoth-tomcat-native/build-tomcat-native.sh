@@ -18,12 +18,12 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-
 # Install all requirements
 if type dnf 2>/dev/null
 then
-  sudo dnf remove -y apr-devel
+  sudo dnf remove -y apr apr-devel java-1.7.0-openjdk
   sudo dnf install -y java-1.8.0-openjdk-devel
   sudo dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat-native.spec
 elif type yum 2>/dev/null
 then
-  sudo yum remove -y apr-devel
+  sudo yum remove -y apr apr-devel java-1.7.0-openjdk
   sudo yum install -y java-1.8.0-openjdk-devel
   sudo yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-tomcat-native.spec
 fi
