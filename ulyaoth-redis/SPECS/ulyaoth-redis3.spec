@@ -29,14 +29,14 @@ BuildRequires: systemd
 
 Summary:    Redis is an in-memory data structure store, used as a database, cache and message broker.
 Name:       ulyaoth-redis3
-Version:    3.2.10
+Version:    3.2.11
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    three clause BSD license
 Group:      Applications/Databases
 URL:        http://redis.io/
 Vendor:     Salvatore Sanfilippo
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    http://download.redis.io/releases/redis-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/redis.conf
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/sentinel.conf
@@ -181,6 +181,9 @@ fi
 %endif
 
 %changelog
+* Sun Nov 19 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.2.11-1
+- Updated to Redis 3.2.11.
+
 * Wed Aug 9 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.2.10-1
 - Updated to Redis 3.2.10.
 
