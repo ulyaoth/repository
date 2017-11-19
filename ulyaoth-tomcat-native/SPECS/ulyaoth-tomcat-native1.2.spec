@@ -25,7 +25,7 @@ Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-connectors/native/
 BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: ulyaoth-apr-devel
-BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}
+BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}-devel
 BuildRequires: java-%{java_version}-openjdk-devel
 BuildRequires: jpackage-utils
 
