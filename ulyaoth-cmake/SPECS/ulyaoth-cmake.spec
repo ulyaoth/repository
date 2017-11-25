@@ -2,7 +2,7 @@
 
 Summary:    CMake is an open-source, cross-platform family of tools designed to build, test and package software.
 Name:       ulyaoth-cmake
-Version:    3.9.6
+Version:    3.10.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    OSI-approved BSD 3-clause License
@@ -46,22 +46,22 @@ gmake install DESTDIR=$RPM_BUILD_ROOT
 /usr/bin/cpack
 /usr/bin/ctest
 
-%dir /usr/doc/cmake-3.9  
-%doc /usr/doc/cmake-3.9/Copyright.txt
-%doc /usr/doc/cmake-3.9/cmcompress/Copyright.txt
-%doc /usr/doc/cmake-3.9/cmcurl/COPYING
-%doc /usr/doc/cmake-3.9/cmlibarchive/COPYING
-%doc /usr/doc/cmake-3.9/cmliblzma/COPYING
-%doc /usr/doc/cmake-3.9/cmlibrhash/COPYING
-%doc /usr/doc/cmake-3.9/cmlibrhash/README
-%doc /usr/doc/cmake-3.9/cmlibuv/LICENSE
-%doc /usr/doc/cmake-3.9/cmsys/Copyright.txt
-%doc /usr/doc/cmake-3.9/cmzlib/Copyright.txt
+%dir /usr/doc/cmake-3.10  
+%doc /usr/doc/cmake-3.10/Copyright.txt
+%doc /usr/doc/cmake-3.10/cmcompress/Copyright.txt
+%doc /usr/doc/cmake-3.10/cmcurl/COPYING
+%doc /usr/doc/cmake-3.10/cmlibarchive/COPYING
+%doc /usr/doc/cmake-3.10/cmliblzma/COPYING
+%doc /usr/doc/cmake-3.10/cmlibrhash/COPYING
+%doc /usr/doc/cmake-3.10/cmlibrhash/README
+%doc /usr/doc/cmake-3.10/cmlibuv/LICENSE
+%doc /usr/doc/cmake-3.10/cmsys/Copyright.txt
+%doc /usr/doc/cmake-3.10/cmzlib/Copyright.txt
 
 /usr/share/aclocal/cmake.m4
 
-%dir /usr/share/cmake-3.9
-/usr/share/cmake-3.9/*
+%dir /usr/share/cmake-3.10
+/usr/share/cmake-3.10/*
 
 %post
 cat <<BANNER
@@ -84,6 +84,9 @@ BANNER
 %postun
 
 %changelog
+* Sat Nov 25 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.10.0-1
+- Updated cmake to 3.10.0.
+
 * Thu Nov 16 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.9.6-1
 - Updated cmake to 3.9.6.
 
