@@ -7,7 +7,7 @@ ulyaothos=`cat /etc/ulyaoth`
 if [ "$ulyaothos" == "redhat6" ] || [ "$ulyaothos" == "oraclelinux6" ] || [ "$ulyaothos" == "scientificlinux6" ] || [ "$ulyaothos" == "centos6" ]
 then
   # Install newer g++
-  yum install -y yum install http://ftp.scientificlinux.org/linux/scientific/6x/external_products/softwarecollections/yum-conf-softwarecollections-2.0-1.el6.noarch.rpm
+  yum install -y http://ftp.scientificlinux.org/linux/scientific/6x/external_products/softwarecollections/yum-conf-softwarecollections-2.0-1.el6.noarch.rpm
   yum install -y devtoolset-7-gcc-c++
   
   # Export newer g++ to environment
