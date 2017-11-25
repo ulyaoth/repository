@@ -3,6 +3,7 @@
 # Get OS
 ulyaothos=`cat /etc/ulyaoth`
 
+# If OS for rhel is 6 install additional packages.
 if [ "$ulyaothos" == "redhat6" ] || [ "$ulyaothos" == "oraclelinux6" ] || [ "$ulyaothos" == "scientificlinux6" ] || [ "$ulyaothos" == "centos6" ]
 then
   # Install newer g++
