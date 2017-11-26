@@ -70,6 +70,9 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 %doc /usr/share/doc/parallel_tutorial.html
 %doc /usr/share/doc/parallel_tutorial.pdf
 %doc /usr/share/doc/parallel_tutorial.texi
+%doc /usr/share/doc/parallel_book.html
+%doc /usr/share/doc/parallel_book.pdf
+%doc /usr/share/doc/parallel_book.texi
 %doc /usr/share/doc/parcat.html
 %doc /usr/share/doc/parcat.pdf
 %doc /usr/share/doc/parcat.texi
@@ -92,6 +95,7 @@ make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr install
 %doc /usr/share/man/man7/parallel_alternatives.7.gz
 %doc /usr/share/man/man7/parallel_design.7.gz
 %doc /usr/share/man/man7/parallel_tutorial.7.gz
+%doc /usr/share/man/man7/parallel_book.7.gz
 
 %post
 /sbin/ldconfig
