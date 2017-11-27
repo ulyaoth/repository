@@ -13,6 +13,9 @@ BuildRoot:  %{_tmppath}/geoipupdate-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: zlib-devel
 BuildRequires: curl-devel
+BuildRequires: autoconf
+BuildRequires: automake
+BuildRequires: libtool
 
 Requires: zlib
 Requires: curl
