@@ -1,4 +1,4 @@
 How to create a package:
 
 ulyaoth-geoipupdate:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-geoipupdate/build-ulyaoth-geoipupdate.sh ; chmod +x build-ulyaoth-geoipupdate.sh ; ./build-ulyaoth-geoipupdate.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-geoipupdate/build-geoipupdate.sh ; chmod +x build-geoipupdate.sh ; ./build-geoipupdate.sh
