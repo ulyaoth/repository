@@ -4,7 +4,7 @@
 rpmdev-setuptree
 
 # Download spec file.
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-geoipupdate/SPECS/ulyaoth-varnish5.spec -O /home/ulyaoth/rpmbuild/SPECS/ulyaoth-varnish5.spec
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SPECS/ulyaoth-varnish5.spec -O /home/ulyaoth/rpmbuild/SPECS/ulyaoth-varnish5.spec
 
 # Install all requirements
 if type dnf 2>/dev/null
