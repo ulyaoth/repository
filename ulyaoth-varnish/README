@@ -1,16 +1,19 @@
 You can build the rpm by running the build script:
 
+ulyaoth-varnish5.2:
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish5.2.sh ; chmod +x build-varnish5.2.sh ; ./build-varnish5.2.sh
+
 ulyaoth-varnish5.1:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish5.1.sh ; chmod +x build-ulyaoth-varnish5.1.sh ; ./build-ulyaoth-varnish5.1.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-varnish5.1.sh ; chmod +x build-varnish5.1.sh ; ./build-varnish5.1.sh
 
 ulyaoth-varnish5:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish5.sh ; chmod +x build-ulyaoth-varnish5.sh ; ./build-ulyaoth-varnish5.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-varnish5.sh ; chmod +x build-varnish5.sh ; ./build-varnish5.sh
 
 ulyaoth-varnish4.1:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish4.1.sh ; chmod +x build-ulyaoth-varnish4.1.sh ; ./build-ulyaoth-varnish4.1.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-varnish4.1.sh ; chmod +x build-varnish4.1.sh ; ./build-ulyaoth-varnish4.1.sh
 
 ulyaoth-varnish4:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish4.sh ; chmod +x build-ulyaoth-varnish4.sh ; ./build-ulyaoth-varnish4.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-varnish4.sh ; chmod +x build-varnish4.sh ; ./build-varnish4.sh
 
 ulyaoth-varnish3:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-ulyaoth-varnish3.sh ; chmod +x build-ulyaoth-varnish3.sh ; ./build-ulyaoth-varnish3.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/build-varnish3.sh ; chmod +x build-varnish3.sh ; ./build-varnish3.sh
