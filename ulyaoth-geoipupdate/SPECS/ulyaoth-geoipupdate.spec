@@ -1,6 +1,6 @@
 Summary:    The GeoIP Update program performs automatic updates of GeoIP2 and GeoIP Legacy binary databases.
 Name:       ulyaoth-geoipupdate
-Version:    2.4.0
+Version:    2.5.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv2
@@ -86,6 +86,9 @@ BANNER
 %postun
 
 %changelog
+* Mon Nov 27 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 2.5.0-1
+- Updated GeoIP Update to 2.5.0.
+
 * Fri May 26 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.4.0-1
 - Updated GeoIP Update to 2.4.0.
 
