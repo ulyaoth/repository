@@ -36,7 +36,7 @@ Group:      System Environment/Daemons
 URL:        https://www.haproxy.org/
 Vendor:     HAProxy
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
-Source0:    https://downloads.ulyaoth.net/haproxy-%{version}.tar.gz
+Source0:    http://www.haproxy.org/download/1.7/src/haproxy-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.cfg
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.service
