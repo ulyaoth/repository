@@ -29,13 +29,13 @@ BuildRequires: systemd-devel
 Summary:    The Reliable, High Performance TCP/HTTP Load Balancer
 Name:       ulyaoth-haproxy1.3
 Version:    1.3.28
-Release:    2%{?dist}
+Release:    3%{?dist}
 BuildArch: x86_64
 License:    GPL/LGPL
 Group:      System Environment/Daemons
 URL:        https://www.haproxy.org/
 Vendor:     HAProxy
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    http://www.haproxy.org/download/1.3/src/haproxy-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.cfg
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.init
@@ -52,6 +52,7 @@ Provides: haproxy
 Provides: ulyaoth-haproxy
 Provides: ulyaoth-haproxy1.3
 
+Conflicts: ulyaoth-haproxy1.8
 Conflicts: ulyaoth-haproxy1.7
 Conflicts: ulyaoth-haproxy1.6
 Conflicts: ulyaoth-haproxy1.5
@@ -172,6 +173,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Nov 30 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.3.28-3
+- Added conflict for HAProxy 1.8.
+
 * Sun Feb 5 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.3.28-2
 - Changed locations to be stock.
 
