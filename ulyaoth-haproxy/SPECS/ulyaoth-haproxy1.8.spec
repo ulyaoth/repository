@@ -129,6 +129,8 @@ mv $RPM_BUILD_ROOT/usr/doc $RPM_BUILD_ROOT/usr/share/
 %{_docdir}/haproxy/netscaler-client-ip-insertion-protocol.txt
 %{_docdir}/haproxy/network-namespaces.txt
 %{_docdir}/haproxy/proxy-protocol.txt
+%{_docdir}/haproxy/peers-v2.0.txt
+%{_docdir}/haproxy/peers.txt
 
 %{_mandir}/man1/haproxy.1.gz
 
