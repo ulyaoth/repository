@@ -27,16 +27,16 @@ BuildRequires: systemd-devel
 # end of distribution specific definitions
 
 Summary:    The Reliable, High Performance TCP/HTTP Load Balancer
-Name:       ulyaoth-haproxy1.6
-Version:    1.6.13
-Release:    2%{?dist}
+Name:       ulyaoth-haproxy1.8
+Version:    1.8.0
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPL/LGPL
 Group:      System Environment/Daemons
 URL:        https://www.haproxy.org/
 Vendor:     HAProxy
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
-Source0:    http://www.haproxy.org/download/1.6/src/haproxy-%{version}.tar.gz
+Source0:    https://downloads.ulyaoth.net/haproxy-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.cfg
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.init
 Source3:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.service
@@ -44,20 +44,21 @@ BuildRoot:  %{_tmppath}/haproxy-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: ulyaoth-openssl1.0.2-devel
+BuildRequires: ulyaoth-openssl1.1.0-devel
 BuildRequires: ulyaoth-lua5.3-devel
 BuildRequires: ulyaoth-lua5.3-static
 
-Requires: ulyaoth-openssl1.0.2-libs
+
+Requires: ulyaoth-openssl1.1.0-libs
 Requires: pcre
 Requires: zlib
 
 Provides: haproxy
 Provides: ulyaoth-haproxy
-Provides: ulyaoth-haproxy1.6
+Provides: ulyaoth-haproxy1.8
 
-Conflicts: ulyaoth-haproxy1.8
 Conflicts: ulyaoth-haproxy1.7
+Conflicts: ulyaoth-haproxy1.6
 Conflicts: ulyaoth-haproxy1.5
 Conflicts: ulyaoth-haproxy1.4
 Conflicts: ulyaoth-haproxy1.3
@@ -70,7 +71,7 @@ HAProxy is a free, very fast and reliable solution offering high availability, l
 
 %build
 
-make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib64 LUA_INC=/usr/local/ulyaoth/lua5.3/include USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/openssl1.0.2/include SSL_LIB=/usr/local/ulyaoth/openssl1.0.2/lib ADDLIB=-ldl
+make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib64 LUA_INC=/usr/local/ulyaoth/lua5.3/include USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/openssl1.1.0/include SSL_LIB=/usr/local/ulyaoth/openssl1.1.0/lib ADDLIB=-ldl
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -113,6 +114,10 @@ mv $RPM_BUILD_ROOT/usr/doc $RPM_BUILD_ROOT/usr/share/
 %config(noreplace) %{_sysconfdir}/haproxy/haproxy.cfg
 
 %dir %{_docdir}/haproxy
+%{_docdir}/haproxy/51Degrees-device-detection.txt
+%{_docdir}/haproxy/DeviceAtlas-device-detection.txt
+%{_docdir}/haproxy/SPOE.txt
+%{_docdir}/haproxy/WURFL-device-detection.txt
 %{_docdir}/haproxy/architecture.txt
 %{_docdir}/haproxy/close-options.txt
 %{_docdir}/haproxy/configuration.txt
@@ -121,6 +126,7 @@ mv $RPM_BUILD_ROOT/usr/doc $RPM_BUILD_ROOT/usr/share/
 %{_docdir}/haproxy/linux-syn-cookies.txt
 %{_docdir}/haproxy/lua.txt
 %{_docdir}/haproxy/management.txt
+%{_docdir}/haproxy/netscaler-client-ip-insertion-protocol.txt
 %{_docdir}/haproxy/network-namespaces.txt
 %{_docdir}/haproxy/proxy-protocol.txt
 
@@ -145,7 +151,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-haproxy1.6!
+Thank you for using ulyaoth-haproxy1.8!
 
 Please find the official documentation for HAProxy here:
 * https://www.haproxy.org/
@@ -183,24 +189,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Nov 30 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.13-2
-- Added conflict for HAProxy 1.8.
-
-* Sat Jul 1 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.13-1
-- Updated to HAProxy 1.6.13.
-
-* Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.12-1
-- Updated to HAProxy 1.6.12.
-
-* Sun Feb 5 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.11-1
-- Updated to HAProxy 1.6.11.
-- Changed locations to be stock like.
-
-* Sat Nov 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.10-1
-- Updated to HAProxy 1.6.10.
-
-* Thu Oct 20 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.9-2
-- Added Lua support.
-
-* Tue Oct 11 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.9-1
-- Initial release for HAProxy 1.6.
+* Thu Nov 30 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.8.0-1
+- Initial release for HAProxy 1.8.
