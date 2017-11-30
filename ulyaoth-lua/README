@@ -1,4 +1,4 @@
 You can build the rpm by running the build script:
 
 ulyaoth-lua5.3:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-lua/build-ulyaoth-lua5.3.sh ; chmod +x build-ulyaoth-lua5.3.sh ; ./build-ulyaoth-lua5.3.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-lua/build-lua5.3.sh ; chmod +x build-lua5.3.sh ; ./build-lua5.3.sh
