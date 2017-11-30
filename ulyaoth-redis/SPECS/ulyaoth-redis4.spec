@@ -29,7 +29,7 @@ BuildRequires: systemd
 
 Summary:    Redis is an in-memory data structure store, used as a database, cache and message broker.
 Name:       ulyaoth-redis4
-Version:    4.0.2
+Version:    4.0.4
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    three clause BSD license
