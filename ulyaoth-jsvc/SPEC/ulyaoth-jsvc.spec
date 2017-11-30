@@ -1,13 +1,13 @@
 Summary:    Commons Daemon
 Name:       ulyaoth-jsvc
-Version:    1.0.15
+Version:    1.1.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      System Environment/Daemons
 URL:        https://www.ulyaoth.net
 Vendor:     Ulyaoth
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    http://apache.mirrors.spacedump.net//commons/daemon/source/commons-daemon-%{version}-src.tar.gz
 BuildRoot:  %{_tmppath}/jsvc-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -62,5 +62,8 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Thu Nov 30 2015 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.1.0-1
+- Update jsvc to 1.1.0.
+
 * Sun Dec 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.15-1
 - Initial release.
