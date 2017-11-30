@@ -62,7 +62,7 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
-* Thu Nov 30 2015 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.1.0-1
+* Thu Nov 30 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.1.0-1
 - Update jsvc to 1.1.0.
 
 * Sun Dec 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.15-1
