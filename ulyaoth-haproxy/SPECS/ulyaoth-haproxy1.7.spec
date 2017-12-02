@@ -55,9 +55,9 @@ BuildRequires: ulyaoth-lua5.3-static
 
 
 %if 0%{?fedora} >= 26
-BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}-libs
-%else
 BuildRequires: openssl
+%else
+BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}-libs
 %endif 
 Requires: pcre
 Requires: zlib
