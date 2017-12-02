@@ -46,9 +46,9 @@ BuildRoot:  %{_tmppath}/haproxy-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 %if 0%{?fedora} >= 26
-BuildRequires: openssl-devel
-%else
 BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}-devel
+%else
+BuildRequires: openssl-devel
 %endif
 BuildRequires: ulyaoth-lua5.3-devel
 BuildRequires: ulyaoth-lua5.3-static
