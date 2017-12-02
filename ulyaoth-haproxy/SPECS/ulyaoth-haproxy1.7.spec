@@ -1,5 +1,6 @@
 AutoReqProv: no
 %define debug_package %{nil}
+%define ulyaoth_openssl_version 1.1.0
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -44,12 +45,20 @@ BuildRoot:  %{_tmppath}/haproxy-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: ulyaoth-openssl1.1.0-devel
+%if 0%{?fedora} >= 26
+BuildRequires: openssl-devel
+%else
+BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}-devel
+%endif
 BuildRequires: ulyaoth-lua5.3-devel
 BuildRequires: ulyaoth-lua5.3-static
 
 
-Requires: ulyaoth-openssl1.1.0-libs
+%if 0%{?fedora} >= 26
+BuildRequires: ulyaoth-openssl%{ulyaoth_openssl_version}-libs
+%else
+BuildRequires: openssl
+%endif 
 Requires: pcre
 Requires: zlib
 
@@ -71,7 +80,11 @@ HAProxy is a free, very fast and reliable solution offering high availability, l
 
 %build
 
+%if 0%{?fedora} >= 26
 make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib64 LUA_INC=/usr/local/ulyaoth/lua5.3/include USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/openssl1.1.0/include SSL_LIB=/usr/local/ulyaoth/openssl1.1.0/lib ADDLIB=-ldl
+%else
+make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib64 LUA_INC=/usr/local/ulyaoth/lua5.3/include USE_OPENSSL=1 ADDLIB=-ldl
+%endif 
 
 %install
 rm -rf $RPM_BUILD_ROOT
