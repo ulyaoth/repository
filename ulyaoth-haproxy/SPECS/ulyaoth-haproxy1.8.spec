@@ -2,12 +2,6 @@ AutoReqProv: no
 %define debug_package %{nil}
 %define ulyaoth_openssl_version 1.1.0
 
-%if %{use_systemd}
-
-%else
-%define enable_systemd 0
-%endif
-
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
