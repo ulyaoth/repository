@@ -9,7 +9,6 @@ AutoReqProv: no
 Requires(pre): shadow-utils
 Requires: initscripts >= 8.36
 Requires(post): chkconfig
-%define enable_systemd 0
 %endif
 
 %if 0%{?rhel}  == 7
@@ -17,7 +16,6 @@ Requires(pre): shadow-utils
 Requires: systemd
 BuildRequires: systemd
 BuildRequires: systemd-devel
-%define enable_systemd 1
 %endif
 
 %if 0%{?fedora} >= 18
@@ -25,7 +23,6 @@ Requires(pre): shadow-utils
 Requires: systemd
 BuildRequires: systemd
 BuildRequires: systemd-devel
-%define enable_systemd 1
 %endif
 
 # end of distribution specific definitions
@@ -83,10 +80,14 @@ HAProxy is a free, very fast and reliable solution offering high availability, l
 
 %build
 
+%if %{use_systemd}
 %if 0%{?fedora} >= 26
-make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib64 LUA_INC=/usr/local/ulyaoth/lua5.3/include USE_OPENSSL=1 USE_SYSTEMD=%{enable_systemd} ADDLIB=-ldl
+make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib64 LUA_INC=/usr/local/ulyaoth/lua5.3/include USE_OPENSSL=1 USE_SYSTEMD=1 ADDLIB=-ldl
 %else
-make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib64 LUA_INC=/usr/local/ulyaoth/lua5.3/include USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/openssl1.1.0/include SSL_LIB=/usr/local/ulyaoth/openssl1.1.0/lib USE_SYSTEMD=%{enable_systemd} ADDLIB=-ldl
+make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib64 LUA_INC=/usr/local/ulyaoth/lua5.3/include USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/openssl1.1.0/include SSL_LIB=/usr/local/ulyaoth/openssl1.1.0/lib USE_SYSTEMD=1 ADDLIB=-ldl
+%endif
+%else
+make PREFIX=/usr TARGET=linux2628 USE_GETADDRINFO=1 USE_LINUX_TPROXY=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 LUA_LIB=/usr/local/ulyaoth/lua5.3/lib64 LUA_INC=/usr/local/ulyaoth/lua5.3/include USE_OPENSSL=1 SSL_INC=/usr/local/ulyaoth/openssl1.1.0/include SSL_LIB=/usr/local/ulyaoth/openssl1.1.0/lib ADDLIB=-ldl
 %endif
 
 %install
