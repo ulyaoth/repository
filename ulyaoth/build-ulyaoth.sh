@@ -1,7 +1,13 @@
 # This script is supposed to run as the user "ulyaoth".
 
 # Set required variables.
-ulyaothos=`cat /etc/ulyaoth`
+if [ "$ulyaothos" == "amazonlinux2" ]
+then
+  # If Amazon Linux 2 change repo file.
+  ulyaothos=`cat /etc/ulyaoth`  
+else
+  ulyaothos=`cat /etc/ulyaoth | sed 's/[0-9]*//g'`
+fi
 
 # Create build environment.
 rpmdev-setuptree
