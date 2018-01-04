@@ -18,7 +18,7 @@ spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec -g -R
 # If Amazon Linux 2 change repo file.
 if [ "$ulyaothos" == "amazonlinux2" ]
 then
-  sed -i "s/amzn/amzn2/g" /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec
+  sed -i "s/amzn/amzn2/g" /home/ulyaoth/rpmbuild/SOURCES/ulyaoth-amazonlinux.repo
 fi
 
 # Build the rpm.
