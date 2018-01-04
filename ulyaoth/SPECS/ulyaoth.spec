@@ -2,7 +2,7 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 3.0.0
+Version: 3.0.1
 BuildArch: x86_64
 URL: https://www.ulyaoth.net/
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
@@ -19,7 +19,7 @@ BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
 License: GPLv3
 
 Provides: ulyaoth
-Obsoletes: ulyaoth <= 2.0.0
+Obsoletes: ulyaoth <= 3.0.0
 
 %description
 Ulyaoth repository.
@@ -62,6 +62,9 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Thu Jan 4 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.0.1-1
+- Support for Amazon Linux 2.
+
 * Mon Nov 13 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.0.0-1
 - Changed url locations to make repository more red hat / fedora alike.
 
