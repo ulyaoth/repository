@@ -1,19 +1,29 @@
 Please be aware this spec file is based on the original spec file that nginx provides in their source rpm packages.
 
-You can build the rpms by running the build script: ./build-ulyaoth-nginx-stable-and-mainline-modules.sh headers-more
-
-The below command would build both the stable and mainline module.
-
-So you can build a module rpm as following:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-ulyaoth-nginx-stable-and-mainline-modules.sh ; chmod +x build-ulyaoth-nginx-stable-and-mainline-modules.sh ; ./build-ulyaoth-nginx-stable-and-mainline-modules.sh headers-more
-
 Supported modules:
-headers-more (https://github.com/openresty/headers-more-nginx-module)
-echo (https://github.com/openresty/echo-nginx-module)
-pam (https://github.com/stogh/ngx_http_auth_pam_module)
-form-input (https://github.com/calio/form-input-nginx-module)
-devel-kit (https://github.com/simpl/ngx_devel_kit)
-encrypted-session (https://github.com/openresty/encrypted-session-nginx-module)
-array-var (https://github.com/openresty/array-var-nginx-module)
-naxsi (https://github.com/nbs-system/naxsi)
-passenger5 (https://github.com/phusion/passenger)
+headers-more (https://github.com/openresty/headers-more-nginx-module):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-headers-more.sh ; chmod +x build-headers-more.sh ; ./build-headers-more.sh
+
+echo (https://github.com/openresty/echo-nginx-module):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-echo.sh ; chmod +x build-echo.sh ; ./build-echo.sh
+
+pam (https://github.com/stogh/ngx_http_auth_pam_module):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-pam.sh ; chmod +x build-pam.sh ; ./build-pam.sh
+
+form-input (https://github.com/calio/form-input-nginx-module):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-form-input.sh ; chmod +x build-form-input.sh ; ./build-form-input.sh
+
+devel-kit (https://github.com/simpl/ngx_devel_kit):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-devel-kit.sh ; chmod +x build-devel-kit.sh ; ./build-devel-kit.sh
+
+encrypted-session (https://github.com/openresty/encrypted-session-nginx-module):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-encrypted-session.sh ; chmod +x build-encrypted-session.sh ; ./build-encrypted-session.sh
+
+array-var (https://github.com/openresty/array-var-nginx-module):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-array-var.sh ; chmod +x build-array-var.sh ; ./build-array-var.sh
+
+naxsi (https://github.com/nbs-system/naxsi):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-naxsi.sh ; chmod +x build-naxsi.sh ; ./build-naxsi.sh
+
+passenger5 (https://github.com/phusion/passenger):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-passenger5.sh ; chmod +x build-passenger5.sh ; ./build-passenger5.sh
