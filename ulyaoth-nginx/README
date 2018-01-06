@@ -1,15 +1,12 @@
 Please be aware this spec file is based on the original spec file that nginx provides in their source rpm packages.
 
-You can build the rpms by running the build script: ./build-ulyaoth-nginx-stable-or-mainline.sh
-
-we support the inputs:
+Run the below commands to build:
 
 stable: (ulyaoth-nginx)
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-or-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline.sh ; ./build-ulyaoth-nginx-stable-or-mainline.sh stable
-
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-nginx.sh ; chmod +x build-nginx.sh ; ./build-nginx.sh
 
 mainline: (ulyaoth-nginx-mainline)
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-stable-or-mainline.sh ; chmod +x build-ulyaoth-nginx-stable-or-mainline.sh ; ./build-ulyaoth-nginx-stable-or-mainline.sh mainline
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-nginx-mainline.sh ; chmod +x build-nginx-mainline.sh ; ./build-nginx-mainline.sh
 
 ulyaoth-nginx-mainline-selinux:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-ulyaoth-nginx-mainline-selinux.sh ; chmod +x build-ulyaoth-nginx-mainline-selinux.sh ; ./build-ulyaoth-nginx-mainline-selinux.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/build-nginx-mainline-selinux.sh ; chmod +x build-nginx-mainline-selinux.sh ; ./build-nginx-mainline-selinux.sh
