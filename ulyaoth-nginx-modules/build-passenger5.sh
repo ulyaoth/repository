@@ -8,16 +8,18 @@ moduleversion=5.1.12
 # Get the passenger version 
 passenger5()
 {
-rm -rf  /usr/local/ulyaoth/passenger5
-mkdir -p /usr/local/ulyaoth/passenger5
+sudo rm -rf  /usr/local/ulyaoth/passenger5
+sudo mkdir -p /usr/local/ulyaoth/passenger5
+sudo chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
 cd /usr/local/ulyaoth/passenger5
 git clone -b stable-5.0 git://github.com/phusion/passenger.git
 cd /usr/local/ulyaoth/passenger5/passenger
 git checkout release-$moduleversion
 git submodule update --init --recursive
+cd /home/ulyaoth
 mv /usr/local/ulyaoth/passenger5/passenger/* /usr/local/ulyaoth/passenger5/
 rm -rf /usr/local/ulyaoth/passenger5/passenger
-chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
+sudo chown -R ulyaoth:ulyaoth /usr/local/ulyaoth
 }
 
 # create module folder used to build
