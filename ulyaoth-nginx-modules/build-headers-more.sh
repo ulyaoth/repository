@@ -3,7 +3,7 @@
 # This script is supposed to run as the user "ulyaoth".
 
 # Set version for module.
-moduleversion=0.32
+moduleversion=0.33
 
 # create module folder used to build
 wget https://github.com/openresty/headers-more-nginx-module/archive/v$moduleversion.tar.gz
