@@ -45,3 +45,6 @@ export QA_RPATHS=$[ 0x0001|0x0002 ]
 # Build the rpm.
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-form-input-module.spec
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-form-input-module.spec
+
+# Clean non related rpms
+find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "-form-input-" |xargs rm

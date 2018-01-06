@@ -45,3 +45,6 @@ export QA_RPATHS=$[ 0x0001|0x0002 ]
 # Build the rpm.
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-array-var-module.spec
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-array-var-module.spec
+
+# Clean non related rpms
+find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "-array-var-" |xargs rm
