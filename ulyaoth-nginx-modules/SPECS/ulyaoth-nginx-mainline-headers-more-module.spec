@@ -70,9 +70,9 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.13.4
+%define main_version                 1.13.8
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.1.12
+%define njs_version                  0.1.15
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -83,8 +83,8 @@ BuildRequires: libGeoIP-devel
 %define module_perl_release          1%{?dist}.ngx
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
-%define module_headers_more_version  0.32
-%define module_headers_more_release  7%{?dist}
+%define module_headers_more_version  0.33
+%define module_headers_more_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -684,6 +684,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Jan 6 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 0.33-1
+- Updated headers-more module to version 0.33.
+- Updated nginx to version 1.13.8.
+
 * Wed Aug 9 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 0.32-7
 - Updated nginx mainline to 1.13.4.
 
