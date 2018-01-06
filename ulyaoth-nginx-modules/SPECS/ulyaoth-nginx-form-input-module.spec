@@ -54,6 +54,8 @@ BuildRequires: systemd
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
+BuildRequires: clang
+BuildRequires: which
 %endif
 
 %if 0%{?suse_version} == 1315
