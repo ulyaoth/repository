@@ -42,4 +42,4 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-devel-kit-module.spec
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-devel-kit-module.spec
 
 # Clean non related rpms
-find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "-kit-" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "devel-kit" |xargs rm

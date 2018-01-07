@@ -7,9 +7,9 @@ moduleversion=0.55.3
 
 # create module folder used to build
 wget https://github.com/nbs-system/naxsi/archive/$moduleversion.tar.gz
-tar xvf v$moduleversion.tar.gz
-mv naxsi-module-$moduleversion /home/ulyaoth/naxsi-module
-rm -rf v$moduleversion.tar.gz
+tar xvf $moduleversion.tar.gz
+mv naxsi-$moduleversion /home/ulyaoth/naxsi-module
+rm -rf $moduleversion.tar.gz
 
 # Create build environment.
 rpmdev-setuptree
@@ -42,4 +42,4 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-naxsi-module.spec
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-module.spec
 
 # Clean non related rpms
-find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "-naxsi-" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "naxsi" |xargs rm
