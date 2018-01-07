@@ -57,4 +57,4 @@ passenger5
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-passenger5-module.spec
 
 # Clean non related rpms
-find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "-passenger5-" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "passenger5" |xargs rm
