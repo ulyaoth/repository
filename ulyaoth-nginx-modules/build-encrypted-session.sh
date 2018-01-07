@@ -47,4 +47,4 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-encrypted-session-module
 rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-encrypted-session-module.spec
 
 # Clean non related rpms
-find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "-encrypted-session-" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "-encrypted-" |xargs rm
