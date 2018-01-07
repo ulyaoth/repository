@@ -3,7 +3,7 @@
 # This script is supposed to run as the user "ulyaoth".
 
 # Set version for module.
-moduleversion=0.32
+moduleversion=0.55.3
 
 # create module folder used to build
 wget https://github.com/nbs-system/naxsi/archive/$moduleversion.tar.gz
