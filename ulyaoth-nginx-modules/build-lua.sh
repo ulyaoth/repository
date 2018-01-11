@@ -7,7 +7,7 @@ moduleversion=0.10.11
 develkitversion=0.3.0
 
 # create module folder used to build
-wget https://github.com/openresty/lua-nginx-module/archive/v$moduleversion..tar.gz
+wget https://github.com/openresty/lua-nginx-module/archive/v$moduleversion.tar.gz
 tar xvf v$moduleversion.tar.gz
 mv lua-nginx-module-$moduleversion /home/ulyaoth/lua-module
 rm -rf v$moduleversion.tar.gz
