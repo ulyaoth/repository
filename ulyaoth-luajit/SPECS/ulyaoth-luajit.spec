@@ -9,7 +9,7 @@ License:    mit
 Group:      Applications/Internet
 URL:        https://luajit.org/
 Vendor:     Mike Pall
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
 Source0:    http://luajit.org/download/LuaJIT-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/luajit-%{version}-%{release}-root-%(%{__id_u} -n)
 
