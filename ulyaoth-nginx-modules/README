@@ -27,3 +27,6 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-m
 
 passenger5 (https://github.com/phusion/passenger):
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-passenger5.sh ; chmod +x build-passenger5.sh ; ./build-passenger5.sh
+
+lua (https://github.com/openresty/lua-nginx-module):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-lua.sh ; chmod +x build-lua.sh ; ./build-lua.sh
