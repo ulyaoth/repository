@@ -1,4 +1,4 @@
 How to build the rpm:
 
 ulyaoth-luajit:
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-luajit/build-ulyaoth-luajit.sh ; chmod +x build-ulyaoth-luajit.sh ; ./build-ulyaoth-luajit.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-luajit/build-luajit.sh ; chmod +x build-luajit.sh ; ./build-luajit.sh
