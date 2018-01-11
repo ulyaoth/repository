@@ -87,8 +87,8 @@ BuildRequires: libGeoIP-devel
 %define module_njs_release           1%{?dist}.ngx
 %define module_devel_kit_version  0.3.0
 %define module_devel_kit_release  1%{?dist}
-%define module_array_var_version  0.10.11
-%define module_array_var_release  1%{?dist}
+%define module_lua_version  0.10.11
+%define module_lua_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -138,7 +138,7 @@ BuildRequires: libGeoIP-devel
         --with-mail_ssl_module \
         --with-file-aio \
         --add-dynamic-module=/home/ulyaoth/devel-kit-module \
-        --add-dynamic-module=/home/ulyaoth/array-var-module \
+        --add-dynamic-module=/home/ulyaoth/lua-module \
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
@@ -250,15 +250,15 @@ Summary: nginx devel kit module
 %description module-devel-kit
 Dynamic devel kit module for nginx.
 
-%package module-array-var
-Version: %{module_array_var_version}
-Release: %{module_array_var_release}
+%package module-lua
+Version: %{module_lua_version}
+Release: %{module_lua_release}
 Group: %{_group}
 Requires: ulyaoth-nginx-mainline
 Requires: ulyaoth-nginx-mainline-module-devel-kit
-Summary: nginx array var module
-%description module-array-var
-Dynamic array var module for nginx.
+Summary: nginx lua module
+%description module-lua
+Dynamic lua module for nginx.
 
 %prep
 %setup -q -n nginx-%{main_version}
@@ -295,8 +295,8 @@ make %{?_smp_mflags}
     %{_builddir}/nginx-%{main_version}/objs/ngx_stream_geoip_module-debug.so
 %{__mv} %{_builddir}/nginx-%{main_version}/objs/ndk_http_module.so \
     %{_builddir}/nginx-%{main_version}/objs/ndk_http_module-debug.so
-%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_array_var_module.so \
-    %{_builddir}/nginx-%{main_version}/objs/ngx_http_array_var_module-debug.so
+%{__mv} %{_builddir}/nginx-%{main_version}/objs/ngx_http_lua_module.so \
+    %{_builddir}/nginx-%{main_version}/objs/ngx_http_lua_module-debug.so
 ./configure %{COMMON_CONFIGURE_ARGS} \
     --with-cc-opt="%{WITH_CC_OPT}" \
     %{?perlldopts}
@@ -394,8 +394,8 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_stream_geoip_module-debug.so
 %{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ndk_http_module-debug.so \
     $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ndk_http_module-debug.so
-%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_array_var_module.so \
-    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_array_var_module-debug.so
+%{__install} -m644 %{_builddir}/nginx-%{main_version}/objs/ngx_http_lua_module.so \
+    $RPM_BUILD_ROOT%{_libdir}/nginx/modules/ngx_http_lua_module-debug.so
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -482,9 +482,9 @@ cd $RPM_BUILD_ROOT%{_sysconfdir}/nginx && \
 %attr(0644,root,root) %{_libdir}/nginx/modules/ndk_http_module.so
 %attr(0644,root,root) %{_libdir}/nginx/modules/ndk_http_module-debug.so
 
-%files module-array-var
-%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_array_var_module.so
-%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_array_var_module-debug.so
+%files module-lua
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_lua_module.so
+%attr(0644,root,root) %{_libdir}/nginx/modules/ngx_http_lua_module-debug.so
 
 %pre
 # Add the "nginx" user
@@ -688,7 +688,7 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 fi
 
-%post module-array-var
+%post module-lua
 if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
@@ -698,10 +698,10 @@ To enable this module, add the following to /etc/nginx/nginx.conf
 and reload nginx:
 
 	load_module modules/ndk_http_module.so;
-    load_module modules/ngx_http_array_var_module.so;
+    load_module modules/ngx_http_lua_module.so;
 
 Please refer to the module documentation for further details:
-https://github.com/openresty/array-var-nginx-module
+https://github.com/openresty/lua-nginx-module
 
 For any additional help please visit our website at:
 * https://www.ulyaoth.net
