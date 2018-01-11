@@ -175,8 +175,10 @@ BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
 BuildRequires: GeoIP-devel
 BuildRequires: openssl-devel
+BuildRequires: ulyaoth-luajit-devel
 
 Requires: openssl
+Requires: ulyaoth-luajit
 
 Provides: webserver
 Provides: nginx
