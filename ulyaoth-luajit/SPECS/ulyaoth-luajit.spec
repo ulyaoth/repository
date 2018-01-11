@@ -49,7 +49,7 @@ The openssl-luajit package contains static libraries needed for static linking o
 make %{?_smp_mflags}
 
 %install
-make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr INSTALL_LIB=%{_libdir} install
+make DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr INSTALL_LIB=$RPM_BUILD_ROOT%{_libdir} install
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
