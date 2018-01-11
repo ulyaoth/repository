@@ -7,9 +7,9 @@ moduleversion=0.10.11
 develkitversion=0.3.0
 
 # create module folder used to build
-wget https://github.com/openresty/array-var-nginx-module/archive/v$moduleversion.tar.gz
+wget https://github.com/openresty/lua-nginx-module/archive/v$moduleversion..tar.gz
 tar xvf v$moduleversion.tar.gz
-mv array-var-nginx-module-$moduleversion /home/ulyaoth/array-var-module
+mv lua-nginx-module-$moduleversion /home/ulyaoth/lua-module
 rm -rf v$moduleversion.tar.gz
 wget https://github.com/simpl/ngx_devel_kit/archive/v$develkitversion.tar.gz
 tar xvf v$develkitversion.tar.gz
