@@ -7,7 +7,7 @@
 
 Summary:    Apache Solr Documentations
 Name:       ulyaoth-solr7-docs
-Version:    7.2.0
+Version:    7.2.1
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -72,6 +72,9 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Mon Feb 12 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 7.2.1-1
+- Updated Solr 7 to 7.2.1.
+
 * Fri Jan 5 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 7.2.0-1
 - Updated Solr 7 to 7.2.0.
 
