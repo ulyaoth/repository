@@ -1,3 +1,5 @@
+#!/bin/bash
+ 
 # This script is supposed to run as the user "ulyaoth".
 
 # Set required variables.
@@ -21,5 +23,14 @@ sed -i "s/sbagmeijer/$ulyaothos/g" /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec
 # Download additional files specified in spec file.
 spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec -g -R
 
+# Install all requirements
+if type dnf 2>/dev/null
+then
+  sudo dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec
+elif type yum 2>/dev/null
+then
+  sudo yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec
+fi
+
 # Build the rpm.
-rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec
+rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth.spec 
