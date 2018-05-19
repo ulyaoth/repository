@@ -160,10 +160,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/spotify.desktop
 %{_libdir}/%{name}
 %{_prefix}/lib/firewalld/services/spotify.xml
 
-%postun
-ldconfig
-gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
-
 %preun
 ldconfig
 gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
@@ -179,6 +175,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
 %firewalld_reload
 
 %postun
+ldconfig
+gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
+
 %if 0%{?rhel} == 7
 %{_bindir}/update-mime-database %{_datadir}/mime &> /dev/null || :
 %endif
