@@ -56,7 +56,7 @@ Requires: libgudev1
 
 Summary: Spotify music player.
 Name: spotify-client
-Version: 1.0.79
+Version: 1.0.79.223.g92622cc2
 Release: 1%{?dist}
 URL: https://www.spotify.com
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
@@ -209,7 +209,7 @@ BANNER
 
 
 %changelog
-* Sat May 19 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.0.79-1
+* Sat Maj 19 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.0.79-1
 - Update Spotify to version 1.0.79.
 - Due to not having updated this long, our spec file is fully based on https://negativo17.org/repos/spotify/fedora-28/SRPMS/
 - Please give the guys at Negativo17.org a big thanks.
