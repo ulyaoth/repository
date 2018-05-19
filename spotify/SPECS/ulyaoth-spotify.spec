@@ -175,9 +175,6 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
 %firewalld_reload
 
 %postun
-ldconfig
-gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
-
 %if 0%{?rhel} == 7
 %{_bindir}/update-mime-database %{_datadir}/mime &> /dev/null || :
 %endif
@@ -188,7 +185,6 @@ if [ $1 -eq 0 ] ; then
     /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
     %{_bindir}/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
-
 
 ldconfig
 gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
