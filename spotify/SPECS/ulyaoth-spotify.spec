@@ -1,8 +1,13 @@
 %define debug_package %{nil}
-%define spotifyrepo https://repository-origin.spotify.com/pool/non-free/s/spotify-client/
-%define spotify_home /opt/spotify
-%define spotify_group spotify
-%define spotify_user spotify
+%global __strip /bin/true
+
+# Remove bundled libraries from requirements/provides
+%if 0%{?rhel} == 7
+%global __requires_exclude ^(libcef\\.so.*|libwidevinecdm.*\\.so.*|libEGL\\.so.*|libGLESv2\\.so.*|libcurl-gnutls\\.so\\..*|libcrypto\\.so\\..*|libssl\\.so\\..*)$
+%else
+%global __requires_exclude ^(libcef\\.so.*|libwidevinecdm.*\\.so.*|libEGL\\.so.*|libGLESv2\\.so.*|libcurl-gnutls\\.so\\..*)$
+%endif
+%global __provides_exclude ^(lib.*\\.so.*)$
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
