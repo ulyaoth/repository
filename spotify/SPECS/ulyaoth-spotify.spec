@@ -209,7 +209,7 @@ BANNER
 
 
 %changelog
-* Sat Maj 19 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.0.79-1
+* Sat May 19 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.0.79-1
 - Update Spotify to version 1.0.79.
 - Due to not having updated this long, our spec file is fully based on https://negativo17.org/repos/spotify/fedora-28/SRPMS/
 - Please give the guys at Negativo17.org a big thanks.
