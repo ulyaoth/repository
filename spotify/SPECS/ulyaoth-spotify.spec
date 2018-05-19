@@ -66,10 +66,10 @@ Vendor: Spotify Ltd
 BuildArch: x86_64
 AutoReqProv: no
 
-Source0:        https://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.79.223.g92622cc2-21_amd64.deb
-Source2:        spotify-wrapper
-Source3:        spotify.xml
-Source4:        spotify.appdata.xml
+Source0: https://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.79.223.g92622cc2-21_amd64.deb
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify-wrapper
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.xml
+Source4: https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.appdata.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: chrpath
