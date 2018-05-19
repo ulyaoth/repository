@@ -71,8 +71,6 @@ Source2:        spotify-wrapper
 Source3:        spotify.xml
 Source4:        spotify.appdata.xml
 
-BuildRoot:  %{_tmppath}/spotify-%{version}-%{release}-root-%(%{__id_u} -n)
-
 BuildRequires: desktop-file-utils
 BuildRequires: chrpath
 BuildRequires: libappstream-glib
