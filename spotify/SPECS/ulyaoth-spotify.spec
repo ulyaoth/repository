@@ -1,5 +1,5 @@
 %define debug_package %{nil}
-%define spotifyrepo http://repository.spotify.com/pool/non-free/s/spotify
+%define spotifyrepo https://repository-origin.spotify.com/pool/non-free/s/spotify-client/
 %define spotify_home /opt/spotify
 %define spotify_group spotify
 %define spotify_user spotify
@@ -7,45 +7,32 @@
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
-%if 0%{?rhel}  == 6
-Requires(pre): shadow-utils
-Requires: initscripts >= 8.36
-Requires(post): chkconfig
-%endif
-
 %if 0%{?rhel}  == 7
 Requires(pre): shadow-utils
 Requires: systemd
-BuildRequires: systemd
-%endif
-
-%if 0%{?fedora} >= 18
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-%endif
-
-# end of distribution specific definitions
-
-Summary: Spotify music player.
-Name: spotify-client
-Version: 0.9.17.8
-Release: 1%{?dist}
-URL: https://www.spotify.com
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
-License: Proprietary (non-free)
-Group: Applications/Multimedia
-Vendor: Spotify Ltd
-BuildArch: x86_64
-AutoReqProv: no
-Source0: ulyaoth-spotify.tar.gz
-Source1: spotify.service
-Source2: spotify.init
-BuildRoot:  %{_tmppath}/spotify-%{version}-%{release}-root-%(%{__id_u} -n)
-
-BuildRequires:  desktop-file-utils
-
+Requires: ulyaoth-openssl1.1.0
 Requires: zenity
+Requires: curl
+Requires: qt-x11
+Requires: hicolor-icon-theme
+Requires: libXScrnSaver
+Requires: GConf2
+Requires: alsa-lib
+Requires: glibc
+Requires: libstdc++
+Requires: usbutils
+Requires: xdg-utils
+Requires: gtk2
+Requires: nss
+Requires: nspr
+Requires: glib2
+Requires: libpng
+Requires: dbus-x11
+Requires: libgudev1
+%else
+Requires: systemd
+Requires: zenity
+Requires: curl
 Requires: qt-x11
 Requires: hicolor-icon-theme
 Requires: openssl
@@ -63,6 +50,33 @@ Requires: glib2
 Requires: libpng
 Requires: dbus-x11
 Requires: libgudev1
+%endif
+
+# end of distribution specific definitions
+
+Summary: Spotify music player.
+Name: spotify-client
+Version: 1.0.79
+Release: 1%{?dist}
+URL: https://www.spotify.com
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+License: https://www.spotify.com/legal/end-user-agreement
+Group: Applications/Multimedia
+Vendor: Spotify Ltd
+BuildArch: x86_64
+AutoReqProv: no
+
+Source0:        https://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.79.223.g92622cc2-21_amd64.deb
+Source2:        spotify-wrapper
+Source3:        spotify.xml
+Source4:        spotify.appdata.xml
+
+BuildRoot:  %{_tmppath}/spotify-%{version}-%{release}-root-%(%{__id_u} -n)
+
+BuildRequires: desktop-file-utils
+BuildRequires: chrpath
+BuildRequires: libappstream-glib
+BuildRequires: systemd
 
 Provides: spotify
 Provides: spotify-client
@@ -72,39 +86,61 @@ Provides: ulyaoth-spotify-client
 %description
 Spotify is a commercial music streaming service providing digital rights management–restricted[4] content from record labels including Sony, EMI, Warner Music Group and Universal.[5][6] Music can be browsed or searched by artist, album, genre, playlist, or record label. Paid "Premium" subscriptions remove advertisements and allow users to download music to listen to offline.[7] On computers, a link allows users to purchase selected material via partner retailers.
 
-%setup -q
+%prep
+%setup -q -c -T
+
+ar x %{SOURCE0}
+tar -xzf data.tar.gz
+
+chrpath -d \
+    .%{_datadir}/spotify/libwidevinecdmadapter.so \
+    .%{_datadir}/spotify/spotify
 
 %build
 
 %install
+mkdir -p %{buildroot}%{_libdir}/%{name}
 
-tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT
+# Program resources - 512x512 icon along main executable is needed by the client
+cp -frp \
+    .%{_datadir}/spotify/*.{pak,dat,bin} \
+    .%{_datadir}/spotify/{Apps,locales} \
+    %{buildroot}%{_libdir}/%{name}
+install -p -D -m 644 .%{_datadir}/spotify/icons/spotify-linux-512.png \
+    %{buildroot}%{_libdir}/%{name}/icons/spotify-linux-512.png
+	
+# Binaries
+install -p -m 755 \
+    .%{_datadir}/spotify/*.so \
+    .%{_datadir}/spotify/spotify \
+    %{buildroot}%{_libdir}/%{name}/
 
-%if 0%{?fedora} == 21
-ln -s /usr/lib64/libgcrypt.so.11.8.2 ${RPM_BUILD_ROOT}/usr/lib64/libgcrypt.so.11
-ln -s /usr/lib64/libudev.so.1 ${RPM_BUILD_ROOT}/usr/lib64/libudev.so.0
-ln -s /usr/lib64/libudev.so.1 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libudev.so.0
-%endif
+# Wrapper script
+mkdir -p %{buildroot}%{_bindir}
+cat %{SOURCE2} | sed -e 's|INSTALL_DIR|%{_libdir}/%{name}|g' \
+    > %{buildroot}%{_bindir}/spotify
+chmod +x %{buildroot}%{_bindir}/spotify
 
-ln -sf /usr/lib64/libnspr4.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libnspr4.so.0d
-ln -sf /usr/lib64/libnss3.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libnss3.so.1d
-ln -sf /usr/lib64/libnssutil3.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libnssutil3.so.1d
-ln -sf /usr/lib64/libplc4.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libplc4.so.0d
-ln -sf /usr/lib64/libplds4.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libplds4.so.0d
-ln -sf /usr/lib64/libssl3.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libssl3.so.1d
-chmod 0775 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libffmpegsumo.so
-chmod 0775 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libcef.so
+# Desktop file
+install -m 0644 -D -p .%{_datadir}/spotify/spotify.desktop \
+    %{buildroot}%{_datadir}/applications/spotify.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/spotify.desktop
 
-%if %{use_systemd}
-# install systemd-specific files
-%{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
-%{__install} -m644 %SOURCE1 \
-        $RPM_BUILD_ROOT%{_unitdir}/spotify.service
-%else
-# install SYSV init stuff
-%{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
-%{__install} -m755 %{SOURCE2} \
-   $RPM_BUILD_ROOT%{_initrddir}/spotify
+# Icons
+for size in 16 22 24 32 48 64 128 256 512; do
+    install -p -D -m 644 .%{_datadir}/spotify/icons/spotify-linux-${size}.png \
+        %{buildroot}%{_datadir}/icons/hicolor/${size}x${size}/apps/%{name}.png
+done
+
+# Firewalld rules
+install -D -m 644 -p %{SOURCE3} \
+    %{buildroot}%{_prefix}/lib/firewalld/services/spotify.xml
+
+%if 0%{?fedora}
+# Install AppData
+mkdir -p %{buildroot}%{_datadir}/appdata
+install -p -m 0644 %{SOURCE4} %{buildroot}%{_datadir}/appdata/
+appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/appdata/spotify.appdata.xml
 %endif
 
 desktop-file-validate %{buildroot}%{_datadir}/applications/spotify.desktop
@@ -113,83 +149,47 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/spotify.desktop
 %{__rm} -rf $RPM_BUILD_ROOT
 
 %pre
-getent group %{spotify_group} >/dev/null || groupadd -r %{spotify_group}
-getent passwd %{spotify_user} >/dev/null || /usr/sbin/useradd --comment "Spotify Daemon User" --shell /bin/bash -M -r -g %{spotify_group} --home %{spotify_home} %{spotify_user}
 
 %files
-%defattr(-,%{spotify_user},%{spotify_group})
-%dir /opt/spotify
-%{spotify_home}/*
-%dir /opt/spotify/spotify-client
-%dir /opt/spotify/spotify-client/Data
-%dir /opt/spotify/spotify-client/Data/locales
-%dir /opt/spotify/spotify-client/Icons
-/opt/spotify/spotify-client/*
-/opt/spotify/spotify-client/Data/*
-/opt/spotify/spotify-client/Icons/*
-/opt/spotify/spotify-client/Data/locales/*
-
-%defattr(-,root,root)
-%dir %{_defaultdocdir}/spotify-client-gnome-support
-%dir %{_defaultdocdir}/spotify-client-qt
-%dir %{_defaultdocdir}/spotify-client-0.9.17
-%dir %{_datadir}/spotify
-/usr/lib64/*
-%{_defaultdocdir}/spotify-client-gnome-support/*
-%{_defaultdocdir}/spotify-client-qt/*
-%{_defaultdocdir}/spotify-client-0.9.17/*
-%{_bindir}/*
-%{_datadir}/applications/*
-/usr/share/applications/spotify.desktop
-/usr/share/icons/hicolor/16x16/apps/spotify-client.png
-/usr/share/icons/hicolor/22x22/apps/spotify-client.png
-/usr/share/icons/hicolor/24x24/apps/spotify-client.png
-/usr/share/icons/hicolor/32x32/apps/spotify-client.png
-/usr/share/icons/hicolor/48x48/apps/spotify-client.png
-/usr/share/icons/hicolor/64x64/apps/spotify-client.png
-/usr/share/icons/hicolor/128x128/apps/spotify-client.png
-/usr/share/icons/hicolor/256x256/apps/spotify-client.png
-
-%if %{use_systemd}
-%{_unitdir}/spotify.service
-%else
-%{_initrddir}/spotify
+%{_bindir}/spotify
+%{_datadir}/applications/spotify.desktop
+%{_datadir}/icons/hicolor/*/apps/%{name}.png
+%if 0%{?fedora}
+%{_datadir}/appdata/spotify.appdata.xml
 %endif
+%{_libdir}/%{name}
+%{_prefix}/lib/firewalld/services/spotify.xml
 
 %postun
-%if %use_systemd
-/usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
-%endif
-if [ $1 -ge 1 ]; then
-    /sbin/service spotify status  >/dev/null 2>&1 || exit 0
-fi
-
 ldconfig
 gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
 
 %preun
-if [ $1 -eq 0 ]; then
-%if %use_systemd
-    /usr/bin/systemctl --no-reload disable spotify.service >/dev/null 2>&1 ||:
-    /usr/bin/systemctl stop spotify.service >/dev/null 2>&1 ||:
-%else
-    /sbin/service spotify stop > /dev/null 2>&1
-    /sbin/chkconfig --del spotify
-%endif
-fi
-
 ldconfig
 gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
 
 %post
-# Register the spotify service
-if [ $1 -eq 1 ]; then
-%if %{use_systemd}
-    /usr/bin/systemctl preset spotify.service >/dev/null 2>&1 ||:
-%else
-    /sbin/chkconfig --add spotify
+%if 0%{?rhel} == 7
+%{_bindir}/update-mime-database %{_datadir}/mime &> /dev/null || :
 %endif
+/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+%if 0%{?rhel} == 7
+/usr/bin/update-desktop-database &> /dev/null || :
+%endif
+%firewalld_reload
+
+%postun
+%if 0%{?rhel} == 7
+%{_bindir}/update-mime-database %{_datadir}/mime &> /dev/null || :
+%endif
+%if 0%{?rhel} == 7
+/usr/bin/update-desktop-database &> /dev/null || :
+%endif
+if [ $1 -eq 0 ] ; then
+    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    %{_bindir}/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
+
 
 ldconfig
 gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
@@ -206,7 +206,19 @@ Please find the official documentation for Spotify here:
 ----------------------------------------------------------------------
 BANNER
 
+%posttrans
+%if 0%{?rhel} == 7
+%{_bindir}/update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
+%endif
+%{_bindir}/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+
+
 %changelog
+* Sat May 19 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.0.79-1
+- Update Spotify to version 1.0.79.
+- Due to not having updated this long, our spec file is fully based on https://negativo17.org/repos/spotify/fedora-28/SRPMS/
+- Please give the guys at Negativo17.org a big thanks.
+
 * Wed Nov 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.17.8-1
 - Update Spotify to version 0.9.17.8.
 
