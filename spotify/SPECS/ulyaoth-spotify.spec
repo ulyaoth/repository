@@ -56,7 +56,7 @@ Requires: libgudev1
 
 Summary: Spotify music player.
 Name: spotify-client
-Version: 1.0.79
+Version: 1.0.79.223.g92622cc2
 Release: 1%{?dist}
 URL: https://www.spotify.com
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
@@ -175,9 +175,6 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
 %firewalld_reload
 
 %postun
-ldconfig
-gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
-
 %if 0%{?rhel} == 7
 %{_bindir}/update-mime-database %{_datadir}/mime &> /dev/null || :
 %endif
@@ -188,7 +185,6 @@ if [ $1 -eq 0 ] ; then
     /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
     %{_bindir}/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
-
 
 ldconfig
 gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
@@ -213,7 +209,7 @@ BANNER
 
 
 %changelog
-* Sat May 19 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.0.79-1
+* Sat Maj 19 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.0.79-1
 - Update Spotify to version 1.0.79.
 - Due to not having updated this long, our spec file is fully based on https://negativo17.org/repos/spotify/fedora-28/SRPMS/
 - Please give the guys at Negativo17.org a big thanks.
