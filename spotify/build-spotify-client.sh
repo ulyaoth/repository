@@ -5,6 +5,8 @@ useradd ulyaoth
 
 su ulyaoth -c "rpmdev-setuptree"
 
+su ulyaoth -c "wget -O /home/ulyaoth/ https://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.79.223.g92622cc2-21_amd64.deb"
+
 su ulyaoth -c "ar x spotify-client_1.0.79.223.g92622cc2-21_amd64.deb"
 su ulyaoth -c "tar xvf data.tar.xz"
 
@@ -16,8 +18,8 @@ su ulyaoth -c "cp /home/ulyaoth/spotify.desktop /home/ulyaoth/usr/share/applicat
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/appdata/"
 su ulyaoth -c "wget -O /home/ulyaoth/usr/share/appdata/spotify.appdata.xml https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.appdata.xml"
 
-su ulyaoth -c "mkdir -p /usr/lib/firewalld/services/"
-su ulyaoth -c "wget -O /usr/lib/firewalld/services/spotify.xml https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.xml"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/lib/firewalld/services/"
+su ulyaoth -c "wget -O /home/ulyaoth/usr/lib/firewalld/services/spotify.xml https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.xml"
 
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/16x16/apps/"
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/22x22/apps/"
