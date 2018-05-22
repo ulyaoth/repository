@@ -113,8 +113,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/spotify.desktop
 %if 0%{?fedora}
 %{_datadir}/appdata/spotify.appdata.xml
 %endif
-%{_libdir}/%{name}
+/usr/share/spotify
 %{_prefix}/lib/firewalld/services/spotify.xml
+/usr/share/doc/spotify-client/changelog.gz
 
 %preun
 ldconfig
