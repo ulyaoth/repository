@@ -1,3 +1,3 @@
 How to build yourself? simply run this command:
 
-wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/build-ulyaoth-spotify.sh ; chmod +x build-ulyaoth-spotify.sh ; ./build-ulyaoth-spotify.sh
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/build-spotify-client.sh ; chmod +x build-spotify-client.sh ; ./build-spotify-client.sh
