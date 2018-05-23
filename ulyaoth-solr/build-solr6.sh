@@ -1,5 +1,5 @@
 # Set variables.
-version=6.6.2
+version=6.6.4
 
 # create build environment.
 rpmdev-setuptree

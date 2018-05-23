@@ -7,7 +7,7 @@
 
 Summary:    Apache Solr Examples
 Name:       ulyaoth-solr6-examples
-Version:    6.6.2
+Version:    6.6.4
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -71,6 +71,9 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 6.6.4-1
+- Updated to Solr 6 version 6.6.4.
+
 * Sun Nov 12 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 6.6.2-1
 - Updated to Solr 6 version 6.6.2.
 
