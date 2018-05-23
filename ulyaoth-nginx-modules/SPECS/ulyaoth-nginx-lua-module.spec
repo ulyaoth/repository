@@ -72,9 +72,9 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.12.2
+%define main_version                 1.14.0
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.1.15
+%define njs_version                  0.2.0
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
