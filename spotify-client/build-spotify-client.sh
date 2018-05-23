@@ -4,7 +4,7 @@ buildarch="$(uname -m)"
 useradd ulyaoth
 
 su ulyaoth -c "rpmdev-setuptree"
-su ulyaoth -c "cd /home/ulyaoth/rpmbuild/SPECS && wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SPECS/spotify-client.spec"
+su ulyaoth -c "cd /home/ulyaoth/rpmbuild/SPECS && wget https://raw.githubusercontent.com/ulyaoth/repository/master/spotify-client/SPECS/spotify-client.spec"
 
 su ulyaoth -c "spectool /home/ulyaoth/rpmbuild/SPECS/spotify-client.spec -g -R"
 
@@ -27,10 +27,10 @@ su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/applications/"
 su ulyaoth -c "cp /home/ulyaoth/usr/share/spotify/spotify.desktop /home/ulyaoth/usr/share/applications/"
 
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/appdata/"
-su ulyaoth -c "wget -O /home/ulyaoth/usr/share/appdata/spotify.appdata.xml https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.appdata.xml"
+su ulyaoth -c "wget -O /home/ulyaoth/usr/share/appdata/spotify.appdata.xml https://raw.githubusercontent.com/ulyaoth/repository/master/spotify-client/SOURCES/spotify.appdata.xml"
 
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/lib/firewalld/services/"
-su ulyaoth -c "wget -O /home/ulyaoth/usr/lib/firewalld/services/spotify.xml https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.xml"
+su ulyaoth -c "wget -O /home/ulyaoth/usr/lib/firewalld/services/spotify.xml https://raw.githubusercontent.com/ulyaoth/repository/master/spotify-client/SOURCES/spotify.xml"
 
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/16x16/apps/"
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/22x22/apps/"
