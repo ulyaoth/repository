@@ -65,9 +65,9 @@ Vendor: Spotify Ltd
 BuildArch: x86_64
 AutoReqProv: no
 Source0: spotify-client.tar.gz
-Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify-wrapper
-Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.xml
-Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/spotify/SOURCES/spotify.appdata.xml
+Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/spotify-client/SOURCES/spotify-wrapper
+Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/spotify-client/SOURCES/spotify.xml
+Source3: https://raw.githubusercontent.com/ulyaoth/repository/master/spotify-client/SOURCES/spotify.appdata.xml
 BuildRoot:  %{_tmppath}/spotify-client-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: desktop-file-utils
@@ -167,6 +167,7 @@ BANNER
 %changelog
 * Tue May 22 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.0.79-1
 - Update Spotify to version 1.0.79.
+- partly based on spec file from negativo17.org.
 
 * Wed Nov 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.9.17.8-1
 - Update Spotify to version 0.9.17.8.
