@@ -4,30 +4,6 @@
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
-%if 0%{?rhel}  == 7
-Requires(pre): shadow-utils
-Requires: systemd
-Requires: ulyaoth-openssl1.1.0
-Requires: zenity
-Requires: curl
-Requires: qt-x11
-Requires: hicolor-icon-theme
-Requires: libXScrnSaver
-Requires: GConf2
-Requires: alsa-lib
-Requires: glibc
-Requires: libstdc++
-Requires: usbutils
-Requires: xdg-utils
-Requires: gtk2
-Requires: nss
-Requires: nspr
-Requires: glib2
-Requires: libpng
-Requires: dbus-x11
-Requires: libgudev1
-Requires: libatomic
-%else
 Requires: systemd
 Requires: zenity
 Requires: curl
@@ -49,7 +25,6 @@ Requires: libpng
 Requires: dbus-x11
 Requires: libgudev1
 Requires: libatomic
-%endif
 
 # end of distribution specific definitions
 
