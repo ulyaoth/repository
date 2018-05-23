@@ -95,9 +95,7 @@ tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT
 install -D -m 644 -p %{SOURCE2} \
     %{buildroot}%{_prefix}/lib/firewalld/services/spotify.xml
 
-%if 0%{?fedora}
 appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/appdata/spotify.appdata.xml
-%endif
 
 desktop-file-validate %{buildroot}%{_datadir}/applications/spotify.desktop	
 
@@ -110,9 +108,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/spotify.desktop
 %{_bindir}/spotify
 %{_datadir}/applications/spotify.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
-%if 0%{?fedora}
 %{_datadir}/appdata/spotify.appdata.xml
-%endif
 /usr/share/spotify
 %{_prefix}/lib/firewalld/services/spotify.xml
 /usr/share/doc/spotify-client/changelog.gz
