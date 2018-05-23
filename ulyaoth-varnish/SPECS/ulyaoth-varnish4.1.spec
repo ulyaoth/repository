@@ -31,7 +31,7 @@ BuildRequires: systemd-devel
 
 Summary:    Varnish HTTP Cache
 Name:       ulyaoth-varnish4.1
-Version:    4.1.9
+Version:    4.1.10
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
@@ -300,6 +300,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 4.1.10-1
+- Initial release for Varnish 4.1 version 4.1.10.
+
 * Mon Nov 27 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 4.1.9-1
 - Initial release for Varnish 4.1 version 4.1.9.
 
