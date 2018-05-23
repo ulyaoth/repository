@@ -2,7 +2,7 @@
 
 Summary:    GNU parallel is a shell tool for executing jobs in parallel using one or more computers.
 Name:       ulyaoth-parallel
-Version:    20171222
+Version:    20180522
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv3
@@ -121,6 +121,9 @@ BANNER
 %postun
 
 %changelog
+* Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 20180522-1
+- Updated Parallel to 20180522.
+
 * Fri Jan 5 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 20171222-1
 - Updated Parallel to 20171222.
 
