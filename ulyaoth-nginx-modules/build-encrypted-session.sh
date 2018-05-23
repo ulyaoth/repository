@@ -3,7 +3,7 @@
 # This script is supposed to run as the user "ulyaoth".
 
 # Set version for module.
-moduleversion=0.07
+moduleversion=0.08
 develkitversion=0.3.0
 
 # create module folder used to build
