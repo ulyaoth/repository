@@ -4,10 +4,10 @@ Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
 Version: 4.0.0
 BuildArch: x86_64
-URL: https://www.ulyaoth.net/
-Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+URL: https://ulyaoth.com/
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Release: 1.%{ulyaothos}
-Source0: https://repos.ulyaoth.io/RPM-GPG-KEY-ulyaoth
+Source0: https://repos.ulyaoth.com/RPM-GPG-KEY-ulyaoth
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-%{ulyaothos}.repo
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/COPYING
 BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -49,15 +49,18 @@ rm -rf $RPM_BUILD_ROOT
 Thank you for using Ulyaoth repository!
 
 For any additional information or help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
 
 %changelog
+* Wed Jun 6 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 4.1.0-1
+- New domain name "repos.ulyaoth.com".
+
 * Tue May 1 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 4.0.0-1
 - Changed to a new gpg2 key.
 
