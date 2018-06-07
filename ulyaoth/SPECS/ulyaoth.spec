@@ -2,7 +2,7 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 4.0.0
+Version: 5.0.0
 BuildArch: x86_64
 URL: https://ulyaoth.com/
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
