@@ -7,7 +7,7 @@ BuildArch: x86_64
 URL: https://ulyaoth.com/
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Release: 1.%{ulyaothos}
-Source0: https://repos.ulyaoth.com/RPM-GPG-KEY-ulyaoth
+Source0: https://repos.ulyaoth.com/RPM-GPG-KEY-ulyaoth-20180607
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/ulyaoth-%{ulyaothos}.repo
 Source2: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth/SOURCES/COPYING
 BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -15,7 +15,7 @@ BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
 License: GPLv3
 
 Provides: ulyaoth
-Obsoletes: ulyaoth <= 3.0.1
+Obsoletes: ulyaoth <= 4.0.0
 
 %description
 Ulyaoth repository.
@@ -26,7 +26,7 @@ Ulyaoth repository.
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/licenses/ulyaoth
 
 %{__install} -m 644 -p %{SOURCE0} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
+   $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth-20180607
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/ulyaoth.repo
 %{__install} -m 644 -p %{SOURCE2} \
@@ -39,7 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %dir /usr/share/licenses/ulyaoth
 %config(noreplace) /etc/yum.repos.d/ulyaoth.repo
-/etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
+/etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth-20180607
 /usr/share/licenses/ulyaoth/COPYING
 
 %post
@@ -58,8 +58,10 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
-* Wed Jun 6 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 4.1.0-1
+* Thu Jun 7 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.0.0-1
 - New domain name "repos.ulyaoth.com".
+- New gpg2 key (sorry).
+- Added date to gpg key in case key every has to change again it won't cause issue.
 
 * Tue May 1 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 4.0.0-1
 - Changed to a new gpg2 key.
