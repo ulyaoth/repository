@@ -2,7 +2,7 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 5.0.0
+Version: 5.0.1
 BuildArch: x86_64
 URL: https://ulyaoth.com/
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
@@ -58,6 +58,9 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Mon Jun 11 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.0.1-1
+- Fixed all repository files to contain correct gpg key. (thank you Bent Terp)
+
 * Thu Jun 7 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.0.0-1
 - New domain name "repos.ulyaoth.com".
 - New gpg2 key (sorry).
