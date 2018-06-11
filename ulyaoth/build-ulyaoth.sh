@@ -3,6 +3,8 @@
 # This script is supposed to run as the user "ulyaoth".
 
 # Set required variables.
+ulyaothos=`cat /etc/ulyaoth`
+
 if [ "$ulyaothos" == "amazonlinux2" ]
 then
   # If Amazon Linux 2 change repo file.
