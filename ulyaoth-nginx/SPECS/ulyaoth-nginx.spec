@@ -6,28 +6,7 @@
 %define _group System Environment/Daemons
 
 # distribution specific definitions
-%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
-
-%if 0%{?rhel}  == 5
-%define _group System Environment/Daemons
-Requires(pre): shadow-utils
-Requires: initscripts >= 8.36
-Requires(post): chkconfig
-BuildRequires: perl
-BuildRequires: GeoIP-devel
-%endif
-
-%if 0%{?rhel}  == 6
-%define _group System Environment/Daemons
-%define with_http2 1
-Requires(pre): shadow-utils
-Requires: initscripts >= 8.36
-Requires(post): chkconfig
-Requires: openssl >= 1.0.1
-BuildRequires: perl-devel
-BuildRequires: perl-ExtUtils-Embed
-BuildRequires: GeoIP-devel
-%endif
+%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
 %if 0%{?rhel}  == 7
 %define _group System Environment/Daemons
@@ -37,6 +16,7 @@ BuildRequires: GeoIP-devel
 Epoch: %{epoch}
 Requires(pre): shadow-utils
 Requires: systemd
+BuildRequires: redhat-lsb-core
 BuildRequires: systemd
 BuildRequires: perl-devel
 BuildRequires: perl-ExtUtils-Embed
@@ -59,18 +39,6 @@ BuildRequires: clang
 BuildRequires: which
 %endif
 
-%if 0%{?suse_version} == 1315
-%define _group Productivity/Networking/Web/Servers
-%define with_http2 1
-%define nginx_loggroup trusted
-Requires(pre): shadow
-Requires: systemd
-BuildRequires: libopenssl-devel
-BuildRequires: systemd
-BuildRequires: perl
-BuildRequires: libGeoIP-devel
-%endif
-
 # end of distribution specific definitions
 
 %define main_version                 1.14.0
@@ -89,7 +57,8 @@ BuildRequires: libGeoIP-devel
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
-%define WITH_CC_OPT $(echo %{optflags} $(pcre-config --cflags))
+%define WITH_CC_OPT $(echo %{optflags} $(pcre-config --cflags)) -fPIC
+%define WITH_LD_OPT -Wl,-z,relro -Wl,-z,now -pie
 
 %define COMMON_CONFIGURE_ARGS $(echo "\
         --prefix=%{_sysconfdir}/nginx \
