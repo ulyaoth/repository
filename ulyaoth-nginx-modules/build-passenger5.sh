@@ -3,7 +3,7 @@
 # This script is supposed to run as the user "ulyaoth".
 
 # Set version for module.
-moduleversion=5.1.12
+moduleversion=5.3.2
 
 # Get the passenger version 
 passenger5()

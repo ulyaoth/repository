@@ -72,9 +72,9 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.13.12
+%define main_version                 1.15.0
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.2.0
+%define njs_version                  0.2.1
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -86,7 +86,7 @@ BuildRequires: libGeoIP-devel
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 %define module_pam_version  1.5.1
-%define module_pam_release  12%{?dist}
+%define module_pam_release  13%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -145,7 +145,7 @@ Release: %{main_release}
 Vendor: Nginx, Inc.
 URL: http://nginx.org/
 Group: %{_group}
-Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
@@ -494,10 +494,10 @@ Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -534,10 +534,10 @@ Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_xslt_module.html
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -559,10 +559,10 @@ Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_geoip_module.html
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -583,10 +583,10 @@ Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_image_filter_module.html
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -607,10 +607,10 @@ Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_perl_module.html
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -632,10 +632,10 @@ Please refer to the module documentation for further details:
 https://www.nginx.com/resources/wiki/nginScript/
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -656,10 +656,10 @@ Please refer to the module documentation for further details:
 https://github.com/stogh/ngx_http_auth_pam_module
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -688,6 +688,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 1.5.1-13
+- Updated nginx mainline to 1.15.0.
+
 * Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.5.1-12
 - Updated nginx mainline to 1.13.12.
 
