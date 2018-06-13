@@ -38,7 +38,7 @@ License:    BSD
 Group:      System Environment/Daemons
 URL:        https://varnish-cache.org
 Vendor:     Varnish Software AS
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://github.com/varnishcache/varnish-cache/archive/varnish-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/default.vcl
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SOURCES/varnish.service
@@ -251,11 +251,11 @@ Thank you for using ulyaoth-varnish4.1!
 Please find the official documentation for Varnish here:
 * https://www.varnish-cache.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
+For any additional information or help please visit our website at:
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -300,8 +300,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 4.1.10-1
-- Initial release for Varnish 4.1 version 4.1.10.
+* Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 4.1.10-1
+- Updated to Varnish 4.1.10.
 
 * Mon Nov 27 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 4.1.9-1
 - Initial release for Varnish 4.1 version 4.1.9.
