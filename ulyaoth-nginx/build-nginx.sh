@@ -28,4 +28,4 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx.spec
 
 # Remove NJS.
 # Remove NJS.
-rm -rf /home/ulyaoth/rpmbuild/RPMS/x86_64/ulyaoth-nginx-module-njs-1.14.0.0.2.1-1.amzn2.ngx.x86_64.rpm
+rm -rf /home/ulyaoth/rpmbuild/RPMS/x86_64/ulyaoth-nginx-module-njs-*
