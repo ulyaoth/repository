@@ -2,7 +2,7 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 5.0.1
+Version: 5.0.2
 BuildArch: x86_64
 URL: https://ulyaoth.com/
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
@@ -15,7 +15,7 @@ BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
 License: GPLv3
 
 Provides: ulyaoth
-Obsoletes: ulyaoth <= 4.0.0
+Obsoletes: ulyaoth <= 5.0.1
 
 %description
 Ulyaoth repository.
@@ -58,6 +58,9 @@ Ulyaoth repository could use your help! Please consider a donation:
 BANNER
 
 %changelog
+* Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.0.2-1
+- Changed repo files from tabs to spaces.
+
 * Mon Jun 11 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.0.1-1
 - Fixed all repository files to contain correct gpg key. (thank you Bent Terp)
 

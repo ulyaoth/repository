@@ -1,7 +1,7 @@
 [ulyaoth]
 name=Ulyaoth Repository
 baseurl=https://repos.ulyaoth.com/amazonlinux/amzn2/latest/$basearch/os/
-		http://repos.ulyaoth.com/amazonlinux/amzn2/latest/$basearch/os/
+        http://repos.ulyaoth.com/amazonlinux/amzn2/latest/$basearch/os/
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth-20180607
@@ -9,7 +9,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth-20180607
 [ulyaoth-debug]
 name=Ulyaoth Repository (Debug)
 baseurl=https://repos.ulyaoth.com/amazonlinux/amzn2/latest/$basearch/debug/
-		http://repos.ulyaoth.com/amazonlinux/amzn2/latest/$basearch/debug/
+        http://repos.ulyaoth.com/amazonlinux/amzn2/latest/$basearch/debug/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth-20180607
@@ -17,7 +17,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth-20180607
 [ulyaoth-source]
 name=Ulyaoth Repository (Source)
 baseurl=https://repos.ulyaoth.com/amazonlinux/amzn2/latest/source/
-		http://repos.ulyaoth.com/amazonlinux/amzn2/latest/source/
+        http://repos.ulyaoth.com/amazonlinux/amzn2/latest/source/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth-20180607
