@@ -127,11 +127,11 @@ Thank you for using ulyaoth-keepalived!
 Please find the official documentation for keepalived here:
 * https://github.com/acassen/keepalived
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
+For any additional information or help please visit our website at:
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
