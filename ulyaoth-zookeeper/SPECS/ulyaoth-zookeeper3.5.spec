@@ -68,7 +68,7 @@ ZooKeeper is a centralized service for maintaining configuration information, na
 
 %build
 cd %_builddir/zookeeper-%{version}-beta/src/c
-%configure
+%configure CFLAGS='-g -O2 -D_GNU_SOURCE -Wno-error'
 make %{?_smp_mflags}
 
 %install
