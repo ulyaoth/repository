@@ -74,7 +74,7 @@ BuildRequires: libGeoIP-devel
 
 %define main_version                 1.14.0
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.2.0
+%define njs_version                  0.2.1
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -148,7 +148,7 @@ Release: %{main_release}
 Vendor: Nginx, Inc.
 URL: http://nginx.org/
 Group: %{_group}
-Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx/SOURCES/logrotate
@@ -515,10 +515,10 @@ Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -555,10 +555,10 @@ Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_xslt_module.html
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -580,10 +580,10 @@ Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_geoip_module.html
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -604,10 +604,10 @@ Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_image_filter_module.html
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -628,10 +628,10 @@ Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_perl_module.html
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -653,10 +653,10 @@ Please refer to the module documentation for further details:
 https://www.nginx.com/resources/wiki/nginScript/
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -677,10 +677,10 @@ Please refer to the module documentation for further details:
 https://github.com/simpl/ngx_devel_kit
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -702,10 +702,10 @@ Please refer to the module documentation for further details:
 https://github.com/calio/form-input-nginx-module
 
 For any additional help please visit our website at:
-* https://www.ulyaoth.net
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -734,7 +734,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed May 23 2018 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.12-7
+* Wed May 23 2018 Sjir Bagmeijer <sbagmeijer@ulyaoth.com> 0.12-7
 - Updated nginx to 1.14.0.
 
 * Sat Jan 6 2018 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.12-6
