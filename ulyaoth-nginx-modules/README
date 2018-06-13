@@ -30,3 +30,6 @@ wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-m
 
 lua (https://github.com/openresty/lua-nginx-module):
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-lua.sh ; chmod +x build-lua.sh ; ./build-lua.sh
+
+lua (https://github.com/nginx/njs):
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-modules/build-njs.sh ; chmod +x build-njs.sh ; ./build-njs.sh
