@@ -43,3 +43,5 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-pam-module.spec
 
 # Clean non related rpms
 find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "pam" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/noarch/ | grep -v "pam" |xargs rm
+find /home/ulyaoth/rpmbuild/SRPMS/ | grep -v "pam" |xargs rm

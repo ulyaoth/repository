@@ -43,3 +43,5 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-headers-more-mo
 
 # Clean non related rpms
 find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "headers-more" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/noarch/ | grep -v "headers-more" |xargs rm
+find /home/ulyaoth/rpmbuild/SRPMS/ | grep -v "headers-more" |xargs rm

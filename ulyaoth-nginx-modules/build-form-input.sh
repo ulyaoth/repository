@@ -48,3 +48,5 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-form-input-modu
 
 # Clean non related rpms
 find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "form" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/noarch/ | grep -v "form" |xargs rm
+find /home/ulyaoth/rpmbuild/SRPMS/ | grep -v "form" |xargs rm
