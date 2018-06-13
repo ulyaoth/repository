@@ -3,14 +3,14 @@
 
 Summary:    iperf is a tool for active measurements of the maximum achievable bandwidth on IP networks.
 Name:       ulyaoth-iperf2
-Version:    2.0.10
+Version:    2.0.11
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
 Group:      Applications/Internet
 URL:        http://sourceforge.net/projects/iperf2
 Vendor:     University of California
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://sourceforge.net/projects/iperf2/files/iperf-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/iperf2-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -51,11 +51,11 @@ Thank you for using ulyaoth-iperf2!
 Please find the official documentation for iperf2 here:
 * http://sourceforge.net/projects/iperf2
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
+For any additional information or help please visit our website at:
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -65,6 +65,9 @@ BANNER
 %postun
 
 %changelog
+* Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 2.0.11-1
+- Updated to Iperf 2.0.11.
+
 * Sun Nov 12 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 2.0.10-1
 - Updated to Iperf 2.0.10.
 
