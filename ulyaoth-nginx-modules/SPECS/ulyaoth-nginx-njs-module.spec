@@ -73,7 +73,7 @@ BuildRequires: libGeoIP-devel
 
 # end of distribution specific definitions
 
-%define main_version                 1.15.0
+%define main_version                 1.14.0
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.2.1
 %define module_xslt_version          %{main_version}
@@ -137,7 +137,7 @@ BuildRequires: libGeoIP-devel
         %{?with_http2:--with-http_v2_module}")
 
 Summary: High performance web server
-Name: ulyaoth-nginx-mainline
+Name: ulyaoth-nginx
 Version: %{main_version}
 Release: %{main_release}
 Vendor: Nginx, Inc.
@@ -175,10 +175,10 @@ Requires: openssl
 
 Provides: webserver
 Provides: nginx
-Provides: ulyaoth-nginx-mainline
+Provides: ulyaoth-nginx
 
-Conflicts: ulyaoth-nginx
-Obsoletes: ulyaoth-nginx-mainline-naxsi
+Conflicts: ulyaoth-nginx-mainline
+Obsoletes: ulyaoth-nginx-naxsi
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
@@ -462,7 +462,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thank you for using ulyaoth-nginx-mainline!
+Thank you for using ulyaoth-nginx!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -641,138 +641,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 1.15.0-1
-- Updated nginx mainline to 1.15.0.
-- Updated nsj to 0.2.1.
-
-* Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.13.12-1
-- Updated nginx mainline to 1.13.12.
-- Updated nsj to 0.2.0.
-
-* Sat Jan 6 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.13.8-1
-- Updated nginx mainline to 1.13.8.
-- Updated nsj to 0.1.18.
-
-* Wed Aug 9 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.13.4-1
-- Updated nginx mainline to 1.13.4.
-- Updated nsj to 0.1.12.
-
-* Sat Jul 1 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.13.2-1
-- Updated nginx mainline to 1.13.2.
-- Updated nsj to 0.1.11.
-
-* Tue May 30 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.13.1-1
-- Updated nginx mainline to 1.13.1.
-
-* Sat May 20 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.13.0-1
-- Updated nginx mainline to 1.13.0.
-- Updated nsj to 0.1.10.
-
-* Sat Feb 25 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.10-1
-- Updated to Nginx Mainline 1.11.10.
-- Updated nsj to 0.1.9.
-
-* Sat Nov 26 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.6-1
-- Updated to Nginx Mainline 1.11.6.
-- Updated nsj to 0.1.5.
-
-* Sat Oct 15 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.5-1
-- Updated to Nginx Mainline 1.11.5.
-- Updated nsj to 0.1.3.
-- Added "stream_ssl_preread_module".
-
-* Wed Sep 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.4-1
-- Updated to Nginx Mainline 1.11.4.
-- njs updated to 0.1.2.
-
-* Sat Jul 30 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.3-1
-- Updated to Nginx Mainline 1.11.3.
-- Updated spec file to latest spec file nginx provides.
-- njs updated to 0.1.0.
-- njs stream dynamic module added to nginx-module-njs package.
-- geoip stream dynamic module added to nginx-module-geoip package.
-
-* Sat Jul 9 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.2-1
-- Updated to Nginx Mainline 1.11.2.
-
-* Sat Jun 4 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.1-1
-- Updated to Nginx Mainline 1.11.1.
-
-* Sat May 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.0-2
-- Added a conflict for ulyaoth-nginx.
-
-* Sat May 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.11.0-1
-- Updated to Nginx 1.11.0.
-- Changed spec file to the one provided in Nginx source package.
-- Support for modules.
-
-* Sun May 1 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.15-1
-- Updated to Nginx Mainline 1.9.15.
-
-* Thu Apr 14 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.14-1
-- Updated to Nginx Mainline 1.9.14.
-- Removed AJP due to multiple bugs see https://github.com/yaoweibin/nginx_ajp_module/issues.
-
-* Wed Mar 30 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.13-1
-- Updated to Nginx Mainline 1.9.13.
-
-* Sat Feb 27 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.12-1
-- Updated to Nginx Mainline 1.9.12.
-
-* Tue Feb 16 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.11-2
-- Added support for ajp module.
-
-* Wed Feb 10 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.11-1
-- Updated to Nginx Mainline 1.9.11.
-- We now use Dynamic Modules for certain nginx core modules.
-- Changed Headers More module to dynamic.
-- Added AWS Auth module as dynamic.
-- Added PAM Auth module as dynamic.
-
-* Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.10-1
-- Updated to Nginx Mainline 1.9.10.
-
-* Mon Dec 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.9-1
-- Updated to Nginx Mainline 1.9.9.
-
-* Mon Dec 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.8-1
-- Updated to Nginx Mainline 1.9.8.
-
-* Sat Nov 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.7-1
-- Updated to Nginx Mainline 1.9.7.
-- Updated headers more to 0.28.
-
-* Sun Nov 1 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.6-1
-- Updated to Nginx Mainline 1.9.6.
-- Updated headers more to 0.27.
-
-* Sun Oct 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.5-1
-- Updated to Nginx Mainline 1.9.5.
-- Changed spdy to http/2.
-- Updated headers more to 0.261.
-
-* Fri Aug 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.4-1
-- Updated to Nginx Mainline 1.9.4.
-
-* Thu Jul 16 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.3-1
-- Updated to Nginx Mainline 1.9.3.
-
-* Thu Jun 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.2-1
-- Updated to Nginx 1.9.2.
-
-* Sat May 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.1-1
-- Updated to Nginx 1.9.1.
-
-* Mon May 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.0-2
-- Added stream functionality.
-- Added Mageia support.
-
-* Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.0-1
-- Updated to Nginx 1.9.0.
-
-* Wed Apr 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.7.12-1
-- Updated to Nginx 1.7.12.
-
-* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.7.11-1
-- Initial Release.
-- Spec file taken from nginx.com
+* Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.2.1-1
+- Initial release.

@@ -43,3 +43,5 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-echo-module.spe
 
 # Clean non related rpms
 find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "echo" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/noarch/ | grep -v "echo" |xargs rm
+find /home/ulyaoth/rpmbuild/SRPMS/ | grep -v "echo" |xargs rm

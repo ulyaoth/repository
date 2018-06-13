@@ -48,3 +48,5 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-array-var-modul
 
 # Clean non related rpms
 find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "array" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/noarch/ | grep -v "array" |xargs rm
+find /home/ulyaoth/rpmbuild/SRPMS/ | grep -v "array" |xargs rm

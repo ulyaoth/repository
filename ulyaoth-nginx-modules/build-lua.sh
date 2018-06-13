@@ -3,7 +3,7 @@
 # This script is supposed to run as the user "ulyaoth".
 
 # Set version for module.
-moduleversion=0.10.11
+moduleversion=0.10.13
 develkitversion=0.3.0
 
 # create module folder used to build
@@ -48,3 +48,5 @@ rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-lua-module.spec
 
 # Clean non related rpms
 find /home/ulyaoth/rpmbuild/RPMS/x86_64/ | grep -v "lua" |xargs rm
+find /home/ulyaoth/rpmbuild/RPMS/noarch/ | grep -v "lua" |xargs rm
+find /home/ulyaoth/rpmbuild/SRPMS/ | grep -v "lua" |xargs rm
