@@ -38,7 +38,7 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://zookeeper.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.com>
 Source0:    http://apache.mirrors.spacedump.net/zookeeper/zookeeper-%{version}-beta/zookeeper-%{version}-beta.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.init
@@ -179,11 +179,11 @@ Thank you for using ulyaoth-zookeeper3.5!
 Please find the official documentation for zookeeper here:
 * https://zookeeper.apache.org/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
+For any additional information or help please visit our website at:
+* https://ulyaoth.com
 
 Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+* https://ulyaoth.com/donate
 
 ----------------------------------------------------------------------
 BANNER
@@ -209,7 +209,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.5.4-1
+* Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 3.5.4-1
 - Updated to Zookeeper 3.5.4.
 
 * Sun Apr 23 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 3.5.3-1
