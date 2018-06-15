@@ -1,10 +1,20 @@
 # This script is supposed to run as the user "ulyaoth".
 
+# Set required variables.
+ulyaothos=`cat /etc/ulyaoth`
+
 # Create build environment.
 rpmdev-setuptree
 
 # Download spec file.
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-varnish/SPECS/ulyaoth-varnish5.1.spec -O /home/ulyaoth/rpmbuild/SPECS/ulyaoth-varnish5.1.spec
+
+# Change required package for Amazon Linux 2
+if [ "$ulyaothos" == "amazonlinux2" ]
+then
+  sed -i "s/jemalloc-devel/memkind-devel/g" /home/ulyaoth/rpmbuild/SPECS/ulyaoth-varnish5.1.spec
+  sed -i "s/jemalloc/memkind/g" /home/ulyaoth/rpmbuild/SPECS/ulyaoth-varnish5.1.spec
+fi
 
 # Install all requirements
 if type dnf 2>/dev/null
