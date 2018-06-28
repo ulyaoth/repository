@@ -54,8 +54,8 @@ BuildRequires: which
 %define module_perl_release          1%{?dist}.ngx
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
-%define module_naxsi_version  0.55.3
-%define module_naxsi_release  8%{?dist}
+%define module_naxsi_version  0.56
+%define module_naxsi_release  1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -671,6 +671,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Jun 28 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.56-1
+- Updated to Naxsi 0.56.
+
 * Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.55.3-8
 - Updated nginx mainline to 1.15.0.
 
