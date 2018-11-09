@@ -43,7 +43,7 @@ BuildRequires: which
 
 %define main_version                 1.14.0
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.2.1
+%define njs_version                  0.2.5
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -610,5 +610,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.2.5-1
+- Updated to version 0.2.5.
+
 * Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.2.1-1
 - Initial release.

@@ -43,7 +43,7 @@ BuildRequires: which
 
 %define main_version                 1.15.0
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.2.1
+%define njs_version                  0.2.5
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
