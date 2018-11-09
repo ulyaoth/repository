@@ -4,14 +4,14 @@
 
 Summary:    Cryptography and SSL/TLS Toolkit
 Name:       ulyaoth-openssl1.1.0
-Version:    1.1.0h
+Version:    1.1.0i
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    OpenSSL
 Group:      System Environment/Libraries
 URL:        https://www.openssl.org/
 Vendor:     OpenSSL
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 %if 0%{?fedora}  == 19
 Source0:    http://www.openssl.org/source/openssl-%{version}.tar.gz
 %else
@@ -27,7 +27,7 @@ BuildRequires: perl-Pod-MinimumVersion
 Requires: ulyaoth-openssl1.1.0-libs
 
 Provides: ulyaoth-openssl1.1.0
-Provides: ulyaoth-openssl1.1.0h
+Provides: ulyaoth-openssl1.1.0i
 
 %description
 The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan, and develop the OpenSSL toolkit and its related documentation.
@@ -254,6 +254,9 @@ BANNER
 %postun -p /sbin/ldconfig
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 1.1.0i-1
+- Updated to OpenSSL 1.1.0i.
+
 * Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.1.0h-1
 - Updated to OpenSSL 1.1.0h.
 
