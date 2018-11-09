@@ -16,9 +16,9 @@ then
   yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/spotify-client.spec
 fi
 
-su ulyaoth -c "wget -O /home/ulyaoth/spotify-client_1.0.79.223.g92622cc2-21_amd64.deb https://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.79.223.g92622cc2-21_amd64.deb"
+su ulyaoth -c "wget -O /home/ulyaoth/spotify-client_1.0.92.390.g2ce5ec7d-18_amd64.deb https://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.92.390.g2ce5ec7d-18_amd64.deb"
 
-su ulyaoth -c "cd /home/ulyaoth/ && ar x spotify-client_1.0.79.223.g92622cc2-21_amd64.deb"
+su ulyaoth -c "cd /home/ulyaoth/ && ar x spotify-client_1.0.92.390.g2ce5ec7d-18_amd64.deb"
 su ulyaoth -c "cd /home/ulyaoth/ && tar xvf data.tar.gz"
 
 su ulyaoth -c "ln -s /usr/lib64/libcurl.so.4 /home/ulyaoth/usr/share/spotify/libcurl-gnutls.so.4"
