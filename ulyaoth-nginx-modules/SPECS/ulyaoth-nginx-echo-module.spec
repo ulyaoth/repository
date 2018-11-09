@@ -41,7 +41,7 @@ BuildRequires: which
 
 # end of distribution specific definitions
 
-%define main_version                 1.14.0
+%define main_version                 1.14.1
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.2.5
 %define module_xslt_version          %{main_version}
@@ -55,7 +55,7 @@ BuildRequires: which
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 %define module_echo_version  0.61
-%define module_echo_release  3%{?dist}
+%define module_echo_release  4%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -656,6 +656,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.61-4
+- Updated nginx to 1.14.1.
+
 * Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.61-3
 - Updated nginx to 1.14.0.
 

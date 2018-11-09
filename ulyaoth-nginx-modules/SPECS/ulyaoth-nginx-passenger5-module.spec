@@ -42,7 +42,7 @@ BuildRequires: which
 
 # end of distribution specific definitions
 
-%define main_version                 1.14.0
+%define main_version                 1.14.1
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.2.5
 %define module_xslt_version          %{main_version}

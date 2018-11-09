@@ -41,7 +41,7 @@ BuildRequires: which
 
 # end of distribution specific definitions
 
-%define main_version                 1.14.0
+%define main_version                 1.14.1
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.2.5
 %define module_xslt_version          %{main_version}
@@ -55,7 +55,7 @@ BuildRequires: which
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 %define module_naxsi_version  0.56
-%define module_naxsi_release  1%{?dist}
+%define module_naxsi_release  2%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -671,6 +671,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.56-2
+- Recompiled with Nginx 1.14.1.
+
 * Thu Jun 28 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.56-1
 - Updated to Naxsi 0.56.
 

@@ -41,7 +41,7 @@ BuildRequires: which
 
 # end of distribution specific definitions
 
-%define main_version                 1.14.0
+%define main_version                 1.14.1
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.2.5
 %define module_xslt_version          %{main_version}
@@ -57,7 +57,7 @@ BuildRequires: which
 %define module_devel_kit_version  0.3.0
 %define module_devel_kit_release  1%{?dist}
 %define module_encrypted_session_version  0.08
-%define module_encrypted_session_release  1%{?dist}
+%define module_encrypted_session_release  2%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -704,6 +704,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.08-2
+- Updated nginx to version 1.14.1.
+
 * Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.08-1
 - Updated encrypted-session module to version 0.08.
 - Updated nginx to version 1.14.0.
