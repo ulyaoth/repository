@@ -5,14 +5,14 @@
 
 Summary:    Apache Portable Runtime (APR)
 Name:       ulyaoth-apr
-Version:    1.6.3
+Version:    1.6.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      System Environment/Libraries
 URL:        https://apr.apache.org/
 Vendor:     The Apache Software Foundation
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://www-eu.apache.org/dist/apr/apr-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/apr-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -123,6 +123,9 @@ BANNER
 /sbin/ldconfig
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 1.6.5-1
+- Updated to apr 1.6.5.
+
 * Fri Nov 17 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.6.3-1
 - Updated to apr 1.6.3
 
