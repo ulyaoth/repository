@@ -56,7 +56,7 @@ BuildRequires: which
 %define module_perl_release          1%{?dist}.ngx
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
-%define module_passenger5_version    5.3.2
+%define module_passenger5_version    5.3.6
 %define module_passenger5_release    1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
@@ -667,6 +667,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.3.6-1
+- Updated Passenger 5 to 5.3.6.
+
 * Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.3.2-1
 - Updated Nginx Mainline to 1.15.0.
 - Updated Passenger 5 to 5.3.2.
