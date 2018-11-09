@@ -41,7 +41,7 @@ BuildRequires: which
 
 # end of distribution specific definitions
 
-%define main_version                 1.15.0
+%define main_version                 1.15.6
 %define main_release                 1%{?dist}.ngx
 %define njs_version                  0.2.5
 %define module_xslt_version          %{main_version}
@@ -610,6 +610,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 1.15.6-1
+- Updated nginx mainline to 1.15.6.
+
 * Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 1.15.0-1
 - Updated nginx mainline to 1.15.0.
 - Updated nsj to 0.2.1.
