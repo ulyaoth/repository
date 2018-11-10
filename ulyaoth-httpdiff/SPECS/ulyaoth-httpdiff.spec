@@ -12,7 +12,7 @@ License:    GNU GENERAL PUBLIC LICENSE Version 2
 Group:      Applications/Internet
 URL:        https://github.com/jgrahamc/httpdiff
 Vendor:     John Graham-Cumming
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    httpdiff
 BuildRoot:  %{_tmppath}/ulyaoth-httpdiff-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -57,11 +57,9 @@ Thank you for using ulyaoth-httpdiff!
 Please find the official documentation for httpdiff here:
 * https://github.com/jgrahamc/httpdiff
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

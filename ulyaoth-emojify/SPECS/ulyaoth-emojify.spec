@@ -9,7 +9,7 @@ License:    The MIT License (MIT)
 Group:      Applications/Internet
 URL:        https://github.com/mrowa44/emojify
 Vendor:     mrowa44
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://github.com/mrowa44/emojify/archive/%{version}.tar.gz
 BuildRoot:  %{_tmppath}/emojify-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -47,11 +47,9 @@ Thank you for using ulyaoth-emojify!
 Please find the official documentation for emojify here:
 * https://github.com/mrowa44/emojify
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

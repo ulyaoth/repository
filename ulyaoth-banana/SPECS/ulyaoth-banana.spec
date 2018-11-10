@@ -14,7 +14,7 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/LucidWorks/banana/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    banana.war
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-banana/SOURCES/banana-context.xml
 BuildRoot:  %{_tmppath}/banana-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -58,11 +58,9 @@ Thank you for using ulyaoth-banana!
 Please find the official documentation for Banana here:
 * https://github.com/LucidWorks/banana/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

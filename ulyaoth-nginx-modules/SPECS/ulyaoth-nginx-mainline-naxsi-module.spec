@@ -41,9 +41,9 @@ BuildRequires: which
 
 # end of distribution specific definitions
 
-%define main_version                 1.15.0
+%define main_version                 1.15.6
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.2.1
+%define njs_version                  0.2.5
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -55,7 +55,7 @@ BuildRequires: which
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
 %define module_naxsi_version  0.56
-%define module_naxsi_release  1%{?dist}
+%define module_naxsi_release  2%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
 
@@ -476,11 +476,9 @@ Please find the official documentation for nginx here:
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
-For any additional help please visit our website at:
-* https://ulyaoth.com
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://ulyaoth.com/donate
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -516,11 +514,9 @@ and reload nginx:
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_xslt_module.html
 
-For any additional help please visit our website at:
-* https://ulyaoth.com
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://ulyaoth.com/donate
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -541,11 +537,9 @@ and reload nginx:
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_geoip_module.html
 
-For any additional help please visit our website at:
-* https://ulyaoth.com
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://ulyaoth.com/donate
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -565,11 +559,9 @@ and reload nginx:
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_image_filter_module.html
 
-For any additional help please visit our website at:
-* https://ulyaoth.com
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://ulyaoth.com/donate
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -589,11 +581,9 @@ and reload nginx:
 Please refer to the module documentation for further details:
 http://nginx.org/en/docs/http/ngx_http_perl_module.html
 
-For any additional help please visit our website at:
-* https://ulyaoth.com
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://ulyaoth.com/donate
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -614,11 +604,9 @@ and reload nginx:
 Please refer to the module documentation for further details:
 https://www.nginx.com/resources/wiki/nginScript/
 
-For any additional help please visit our website at:
-* https://ulyaoth.com
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://ulyaoth.com/donate
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -638,11 +626,9 @@ and reload nginx:
 Please refer to the module documentation for further details:
 https://github.com/nbs-system/naxsi
 
-For any additional help please visit our website at:
-* https://ulyaoth.com
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://ulyaoth.com/donate
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -671,6 +657,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.56-2
+- Updated nginx mainline to 1.15.6.
+
 * Thu Jun 28 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.56-1
 - Updated to Naxsi 0.56.
 

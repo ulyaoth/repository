@@ -1,13 +1,13 @@
 Summary:    Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
 Name:       ulyaoth-terraform
-Version:    0.11.0
+Version:    0.11.10
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Mozilla Public License, version 2.0
 Group:      Applications/Internet
 URL:        https://www.terraform.io/
 Vendor:     Hashicorp
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    terraform
 BuildRoot:  %{_tmppath}/terraform-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -47,11 +47,9 @@ Thank you for using ulyaoth-terraform!
 Please find the official documentation for Terraform here:
 * https://www.terraform.io/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -61,6 +59,9 @@ BANNER
 %postun
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 0.11.10-1
+- Updated to Terraform 0.11.10.
+
 * Sat Nov 18 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 0.11.0-1
 - Updated to Terraform 0.11.0.
 

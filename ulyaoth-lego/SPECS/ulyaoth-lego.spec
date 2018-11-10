@@ -8,7 +8,7 @@ License:    The MIT License (MIT)
 Group:      Applications/Internet
 URL:        https://github.com/xenolf/lego
 Vendor:     xenolf
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    lego
 BuildRoot:  %{_tmppath}/lego-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -47,11 +47,9 @@ Thank you for using ulyaoth-lego!
 Please find the official documentation for lego here:
 * https://github.com/xenolf/lego
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

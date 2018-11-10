@@ -8,7 +8,7 @@ License:    GNUv2
 Group:      Applications/System
 URL:        https://github.com/s3fs-fuse/s3fs-fuse
 Vendor:     Randy Rizun
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://github.com/s3fs-fuse/s3fs-fuse/archive/v%{version}.tar.gz
 BuildRoot:  %{_tmppath}/s3fs-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -69,11 +69,9 @@ Thank you for using ulyaoth-fuse-s3fs!
 Please find the official documentation for fuse-s3fs here:
 * https://github.com/s3fs-fuse/s3fs-fuse
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

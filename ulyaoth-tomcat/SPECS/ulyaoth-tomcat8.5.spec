@@ -30,14 +30,14 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8.5
-Version:    8.5.31
+Version:    8.5.34
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://tomcat.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-8/v%{version}/bin/apache-tomcat-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat/SOURCES/tomcat.init
@@ -140,11 +140,9 @@ Thank you for using ulyaoth-tomcat8.5!
 Please find the official documentation for tomcat here:
 * https://tomcat.apache.org/
 
-For any additional help please visit out website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -170,6 +168,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 8.5.34-1
+- Updating to Tomcat 8.5.34.
+
 * Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 8.5.31-1
 - Updating to Tomcat 8.5.31.
 

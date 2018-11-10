@@ -30,10 +30,10 @@ Requires: libatomic
 
 Summary: Spotify music player.
 Name: spotify-client
-Version: 1.0.79
+Version: 1.0.92
 Release: 1%{?dist}
 URL: https://www.spotify.com
-Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 License: https://www.spotify.com/legal/end-user-agreement
 Group: Applications/Multimedia
 Vendor: Spotify Ltd
@@ -126,6 +126,10 @@ Thanks for using Spotify!
 Please find the official documentation for Spotify here:
 * https://www.spotify.com/
 
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
+
 ----------------------------------------------------------------------
 BANNER
 
@@ -136,6 +140,9 @@ BANNER
 %{_bindir}/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 1.0.92-1
+- Update Spotify to version 1.0.92.
+
 * Tue May 22 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.0.79-1
 - Update Spotify to version 1.0.79.
 - partly based on spec file from negativo17.org.

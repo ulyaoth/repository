@@ -11,7 +11,7 @@ License:    OpenSSL
 Group:      System Environment/Libraries
 URL:        https://www.openssl.org/
 Vendor:     OpenSSL
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 %if 0%{?fedora}  == 19
 Source0:    http://www.openssl.org/source/openssl-%{version}.tar.gz
 %else
@@ -155,11 +155,9 @@ Thanks for using ulyaoth-openssl1.0.0!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -174,11 +172,9 @@ Thank you for using ulyaoth-openssl1.0.0-libs!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -193,11 +189,9 @@ Thank you for using ulyaoth-openssl1.0.0-devel!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -212,11 +206,9 @@ Thank you for using ulyaoth-openssl1.0.0-static!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -231,11 +223,9 @@ Thank you for using ulyaoth-openssl1.0.0-perl!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

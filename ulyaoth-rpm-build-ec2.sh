@@ -279,6 +279,11 @@ ulyaoth-openssl1.1.0()
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.1.0.sh ; chmod +x build-ulyaoth-openssl1.1.0.sh ; ./build-ulyaoth-openssl1.1.0.sh
 }
 
+ulyaoth-openssl1.1.1()
+{
+wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-openssl/build-ulyaoth-openssl1.1.1.sh ; chmod +x build-ulyaoth-openssl1.1.1.sh ; ./build-ulyaoth-openssl1.1.1.sh
+}
+
 ulyaoth-apr()
 {
 wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-apr/build-ulyaoth-apr.sh ; chmod +x build-ulyaoth-apr.sh ; ./build-ulyaoth-apr.sh

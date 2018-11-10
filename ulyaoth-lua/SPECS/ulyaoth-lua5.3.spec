@@ -2,14 +2,14 @@
 
 Summary:    the programming language Lua
 Name:       ulyaoth-lua5.3
-Version:    5.3.4
-Release:    2%{?dist}
+Version:    5.3.5
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    MIT
 Group:      Development/Languages
 URL:        https://www.lua.org
 Vendor:     PUC-Rio
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://www.lua.org/ftp/lua-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-lua/SOURCES/ulyaoth-lua5.3.conf
 BuildRoot:  %{_tmppath}/lua5.3-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -96,11 +96,9 @@ Thank you for using ulyaoth-lua5.3!
 Please find the official documentation for Lua here:
 * https://www.lua.org/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -115,11 +113,9 @@ Thank you for using ulyaoth-lua5.3-devel!
 Please find the official documentation for Lua here:
 * https://www.lua.org/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -134,11 +130,9 @@ Thank you for using ulyaoth-lua5.3-static!
 Please find the official documentation for Lua here:
 * https://www.lua.org/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -149,6 +143,9 @@ BANNER
 /sbin/ldconfig
 
 %changelog
+* Fri Nov 9 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.3.5-1
+- Updated to 5.3.5
+
 * Sat Apr 8 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.4-2
 - Fixed directory structure.
 - Splitting to create a devel and static package.

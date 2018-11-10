@@ -35,7 +35,7 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/elasticsearch/logstash-forwarder
 Vendor:     Elasticsearch BV
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    logstash-forwarder
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.init
@@ -123,11 +123,9 @@ Thanks for using ulyaoth-logstash-forwarder!
 Please find the official documentation for logstash-forwarder here:
 * https://github.com/elasticsearch/logstash-forwarder
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

@@ -3,14 +3,14 @@
 
 Summary:    tmux is a "terminal multiplexer"
 Name:       ulyaoth-tmux
-Version:    2.7
+Version:    2.8
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
 Group:      System Environment/Shells
 URL:        https://github.com/tmux/tmux
 Vendor:     tmux
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://github.com/tmux/tmux/releases/download/%{version}/tmux-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/tmux-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -61,11 +61,9 @@ Thank you for using ulyaoth-tmux!
 Please find the official documentation for tmux here:
 * https://github.com/tmux/tmux
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -75,6 +73,9 @@ BANNER
 %postun
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 2.8-1
+- Updated tmux to 2.8.
+
 * Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 2.7-1
 - Updated tmux to 2.7.
 

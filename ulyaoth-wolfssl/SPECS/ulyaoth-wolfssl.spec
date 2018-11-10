@@ -4,14 +4,14 @@
 
 Summary:    The wolfSSL embedded SSL library
 Name:       ulyaoth-wolfssl
-Version:    3.14.4
+Version:    3.15.5
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNU General Public License
 Group:      System Environment/Libraries
 URL:        https://www.wolfssl.com
 Vendor:     wolfSSL Inc
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0: https://github.com/wolfSSL/wolfssl/archive/v%{version}-stable.tar.gz
 BuildRoot:  %{_tmppath}/wolfssl-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -62,11 +62,9 @@ Thank you for using ulyaoth-wolfssl!
 Please find the official documentation for wolfSSL here:
 * https://www.wolfssl.com
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -74,6 +72,9 @@ BANNER
 %postun
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 3.15.5-1
+- Updated to wolfSSL version 3.15.5.
+
 * Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.14.4-1
 - Updated to wolfSSL version 3.14.4.
 

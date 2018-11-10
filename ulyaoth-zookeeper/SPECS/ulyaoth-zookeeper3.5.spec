@@ -38,7 +38,7 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://zookeeper.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.com>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://apache.mirrors.spacedump.net/zookeeper/zookeeper-%{version}-beta/zookeeper-%{version}-beta.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-zookeeper/SOURCES/zookeeper.init
@@ -180,11 +180,9 @@ Thank you for using ulyaoth-zookeeper3.5!
 Please find the official documentation for zookeeper here:
 * https://zookeeper.apache.org/
 
-For any additional information or help please visit our website at:
-* https://ulyaoth.com
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://ulyaoth.com/donate
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

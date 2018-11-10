@@ -1,14 +1,14 @@
 
 Summary:    iperf is a tool for active measurements of the maximum achievable bandwidth on IP networks.
 Name:       ulyaoth-iperf3
-Version:    3.5
+Version:    3.6
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    BSD
 Group:      Applications/Internet
 URL:        https://github.com/esnet/iperf
 Vendor:     University of California
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://github.com/esnet/iperf/archive/%{version}.tar.gz
 BuildRoot:  %{_tmppath}/iperf3-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -91,11 +91,9 @@ Thank you for using ulyaoth-iperf3!
 Please find the official documentation for iperf3 here:
 * https://github.com/esnet/iperf
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -110,11 +108,9 @@ Thank you for using ulyaoth-iperf3-libs!
 Please find the official documentation for iperf3 here:
 * https://github.com/esnet/iperf
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -129,11 +125,9 @@ Thank you for using ulyaoth-iperf3-devel!
 Please find the official documentation for iperf3 here:
 * https://github.com/esnet/iperf
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -148,11 +142,9 @@ Thank you for using ulyaoth-iperf3-static!
 Please find the official documentation for iperf3 here:
 * https://github.com/esnet/iperf
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -162,6 +154,9 @@ BANNER
 %postun
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 3.6-1
+- Updated to Iperf 3.6.
+
 * Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 3.5-1
 - Updated to Iperf 3.5.
 

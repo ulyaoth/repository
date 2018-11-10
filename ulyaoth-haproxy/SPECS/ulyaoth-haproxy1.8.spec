@@ -29,14 +29,14 @@ BuildRequires: systemd-devel
 
 Summary:    The Reliable, High Performance TCP/HTTP Load Balancer
 Name:       ulyaoth-haproxy1.8
-Version:    1.8.0
+Version:    1.8.14
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GPL/LGPL
 Group:      System Environment/Daemons
 URL:        https://www.haproxy.org/
 Vendor:     HAProxy
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://www.haproxy.org/download/1.8/src/haproxy-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.cfg
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.init
@@ -175,11 +175,9 @@ Thank you for using ulyaoth-haproxy1.8!
 Please find the official documentation for HAProxy here:
 * https://www.haproxy.org/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -208,5 +206,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 1.8.14-1
+- Updated to version 1.8.14.
+
 * Thu Nov 30 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.8.0-1
 - Initial release for HAProxy 1.8.

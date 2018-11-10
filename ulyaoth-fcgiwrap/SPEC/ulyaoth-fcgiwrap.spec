@@ -10,7 +10,7 @@ Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Grzegorz Nosek <root@localdomain.pl>
 URL: http://nginx.localdomain.pl/wiki/FcgiWrap
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 License: MIT
 Group: System Environment/Daemons
 
@@ -75,11 +75,9 @@ Thanks for using ulyaoth-fcgiwrap!
 Please find the official documentation for fcgiwrap here:
 * https://nginx.localdomain.pl/wiki/FcgiWrap
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

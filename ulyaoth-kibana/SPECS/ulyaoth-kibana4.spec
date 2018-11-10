@@ -39,7 +39,7 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://www.elasticsearch.org/overview/kibana/
 Vendor:     Elasticsearch BV
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 
 %ifarch x86_64
 Source0:    https://download.elastic.co/kibana/kibana/kibana-%{version}-linux-x86_64.tar.gz
@@ -135,11 +135,9 @@ Thank you for using ulyaoth-kibana4!
 Please find the official documentation for kibana here:
 * http://www.elasticsearch.org/overview/kibana/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.8.1
+%define nginx_version 1.14.1
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
@@ -41,11 +41,11 @@ BuildRequires: systemd
 Summary: High performance web server / Phusion Passenger web & app
 Name: ulyaoth-nginx-passenger4
 Version: 4.0.59
-Release: 4%{?dist}
+Release: 5%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc. / Phusion
 URL: https://www.phusionpassenger.com/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-passenger/SOURCES/logrotate
@@ -334,11 +334,9 @@ Commercial subscriptions for nginx are available on:
 Please find the official documentation or the enterprise version for passenger here:
 * https://www.phusionpassenger.com/ 
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -382,6 +380,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Nov 10 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 4.0.59-5
+- Updated to Nginx 1.15.1.
+
 * Thu Jan 28 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-4
 - Updated to Nginx 1.8.1.
 

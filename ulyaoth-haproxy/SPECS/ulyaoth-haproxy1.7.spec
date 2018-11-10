@@ -36,7 +36,7 @@ License:    GPL/LGPL
 Group:      System Environment/Daemons
 URL:        https://www.haproxy.org/
 Vendor:     HAProxy
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://www.haproxy.org/download/1.7/src/haproxy-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.cfg
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-haproxy/SOURCES/haproxy.init
@@ -169,11 +169,9 @@ Thank you for using ulyaoth-haproxy1.7!
 Please find the official documentation for HAProxy here:
 * https://www.haproxy.org/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

@@ -8,19 +8,19 @@ AutoReqProv: no
 %define tomcat_home /opt/tomcat
 %define tomcat_group tomcat
 %define tomcat_user tomcat
-%define ulyaoth_openssl_version 1.1.0
+%define ulyaoth_openssl_version 1.1.1
 %define java_version 1.8.0
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native1.2
-Version:    1.2.16
+Version:    1.2.17
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-connectors/native/%{version}/source/tomcat-native-%{version}-src.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-native-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -107,16 +107,17 @@ Thank you for using ulyaoth-tomcat-native1.2!
 Please find the official documentation for Tomcat Native here:
 * https://tomcat.apache.org/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
 
 %changelog
+* Fri Nov 9 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 1.2.17-1
+- Updated to Tomcat Native 1.2.17.
+
 * Sun Nov 26 2017 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 1.2.16-1
 - Updated to Tomcat Native 1.2.16.
 

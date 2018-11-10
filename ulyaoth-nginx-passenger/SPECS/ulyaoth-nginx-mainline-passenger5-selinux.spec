@@ -10,8 +10,8 @@ Version: 1.0.0
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Ulyaoth
-URL: https://www.ulyaoth.net
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+URL: https://ulyaoth.com
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 License: GNU General Public License (GPL)
 
 Source0: ulyaoth-nginx-mainline-passenger5.pp
@@ -61,11 +61,9 @@ semodule -i /usr/share/selinux/packages/ulyaoth-nginx-mainline-passenger5/ulyaot
 
 Thanks for using ulyaoth-nginx-mainline-passenger5-selinux!
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

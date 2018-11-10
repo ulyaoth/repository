@@ -7,7 +7,7 @@ License:    GNUv2
 Group:      Applications/System
 URL:        https://github.com/halonsecurity/smtpping
 Vendor:     halonsecurity
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://github.com/halonsecurity/smtpping/archive/v%{version}.tar.gz
 BuildRoot:  %{_tmppath}/smtpping-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -50,11 +50,9 @@ Thank you for using ulyaoth-smtpping!
 Please find the official documentation for smtpping here:
 * https://github.com/halonsecurity/smtpping
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

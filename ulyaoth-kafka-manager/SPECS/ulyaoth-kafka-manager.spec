@@ -37,7 +37,7 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/yahoo/kafka-manager
 Vendor:     Yahoo
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    kafka-manager-%{version}.zip
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/SOURCES/kafka-manager.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-kafka-manager/SOURCES/kafka-manager.init
@@ -146,11 +146,9 @@ Thank you for using ulyaoth-kafka-manager!
 Please find the official documentation for kafka manager here:
 * https://github.com/yahoo/kafka-manager
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
