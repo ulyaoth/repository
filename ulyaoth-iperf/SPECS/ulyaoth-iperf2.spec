@@ -51,11 +51,9 @@ Thank you for using ulyaoth-iperf2!
 Please find the official documentation for iperf2 here:
 * http://sourceforge.net/projects/iperf2
 
-For any additional information or help please visit our website at:
-* https://ulyaoth.com
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://ulyaoth.com/donate
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

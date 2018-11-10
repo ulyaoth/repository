@@ -9,7 +9,7 @@ License:    OSI-approved BSD 3-clause License
 Group:      System Environment/Libraries
 URL:        https://cmake.org/
 Vendor:     Kitware, Inc. and Contributors
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://github.com/Kitware/CMake/archive/v%{version}.tar.gz
 BuildRoot:  %{_tmppath}/cmake-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -72,11 +72,9 @@ Thanks for using ulyaoth-cmake!
 Please find the official documentation for cmake here:
 * https://cmake.org/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

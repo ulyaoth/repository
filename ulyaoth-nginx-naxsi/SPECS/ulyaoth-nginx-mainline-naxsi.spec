@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.9.12
+%define nginx_version 1.15.6
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
@@ -45,7 +45,7 @@ Release: 4%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-nginx-naxsi/SOURCES/logrotate
@@ -337,11 +337,9 @@ Commercial subscriptions for nginx are available on:
 Please find the official Naxsi documentation here:
 * https://github.com/nbs-system/naxsi
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

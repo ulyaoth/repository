@@ -8,7 +8,7 @@ License:    GNUv3
 Group:      Applications/System
 URL:        https://sourceforge.net/projects/msktutil/
 Vendor:     GNU
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.com>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://sourceforge.net/projects/msktutil/files/msktutil-1.1.tar.bz2
 BuildRoot:  %{_tmppath}/msktutil-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -56,11 +56,9 @@ Thank you for using ulyaoth-msktutil!
 Please find the official documentation for msktutil here:
 * https://sourceforge.net/projects/msktutil/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

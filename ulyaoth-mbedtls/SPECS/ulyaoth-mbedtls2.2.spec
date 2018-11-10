@@ -15,7 +15,7 @@ Release: 4%{?dist}
 BuildArch: x86_64
 Vendor: ARM Limited.
 URL: https://tls.mbed.org/
-Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 
 Source0: https://github.com/ARMmbed/mbedtls/archive/mbedtls-%{version}.tar.gz
 
@@ -81,11 +81,9 @@ Thanks for using ulyaoth-mbedtls2.2!
 Please find the official documentation for mbedtls here:
 * https://tls.mbed.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

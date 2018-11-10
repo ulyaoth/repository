@@ -33,7 +33,7 @@ Name: spotify-client
 Version: 1.0.92
 Release: 1%{?dist}
 URL: https://www.spotify.com
-Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 License: https://www.spotify.com/legal/end-user-agreement
 Group: Applications/Multimedia
 Vendor: Spotify Ltd
@@ -125,6 +125,10 @@ Thanks for using Spotify!
 
 Please find the official documentation for Spotify here:
 * https://www.spotify.com/
+
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

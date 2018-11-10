@@ -157,11 +157,9 @@ Thank you for using ulyaoth-openssl1.0.2!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -176,11 +174,9 @@ Thank you for using ulyaoth-openssl1.0.2-libs!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -195,12 +191,9 @@ Thank you for using ulyaoth-openssl1.0.2-devel!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
-
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 ----------------------------------------------------------------------
 BANNER
 
@@ -214,11 +207,9 @@ Thank you for using ulyaoth-openssl1.0.2-static!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
@@ -233,11 +224,9 @@ Thank you for using ulyaoth-openssl1.0.2-perl!
 Please find the official documentation for OpenSSL here:
 * https://www.openssl.org
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

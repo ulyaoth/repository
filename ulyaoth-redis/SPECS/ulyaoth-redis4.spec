@@ -36,7 +36,7 @@ License:    three clause BSD license
 Group:      Applications/Databases
 URL:        http://redis.io/
 Vendor:     Salvatore Sanfilippo
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://download.redis.io/releases/redis-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/redis4.conf
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-redis/SOURCES/sentinel4.conf
@@ -144,11 +144,9 @@ Thank you for using ulyaoth-redis4!
 Please find the official documentation for redis here:
 * http://redis.io
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

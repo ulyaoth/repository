@@ -7,7 +7,7 @@ License:    Apache License version 2
 Group:      System Environment/Daemons
 URL:        https://www.ulyaoth.net
 Vendor:     Ulyaoth
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://apache.mirrors.spacedump.net//commons/daemon/source/commons-daemon-%{version}-src.tar.gz
 BuildRoot:  %{_tmppath}/jsvc-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -52,11 +52,9 @@ Thanks for using ulyaoth-jsvc
 Please find the official documentation for jsvc here:
 * http://commons.apache.org/proper/commons-daemon/jsvc.html
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

@@ -34,7 +34,7 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://www.ulyaoth.net
 Vendor:     Ulyaoth
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/functions
 Source1:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/preamble
 Source2:	https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-tomcat-multi/SOURCES/server
@@ -106,11 +106,9 @@ Please find the official documentation for tomcat here:
 Please find the documentation for using tomcat multiple instances here:
 * https://www.ulyaoth.net/threads/how-to-configure-multiple-tomcat-instances.82312/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

@@ -36,7 +36,7 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://www.elastic.co/products/beats/topbeat
 Vendor:     Elasticsearch
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    topbeat
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-topbeat/SOURCES/topbeat.service
 Source2:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-topbeat/SOURCES/topbeat.init
@@ -125,11 +125,9 @@ Thank you for using ulyaoth-topbeat!
 Please find the official documentation for topbeat here:
 * https://www.elastic.co/guide/en/beats/topbeat/current/index.html
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER

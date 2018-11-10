@@ -12,7 +12,7 @@ License: GPLv2+
 Group:      Applications/System
 URL:        https://www.gnu.org/software/screen/
 Vendor:     gnu
-Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net>
+Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    ftp://ftp.gnu.org/gnu/screen/screen-%{version}.tar.gz
 Source1:    https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-screen/SOURCES/screen.pam
 BuildRoot:  %{_tmppath}/screen-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -153,11 +153,9 @@ Thank you for using ulyaoth-screen!
 Please find the official documentation for screen here:
 * https://www.gnu.org/software/screen/
 
-For any additional help please visit our website at:
-* https://www.ulyaoth.net
-
-Ulyaoth repository could use your help! Please consider a donation:
-* https://www.ulyaoth.net/donate.html
+For any additional information or help regarding this rpm:
+Website: https://ulyaoth.com
+Forum: https://community.ulyaoth.com
 
 ----------------------------------------------------------------------
 BANNER
