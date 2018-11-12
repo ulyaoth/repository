@@ -45,6 +45,9 @@ cp -R * %{buildroot}/%{tomcat_home}/
 %{__rm} -rf %{buildroot}/%{tomcat_home}/NOTICE
 %{__rm} -rf %{buildroot}/%{tomcat_home}/RELEASE-NOTES
 %{__rm} -rf %{buildroot}/%{tomcat_home}/RUNNING.txt
+%{__rm} -rf %{buildroot}/%{tomcat_home}/BUILDING.txt
+%{__rm} -rf %{buildroot}/%{tomcat_home}/CONTRIBUTING.md
+%{__rm} -rf %{buildroot}/%{tomcat_home}/README.md
 %{__rm} -rf %{buildroot}/%{tomcat_home}/temp
 %{__rm} -rf %{buildroot}/%{tomcat_home}/work
 %{__rm} -rf %{buildroot}/%{tomcat_home}/logs
