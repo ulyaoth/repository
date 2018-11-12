@@ -30,7 +30,7 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9
-Version:    9.0.12
+Version:    9.0.13
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -168,6 +168,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Nov 12 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 9.0.13-1
+- Updating to Tomcat 9.0.13.
+
 * Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 9.0.12-1
 - Updating to Tomcat 9.0.12.
 
