@@ -2,9 +2,9 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 5.0.2
+Version: 6.0.0
 BuildArch: x86_64
-URL: https://ulyaoth.com/
+URL: https://ulyaoth.com
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Release: 1.%{ulyaothos}
 Source0: https://repos.ulyaoth.com/RPM-GPG-KEY-ulyaoth-20180607
@@ -15,7 +15,7 @@ BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
 License: GPLv3
 
 Provides: ulyaoth
-Obsoletes: ulyaoth <= 5.0.1
+Obsoletes: ulyaoth <= 5.0.2
 
 %description
 Ulyaoth repository.
@@ -56,6 +56,9 @@ Forum: https://community.ulyaoth.com
 BANNER
 
 %changelog
+* Fri May 10 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 6.0.0-1
+- Changed to single "RHEL" repository for all RHEL based distros.
+
 * Wed Jun 13 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.0.2-1
 - Changed repo files from tabs to spaces.
 
