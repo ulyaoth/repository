@@ -1,4 +1,4 @@
-%define ulyaothos changme
+%define ulyaothos changeme
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
