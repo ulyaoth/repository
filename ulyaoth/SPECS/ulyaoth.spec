@@ -2,7 +2,7 @@
 
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 6.0.0
+Version: 6.0.1
 BuildArch: x86_64
 URL: https://ulyaoth.com
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
@@ -15,7 +15,7 @@ BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
 License: GPLv3
 
 Provides: ulyaoth
-Obsoletes: ulyaoth <= 5.0.2
+Obsoletes: ulyaoth <= 6.0.0
 
 %description
 Ulyaoth repository.
@@ -38,7 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %dir /usr/share/licenses/ulyaoth
-%config(noreplace) /etc/yum.repos.d/ulyaoth.repo
+/etc/yum.repos.d/ulyaoth.repo
 /etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth-20180607
 /usr/share/licenses/ulyaoth/COPYING
 
@@ -56,6 +56,9 @@ Forum: https://community.ulyaoth.com
 BANNER
 
 %changelog
+* Fri May 10 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 6.0.1-1
+- Fixed so the repo file is not a config.
+
 * Fri May 10 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 6.0.0-1
 - Changed to single "RHEL" repository for all RHEL based distros.
 
