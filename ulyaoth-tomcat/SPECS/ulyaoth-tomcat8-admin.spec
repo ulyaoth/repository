@@ -12,10 +12,10 @@ Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
-URL:        http://tomcat.apache.org/
+URL:        https://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
-Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-8/v%{version}/bin/apache-tomcat-%{version}.tar.gz
+Source0:    http://archive.apache.org/dist/tomcat/tomcat-8/v%{version}/bin/apache-tomcat-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat8
@@ -69,7 +69,7 @@ cat <<BANNER
 Thank you for using ulyaoth-tomcat8-admin!
 
 Please find the official documentation for tomcat here:
-* http://tomcat.apache.org/
+* https://tomcat.apache.org/
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -79,7 +79,7 @@ Forum: https://community.ulyaoth.com
 BANNER
 
 %changelog
-* Mon Nov 12 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 8.0.53-1
+* Mon Nov 12 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 8.0.53-1
 - Updated to Tomcat 8.0.53.
 
 * Wed May 23 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.net> 8.0.52-1
