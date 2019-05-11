@@ -7,12 +7,12 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat9-admin
-Version:    9.0.13
+Version:    9.0.19
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
-URL:        http://tomcat.apache.org/
+URL:        https://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-9/v%{version}/bin/apache-tomcat-%{version}.tar.gz
@@ -72,7 +72,7 @@ cat <<BANNER
 Thank you for using ulyaoth-tomcat9-admin!
 
 Please find the official documentation for tomcat here:
-* http://tomcat.apache.org/
+* https://tomcat.apache.org/
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -82,6 +82,9 @@ Forum: https://community.ulyaoth.com
 BANNER
 
 %changelog
+* Sat May 11 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 9.0.19-1
+- Updating to Tomcat 9.0.19.
+
 * Mon Nov 12 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 9.0.13-1
 - Updating to Tomcat 9.0.13.
 
