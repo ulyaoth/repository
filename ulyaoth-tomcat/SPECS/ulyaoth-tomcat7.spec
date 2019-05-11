@@ -30,12 +30,12 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7
-Version:    7.0.91
+Version:    7.0.94
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
-URL:        http://tomcat.apache.org/
+URL:        https://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-7/v%{version}/bin/apache-tomcat-%{version}.tar.gz
@@ -138,7 +138,7 @@ cat <<BANNER
 Thank you for using ulyaoth-tomcat7!
 
 Please find the official documentation for tomcat here:
-* http://tomcat.apache.org/
+* https://tomcat.apache.org/
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -168,6 +168,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat May 11 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 7.0.94-1
+- Updated to Tomcat 7.0.94.
+
 * Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 7.0.91-1
 - Updated to Tomcat 7.0.91.
 
