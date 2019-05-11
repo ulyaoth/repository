@@ -35,7 +35,7 @@ Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
-URL:        http://tomcat.apache.org/
+URL:        https://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 Source0:    http://archive.apache.org/dist/tomcat/tomcat-6/v%{version}/bin/apache-tomcat-%{version}.tar.gz
@@ -138,7 +138,7 @@ cat <<BANNER
 Thanks for using ulyaoth-tomcat6!
 
 Please find the official documentation for tomcat here:
-* http://tomcat.apache.org/
+* https://tomcat.apache.org/
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -168,7 +168,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Mon Apr 10 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.53-1
+* Mon Apr 10 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.com> 6.0.53-1
 - Update Tomcat 6 to 6.0.53.
 
 * Fri Mar 17 2017 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 6.0.51-1
