@@ -52,7 +52,7 @@ tar cvf solr-$version.tar.gz solr-$version/
 mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 
 # Build solr 8 examples rpm.
-rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr7-examples.spec
+rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr8-examples.spec
 
 # Clean
 rm -rf /home/ulyaoth/rpmbuild/BUILD
@@ -70,4 +70,4 @@ tar cvf solr-$version.tar.gz solr-$version/
 mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 
 # Build Solr 8 Documentation rpm.
-rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr7-docs.spec
+rpmbuild -ba /home/ulyaoth/rpmbuild/SPECS/ulyaoth-solr8-docs.spec
