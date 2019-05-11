@@ -178,5 +178,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Mon Jan 25 2016 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.10.4-1
+* Mon Jan 25 2016 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 4.10.4-1
 - Initial release for Solr 4.10.4.
