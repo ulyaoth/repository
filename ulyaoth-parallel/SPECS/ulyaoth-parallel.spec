@@ -1,8 +1,8 @@
-%define debug_package %{nil}
+u%define debug_package %{nil}
 
 Summary:    GNU parallel is a shell tool for executing jobs in parallel using one or more computers.
 Name:       ulyaoth-parallel
-Version:    20181022
+Version:    20190422
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNUv3
@@ -119,6 +119,9 @@ BANNER
 %postun
 
 %changelog
+* Sun May 12 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 20190422-1
+- Updated Parallel to 20190422.
+
 * Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 20181022-1
 - Updated Parallel to 20181022.
 
