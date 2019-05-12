@@ -1,4 +1,4 @@
-u%define debug_package %{nil}
+%define debug_package %{nil}
 
 Summary:    GNU parallel is a shell tool for executing jobs in parallel using one or more computers.
 Name:       ulyaoth-parallel
