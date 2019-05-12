@@ -43,9 +43,9 @@ BuildRequires: which
 
 # end of distribution specific definitions
 
-%define main_version                 1.15.6
+%define main_version                 1.15.12
 %define main_release                 1%{?dist}.ngx
-%define njs_version                  0.2.5
+%define njs_version                  0.3.1
 %define module_xslt_version          %{main_version}
 %define module_xslt_release          1%{?dist}.ngx
 %define module_geoip_version         %{main_version}
@@ -56,7 +56,7 @@ BuildRequires: which
 %define module_perl_release          1%{?dist}.ngx
 %define module_njs_version           %{main_version}.%{njs_version}
 %define module_njs_release           1%{?dist}.ngx
-%define module_passenger5_version    5.3.6
+%define module_passenger5_version    5.3.7
 %define module_passenger5_release    1%{?dist}
 
 %define bdir %{_builddir}/nginx-%{main_version}/%{name}-%{main_version}
@@ -115,7 +115,7 @@ Name: ulyaoth-nginx-mainline
 Version: %{main_version}
 Release: %{main_release}
 Vendor: Nginx, Inc.
-URL: http://nginx.org/
+URL: https://nginx.org/
 Group: %{_group}
 Packager: Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com>
 
@@ -469,10 +469,10 @@ if [ $1 -eq 1 ]; then
 Thank you for using ulyaoth-nginx-mainline!
 
 Please find the official documentation for nginx here:
-* http://nginx.org/en/docs/
+* https://nginx.org/en/docs/
 
 Commercial subscriptions for nginx are available on:
-* http://nginx.com/products/
+* https://www.nginx.com/products/
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -510,7 +510,7 @@ and reload nginx:
     load_module modules/ngx_http_xslt_filter_module.so;
 
 Please refer to the module documentation for further details:
-http://nginx.org/en/docs/http/ngx_http_xslt_module.html
+https://nginx.org/en/docs/http/ngx_http_xslt_module.html
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -533,7 +533,7 @@ and reload nginx:
     load_module modules/ngx_stream_geoip_module.so;
 
 Please refer to the module documentation for further details:
-http://nginx.org/en/docs/http/ngx_http_geoip_module.html
+https://nginx.org/en/docs/http/ngx_http_geoip_module.html
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -555,7 +555,7 @@ and reload nginx:
     load_module modules/ngx_http_image_filter_module.so;
 
 Please refer to the module documentation for further details:
-http://nginx.org/en/docs/http/ngx_http_image_filter_module.html
+https://nginx.org/en/docs/http/ngx_http_image_filter_module.html
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -577,7 +577,7 @@ and reload nginx:
     load_module modules/ngx_http_perl_module.so;
 
 Please refer to the module documentation for further details:
-http://nginx.org/en/docs/http/ngx_http_perl_module.html
+https://nginx.org/en/docs/http/ngx_http_perl_module.html
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -600,7 +600,7 @@ and reload nginx:
     load_module modules/ngx_stream_js_module.so;
 
 Please refer to the module documentation for further details:
-https://www.nginx.com/resources/wiki/nginScript/
+https://nginx.org/en/docs/njs/
 
 For any additional information or help regarding this rpm:
 Website: https://ulyaoth.com
@@ -655,6 +655,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun May 12 2019 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.3.7-1
+- Updated Passenger 5 to 5.3.7.
+
 * Fri Nov 9 2018 Sjir Bagmeijer <sjir.bagmeijer@ulyaoth.com> 5.3.6-1
 - Updated Passenger 5 to 5.3.6.
 
